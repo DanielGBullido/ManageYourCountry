@@ -26,7 +26,7 @@ export default function SiteHeader() {
     <a className="skip-link" href="#presupuesto">Saltar al simulador</a>
     <div className="topline"><span>UNA HERRAMIENTA CÍVICA PARA ENTENDER EL DINERO PÚBLICO</span><span className="top-date">DATOS OFICIALES · ESCENARIOS CIUDADANOS</span></div>
     <header className="site-header">
-      <a className="brand" href="#inicio" aria-label="España en tus manos, inicio"><span className="brand-mark">ES<span>↗</span></span><span>ESPAÑA<br/><b>EN TUS MANOS</b></span></a>
+      <a className="brand" href="#inicio" aria-label="España en tus manos, inicio"><img className="brand-mark-image" src="/brand-mark.svg" alt="" aria-hidden="true"/><span>ESPAÑA<br/><b>EN TUS MANOS</b></span></a>
       <nav className="desktop-navigation" aria-label="Navegación principal"><NavigationLinks/></nav>
       <details className="mobile-navigation" id="mobile-navigation"><summary aria-label="Abrir o cerrar menú de navegación">Menú <span aria-hidden="true">☰</span></summary><nav aria-label="Navegación móvil"><NavigationLinks/></nav></details>
       <a className="share-button" href="#presupuesto">Probar el simulador <span>↓</span></a>

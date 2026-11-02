@@ -26,16 +26,18 @@ jobs:
         run: npm run data:refresh
       - name: Validar sumas, saldo, fuentes y periodos
         run: npm run validate:data
+      - name: Archivar el panel si todas las fuentes mensuales coinciden
+        run: npm run data:snapshot
       - name: Comprobar compilación de producción
         run: npm run build
       - name: Guardar una nueva versión si cambiaron las cifras
         run: |
-          if git diff --quiet -- data/igae-latest.json data/provenance data/history/igae; then
+          if git diff --quiet -- data/igae-latest.json data/provenance data/history/igae data/dashboard-periods.json; then
             echo "La publicación IGAE no ha cambiado."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/igae-latest.json data/provenance data/history/igae
-          git commit -m "Actualiza datos mensuales IGAE"
+          git add data/igae-latest.json data/provenance data/history/igae data/dashboard-periods.json
+          git commit -m "Actualiza datos oficiales del panel mensual"
           git push

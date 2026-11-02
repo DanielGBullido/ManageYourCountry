@@ -8,7 +8,8 @@
     "start": "next start",
     "validate:data": "node scripts/validate-dashboard-data.mjs",
     "test": "node --experimental-strip-types --test scripts/*.test.mjs",
-    "data:refresh": "node scripts/refresh-igae.mjs"
+    "data:refresh": "node scripts/refresh-igae.mjs",
+    "data:snapshot": "node scripts/build-dashboard-periods.mjs"
   },
   "dependencies": {
     "next": "^16.2.0",

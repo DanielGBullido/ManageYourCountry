@@ -11,13 +11,14 @@ const transparencySources = [
 
 export default function SourcesSection({ data }: { data: DashboardData }) {
   const { monthly: official, taxes: taxAnnual, people, regions, services, jobs, benefits, igaeProvenance } = data;
+  const officialHash = String(igaeProvenance.sha256 ?? '');
   return (
     <details className="deep-disclosure sources-disclosure" id="fuente">
       <summary><span className="deep-summary-icon">05</span><span className="deep-summary-copy"><b>Fuentes oficiales</b><small>INE, IGAE, Hacienda, AEAT, Seguridad Social y registros de transparencia</small></span><span className="deep-summary-action">Consultar fuentes <i>↓</i></span></summary>
       <section className="sources-section" id="detalle-fuente">
         <div className="sources-title"><div className="eyebrow muted">TRAZABILIDAD</div><h2>Datos oficiales.<br/><em>Fuente a la vista.</em></h2><p>Cada bloque enlaza con el organismo que publica los datos. Los meses y años de referencia aparecen junto a sus cifras.</p></div>
         <div className="source-list">
-          <a className="source-item" href={official.sourceUrl} target="_blank" rel="noreferrer"><span className="source-index">IGAE</span><span><b>Ingresos y gastos públicos · {official.periodLabel}</b><small>Operaciones no financieras · SEC 2010 · Revisión Estadística 2024 · versión {igaeProvenance.referencePeriod}{igaeProvenance.sha256 ? ` · SHA-256 ${igaeProvenance.sha256.slice(0, 12)}` : ` · verificada ${igaeProvenance.verifiedAt}`}</small></span><span className="source-arrow">↗</span></a>
+          <a className="source-item" href={official.sourceUrl} target="_blank" rel="noreferrer"><span className="source-index">IGAE</span><span><b>Ingresos y gastos públicos · {official.periodLabel}</b><small>Operaciones no financieras · SEC 2010 · Revisión Estadística 2024 · versión {igaeProvenance.referencePeriod}{officialHash ? ` · SHA-256 ${officialHash.slice(0, 12)}` : ` · verificada ${igaeProvenance.verifiedAt}`}</small></span><span className="source-arrow">↗</span></a>
           <a className="source-item" href={taxAnnual.latestMonthly.sourceUrl} target="_blank" rel="noreferrer"><span className="source-index">AEAT</span><span><b>Recaudación mensual de impuestos · {taxAnnual.latestMonthly.period}</b><small>Recaudación neta de caja del mes; su alcance contable difiere del dato IGAE.</small></span><span className="source-arrow">↗</span></a>
           <a className="source-item" href={taxAnnual.sourceUrl} target="_blank" rel="noreferrer"><span className="source-index">AEAT</span><span><b>Recaudación por impuestos · {taxAnnual.period}</b><small>IRPF, IVA, Sociedades, impuestos especiales y desglose de tasas y otros conceptos</small></span><span className="source-arrow">↗</span></a>
           <a className="source-item" href={people.labour.sourceUrl} target="_blank" rel="noreferrer"><span className="source-index">INE</span><span><b>Población y empleo · {people.labour.period}</b><small>EPA · personas ocupadas, activas, paradas e inactivas</small></span><span className="source-arrow">↗</span></a>

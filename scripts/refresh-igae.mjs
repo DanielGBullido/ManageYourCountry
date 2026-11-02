@@ -51,7 +51,8 @@ const current = JSON.parse(await readFile(latestPath, 'utf8'));
 if (current.referencePeriod > period) throw new Error(`El catálogo devolvió ${period}, anterior al dato ya incorporado (${current.referencePeriod})`);
 const taxes = JSON.parse(await readFile(new URL('data/recaudacion-tributaria-2025.json', root), 'utf8'));
 const benefits = JSON.parse(await readFile(new URL('data/prestaciones-latest.json', root), 'utf8'));
-const alignedPeriods = [taxes.latestMonthly.period, ...benefits.items.map(item => item.period)];
+const regions = JSON.parse(await readFile(new URL('data/comunidades-autonomicas.json', root), 'utf8'));
+const alignedPeriods = [taxes.latestMonthly.period, ...benefits.items.map(item => item.period), regions.igaeMonthly.period];
 if (!matchesCommonReferenceMonth(period, alignedPeriods)) {
   console.log(`IGAE publica ${period}, pero impuestos y prestaciones usan ${alignedPeriods.join(', ')}. Se conserva el mes común actual; no se mezclan periodos en el panel.`);
   process.exit(0);

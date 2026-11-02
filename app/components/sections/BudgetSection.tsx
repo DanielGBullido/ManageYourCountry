@@ -4,9 +4,10 @@ import BenefitsSection from './budget/BenefitsSection';
 import BudgetSimulator from './budget/BudgetSimulator';
 import MoneyFlow from './budget/MoneyFlow';
 
-type BudgetSectionProps = Pick<DashboardData, 'monthly' | 'benefits' | 'taxes' | 'services'>;
+type BudgetSectionProps = { data: DashboardData };
 
-export default function BudgetSection({ monthly, benefits, taxes, services }: BudgetSectionProps) {
+export default function BudgetSection({ data }: BudgetSectionProps) {
+  const { monthly, benefits, taxes, services } = data;
   return (
     <section className="budget-section" id="presupuesto">
       <div className="section-heading">
@@ -16,7 +17,7 @@ export default function BudgetSection({ monthly, benefits, taxes, services }: Bu
         </div>
         <div className="period-control">
           <label>MES Y ADMINISTRACIONES</label>
-          <div className="static-select">{monthly.periodLabel} · Sin ayuntamientos</div>
+          <div className="static-select">{monthly.periodLabel} · Administración central, autonómica y Seguridad Social; sin ayuntamientos</div>
           <div className="data-status official-status"><span className="status-dot"/> BASE OFICIAL · IGAE</div>
         </div>
       </div>

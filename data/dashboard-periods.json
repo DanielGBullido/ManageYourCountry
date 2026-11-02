@@ -1,0 +1,801 @@
+{
+  "2026-08": {
+    "period": "2026-08",
+    "label": "Agosto de 2026",
+    "monthly": {
+      "source": "Intervención General de la Administración del Estado (IGAE)",
+      "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP-M/IM_2026_08.pdf",
+      "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/DatosConsolidados.aspx",
+      "referencePeriod": "2026-08",
+      "periodLabel": "Agosto de 2026",
+      "geography": "España",
+      "scope": "Agregado de Administración central, Administración regional y Fondos de la Seguridad Social; excluye Administración local",
+      "accountingBasis": "Contabilidad nacional · SEC 2010 · Revisión Estadística 2024",
+      "periodType": "Flujo del mes (no acumulado)",
+      "unit": "millones de euros",
+      "revenueTotal": 56335,
+      "expenditureTotal": 55019,
+      "financingBalance": 1316,
+      "revenue": [
+        {
+          "id": "taxes",
+          "label": "Impuestos directos e indirectos",
+          "officialLabel": "Impuestos",
+          "description": "Incluye impuestos sobre la renta y el patrimonio (por ejemplo, IRPF e Impuesto sobre Sociedades), sobre la producción y el consumo (por ejemplo, IVA e impuestos especiales) y sobre el capital. La tabla IGAE de agosto da una sola cifra conjunta; no publica cuánto corresponde a cada impuesto.",
+          "amount": 31441,
+          "color": "#476c50"
+        },
+        {
+          "id": "contributions",
+          "label": "Cotizaciones a la Seguridad Social",
+          "officialLabel": "Cotizaciones sociales",
+          "description": "Cotizaciones sociales ingresadas en el mes. No son solo las aportadas por trabajadores: también incluyen las cotizaciones a cargo de empleadores.",
+          "amount": 19537,
+          "color": "#8ea987"
+        },
+        {
+          "id": "transfers",
+          "label": "Transferencias recibidas de otras administraciones",
+          "officialLabel": "Transferencias entre AAPP",
+          "description": "Dinero que la Administración central, las comunidades o los Fondos de la Seguridad Social reciben de otro nivel público. No es un impuesto. Al ser un traspaso interno, no equivale necesariamente a dinero nuevo para el conjunto del sector público.",
+          "amount": 1289,
+          "color": "#d8a26c"
+        },
+        {
+          "id": "other",
+          "label": "Otros ingresos: ventas, rentas y transferencias no tributarias",
+          "officialLabel": "Resto de recursos",
+          "description": "Es el resto de ingresos no financieros después de restar impuestos, cotizaciones sociales y transferencias entre Administraciones. La categoría comprende ingresos por ventas de bienes y servicios públicos, rentas de bienes o activos públicos (como intereses, dividendos o alquileres) y transferencias corrientes o de capital que no son entre Administraciones. La tabla mensual consolidada no publica cuánto aporta cada concepto.",
+          "amount": 4068,
+          "color": "#a4b4c1"
+        }
+      ],
+      "expenditure": [
+        {
+          "id": "intermediate",
+          "label": "Compras y servicios para que funcionen las administraciones",
+          "officialLabel": "Consumos intermedios",
+          "description": "Bienes y servicios que las administraciones utilizan para funcionar o prestar servicios: suministros, material, alquileres y servicios contratados. No incluye los sueldos del personal.",
+          "amount": 4837,
+          "color": "#476c50",
+          "relatedSources": [
+            {
+              "label": "Buscar contratos públicos relacionados",
+              "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+            }
+          ]
+        },
+        {
+          "id": "wages",
+          "label": "Sueldos del personal público",
+          "officialLabel": "Remuneración de asalariados",
+          "description": "Sueldos y cotizaciones sociales a cargo de la administración empleadora para el personal de los sectores incluidos. No es el número de empleados; es el coste registrado ese mes.",
+          "amount": 12075,
+          "color": "#8ea987",
+          "relatedSources": [
+            {
+              "label": "Consultar plantilla de las Administraciones",
+              "href": "https://digital.gob.es/funcion-publica/dgfp/registro-central-personal/boletin"
+            }
+          ]
+        },
+        {
+          "id": "interest",
+          "label": "Intereses de la deuda",
+          "officialLabel": "Intereses",
+          "description": "Coste de los intereses devengados por la deuda pública. No incluye devolver el principal de los préstamos.",
+          "amount": 3348,
+          "color": "#d8a26c",
+          "relatedSources": [
+            {
+              "label": "Consultar información de la deuda pública",
+              "href": "https://www.tesoro.es/deuda-publica"
+            }
+          ]
+        },
+        {
+          "id": "subsidies",
+          "label": "Subvenciones a empresas, autónomos y entidades productoras",
+          "officialLabel": "Subvenciones",
+          "description": "Ayudas que la Administración concede a productores para apoyar su actividad o reducir sus costes. Pueden recibirlas empresas, agricultores, autónomos u otras entidades productoras; no son pensiones ni ayudas directas a hogares. La tabla mensual no indica cuánto recibió cada sector.",
+          "amount": 838,
+          "color": "#a4b4c1",
+          "relatedSources": [
+            {
+              "label": "Buscar subvenciones en el SNPSAP",
+              "href": "https://www.pap.hacienda.gob.es/bdnstrans/GE/es/inicio"
+            },
+            {
+              "label": "Consultar la API pública de subvenciones",
+              "href": "https://www.infosubvenciones.es/bdnstrans/doc/swagger"
+            }
+          ]
+        },
+        {
+          "id": "benefits",
+          "label": "Prestaciones en dinero: pensiones, paro y ayudas sociales",
+          "officialLabel": "Prestaciones sociales distintas de las transferencias en especie",
+          "description": "Pagos sociales a personas y familias: pensiones de jubilación y supervivencia, prestaciones por enfermedad o discapacidad, desempleo, ayudas familiares, vivienda y exclusión social (incluido el IMV). La cifra mensual de IGAE los suma; el detalle por programa se consulta en los organismos que los gestionan.",
+          "amount": 22435,
+          "color": "#d0cf9e",
+          "relatedSources": [
+            {
+              "label": "Ver detalle mensual de pensiones, IMV y paro",
+              "href": "#prestaciones"
+            }
+          ]
+        },
+        {
+          "id": "in_kind",
+          "label": "Servicios para las familias pagados por la Administración",
+          "officialLabel": "Transferencias sociales en especie: producción adquirida en el mercado",
+          "description": "Bienes y servicios que las administraciones compran a proveedores para que los reciban los hogares, como parte de la atención sanitaria o social. No es todo el gasto en sanidad: los sueldos públicos aparecen en otra partida.",
+          "amount": 3286,
+          "color": "#c6aa9f",
+          "relatedSources": [
+            {
+              "label": "Buscar contratos públicos relacionados",
+              "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+            }
+          ]
+        },
+        {
+          "id": "capital",
+          "label": "Obras, infraestructuras y equipamiento",
+          "officialLabel": "Formación bruta de capital fijo",
+          "description": "Inversión para crear o mejorar activos públicos duraderos: edificios, carreteras, instalaciones y equipamiento. El mantenimiento corriente se registra en compras y servicios.",
+          "amount": 3039,
+          "color": "#bc8f68",
+          "relatedSources": [
+            {
+              "label": "Buscar contratos públicos relacionados",
+              "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+            }
+          ]
+        },
+        {
+          "id": "transfers_out",
+          "label": "Dinero enviado a otras administraciones",
+          "officialLabel": "Transferencias entre AAPP",
+          "description": "Fondos que una administración transfiere a otra. No describen por sí solos el servicio final y pueden aparecer también como ingreso de la administración que los recibe.",
+          "amount": 2676,
+          "color": "#849caa",
+          "relatedSources": [
+            {
+              "label": "Ver datos de las comunidades autónomas",
+              "href": "#comunidades"
+            },
+            {
+              "label": "Consultar serie mensual de la IGAE por comunidad",
+              "href": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx"
+            }
+          ]
+        },
+        {
+          "id": "other_out",
+          "label": "Otros gastos no financieros sin línea propia",
+          "officialLabel": "Resto de empleos",
+          "description": "Es la diferencia entre el total de empleos no financieros y la suma de las ocho partidas de gasto que aparecen antes. No es un programa concreto. El cuadro mensual consolidado de IGAE no publica las operaciones que forman estos 2.485 M€ por separado, así que no se puede atribuir esta cifra a servicios concretos con esta fuente.",
+          "amount": 2485,
+          "color": "#b1b899"
+        }
+      ],
+      "notes": [
+        "Cifras transcritas de las tablas oficiales de operaciones no financieras del informe IGAE de agosto de 2026, tabla del agregado, columna «En el mes».",
+        "El saldo de agosto fue un superávit de financiación de 1.316 millones de euros: los recursos no financieros superaron a los empleos no financieros.",
+        "La clasificación de gasto es económica. Las descripciones sencillas conservan el nombre oficial en el detalle y no sustituyen una clasificación por políticas públicas.",
+        "Los escenarios redistribuyen el gasto total del mes entre partidas; no son una previsión ni modifican ingresos o saldo."
+      ]
+    },
+    "benefits": {
+      "title": "Pensiones y prestaciones de agosto de 2026",
+      "note": "Las cuatro fichas usan agosto de 2026 y detallan programas incluidos en el gasto general. Su suma orientativa no debe añadirse al total IGAE.",
+      "items": [
+        {
+          "id": "pensions",
+          "name": "Pensiones contributivas",
+          "period": "Agosto 2026",
+          "amountMillions": 14470.4,
+          "summary": "10.535.869 pensiones abonadas a más de 9,5 millones de personas; la pensión media del sistema fue de 1.373,44 € al mes.",
+          "source": "Seguridad Social",
+          "sourceUrl": "https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/inclusion/paginas/2026/25082026-pension-media-seguridad-social.aspx",
+          "details": [
+            {
+              "label": "Jubilación",
+              "amountMillions": 10625.9
+            },
+            {
+              "label": "Viudedad",
+              "amountMillions": 2288.6
+            },
+            {
+              "label": "Incapacidad permanente",
+              "amountMillions": 1331.4
+            },
+            {
+              "label": "Orfandad",
+              "amountMillions": 185.7
+            },
+            {
+              "label": "A favor de familiares",
+              "amountMillions": 38.7
+            }
+          ],
+          "secondary": "La pensión media de jubilación fue de 1.574,9 € al mes."
+        },
+        {
+          "id": "non-contributory-pensions",
+          "name": "Pensiones no contributivas (jubilación e incapacidad)",
+          "period": "Agosto 2026",
+          "amountMillions": 305.659701,
+          "summary": "470.207 pensiones abonadas: 305.867 de jubilación y 164.340 de incapacidad.",
+          "source": "Imserso · nómina mensual",
+          "sourceUrl": "https://imserso.es/documents/20123/121856/evolpncs.pdf/93643b36-6ebb-bece-168b-01e450d95ef4",
+          "details": [
+            {
+              "label": "Jubilación no contributiva",
+              "amountMillions": 191.15280685
+            },
+            {
+              "label": "Incapacidad no contributiva",
+              "amountMillions": 114.50689416
+            }
+          ],
+          "secondary": "Importe bruto abonado en agosto. Se financian con el Presupuesto del Estado y se pagan a través de la Seguridad Social."
+        },
+        {
+          "id": "imv",
+          "name": "Ingreso Mínimo Vital (IMV)",
+          "period": "Agosto 2026",
+          "amountMillions": 474.7,
+          "summary": "893.820 hogares y 2.725.899 personas beneficiarias; 502,8 € al mes de media por hogar.",
+          "source": "Instituto Nacional de la Seguridad Social",
+          "sourceUrl": "https://www.inclusion.gob.es/w/el-ingreso-minimo-vital-protege-en-agosto-a-mas-de-2-7-millones-de-personas-residentes-en-894.000-hogares",
+          "details": [],
+          "secondary": "623.300 hogares recibieron también el Complemento de Ayuda para la Infancia; ya están dentro de las cifras del IMV y no se suman aparte."
+        },
+        {
+          "id": "unemployment",
+          "name": "Prestaciones por desempleo (paro)",
+          "period": "Agosto 2026",
+          "amountMillions": 2242.13,
+          "summary": "1.896.142 personas beneficiarias; gasto medio de 1.203,1 € al mes por persona (sin subsidio agrario).",
+          "source": "Ministerio de Trabajo y Economía Social · SEPE",
+          "sourceUrl": "https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/trabajo14/Paginas/2026/021026-paro-registrado-septiembre.aspx",
+          "details": [],
+          "secondary": "La cobertura del sistema fue del 87,12%. El gasto se refiere a agosto, aunque el dato se publicó el 2 de octubre."
+        }
+      ]
+    },
+    "people": {
+      "title": "Población y situación laboral en España",
+      "population": {
+        "date": "1 de julio de 2026",
+        "people": 49801559,
+        "source": "Instituto Nacional de Estadística (INE)",
+        "sourceUrl": "https://ine.es/dyngs/Prensa/ECP2T26.htm"
+      },
+      "labour": {
+        "period": "Tercer trimestre de 2026",
+        "employed": 22852600,
+        "active": 25443800,
+        "unemployed": 2591200,
+        "source": "Encuesta de Población Activa (EPA), INE",
+        "sourceUrl": "https://www.ine.es/dyngs/Prensa/EPA3T26.htm",
+        "population16Plus": 42751800,
+        "inactive": 17308000,
+        "inactiveReasons": [
+          {
+            "label": "Jubilados, retirados y pensionistas",
+            "description": "Personas que dejaron su actividad laboral y perciben una pensión, o que cobran otro tipo de pensión. Si además trabajan o buscan empleo, la EPA las clasifica según esa situación.",
+            "people": 9311400
+          },
+          {
+            "label": "Estudiantes",
+            "description": "Personas de 16 años o más que estudian y no cumplen los criterios de empleo o búsqueda activa de trabajo. Un estudiante con empleo cuenta como ocupado.",
+            "people": 3176500
+          },
+          {
+            "label": "Labores del hogar",
+            "description": "Personas que señalan como situación principal las tareas no remuneradas de su hogar y no están clasificadas como ocupadas o paradas.",
+            "people": 3406400
+          },
+          {
+            "label": "Incapacidad permanente para trabajar",
+            "description": "Personas que declaran no poder trabajar por una incapacidad permanente. No es el recuento de todas las personas con discapacidad.",
+            "people": 798600
+          },
+          {
+            "label": "Otros motivos de inactividad",
+            "description": "Personas sin actividad económica que no encajan en las categorías anteriores; por ejemplo, rentistas o personas que reciben ayuda pública o privada. No significa que no tengan ingresos ni que no paguen impuestos.",
+            "people": 615100
+          }
+        ],
+        "inactiveSourceUrl": "https://www.idescat.cat/treball/epa?id=ie3029&lang=es&tc=4",
+        "population16PlusSourceUrl": "https://www.idescat.cat/treball/epa?id=ie0301&lang=es&tc=4"
+      },
+      "note": "La población total del INE (1 de julio) incluye residentes de todas las edades. La EPA del tercer trimestre clasifica a la población de 16 y más años en activa (ocupada o parada que busca empleo) e inactiva. La población de 16 y más años de la EPA (42.751.800) se divide exactamente, con cifras redondeadas, en 25.443.800 activas y 17.308.000 inactivas. No se debe restar directamente la EPA a la población total como si fueran la misma fecha y universo."
+    },
+    "jobs": {
+      "title": "Quién trabaja: tipos de empleo y fuentes",
+      "note": "Son estadísticas oficiales con fechas, definiciones y coberturas distintas. No deben sumarse entre sí. La EPA estima personas ocupadas; la Seguridad Social cuenta afiliaciones en alta; y EPSAP cuenta efectivos de las Administraciones Públicas.",
+      "epa": {
+        "period": "Tercer trimestre de 2026",
+        "totalEmployed": 22852600,
+        "publicEmployees": 3736800,
+        "privateEmployees": 19115800,
+        "source": "INE · Encuesta de Población Activa",
+        "sourceUrl": "https://www.ine.es/dyngs/Prensa/EPA3T26.htm",
+        "description": "El dato de empleo privado incluye trabajo por cuenta propia y empleo asalariado privado. El empleo público EPA cuenta personas asalariadas del sector público, no solo funcionarios."
+      },
+      "privateSalaried": {
+        "period": "Segundo trimestre de 2026",
+        "people": 15938500,
+        "source": "INE · EPA, asalariados del sector privado",
+        "sourceUrl": "https://ine.es/consul/serie.do?L=0&d=true&s=EPA450291"
+      },
+      "selfEmployed": {
+        "period": "Septiembre de 2026",
+        "people": 3483645,
+        "source": "Seguridad Social · afiliación al RETA",
+        "sourceUrl": "https://www.inclusion.gob.es/w/el-empleo-logra-el-mejor-septiembre-de-la-historia-despues-de-sumar-92.327-afiliados-en-el-ultimo-mes-y-739.888-respecto-a-hace-un-ano",
+        "description": "Afiliaciones al Régimen Especial de Trabajadores Autónomos; es un registro administrativo, no una estimación EPA."
+      },
+      "publicAdministration": {
+        "period": "Enero de 2026",
+        "total": 3071725,
+        "careerCivilServants": 1686767,
+        "labourStaff": 622045,
+        "otherStaff": 762913,
+        "source": "Ministerio para la Transformación Digital y de la Función Pública · EPSAP",
+        "sourceUrl": "https://digital.gob.es/funcion-publica/dgfp/registro-central-personal/boletin",
+        "coverage": "Administración estatal, autonómica y local. Algunos datos universitarios y de Cataluña tienen fechas de referencia anteriores que se indican en la publicación."
+      }
+    },
+    "regions": {
+      "title": "Ingresos, gastos y financiación por comunidad autónoma",
+      "period": "Agosto de 2026 (IGAE) · liquidación de 2024 (Hacienda)",
+      "unit": "millones de euros",
+      "scope": "Datos IGAE mensuales para las 17 comunidades autónomas; capacidad fiscal y financiación anual para las 15 comunidades de régimen común. País Vasco y Navarra tienen régimen foral.",
+      "fiscalCapacityDescription": "Capacidad fiscal calculada con los valores normativos del sistema de financiación. No es la recaudación bruta de todos los impuestos pagados dentro del territorio.",
+      "fundingDescription": "Recursos financieros proporcionados por el sistema de financiación autonómica en el ejercicio. No equivale al gasto total de la comunidad ni a toda la financiación pública que recibe.",
+      "source": "Ministerio de Hacienda · Cuadros de liquidación 2024, cuadro 2.2.3",
+      "sourceUrl": "https://www.hacienda.gob.es/cdi/sist%20financiacion%20y%20deuda/informaci%C3%B3nccaa/cuadros-liquidacion-2024.pdf",
+      "landingUrl": "https://www.hacienda.gob.es/es-ES/CDI/Paginas/SistemasFinanciacionDeuda/InformacionCCAAs/Informes%20financiacion%20comunidades%20autonomas2.aspx",
+      "igaeUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx",
+      "communities": [
+        {
+          "name": "Andalucía",
+          "fiscalCapacity": 22170.87646,
+          "systemFunding": 30074.97055,
+          "igaeMonthlyTax": 885,
+          "igaeMonthlyRevenue": 2858,
+          "igaeMonthlyExpenditure": 3453,
+          "igaeMonthlyBalance": -595
+        },
+        {
+          "name": "Aragón",
+          "fiscalCapacity": 4544.09559,
+          "systemFunding": 5574.50234,
+          "igaeMonthlyTax": 214,
+          "igaeMonthlyRevenue": 536,
+          "igaeMonthlyExpenditure": 569,
+          "igaeMonthlyBalance": -33
+        },
+        {
+          "name": "Asturias",
+          "fiscalCapacity": 3081.82845,
+          "systemFunding": 4069.38572,
+          "igaeMonthlyTax": 174,
+          "igaeMonthlyRevenue": 483,
+          "igaeMonthlyExpenditure": 475,
+          "igaeMonthlyBalance": 8
+        },
+        {
+          "name": "Illes Balears",
+          "fiscalCapacity": 4832.03962,
+          "systemFunding": 3711.48156,
+          "igaeMonthlyTax": 284,
+          "igaeMonthlyRevenue": 598,
+          "igaeMonthlyExpenditure": 612,
+          "igaeMonthlyBalance": -14
+        },
+        {
+          "name": "Canarias",
+          "fiscalCapacity": 2929.91799,
+          "systemFunding": 7291.66522,
+          "igaeMonthlyTax": 401,
+          "igaeMonthlyRevenue": 1041,
+          "igaeMonthlyExpenditure": 973,
+          "igaeMonthlyBalance": 68
+        },
+        {
+          "name": "Cantabria",
+          "fiscalCapacity": 1844.99675,
+          "systemFunding": 2820.03283,
+          "igaeMonthlyTax": 80,
+          "igaeMonthlyRevenue": 281,
+          "igaeMonthlyExpenditure": 275,
+          "igaeMonthlyBalance": 6
+        },
+        {
+          "name": "Castilla-La Mancha",
+          "fiscalCapacity": 5333.04676,
+          "systemFunding": 7567.8203,
+          "igaeMonthlyTax": 256,
+          "igaeMonthlyRevenue": 801,
+          "igaeMonthlyExpenditure": 801,
+          "igaeMonthlyBalance": 0
+        },
+        {
+          "name": "Castilla y León",
+          "fiscalCapacity": 7385.51297,
+          "systemFunding": 9775.60058,
+          "igaeMonthlyTax": 343,
+          "igaeMonthlyRevenue": 940,
+          "igaeMonthlyExpenditure": 1046,
+          "igaeMonthlyBalance": -106
+        },
+        {
+          "name": "Cataluña",
+          "fiscalCapacity": 30382.6719,
+          "systemFunding": 30823.34999,
+          "igaeMonthlyTax": 2418,
+          "igaeMonthlyRevenue": 3819,
+          "igaeMonthlyExpenditure": 3394,
+          "igaeMonthlyBalance": 425
+        },
+        {
+          "name": "Comunitat Valenciana",
+          "fiscalCapacity": 15563.50124,
+          "systemFunding": 16674.03008,
+          "igaeMonthlyTax": 953,
+          "igaeMonthlyRevenue": 1987,
+          "igaeMonthlyExpenditure": 2285,
+          "igaeMonthlyBalance": -298
+        },
+        {
+          "name": "Extremadura",
+          "fiscalCapacity": 2491.07805,
+          "systemFunding": 4323.55055,
+          "igaeMonthlyTax": 191,
+          "igaeMonthlyRevenue": 561,
+          "igaeMonthlyExpenditure": 451,
+          "igaeMonthlyBalance": 110
+        },
+        {
+          "name": "Galicia",
+          "fiscalCapacity": 7676.84406,
+          "systemFunding": 10938.49464,
+          "igaeMonthlyTax": 415,
+          "igaeMonthlyRevenue": 1160,
+          "igaeMonthlyExpenditure": 1138,
+          "igaeMonthlyBalance": 22
+        },
+        {
+          "name": "La Rioja",
+          "fiscalCapacity": 971.01382,
+          "systemFunding": 1472.66072,
+          "igaeMonthlyTax": 44,
+          "igaeMonthlyRevenue": 146,
+          "igaeMonthlyExpenditure": 154,
+          "igaeMonthlyBalance": -8
+        },
+        {
+          "name": "Comunidad de Madrid",
+          "fiscalCapacity": 30283.2494,
+          "systemFunding": 26259.90805,
+          "igaeMonthlyTax": 2047,
+          "igaeMonthlyRevenue": 3336,
+          "igaeMonthlyExpenditure": 3035,
+          "igaeMonthlyBalance": 301
+        },
+        {
+          "name": "Región de Murcia",
+          "fiscalCapacity": 3929.43597,
+          "systemFunding": 5125.14456,
+          "igaeMonthlyTax": 121,
+          "igaeMonthlyRevenue": 439,
+          "igaeMonthlyExpenditure": 619,
+          "igaeMonthlyBalance": -180
+        },
+        {
+          "name": "Navarra",
+          "igaeMonthlyTax": 940,
+          "igaeMonthlyRevenue": 1024,
+          "igaeMonthlyExpenditure": 614,
+          "igaeMonthlyBalance": 410
+        },
+        {
+          "name": "País Vasco",
+          "igaeMonthlyTax": 1,
+          "igaeMonthlyRevenue": 1277,
+          "igaeMonthlyExpenditure": 1292,
+          "igaeMonthlyBalance": -15
+        }
+      ],
+      "igaeMonthly": {
+        "period": "Agosto de 2026",
+        "source": "IGAE · Operaciones no financieras del subsector Administración regional y detalle por comunidad autónoma",
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx",
+        "updated": "30 de octubre de 2026",
+        "method": "La hoja ofrece cifras acumuladas hasta fin de mes. El flujo de agosto se calcula restando el acumulado de julio al acumulado de agosto.",
+        "taxDescription": "Impuestos contabilizados como ingreso de la Administración regional de cada comunidad en contabilidad nacional. En territorios forales la recaudación de sus haciendas propias no se refleja con el mismo alcance en esta cuenta regional.",
+        "revenueDescription": "Suma de los ingresos no financieros contabilizados en las cuentas del Gobierno autonómico: impuestos que se le atribuyen, transferencias recibidas, ventas de bienes y servicios, tasas y precios públicos, rentas de bienes públicos y transferencias de capital. No es todo lo que pagan las personas y empresas del territorio: también hay impuestos estatales y locales. La fila mensual de la IGAE no desglosa aquí cada fuente por separado.",
+        "expenditureDescription": "Gastos no financieros contabilizados por cada Administración regional. El dato de agosto se obtiene restando el acumulado de julio al acumulado de agosto.",
+        "balanceDescription": "Diferencia calculada entre ingresos no financieros y gastos no financieros de agosto según la cuenta de cada Administración regional; no es saldo bancario ni resultado de caja."
+      }
+    },
+    "taxes": {
+      "title": "Recaudación anual por impuestos",
+      "period": "Enero–diciembre de 2025",
+      "unit": "millones de euros",
+      "scope": "Ingresos tributarios netos en caja gestionados por la AEAT por cuenta del Estado, comunidades autónomas y corporaciones locales del territorio de régimen fiscal común.",
+      "source": "Agencia Tributaria · Informe mensual de recaudación tributaria, diciembre de 2025, cuadro 3.1",
+      "sourceUrl": "https://sede.agenciatributaria.gob.es/static_files/AEAT/Estudios/Estadisticas/Informes_Estadisticos/Informes_mensuales_recaudacion_tributaria/2025/IMR_25_12_gl_es.pdf",
+      "catalogUrl": "https://sede.agenciatributaria.gob.es/Sede/datosabiertos/catalogo/hacienda/Informe_mensual_de_Recaudacion_Tributaria.shtml",
+      "items": [
+        {
+          "id": "irpf",
+          "label": "IRPF",
+          "plainLabel": "Impuesto sobre la renta de las personas",
+          "amount": 142466,
+          "color": "#6f8b72"
+        },
+        {
+          "id": "iva",
+          "label": "IVA",
+          "plainLabel": "Impuesto sobre el consumo",
+          "amount": 99532,
+          "color": "#c58f60"
+        },
+        {
+          "id": "corporate",
+          "label": "Impuesto sobre Sociedades",
+          "plainLabel": "Impuesto sobre los beneficios de las empresas",
+          "amount": 42266,
+          "color": "#8199a6"
+        },
+        {
+          "id": "special",
+          "label": "Impuestos especiales",
+          "plainLabel": "Alcohol y cerveza; hidrocarburos; tabaco y líquidos para cigarrillos electrónicos; electricidad; envases de plástico no reutilizables; carbón y otros impuestos especiales.",
+          "amount": 23083,
+          "components": [
+            {
+              "label": "Alcohol y bebidas derivadas",
+              "amount": 793
+            },
+            {
+              "label": "Cerveza",
+              "amount": 336
+            },
+            {
+              "label": "Productos intermedios",
+              "amount": 23
+            },
+            {
+              "label": "Hidrocarburos",
+              "amount": 12366
+            },
+            {
+              "label": "Labores del tabaco",
+              "amount": 7340
+            },
+            {
+              "label": "Líquidos para cigarrillos electrónicos",
+              "amount": 30
+            },
+            {
+              "label": "Electricidad",
+              "amount": 1587
+            },
+            {
+              "label": "Envases de plástico no reutilizables",
+              "amount": 599
+            },
+            {
+              "label": "Carbón",
+              "amount": 9
+            },
+            {
+              "label": "Otros impuestos especiales",
+              "amount": 0
+            }
+          ],
+          "color": "#b2ae78"
+        },
+        {
+          "id": "other",
+          "label": "Otros impuestos, tasas e ingresos tributarios",
+          "plainLabel": "Detalle por los conceptos que publica la AEAT. Las partidas llamadas «Resto del capítulo» se mantienen con ese nombre porque el informe no las separa más.",
+          "amount": 18009,
+          "components": [
+            {
+              "label": "Impuesto sobre la Renta de no Residentes",
+              "amount": 5397
+            },
+            {
+              "label": "Impuesto sobre intereses y comisiones de entidades financieras",
+              "amount": 1423
+            },
+            {
+              "label": "Impuestos medioambientales",
+              "amount": 2108
+            },
+            {
+              "label": "Resto del capítulo I: otros impuestos directos",
+              "amount": 272
+            },
+            {
+              "label": "Impuesto sobre el tráfico exterior",
+              "amount": 2977
+            },
+            {
+              "label": "Impuesto sobre primas de seguros",
+              "amount": 2769
+            },
+            {
+              "label": "Impuesto sobre transacciones financieras",
+              "amount": 339
+            },
+            {
+              "label": "Impuesto sobre determinados servicios digitales",
+              "amount": 410
+            },
+            {
+              "label": "Impuesto sobre actividades de juego (Estado)",
+              "amount": 44
+            },
+            {
+              "label": "Impuesto sobre gases fluorados",
+              "amount": 104
+            },
+            {
+              "label": "Resto del capítulo II: otros impuestos indirectos",
+              "amount": 10
+            },
+            {
+              "label": "Tasa radioeléctrica",
+              "amount": -90
+            },
+            {
+              "label": "Canon de aguas",
+              "amount": 235
+            },
+            {
+              "label": "Otras tasas",
+              "amount": 797
+            },
+            {
+              "label": "Resto del capítulo III: otros ingresos",
+              "amount": 1214
+            }
+          ],
+          "color": "#b78b80"
+        }
+      ],
+      "latestMonthly": {
+        "period": "Agosto 2026",
+        "amountMillions": 29451,
+        "source": "Agencia Tributaria · Informe mensual de recaudación tributaria",
+        "sourceUrl": "https://sede.agenciatributaria.gob.es/static_files/AEAT/Estudios/Estadisticas/Informes_Estadisticos/Informes_mensuales_recaudacion_tributaria/2026/IMR_26_08_es_es.pdf",
+        "note": "Ingresos tributarios netos recaudados en agosto, en caja. Es un dato AEAT y tiene distinto alcance contable al total de ingresos de la IGAE que usa el simulador."
+      }
+    },
+    "services": {
+      "title": "Gasto anual por grandes funciones públicas",
+      "period": "2024 (dato provisional)",
+      "totalMillions": 725001,
+      "source": "IGAE · Clasificación funcional del gasto público (COFOG), informe 2020–2024",
+      "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP_A/Funcional%202020-2024.pdf",
+      "items": [
+        {
+          "id": "general",
+          "label": "Servicios públicos generales",
+          "plainLabel": "Órganos ejecutivos y legislativos; gestión financiera, fiscal y de asuntos exteriores; cooperación económica internacional; servicios generales; investigación básica; deuda pública y transferencias generales entre administraciones.",
+          "amount": 92551,
+          "sourcePage": 12,
+          "color": "#6f8b72"
+        },
+        {
+          "id": "defence",
+          "label": "Defensa",
+          "plainLabel": "Defensa militar, defensa civil, ayuda militar a otros países e investigación y desarrollo relacionados con la defensa. No coincide exactamente con la definición de gasto militar de la OTAN.",
+          "amount": 14233,
+          "sourcePage": 16,
+          "color": "#c58f60"
+        },
+        {
+          "id": "public-order",
+          "label": "Orden público y seguridad",
+          "plainLabel": "Policía, tribunales, prisiones, protección civil y bomberos; incluye también la investigación pública dedicada a estas funciones.",
+          "amount": 28628,
+          "sourcePage": 18,
+          "color": "#8199a6"
+        },
+        {
+          "id": "economic",
+          "label": "Asuntos económicos",
+          "plainLabel": "Gestión económica y laboral; agricultura, pesca y silvicultura; energía; industria y construcción; transporte; comunicaciones; y apoyo e investigación para esas actividades.",
+          "amount": 80908,
+          "sourcePage": 20,
+          "color": "#b2ae78"
+        },
+        {
+          "id": "environment",
+          "label": "Protección del medio ambiente",
+          "plainLabel": "Gestión de residuos y aguas residuales; reducción de contaminación; protección de biodiversidad y paisaje; e investigación ambiental.",
+          "amount": 15539,
+          "sourcePage": 25,
+          "color": "#b78b80"
+        },
+        {
+          "id": "housing",
+          "label": "Vivienda y servicios comunitarios",
+          "plainLabel": "Promoción de vivienda, urbanismo y desarrollo comunitario; abastecimiento de agua; alumbrado público; e investigación sobre estos servicios.",
+          "amount": 7613,
+          "sourcePage": 27,
+          "color": "#82936d"
+        },
+        {
+          "id": "health",
+          "label": "Salud",
+          "plainLabel": "Productos, aparatos y equipos médicos; atención ambulatoria y hospitalaria; salud pública; administración sanitaria; investigación y laboratorios de salud pública.",
+          "amount": 102942,
+          "sourcePage": 29,
+          "color": "#7894a4"
+        },
+        {
+          "id": "recreation-culture",
+          "label": "Ocio, cultura y religión",
+          "plainLabel": "Deporte y ocio; cultura; radio, televisión y publicaciones; servicios religiosos; e investigación en estas áreas.",
+          "amount": 19193,
+          "sourcePage": 34,
+          "color": "#bd8d70"
+        },
+        {
+          "id": "education",
+          "label": "Educación",
+          "plainLabel": "Educación infantil, primaria, secundaria, postsecundaria y universitaria; servicios auxiliares al alumnado; e investigación educativa.",
+          "amount": 65862,
+          "sourcePage": 36,
+          "color": "#9a8eb0"
+        },
+        {
+          "id": "social",
+          "label": "Protección social",
+          "plainLabel": "Prestaciones por enfermedad o discapacidad; jubilación y supervivencia; familia e infancia; desempleo; vivienda; exclusión social; e investigación social.",
+          "amount": 297532,
+          "sourcePage": 39,
+          "color": "#9caa84"
+        }
+      ]
+    },
+    "demographics": {
+      "title": "Población por nacionalidad y lugar de nacimiento",
+      "period": "1 de julio de 2026",
+      "total": 49801559,
+      "source": "INE · Estadística Continua de Población",
+      "sourceUrl": "https://ine.es/dyngs/Prensa/ECP2T26.htm",
+      "ageSourceUrl": "https://www.ine.es/jaxiT3/Tabla.htm?t=59583",
+      "under18": 7791568,
+      "age18Plus": 42009991,
+      "spanishNationality": 42364016,
+      "foreignNationality": 7437543,
+      "spanishNationalityBornAbroad": 3370854,
+      "bornAbroadTotal": 10291807,
+      "foreignNationalityBornAbroad": 6920953,
+      "foreignNationalityBornSpain": 516590,
+      "note": "La población con nacionalidad española nacida en el extranjero incluye personas que adquirieron la nacionalidad, pero también españolas de nacimiento nacidas fuera de España. No es un recuento exacto de nacionalizaciones."
+    },
+    "igaeProvenance": {
+      "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP-M/IM_2026_08.pdf",
+      "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/DatosConsolidados.aspx",
+      "referencePeriod": "2026-08",
+      "verifiedAt": "2026-11-02",
+      "sha256": null,
+      "parser": "Transcripción inicial verificada frente a la tabla oficial del agregado"
+    }
+  }
+}

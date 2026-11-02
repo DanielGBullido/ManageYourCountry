@@ -1,10 +1,17 @@
 import type { DashboardData } from '../../lib/dashboard-data';
 import { formatMillions } from '../../lib/format';
 
-export default function HeroSection({ monthly }: { monthly: DashboardData['monthly'] }) {
+type HeroSectionProps = {
+  monthly: DashboardData['monthly'];
+  selectedPeriod: string;
+  availablePeriods: { period: string; label: string }[];
+  onPeriodChange: (period: string) => void;
+};
+
+export default function HeroSection({ monthly, selectedPeriod, availablePeriods, onPeriodChange }: HeroSectionProps) {
   return (
 <section className="hero hero-data">
-        <div className="hero-copy"><div className="eyebrow"><span className="live-dot"/> CUENTAS PÚBLICAS · {monthly.periodLabel.toUpperCase()}</div>
+        <div className="hero-copy"><div className="eyebrow hero-period-label"><span className="live-dot"/> CUENTAS PÚBLICAS · <label htmlFor="dashboard-period" className="sr-only">Mes común de los datos del panel</label><select id="dashboard-period" className="hero-period-select" value={selectedPeriod} onChange={event => onPeriodChange(event.target.value)} aria-describedby="period-availability">{availablePeriods.map(item => <option key={item.period} value={item.period}>{item.label}</option>)}</select></div><small id="period-availability" className="period-availability">{availablePeriods.length === 1 ? 'Por ahora, este es el único mes completo con fuentes comparables.' : `${availablePeriods.length} meses completos disponibles`}</small>
           <h1>¿Cuánto entra,<br/><em>cuánto sale?</em></h1>
           <p className="hero-intro">Mira los ingresos y gastos de un mes real. Después, cambia las prioridades y comprueba cómo quedaría el reparto.</p>
           <a className="text-link" href="#presupuesto">EXPLORAR Y CAMBIAR EL GASTO <span>↓</span></a>

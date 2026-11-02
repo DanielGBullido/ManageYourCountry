@@ -6,6 +6,7 @@ import './overrides.css';
 export const metadata: Metadata = {
   title: 'España en tus manos — Presupuesto público',
   description: 'Explora los ingresos y gastos mensuales de las Administraciones públicas con datos oficiales de la IGAE y prueba tu propio escenario.',
+  icons: { icon: '/icon.svg', shortcut: '/icon.svg', apple: '/apple-icon.svg' },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {

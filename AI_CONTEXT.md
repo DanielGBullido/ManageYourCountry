@@ -23,6 +23,9 @@ La persona usuaria prefiere español de España, explicaciones concretas y vocab
 - CSS propio en `app/base.css` y `app/overrides.css`; sin librería visual añadida.
 - La página se compone desde `app/page.tsx`. Las secciones están en `app/components/sections/` y el simulador está dividido en piezas pequeñas dentro de `app/components/sections/budget/`.
 - `app/lib/dashboard-data.ts` carga y tipa los datos locales.
+- `app/components/DashboardExperience.tsx` controla el mes común y pasa una fotografía íntegra del panel a las secciones; `?mes=AAAA-MM` enlaza un mes disponible.
+- `data/dashboard-periods.json` conserva snapshots completos. `npm run data:snapshot` solo añade un periodo si IGAE, AEAT mensual, prestaciones y datos autonómicos coinciden. El selector no inventa meses.
+- `DESIGN_GUIDE.md` define identidad, voz, accesibilidad y criterios de diseño móvil.
 - `app/lib/budget-scenario.ts` contiene las funciones puras de límites, asignación, dinero sin repartir, barras y codificación/lectura de escenarios compartidos.
 - `app/components/layout/SiteHeader.tsx` contiene la navegación fija y móvil.
 - `app/components/RegionalMap.tsx` dibuja las comunidades, permite selección con teclado y ofrece la tabla como alternativa.
@@ -44,6 +47,8 @@ Los datos que muestra la app están guardados en `data/`; la interfaz no consult
 `npm run data:refresh` descarga el catálogo mensual de IGAE, encuentra el PDF más reciente, extrae la tabla con `pdftotext` (Poppler), comprueba sumas y saldo, y conserva una versión con SHA-256. El workflow `.github/workflows/refresh-official-data.yml` está programado semanalmente y también se puede lanzar manualmente una vez que el proyecto esté publicado en GitHub Actions.
 
 El importador IGAE se detiene sin cambiar los datos visibles si el mes del PDF no coincide con las series mensuales AEAT y prestaciones. Esto protege la decisión de producto de mostrar un mes comparable único. **Solo IGAE tiene importador automático por ahora**; AEAT, prestaciones, población, EPA y datos autonómicos aún requieren actualización editorial. Antes de automatizar otra fuente, entender su calendario, formato, unidad, cobertura, revisiones y restricciones; agregar pruebas con una muestra real y conservar la URL original.
+
+Tras una actualización IGAE aceptada, GitHub Actions ejecuta `npm run data:snapshot` y archiva el panel si las fuentes mensuales siguen alineadas. Vercel reconstruye al recibir el commit. Es una actualización programada al publicarse datos, no una consulta en vivo al entrar en la web. Hasta automatizar AEAT, prestaciones y comunidades, un mes nuevo solo aparece cuando también se hayan actualizado esas fuentes y coincidan.
 
 ## Comportamiento del simulador
 
