@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import './base.css';
 import './overrides.css';
+import './spacing.css';
 
 export const metadata: Metadata = {
   title: 'España en tus manos — Presupuesto público',
