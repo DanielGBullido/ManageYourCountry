@@ -456,7 +456,7 @@ footer>span,footer>a:last-child{font-size:10px}
   .budget-total .eyebrow{font-size:9px;line-height:1.45}
   .budget-total strong{font-size:clamp(20px,6vw,28px);overflow-wrap:anywhere}
   .official-marker-legend{font-size:12px;line-height:1.5;margin:12px 0}
-  .official-allocations .allocation-row{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:'name name' 'control value';gap:8px 10px;padding:15px 0;align-items:center}
+  .official-allocations .allocation-row{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:'name name' 'control value' 'delta delta';gap:8px 10px;padding:15px 0;align-items:center}
   .official-allocations .allocation-name{grid-area:name;font-size:15px;line-height:1.4;gap:9px}
   .official-allocations .allocation-name b{font-size:15px}
   .official-allocations .allocation-name .color-chip{margin-top:4px}
@@ -530,7 +530,7 @@ footer>span,footer>a:last-child{font-size:10px}
 
 /* Tablet layout: put the changing amount below the input, not across it. */
 @media(min-width:641px) and (max-width:900px){
-  .official-allocations .allocation-row{grid-template-columns:minmax(0,1fr) minmax(145px,.38fr);grid-template-areas:'name name' 'control value';align-items:center;gap:9px 16px;padding:16px 0}
+  .official-allocations .allocation-row{grid-template-columns:minmax(0,1fr) minmax(145px,.38fr);grid-template-areas:'name name' 'control value' 'delta delta';align-items:center;gap:9px 16px;padding:16px 0}
   .official-allocations .allocation-name{grid-area:name;align-items:flex-start;font-size:14px;line-height:1.45}
   .official-allocations .allocation-control{grid-area:control;min-width:0;gap:8px}
   .official-allocations .allocation-quick-actions{flex-wrap:wrap;gap:7px}
@@ -540,6 +540,17 @@ footer>span,footer>a:last-child{font-size:10px}
   .official-allocations .allocation-value{grid-area:value;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:5px;min-width:0;max-width:none;text-align:right;font-size:13px}
   .official-allocations .allocation-number input{width:88px;min-height:42px;padding:7px 6px;font-size:13px}
   .official-allocations .allocation-number>small{font-size:11px}
-  .official-allocations .allocation-delta{display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:center;gap:3px;max-width:100%;margin-top:0;font-size:11px;line-height:1.35;text-align:right;white-space:normal;overflow-wrap:anywhere}
+  .official-allocations .allocation-delta{grid-area:delta;display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:center;gap:3px;min-width:0;max-width:100%;margin-top:0;font-size:11px;line-height:1.35;text-align:right;white-space:normal;overflow-wrap:anywhere}
   .official-allocations .allocation-delta>span[role=img]{font-size:17px;flex:none}
 }
+
+/* Always render the amount comparison on its own grid row. It must never
+   share horizontal space with the slider, even when the page is zoomed. */
+.official-allocations .allocation-row{grid-template-areas:'name control value' 'delta delta delta'}
+.official-allocations .allocation-name{grid-area:name;min-width:0}
+.official-allocations .allocation-control{grid-area:control;min-width:0}
+.official-allocations .allocation-value{grid-area:value;display:flex;flex-direction:column;align-items:flex-end;min-width:0;max-width:none;white-space:normal}
+.official-allocations .allocation-number{white-space:nowrap}
+.official-allocations .allocation-delta{grid-area:delta;display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:center;gap:4px;min-width:0;max-width:100%;margin-top:0;text-align:right;white-space:normal;overflow-wrap:anywhere}
+@media(max-width:900px){.official-allocations .allocation-row{grid-template-areas:'name name' 'control value' 'delta delta'}}
+@media(max-width:640px){.official-allocations .allocation-delta{justify-content:flex-start;text-align:left}}
