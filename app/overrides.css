@@ -307,6 +307,7 @@ footer>span,footer>a:last-child{font-size:10px}
   .allocation-delta{font-size:10px}
   .deep-disclosure>summary,.budget-more-disclosure>summary{scroll-margin-top:108px}
 }
+
 @media(max-width:380px){
   .brand{font-size:7px}
   .share-button{padding:7px;font-size:9px}
@@ -525,4 +526,20 @@ footer>span,footer>a:last-child{font-size:10px}
   footer{flex-wrap:wrap;min-height:75px}
   footer>span{display:block;width:100%;order:3;font-size:9px}
   footer>a:last-child{font-size:10px}
+}
+
+/* Tablet layout: put the changing amount below the input, not across it. */
+@media(min-width:641px) and (max-width:900px){
+  .official-allocations .allocation-row{grid-template-columns:minmax(0,1fr) minmax(145px,.38fr);grid-template-areas:'name name' 'control value';align-items:center;gap:9px 16px;padding:16px 0}
+  .official-allocations .allocation-name{grid-area:name;align-items:flex-start;font-size:14px;line-height:1.45}
+  .official-allocations .allocation-control{grid-area:control;min-width:0;gap:8px}
+  .official-allocations .allocation-quick-actions{flex-wrap:wrap;gap:7px}
+  .official-allocations .allocation-quick-actions button{min-height:40px;padding:7px 10px;font-size:10px}
+  .official-allocations .range-wrap{display:block;width:100%;min-width:0;padding:9px 0}
+  .official-allocations .range-wrap input[type=range]{width:100%;min-width:0;height:36px;touch-action:pan-y}
+  .official-allocations .allocation-value{grid-area:value;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:5px;min-width:0;max-width:none;text-align:right;font-size:13px}
+  .official-allocations .allocation-number input{width:88px;min-height:42px;padding:7px 6px;font-size:13px}
+  .official-allocations .allocation-number>small{font-size:11px}
+  .official-allocations .allocation-delta{display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:center;gap:3px;max-width:100%;margin-top:0;font-size:11px;line-height:1.35;text-align:right;white-space:normal;overflow-wrap:anywhere}
+  .official-allocations .allocation-delta>span[role=img]{font-size:17px;flex:none}
 }
