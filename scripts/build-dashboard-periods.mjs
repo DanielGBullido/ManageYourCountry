@@ -8,6 +8,8 @@ const [monthly, benefits, people, jobs, regions, taxes, services, demographics, 
   load('perfiles-empleo-latest.json'), load('comunidades-autonomicas.json'), load('recaudacion-tributaria-2025.json'),
   load('gasto-funcional-2024.json'), load('demografia-nacionalidad-latest.json'), load('provenance/igae-latest.json'),
 ]);
+let localHistory = { months: [] };
+try { localHistory = await load('igae-monthly-history-2026.json'); } catch {}
 
 const aligned = matchesCommonReferenceMonth(monthly.referencePeriod, [
   taxes.latestMonthly.period,
@@ -45,6 +47,19 @@ periods[monthly.referencePeriod] = {
   demographics,
   igaeProvenance,
 };
+// Keep the locally imported IGAE vintage for historic months. Auxiliary series
+// are copied with their own publication dates; they are not backdated to the
+// selected accounting month.
+const contextSnapshot = periods[monthly.referencePeriod];
+for (const archived of localHistory.months) {
+  periods[archived.period] = {
+    ...contextSnapshot,
+    period: archived.period,
+    label: archived.label,
+    monthly: archived.monthly,
+    igaeProvenance: archived.provenance,
+  };
+}
 const ordered = Object.fromEntries(Object.entries(periods).sort(([a], [b]) => b.localeCompare(a)));
 await writeFile(path, `${JSON.stringify(ordered, null, 2)}\n`);
 console.log(`Panel mensual disponible: ${monthly.periodLabel}. Meses completos archivados: ${Object.keys(ordered).length}.`);

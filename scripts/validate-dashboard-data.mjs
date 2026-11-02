@@ -1,9 +1,10 @@
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import { matchesCommonReferenceMonth } from './lib/monthly-period.mjs';
 
 const readJson = async path => JSON.parse(await readFile(new URL(`../data/${path}`, import.meta.url), 'utf8'));
-const [monthly, benefits, people, regions, taxes, services, provenance] = await Promise.all([
+const [monthly, benefits, people, regions, taxes, services, provenance, localHistory] = await Promise.all([
   readJson('igae-latest.json'),
   readJson('prestaciones-latest.json'),
   readJson('personas-trabajo-latest.json'),
@@ -11,8 +12,11 @@ const [monthly, benefits, people, regions, taxes, services, provenance] = await 
   readJson('recaudacion-tributaria-2025.json'),
   readJson('gasto-funcional-2024.json'),
   readJson('provenance/igae-latest.json'),
+  readJson('igae-monthly-history-2026.json'),
 ]);
 const dashboardPeriods = await readJson('dashboard-periods.json');
+const sourceWorkbook = await readFile(new URL('../data/sources/igae/M_CONSOLIDADO_2026.xlsx', import.meta.url));
+const workbookHash = createHash('sha256').update(sourceWorkbook).digest('hex');
 const sum = values => values.reduce((total, value) => total + value, 0);
 const near = (actual, expected, tolerance, description) => assert.ok(Math.abs(actual - expected) <= tolerance, `${description}: ${actual} != ${expected} (tolerancia ${tolerance})`);
 const unique = (items, getKey, description) => assert.equal(new Set(items.map(getKey)).size, items.length, `${description} contiene identificadores duplicados`);
@@ -52,12 +56,23 @@ unique(services.items, item => item.id, 'Funciones COFOG');
 assert.ok(taxes.latestMonthly.period && taxes.latestMonthly.sourceUrl, 'Falta la referencia del dato mensual AEAT');
 const archivedPeriods = Object.entries(dashboardPeriods);
 assert.ok(archivedPeriods.length > 0, 'El selector necesita al menos un mes completo archivado');
+assert.ok(localHistory.months.length > 0, 'Falta el histórico local de la serie IGAE');
+unique(localHistory.months, item => item.period, 'Meses del histórico IGAE');
+for (const item of localHistory.months) {
+  assert.equal(item.monthly.referencePeriod, item.period, `El mes IGAE ${item.period} debe coincidir con su clave`);
+  assert.equal(item.monthly.periodType, 'Flujo del mes, calculado como diferencia entre acumulados del mes y del mes anterior', `Debe explicarse el cálculo del flujo mensual ${item.period}`);
+  assert.ok(item.monthly.sourceUrl.endsWith('/M_CONSOLIDADO_2026.xlsx'), `Falta el Excel IGAE de origen ${item.period}`);
+  assert.equal(item.provenance.sha256, workbookHash, `La huella del Excel no coincide con el archivo local (${item.period})`);
+  near(sum(item.monthly.revenue.map(line => line.amount)), item.monthly.revenueTotal, 0.01, `Ingresos del histórico IGAE ${item.period}`);
+  near(sum(item.monthly.expenditure.map(line => line.amount)), item.monthly.expenditureTotal, 0.01, `Gastos del histórico IGAE ${item.period}`);
+  near(item.monthly.revenueTotal - item.monthly.expenditureTotal, item.monthly.financingBalance, 0.01, `Saldo del histórico IGAE ${item.period}`);
+}
 for (const [key, snapshot] of archivedPeriods) {
   assert.equal(snapshot.period, key, `La clave del archivo ${key} debe coincidir con su periodo`);
-  const commonSources = [snapshot.taxes.latestMonthly.period, ...snapshot.benefits.items.map(item => item.period), snapshot.regions.igaeMonthly.period];
-  assert.ok(matchesCommonReferenceMonth(snapshot.monthly.referencePeriod, commonSources), `El panel ${key} mezcla meses o no tiene series mensuales coincidentes`);
+  assert.ok(snapshot.taxes.latestMonthly.period && snapshot.benefits.items.every(item => item.period) && snapshot.regions.igaeMonthly.period, `El panel ${key} debe conservar la fecha propia de sus series auxiliares`);
+  assert.ok(snapshot.monthly.sourceUrl && snapshot.monthly.periodLabel, `El panel ${key} debe incluir fuente y fecha de las cuentas mensuales`);
   near(sum(snapshot.monthly.revenue.map(item => item.amount)), snapshot.monthly.revenueTotal, 0.01, `Ingresos IGAE archivados ${key}`);
   near(sum(snapshot.monthly.expenditure.map(item => item.amount)), snapshot.monthly.expenditureTotal, 0.01, `Gastos IGAE archivados ${key}`);
 }
 assert.equal(archivedPeriods[0][1].period, monthly.referencePeriod, 'El mes más reciente del selector debe ser la fotografía oficial vigente');
-console.log(`Validación de datos correcta: sumas, fuentes y periodos; ${archivedPeriods.length} panel(es) mensual(es) completos disponibles.`);
+console.log(`Validación de datos correcta: sumas, fuentes y periodos; ${archivedPeriods.length} meses IGAE disponibles. Las series auxiliares conservan sus fechas publicadas.`);
