@@ -464,14 +464,14 @@ footer>span,footer>a:last-child{font-size:10px}
   .source-term summary{min-height:36px;display:flex;align-items:center}
   .official-allocations .allocation-control{grid-area:control;min-width:0;gap:7px}
   .allocation-quick-actions{gap:6px}
-  .allocation-quick-actions button{min-height:40px;padding:7px 9px;font-size:11px}
+  .allocation-quick-actions button{min-height:44px;padding:7px 9px;font-size:11px}
   .official-allocations .range-wrap{width:100%;padding:8px 0}
-  .official-allocations input[type=range]{width:100%;min-width:0;height:28px;touch-action:pan-y}
+  .official-allocations input[type=range]{width:100%;min-width:0;height:44px;touch-action:pan-y}
   .official-allocations input[type=range]::-webkit-slider-thumb{width:24px;height:24px}
   .official-allocations input[type=range]::-moz-range-thumb{width:24px;height:24px}
   .official-allocations .allocation-value{grid-area:value;align-self:end;max-width:120px;text-align:right;font-size:13px}
   .allocation-number{gap:3px}
-  .allocation-number input{width:77px;min-height:42px;padding:7px 5px;font-size:13px}
+  .allocation-number input{width:77px;min-height:44px;padding:7px 5px;font-size:13px}
   .allocation-number>small{font-size:11px}
   .allocation-delta{font-size:11px;white-space:normal}
   .allocation-delta>span[role=img]{font-size:18px}
