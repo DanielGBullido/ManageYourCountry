@@ -416,8 +416,13 @@ footer>span,footer>a:last-child{font-size:10px}
 /* Identity, legibility and small-screen information hierarchy */
 .brand-mark-image{display:block;width:38px;height:38px;flex:none}
 .hero-period-label{flex-wrap:wrap}
-.hero-period-select{appearance:none;max-width:190px;padding:3px 24px 3px 7px;border:1px solid #cfdcc9;border-radius:3px;background:#eef3e9;color:#31563b;font:inherit;letter-spacing:.03em;cursor:pointer}
-.hero-period-select:focus-visible{outline:3px solid #df9a5b;outline-offset:2px}
+.hero-period-picker{display:inline-flex;align-items:center;gap:8px;margin-left:3px}
+.hero-period-picker>label{color:#657566;font:600 9px var(--mono);letter-spacing:.08em}
+.hero-period-select-wrap{position:relative;display:inline-flex;align-items:center}
+.hero-period-select{appearance:none;min-width:166px;min-height:38px;padding:7px 34px 7px 11px;border:1.5px solid #789174;border-radius:5px;background:#fff;color:#31563b;font:600 12px var(--mono);letter-spacing:.02em;cursor:pointer;box-shadow:0 2px 0 #31563b12;transition:background .15s ease,border-color .15s ease,box-shadow .15s ease}
+.hero-period-select:hover{border-color:#31563b;background:#f4f7f1;box-shadow:0 2px 8px #26392c12}
+.hero-period-select:focus-visible{outline:3px solid #df9a5b;outline-offset:3px}
+.hero-period-chevron{position:absolute;right:11px;pointer-events:none;color:#31563b;font-size:15px;line-height:1}
 .period-availability{display:block;margin:8px 0 0 16px;color:#768176;font-size:12px;line-height:1.5}
 .hero-debt{grid-column:1/-1;display:grid;grid-template-columns:minmax(180px,.8fr) minmax(190px,1.2fr);gap:5px 18px;padding:15px 18px;border-top:3px solid #b65f47;background:#fbf1ed;color:#364039;text-decoration:none}
 .hero-debt-copy{display:flex;align-items:baseline;justify-content:space-between;gap:12px;grid-column:1/-1}
@@ -442,8 +447,10 @@ footer>span,footer>a:last-child{font-size:10px}
   .hero-data{padding:32px 6% 28px;gap:0}
   .hero-data h1{font-size:clamp(39px,11vw,48px);margin:18px 0 13px}
   .hero-intro{font-size:16px;line-height:1.6;margin-bottom:16px}
-  .hero-period-label{font-size:10px;line-height:1.6}
-  .hero-period-select{font-size:11px;min-height:38px}
+  .hero-period-label{font-size:10px;line-height:1.6;gap:7px}
+  .hero-period-picker{gap:5px}
+  .hero-period-picker>label{font-size:8px}
+  .hero-period-select{min-width:145px;font-size:11px;min-height:42px}
   .period-availability{font-size:13px;margin-left:15px}
   .hero-stats{grid-template-columns:1fr;margin-top:20px}
   .hero-stat,.hero-stat:nth-child(2),.hero-stat:nth-child(3){display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 10px;padding:13px 14px;border-right:0;grid-column:auto}
