@@ -16,6 +16,7 @@
     "Un superávit mejora el saldo no financiero, pero no demuestra que ese importe se haya usado para amortizar deuda. La variación de la deuda también depende de operaciones financieras, efectivo y ajustes de consolidación.",
     "La deuda PDE incluye las corporaciones locales. El agregado mensual IGAE mostrado en el simulador no las incluye; por tanto, sus coberturas no son idénticas."
   ],
+  "previousMonth": { "referencePeriod": "2025-12", "periodLabel": "diciembre de 2025", "amountMillions": 1698354.776 },
   "months": [
     { "referencePeriod": "2026-01", "periodLabel": "enero de 2026", "amountMillions": 1706835.242 },
     { "referencePeriod": "2026-02", "periodLabel": "febrero de 2026", "amountMillions": 1723373.488 },

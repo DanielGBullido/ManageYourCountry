@@ -34,15 +34,18 @@ export default function DashboardExperience({ snapshots, publicDebtHistory }: { 
   }
 
   if (!selected) return null;
-  const selectedDebt = publicDebtHistory.months.find(item => item.referencePeriod === period) ?? publicDebtHistory.months.at(-1);
+  const selectedDebtIndex = publicDebtHistory.months.findIndex(item => item.referencePeriod === period);
+  const selectedDebt = publicDebtHistory.months[selectedDebtIndex] ?? publicDebtHistory.months.at(-1);
   if (!selectedDebt) return null;
+  const previousDebt = selectedDebtIndex > 0 ? publicDebtHistory.months[selectedDebtIndex - 1] : publicDebtHistory.previousMonth;
+  const debtChangeMillions = selectedDebt.amountMillions - previousDebt.amountMillions;
   const { monthly, benefits, people, jobs, regions, taxes, services, demographics, igaeProvenance } = selected;
   const data = { monthly, benefits, people, jobs, regions, taxes, services, demographics, igaeProvenance };
 
   return <>
     <SiteHeader />
     <main id="inicio">
-      <HeroSection monthly={monthly} publicDebt={{ ...publicDebtHistory, ...selectedDebt }} selectedPeriod={period} availablePeriods={availablePeriods} onPeriodChange={changePeriod}/>
+      <HeroSection monthly={monthly} publicDebt={{ ...publicDebtHistory, ...selectedDebt, previousPeriodLabel: previousDebt.periodLabel, changeMillions: debtChangeMillions }} selectedPeriod={period} availablePeriods={availablePeriods} onPeriodChange={changePeriod}/>
       <BudgetSection data={data} key={period}/>
       <SectionDirectory />
       <PeopleSection data={data}/>

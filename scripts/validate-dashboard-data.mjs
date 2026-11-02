@@ -39,12 +39,15 @@ assert.equal(provenance.referencePeriod, monthly.referencePeriod, 'La versión r
 assert.equal(provenance.sourceUrl, monthly.sourceUrl, 'El PDF registrado debe ser el que se muestra como fuente');
 assert.ok(publicDebtHistory.sourceUrl.startsWith('https://') && publicDebtHistory.catalogUrl.startsWith('https://') && publicDebtHistory.apiUrl.startsWith('https://'), 'La deuda debe conservar enlaces oficiales');
 assert.equal(publicDebtHistory.seriesCode, 'DMNPDE2010_P00000_PS_APU', 'La serie debe ser la deuda PDE total consolidada de las AAPP');
+assert.ok(publicDebtHistory.previousMonth?.referencePeriod === '2025-12' && publicDebtHistory.previousMonth.amountMillions > 0, 'Falta el saldo previo para calcular la variación de enero');
 unique(publicDebtHistory.months, item => item.referencePeriod, 'Meses de deuda pública');
 assert.equal(publicDebtHistory.months.length, localHistory.months.length, 'La deuda y el selector IGAE deben cubrir los mismos meses');
 for (const period of localHistory.months.map(item => item.period)) {
   const debt = publicDebtHistory.months.find(item => item.referencePeriod === period);
   assert.ok(debt && debt.periodLabel && debt.amountMillions > 0, `Falta el dato de deuda para ${period}`);
+  assert.equal(dashboardPeriods[period].monthly.referencePeriod, debt.referencePeriod, `La tarjeta de deuda debe seguir el mes seleccionado (${period})`);
 }
+near(publicDebtHistory.months.at(-1).amountMillions, 1749584.760, 0.001, 'Deuda PDE total de agosto de 2026 (M€)');
 
 near(people.labour.employed + people.labour.unemployed, people.labour.active, 1, 'Ocupadas + paradas = activas');
 near(people.labour.active + people.labour.inactive, people.labour.population16Plus, 1, 'Activas + inactivas = población EPA de 16 años o más');

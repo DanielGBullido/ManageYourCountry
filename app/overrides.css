@@ -429,6 +429,7 @@ footer>span,footer>a:last-child{font-size:10px}
 .hero-debt-copy>span{font:10px var(--mono);letter-spacing:.08em;color:#806b63}
 .hero-debt-copy>b{font:650 clamp(22px,2.1vw,30px) var(--display);letter-spacing:-.05em;color:#a84735;white-space:nowrap}
 .hero-debt>small{font-size:11px;line-height:1.5;color:#756b66}
+.hero-debt .hero-debt-change{font-weight:650;color:#9f4d3c}
 .hero-debt .hero-debt-note{grid-column:1/-1;padding-top:5px;border-top:1px solid #eadbd5}
 .hero-debt:hover{background:#f8e9e3}
 .hero-debt:focus-visible{outline:3px solid #b65f47;outline-offset:3px}
