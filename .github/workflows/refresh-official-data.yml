@@ -1,0 +1,41 @@
+name: Actualizar datos oficiales IGAE
+
+on:
+  schedule:
+    - cron: '23 12 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh-igae:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Instalar lector de PDF
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - run: npm ci
+      - name: Validar datos antes de actualizar
+        run: npm run validate:data
+      - name: Buscar el último informe mensual y actualizar la serie IGAE
+        run: npm run data:refresh
+      - name: Validar sumas, saldo, fuentes y periodos
+        run: npm run validate:data
+      - name: Comprobar compilación de producción
+        run: npm run build
+      - name: Guardar una nueva versión si cambiaron las cifras
+        run: |
+          if git diff --quiet -- data/igae-latest.json data/provenance data/history/igae; then
+            echo "La publicación IGAE no ha cambiado."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/igae-latest.json data/provenance data/history/igae
+          git commit -m "Actualiza datos mensuales IGAE"
+          git push

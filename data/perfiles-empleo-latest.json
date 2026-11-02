@@ -1,0 +1,36 @@
+{
+  "title": "Quién trabaja: tipos de empleo y fuentes",
+  "note": "Son estadísticas oficiales con fechas, definiciones y coberturas distintas. No deben sumarse entre sí. La EPA estima personas ocupadas; la Seguridad Social cuenta afiliaciones en alta; y EPSAP cuenta efectivos de las Administraciones Públicas.",
+  "epa": {
+    "period": "Tercer trimestre de 2026",
+    "totalEmployed": 22852600,
+    "publicEmployees": 3736800,
+    "privateEmployees": 19115800,
+    "source": "INE · Encuesta de Población Activa",
+    "sourceUrl": "https://www.ine.es/dyngs/Prensa/EPA3T26.htm",
+    "description": "El dato de empleo privado incluye trabajo por cuenta propia y empleo asalariado privado. El empleo público EPA cuenta personas asalariadas del sector público, no solo funcionarios."
+  },
+  "privateSalaried": {
+    "period": "Segundo trimestre de 2026",
+    "people": 15938500,
+    "source": "INE · EPA, asalariados del sector privado",
+    "sourceUrl": "https://ine.es/consul/serie.do?L=0&d=true&s=EPA450291"
+  },
+  "selfEmployed": {
+    "period": "Septiembre de 2026",
+    "people": 3483645,
+    "source": "Seguridad Social · afiliación al RETA",
+    "sourceUrl": "https://www.inclusion.gob.es/w/el-empleo-logra-el-mejor-septiembre-de-la-historia-despues-de-sumar-92.327-afiliados-en-el-ultimo-mes-y-739.888-respecto-a-hace-un-ano",
+    "description": "Afiliaciones al Régimen Especial de Trabajadores Autónomos; es un registro administrativo, no una estimación EPA."
+  },
+  "publicAdministration": {
+    "period": "Enero de 2026",
+    "total": 3071725,
+    "careerCivilServants": 1686767,
+    "labourStaff": 622045,
+    "otherStaff": 762913,
+    "source": "Ministerio para la Transformación Digital y de la Función Pública · EPSAP",
+    "sourceUrl": "https://digital.gob.es/funcion-publica/dgfp/registro-central-personal/boletin",
+    "coverage": "Administración estatal, autonómica y local. Algunos datos universitarios y de Cataluña tienen fechas de referencia anteriores que se indican en la publicación."
+  }
+}

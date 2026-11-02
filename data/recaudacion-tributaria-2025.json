@@ -1,0 +1,82 @@
+{
+  "title": "Recaudación anual por impuestos",
+  "period": "Enero–diciembre de 2025",
+  "unit": "millones de euros",
+  "scope": "Ingresos tributarios netos en caja gestionados por la AEAT por cuenta del Estado, comunidades autónomas y corporaciones locales del territorio de régimen fiscal común.",
+  "source": "Agencia Tributaria · Informe mensual de recaudación tributaria, diciembre de 2025, cuadro 3.1",
+  "sourceUrl": "https://sede.agenciatributaria.gob.es/static_files/AEAT/Estudios/Estadisticas/Informes_Estadisticos/Informes_mensuales_recaudacion_tributaria/2025/IMR_25_12_gl_es.pdf",
+  "catalogUrl": "https://sede.agenciatributaria.gob.es/Sede/datosabiertos/catalogo/hacienda/Informe_mensual_de_Recaudacion_Tributaria.shtml",
+  "items": [
+    {
+      "id": "irpf",
+      "label": "IRPF",
+      "plainLabel": "Impuesto sobre la renta de las personas",
+      "amount": 142466,
+      "color": "#6f8b72"
+    },
+    {
+      "id": "iva",
+      "label": "IVA",
+      "plainLabel": "Impuesto sobre el consumo",
+      "amount": 99532,
+      "color": "#c58f60"
+    },
+    {
+      "id": "corporate",
+      "label": "Impuesto sobre Sociedades",
+      "plainLabel": "Impuesto sobre los beneficios de las empresas",
+      "amount": 42266,
+      "color": "#8199a6"
+    },
+    {
+      "id": "special",
+      "label": "Impuestos especiales",
+      "plainLabel": "Alcohol y cerveza; hidrocarburos; tabaco y líquidos para cigarrillos electrónicos; electricidad; envases de plástico no reutilizables; carbón y otros impuestos especiales.",
+      "amount": 23083,
+      "components": [
+        { "label": "Alcohol y bebidas derivadas", "amount": 793 },
+        { "label": "Cerveza", "amount": 336 },
+        { "label": "Productos intermedios", "amount": 23 },
+        { "label": "Hidrocarburos", "amount": 12366 },
+        { "label": "Labores del tabaco", "amount": 7340 },
+        { "label": "Líquidos para cigarrillos electrónicos", "amount": 30 },
+        { "label": "Electricidad", "amount": 1587 },
+        { "label": "Envases de plástico no reutilizables", "amount": 599 },
+        { "label": "Carbón", "amount": 9 },
+        { "label": "Otros impuestos especiales", "amount": 0 }
+      ],
+      "color": "#b2ae78"
+    },
+    {
+      "id": "other",
+      "label": "Otros impuestos, tasas e ingresos tributarios",
+      "plainLabel": "Detalle por los conceptos que publica la AEAT. Las partidas llamadas «Resto del capítulo» se mantienen con ese nombre porque el informe no las separa más.",
+      "amount": 18009,
+      "components": [
+        { "label": "Impuesto sobre la Renta de no Residentes", "amount": 5397 },
+        { "label": "Impuesto sobre intereses y comisiones de entidades financieras", "amount": 1423 },
+        { "label": "Impuestos medioambientales", "amount": 2108 },
+        { "label": "Resto del capítulo I: otros impuestos directos", "amount": 272 },
+        { "label": "Impuesto sobre el tráfico exterior", "amount": 2977 },
+        { "label": "Impuesto sobre primas de seguros", "amount": 2769 },
+        { "label": "Impuesto sobre transacciones financieras", "amount": 339 },
+        { "label": "Impuesto sobre determinados servicios digitales", "amount": 410 },
+        { "label": "Impuesto sobre actividades de juego (Estado)", "amount": 44 },
+        { "label": "Impuesto sobre gases fluorados", "amount": 104 },
+        { "label": "Resto del capítulo II: otros impuestos indirectos", "amount": 10 },
+        { "label": "Tasa radioeléctrica", "amount": -90 },
+        { "label": "Canon de aguas", "amount": 235 },
+        { "label": "Otras tasas", "amount": 797 },
+        { "label": "Resto del capítulo III: otros ingresos", "amount": 1214 }
+      ],
+      "color": "#b78b80"
+    }
+  ],
+  "latestMonthly": {
+    "period": "Agosto 2026",
+    "amountMillions": 29451,
+    "source": "Agencia Tributaria · Informe mensual de recaudación tributaria",
+    "sourceUrl": "https://sede.agenciatributaria.gob.es/static_files/AEAT/Estudios/Estadisticas/Informes_Estadisticos/Informes_mensuales_recaudacion_tributaria/2026/IMR_26_08_es_es.pdf",
+    "note": "Ingresos tributarios netos recaudados en agosto, en caja. Es un dato AEAT y tiene distinto alcance contable al total de ingresos de la IGAE que usa el simulador."
+  }
+}

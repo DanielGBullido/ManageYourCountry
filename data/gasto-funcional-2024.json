@@ -1,0 +1,19 @@
+{
+  "title": "Gasto anual por grandes funciones públicas",
+  "period": "2024 (dato provisional)",
+  "totalMillions": 725001,
+  "source": "IGAE · Clasificación funcional del gasto público (COFOG), informe 2020–2024",
+  "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP_A/Funcional%202020-2024.pdf",
+  "items": [
+    { "id": "general", "label": "Servicios públicos generales", "plainLabel": "Órganos ejecutivos y legislativos; gestión financiera, fiscal y de asuntos exteriores; cooperación económica internacional; servicios generales; investigación básica; deuda pública y transferencias generales entre administraciones.", "amount": 92551, "sourcePage": 12, "color": "#6f8b72" },
+    { "id": "defence", "label": "Defensa", "plainLabel": "Defensa militar, defensa civil, ayuda militar a otros países e investigación y desarrollo relacionados con la defensa. No coincide exactamente con la definición de gasto militar de la OTAN.", "amount": 14233, "sourcePage": 16, "color": "#c58f60" },
+    { "id": "public-order", "label": "Orden público y seguridad", "plainLabel": "Policía, tribunales, prisiones, protección civil y bomberos; incluye también la investigación pública dedicada a estas funciones.", "amount": 28628, "sourcePage": 18, "color": "#8199a6" },
+    { "id": "economic", "label": "Asuntos económicos", "plainLabel": "Gestión económica y laboral; agricultura, pesca y silvicultura; energía; industria y construcción; transporte; comunicaciones; y apoyo e investigación para esas actividades.", "amount": 80908, "sourcePage": 20, "color": "#b2ae78" },
+    { "id": "environment", "label": "Protección del medio ambiente", "plainLabel": "Gestión de residuos y aguas residuales; reducción de contaminación; protección de biodiversidad y paisaje; e investigación ambiental.", "amount": 15539, "sourcePage": 25, "color": "#b78b80" },
+    { "id": "housing", "label": "Vivienda y servicios comunitarios", "plainLabel": "Promoción de vivienda, urbanismo y desarrollo comunitario; abastecimiento de agua; alumbrado público; e investigación sobre estos servicios.", "amount": 7613, "sourcePage": 27, "color": "#82936d" },
+    { "id": "health", "label": "Salud", "plainLabel": "Productos, aparatos y equipos médicos; atención ambulatoria y hospitalaria; salud pública; administración sanitaria; investigación y laboratorios de salud pública.", "amount": 102942, "sourcePage": 29, "color": "#7894a4" },
+    { "id": "recreation-culture", "label": "Ocio, cultura y religión", "plainLabel": "Deporte y ocio; cultura; radio, televisión y publicaciones; servicios religiosos; e investigación en estas áreas.", "amount": 19193, "sourcePage": 34, "color": "#bd8d70" },
+    { "id": "education", "label": "Educación", "plainLabel": "Educación infantil, primaria, secundaria, postsecundaria y universitaria; servicios auxiliares al alumnado; e investigación educativa.", "amount": 65862, "sourcePage": 36, "color": "#9a8eb0" },
+    { "id": "social", "label": "Protección social", "plainLabel": "Prestaciones por enfermedad o discapacidad; jubilación y supervivencia; familia e infancia; desempleo; vivienda; exclusión social; e investigación social.", "amount": 297532, "sourcePage": 39, "color": "#9caa84" }
+  ]
+}

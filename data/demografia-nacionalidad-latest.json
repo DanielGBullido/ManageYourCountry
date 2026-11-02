@@ -1,0 +1,17 @@
+{
+  "title": "Población por nacionalidad y lugar de nacimiento",
+  "period": "1 de julio de 2026",
+  "total": 49801559,
+  "source": "INE · Estadística Continua de Población",
+  "sourceUrl": "https://ine.es/dyngs/Prensa/ECP2T26.htm",
+  "ageSourceUrl": "https://www.ine.es/jaxiT3/Tabla.htm?t=59583",
+  "under18": 7791568,
+  "age18Plus": 42009991,
+  "spanishNationality": 42364016,
+  "foreignNationality": 7437543,
+  "spanishNationalityBornAbroad": 3370854,
+  "bornAbroadTotal": 10291807,
+  "foreignNationalityBornAbroad": 6920953,
+  "foreignNationalityBornSpain": 516590,
+  "note": "La población con nacionalidad española nacida en el extranjero incluye personas que adquirieron la nacionalidad, pero también españolas de nacimiento nacidas fuera de España. No es un recuento exacto de nacionalizaciones."
+}

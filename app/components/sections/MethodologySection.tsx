@@ -1,0 +1,10 @@
+import type { DashboardData } from '../../lib/dashboard-data';
+import { formatMillions } from '../../lib/format';
+
+export default function MethodologySection({ monthly }: { monthly: DashboardData['monthly'] }) { return (
+<details className="deep-disclosure method-disclosure" id="metodologia">
+        <summary><span className="deep-summary-icon">04</span><span className="deep-summary-copy"><b>Cómo leer las cifras</b><small>Alcance, periodos y límites de cada comparación</small></span><span className="deep-summary-action">Ver metodología <i>↓</i></span></summary>
+      <section className="method-section" id="detalle-metodologia"><div className="eyebrow muted">METODOLOGÍA</div><div className="method-grid"><div><h2>Una cifra pública<br/><em>necesita contexto.</em></h2><p>El saldo oficial es la diferencia entre los ingresos y los gastos no financieros reales del mes. En el simulador, el dinero sin repartir es la parte de esos ingresos que no has asignado a partidas. Ninguno representa el dinero de una cuenta bancaria.</p></div><div className="method-points"><div><b>Qué incluye</b><span>{monthly.scope}. No incluye ayuntamientos.</span></div><div><b>Por qué las cifras tienen fechas distintas</b><span>El gasto IGAE es mensual; la AEAT publica los impuestos cada mes y el desglose por impuesto del ejercicio completo; pensiones, IMV y paro los publican sus organismos con calendarios propios. Cada cifra conserva su periodo y no se suman series de periodos distintos.</span></div><div><b>Qué cambia al jugar</b><span>Puedes mover dinero entre partidas o dejarlo sin repartir. El gasto asignado no puede superar los ingresos registrados ese mes. El dato oficial de {monthly.periodLabel.toLowerCase()} registra {formatMillions(monthly.expenditureTotal)} de gasto frente a {formatMillions(monthly.revenueTotal)} de ingresos; el escenario inicial deja {formatMillions(monthly.revenueTotal - monthly.expenditureTotal)} sin repartir.</span></div></div></div></section>
+
+      </details>
+); }

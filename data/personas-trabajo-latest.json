@@ -1,0 +1,49 @@
+{
+  "title": "Población y situación laboral en España",
+  "population": {
+    "date": "1 de julio de 2026",
+    "people": 49801559,
+    "source": "Instituto Nacional de Estadística (INE)",
+    "sourceUrl": "https://ine.es/dyngs/Prensa/ECP2T26.htm"
+  },
+  "labour": {
+    "period": "Tercer trimestre de 2026",
+    "employed": 22852600,
+    "active": 25443800,
+    "unemployed": 2591200,
+    "source": "Encuesta de Población Activa (EPA), INE",
+    "sourceUrl": "https://www.ine.es/dyngs/Prensa/EPA3T26.htm",
+    "population16Plus": 42751800,
+    "inactive": 17308000,
+    "inactiveReasons": [
+      {
+        "label": "Jubilados, retirados y pensionistas",
+        "description": "Personas que dejaron su actividad laboral y perciben una pensión, o que cobran otro tipo de pensión. Si además trabajan o buscan empleo, la EPA las clasifica según esa situación.",
+        "people": 9311400
+      },
+      {
+        "label": "Estudiantes",
+        "description": "Personas de 16 años o más que estudian y no cumplen los criterios de empleo o búsqueda activa de trabajo. Un estudiante con empleo cuenta como ocupado.",
+        "people": 3176500
+      },
+      {
+        "label": "Labores del hogar",
+        "description": "Personas que señalan como situación principal las tareas no remuneradas de su hogar y no están clasificadas como ocupadas o paradas.",
+        "people": 3406400
+      },
+      {
+        "label": "Incapacidad permanente para trabajar",
+        "description": "Personas que declaran no poder trabajar por una incapacidad permanente. No es el recuento de todas las personas con discapacidad.",
+        "people": 798600
+      },
+      {
+        "label": "Otros motivos de inactividad",
+        "description": "Personas sin actividad económica que no encajan en las categorías anteriores; por ejemplo, rentistas o personas que reciben ayuda pública o privada. No significa que no tengan ingresos ni que no paguen impuestos.",
+        "people": 615100
+      }
+    ],
+    "inactiveSourceUrl": "https://www.idescat.cat/treball/epa?id=ie3029&lang=es&tc=4",
+    "population16PlusSourceUrl": "https://www.idescat.cat/treball/epa?id=ie0301&lang=es&tc=4"
+  },
+  "note": "La población total del INE (1 de julio) incluye residentes de todas las edades. La EPA del tercer trimestre clasifica a la población de 16 y más años en activa (ocupada o parada que busca empleo) e inactiva. La población de 16 y más años de la EPA (42.751.800) se divide exactamente, con cifras redondeadas, en 25.443.800 activas y 17.308.000 inactivas. No se debe restar directamente la EPA a la población total como si fueran la misma fecha y universo."
+}
