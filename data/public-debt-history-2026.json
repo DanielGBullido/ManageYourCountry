@@ -1,0 +1,29 @@
+{
+  "source": "Banco de España · deuda de las Administraciones Públicas según el Protocolo de Déficit Excesivo (PDE)",
+  "sourceUrl": "https://www.bde.es/wbe/es/noticias-eventos/actualidad-banco-espana/deuda-aapp-agosto26.html",
+  "catalogUrl": "https://datos.bde.es/datos/es/datasets/000/032.html",
+  "apiUrl": "https://app.bde.es/bierest/resources/srdatosapp/listaSeries?idioma=es&series=DMNPDE2010_P00000_PS_APU&rango=MAX",
+  "seriesCode": "DMNPDE2010_P00000_PS_APU",
+  "apiUnit": "miles de euros",
+  "displayUnit": "millones de euros",
+  "retrievedAt": "2026-11-02",
+  "method": "Serie mensual oficial en miles de euros; convertida a millones dividiendo entre 1.000. El saldo corresponde al cierre de cada mes.",
+  "scope": "Administración central, comunidades autónomas, corporaciones locales y Seguridad Social; deuda bruta nominal consolidada.",
+  "definition": "Incluye efectivo y depósitos, valores representativos de deuda y préstamos. Se descuentan los pasivos entre unidades de las propias Administraciones Públicas para no contar dos veces la misma deuda.",
+  "notes": [
+    "Es el saldo acumulado pendiente al cierre de cada mes, no el déficit de ese mes.",
+    "El avance mensual puede revisarse cuando el Banco de España incorpora información nueva o reclasifica unidades.",
+    "Un superávit mejora el saldo no financiero, pero no demuestra que ese importe se haya usado para amortizar deuda. La variación de la deuda también depende de operaciones financieras, efectivo y ajustes de consolidación.",
+    "La deuda PDE incluye las corporaciones locales. El agregado mensual IGAE mostrado en el simulador no las incluye; por tanto, sus coberturas no son idénticas."
+  ],
+  "months": [
+    { "referencePeriod": "2026-01", "periodLabel": "enero de 2026", "amountMillions": 1706835.242 },
+    { "referencePeriod": "2026-02", "periodLabel": "febrero de 2026", "amountMillions": 1723373.488 },
+    { "referencePeriod": "2026-03", "periodLabel": "marzo de 2026", "amountMillions": 1739640.890 },
+    { "referencePeriod": "2026-04", "periodLabel": "abril de 2026", "amountMillions": 1736006.907 },
+    { "referencePeriod": "2026-05", "periodLabel": "mayo de 2026", "amountMillions": 1729545.211 },
+    { "referencePeriod": "2026-06", "periodLabel": "junio de 2026", "amountMillions": 1762935.788 },
+    { "referencePeriod": "2026-07", "periodLabel": "julio de 2026", "amountMillions": 1743967.460 },
+    { "referencePeriod": "2026-08", "periodLabel": "agosto de 2026", "amountMillions": 1749584.760 }
+  ]
+}

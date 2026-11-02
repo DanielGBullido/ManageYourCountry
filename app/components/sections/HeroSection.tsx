@@ -1,10 +1,10 @@
 import type { DashboardData } from '../../lib/dashboard-data';
 import { formatMillions } from '../../lib/format';
-import type publicDebtData from '../../../data/public-debt-latest.json';
+import type publicDebtHistoryData from '../../../data/public-debt-history-2026.json';
 
 type HeroSectionProps = {
   monthly: DashboardData['monthly'];
-  publicDebt: typeof publicDebtData;
+  publicDebt: Omit<typeof publicDebtHistoryData, 'months'> & typeof publicDebtHistoryData.months[number];
   selectedPeriod: string;
   availablePeriods: { period: string; label: string }[];
   onPeriodChange: (period: string) => void;
@@ -22,7 +22,7 @@ export default function HeroSection({ monthly, publicDebt, selectedPeriod, avail
           <div className="hero-stat"><span>DINERO QUE ENTRÓ</span><b>{formatMillions(monthly.revenueTotal)}</b><small>Impuestos, cotizaciones, ventas y rentas públicas</small></div>
           <div className="hero-stat"><span>DINERO QUE SE GASTÓ</span><b>{formatMillions(monthly.expenditureTotal)}</b><small>Gasto público no financiero</small></div>
           <div className={`hero-stat balance ${monthly.financingBalance >= 0 ? 'surplus' : ''}`}><span>{monthly.financingBalance >= 0 ? 'QUEDÓ DESPUÉS DE GASTAR' : 'FALTÓ PARA CUBRIR EL GASTO'}</span><b>{monthly.financingBalance >= 0 ? '+' : '−'}{formatMillions(Math.abs(monthly.financingBalance))}</b><small>{monthly.financingBalance >= 0 ? 'Superávit del mes' : 'Déficit del mes'}</small></div>
-          <a className="hero-debt" href={publicDebt.sourceUrl} target="_blank" rel="noreferrer" aria-label={`Deuda pública total aproximada: ${publicDebt.displayAmount}. Último dato de ${publicDebt.periodLabel}. Abrir fuente del Banco de España`}><span className="hero-debt-copy"><span>DEUDA PÚBLICA TOTAL · PDE</span><b>{publicDebt.displayAmount}</b></span><small>Último dato: {publicDebt.periodLabel} · Banco de España ↗</small><small className="hero-debt-note">Es deuda acumulada, no gasto del mes. Un superávit mejora el saldo, pero no significa que ese importe se destine automáticamente a amortizar deuda.</small></a>
+          <a className="hero-debt" href={publicDebt.apiUrl} target="_blank" rel="noreferrer" aria-label={`Deuda pública total PDE al cierre de ${publicDebt.periodLabel}: ${formatMillions(publicDebt.amountMillions)}. Abrir serie del Banco de España`}><span className="hero-debt-copy"><span>DEUDA PÚBLICA A CIERRE DE MES · PDE</span><b>{formatMillions(publicDebt.amountMillions)}</b></span><small>{publicDebt.periodLabel.toUpperCase()} · Banco de España · ver serie oficial ↗</small><small className="hero-debt-note">Es deuda acumulada, no gasto del mes. El déficit o superávit mensual no se convierte directamente en la misma subida o bajada de deuda.</small></a>
           <div className="stat-foot">{monthly.periodLabel.toUpperCase()} · {monthly.scope.toUpperCase()}<br/>Saldo de ingresos y gastos públicos; no es el dinero que queda en una cuenta bancaria.</div>
         </div>
       </section>

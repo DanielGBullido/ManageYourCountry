@@ -11,9 +11,9 @@ import RegionsSection from './sections/RegionsSection';
 import MethodologySection from './sections/MethodologySection';
 import SourcesSection from './sections/SourcesSection';
 import SectionDirectory from './sections/SectionDirectory';
-import type publicDebtData from '../../data/public-debt-latest.json';
+import type publicDebtHistoryData from '../../data/public-debt-history-2026.json';
 
-export default function DashboardExperience({ snapshots, publicDebt }: { snapshots: DashboardPeriodSnapshot[]; publicDebt: typeof publicDebtData }) {
+export default function DashboardExperience({ snapshots, publicDebtHistory }: { snapshots: DashboardPeriodSnapshot[]; publicDebtHistory: typeof publicDebtHistoryData }) {
   const [period, setPeriod] = useState(snapshots[0]?.period ?? '');
   const selected = useMemo(() => snapshots.find(snapshot => snapshot.period === period) ?? snapshots[0], [snapshots, period]);
   const availablePeriods = useMemo(() => snapshots.map(snapshot => ({ period: snapshot.period, label: snapshot.label })), [snapshots]);
@@ -34,13 +34,15 @@ export default function DashboardExperience({ snapshots, publicDebt }: { snapsho
   }
 
   if (!selected) return null;
+  const selectedDebt = publicDebtHistory.months.find(item => item.referencePeriod === period) ?? publicDebtHistory.months.at(-1);
+  if (!selectedDebt) return null;
   const { monthly, benefits, people, jobs, regions, taxes, services, demographics, igaeProvenance } = selected;
   const data = { monthly, benefits, people, jobs, regions, taxes, services, demographics, igaeProvenance };
 
   return <>
     <SiteHeader />
     <main id="inicio">
-      <HeroSection monthly={monthly} publicDebt={publicDebt} selectedPeriod={period} availablePeriods={availablePeriods} onPeriodChange={changePeriod}/>
+      <HeroSection monthly={monthly} publicDebt={{ ...publicDebtHistory, ...selectedDebt }} selectedPeriod={period} availablePeriods={availablePeriods} onPeriodChange={changePeriod}/>
       <BudgetSection data={data} key={period}/>
       <SectionDirectory />
       <PeopleSection data={data}/>
