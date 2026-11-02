@@ -362,6 +362,39 @@ footer>span,footer>a:last-child{font-size:10px}
 .annual-card>a.latest-tax-update>small{grid-column:1;display:block;margin:0;font:11px/1.45 var(--sans);color:#68766a}
 .annual-card>a.latest-tax-update>.latest-tax-link-label{color:#426849;font:10px/1.4 var(--mono);text-decoration:underline;text-decoration-color:#aec2ad;text-underline-offset:3px}
 .annual-card>a.latest-tax-update:hover{background:#e4eee0}
+.tax-measure-compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0 10px}
+.tax-measure-compare>div{display:flex;min-width:0;flex-direction:column;align-items:flex-start;gap:7px;padding:13px;background:#f6f7f2;border:1px solid #e1e7dc}
+.tax-measure-compare span{font:9px/1.45 var(--mono);letter-spacing:.025em;color:#617563}
+.tax-measure-compare b{font:600 clamp(19px,2vw,25px)/1.1 var(--display);color:#304335}
+.tax-measure-compare small{font:11px/1.55 var(--sans);color:#68766a}
+.tax-measure-compare a{margin-top:auto;color:#426849;font:10px/1.4 var(--mono);text-decoration:underline;text-decoration-color:#aec2ad;text-underline-offset:3px}
+.tax-measure-note{margin:0 0 16px;padding:12px 14px;background:#f7f1e8;border-left:3px solid #c9905d;color:#5f5b50;font:11px/1.6 var(--sans)}
+.tax-measure-note b{color:#39443a}
+.recipient-profile{display:grid;gap:14px;margin-top:20px;padding:clamp(16px,2vw,24px);border:1px solid #dce4d9;background:#fbfcf9}
+.recipient-profile-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:20px}
+.recipient-profile-heading h4{max-width:620px;margin:7px 0 0;color:#2f3f32;font:600 clamp(19px,2vw,25px)/1.2 var(--display);letter-spacing:-.025em}
+.recipient-profile-heading>p{max-width:420px;margin:0;color:#69766b;font:12px/1.55 var(--sans)}
+.recipient-card{min-width:0;padding:16px;background:#fff;border:1px solid #e1e7dc}
+.recipient-card-title{display:flex;justify-content:space-between;align-items:flex-start;gap:14px}
+.recipient-card-title>div>span,.recipient-card>.eyebrow{color:#718071;font:9px/1.4 var(--mono);letter-spacing:.035em}
+.recipient-card h5{margin:6px 0 0;color:#344436;font:600 17px/1.3 var(--display)}
+.recipient-card-title>strong{flex:none;color:#314334;font:600 20px/1.15 var(--display);text-align:right}
+.recipient-card-title>strong small{display:block;margin-top:4px;color:#7b867b;font:10px/1.3 var(--mono);font-weight:400}
+.recipient-card>p{margin:10px 0;color:#667368;font:11px/1.55 var(--sans)}
+.imv-nationality-bar{display:flex;overflow:hidden;height:14px;margin:12px 0 10px;background:#eff2ec;border-radius:99px}
+.imv-nationality-bar span:nth-child(1){background:#476c50}.imv-nationality-bar span:nth-child(2){background:#d39a63}.imv-nationality-bar span:nth-child(3){min-width:2px;background:#98a8b0}
+.imv-nationality-legend{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.imv-nationality-legend>div{display:flex;align-items:flex-start;gap:7px;color:#58665a;font:10px/1.45 var(--sans)}
+.imv-nationality-legend i{flex:none;width:8px;height:8px;margin-top:3px;border-radius:2px;background:#476c50}.imv-nationality-legend i.foreign{background:#d39a63}.imv-nationality-legend i.unknown{background:#98a8b0}
+.imv-nationality-legend b{display:block;color:#354438;font:600 12px/1.4 var(--mono)}
+.imv-nationality-legend small{display:block;color:#7a867b;font:9px/1.4 var(--sans)}
+.recipient-caveat{margin:12px 0;padding:10px 12px;background:#f6f7f2;border-left:3px solid #92a88a;color:#637064;font:10px/1.55 var(--sans)}
+.recipient-caveat b{color:#344436}
+.recipient-card>a{display:block;width:fit-content;max-width:100%;margin-top:7px;color:#426849;font:10px/1.45 var(--mono);text-decoration:underline;text-decoration-color:#aec2ad;text-underline-offset:3px;overflow-wrap:anywhere}
+.recipient-data-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.recipient-card>small{display:block;margin-top:10px;color:#778276;font:10px/1.5 var(--sans)}
+.recipient-profile-note{margin:0;color:#6b776b;font:10px/1.55 var(--sans)}
+.recipient-profile-note b{color:#455547}
 .annual-breakdown{margin-top:9px;padding:10px 11px;background:#f6f7f2;border-left:2px solid #aebfa8}
 .annual-breakdown-label{display:block;margin-bottom:6px;color:#657365;font:9px/1.4 var(--mono);letter-spacing:.025em;text-transform:uppercase}
 .annual-component-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 14px;margin:0;padding:0;list-style:none}
@@ -371,7 +404,8 @@ footer>span,footer>a:last-child{font-size:10px}
 .annual-description-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 18px;margin:6px 0 0;padding-left:15px;color:#788278;font:10px/1.45 var(--sans)}
 .annual-description-list li{padding-left:1px}
 .annual-bar-row>i{margin-top:8px}
-@media(max-width:640px){.annual-card>a.latest-tax-update{grid-template-columns:minmax(0,1fr) auto;gap:4px 8px;padding:12px}.annual-card>a.latest-tax-update>span{font-size:9px}.annual-card>a.latest-tax-update>b{font-size:19px}.annual-card>a.latest-tax-update>small{font-size:10px}.annual-component-list,.annual-description-list{grid-template-columns:1fr}.annual-component-list li{font-size:10px}}
+@media(max-width:640px){.annual-card>a.latest-tax-update{grid-template-columns:minmax(0,1fr) auto;gap:4px 8px;padding:12px}.annual-card>a.latest-tax-update>span{font-size:9px}.annual-card>a.latest-tax-update>b{font-size:19px}.annual-card>a.latest-tax-update>small{font-size:10px}.tax-measure-compare{grid-template-columns:1fr}.tax-measure-compare>div{padding:12px}.annual-component-list,.annual-description-list{grid-template-columns:1fr}.annual-component-list li{font-size:10px}}
+@media(max-width:700px){.recipient-profile-heading{display:block}.recipient-profile-heading>p{margin-top:8px}.recipient-data-grid{grid-template-columns:1fr}.imv-nationality-legend{grid-template-columns:1fr}.recipient-card-title{align-items:center}.recipient-profile{padding:14px}}
 
 .benefit-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 .benefit-card>a.benefit-secondary-source{display:block;margin-top:4px}

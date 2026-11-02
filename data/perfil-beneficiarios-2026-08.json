@@ -1,0 +1,24 @@
+{
+  "source": "Instituto Nacional de la Seguridad Social (INSS)",
+  "referencePeriod": "2026-08",
+  "periodLabel": "Agosto de 2026",
+  "measure": "Titulares de hogares con Ingreso Mínimo Vital, clasificados por nacionalidad",
+  "unit": "personas titulares",
+  "totalHolders": 893820,
+  "nationality": {
+    "spanish": 737916,
+    "foreign": 155611,
+    "notReported": 293
+  },
+  "beneficiaryPeople": 2725899,
+  "monthlyAmountMillions": null,
+  "amountByNationality": null,
+  "sourceUrl": "https://revista.seg-social.es/documents/39386/0/202608%2BCOMPLETO%2BDossier%2Bcomunidad%2Baut%C3%B3noma%2By%2Bprovincia.xlsx/11998020-b5c9-314e-dc11-7d1c6c78974a?t=1788846979404",
+  "contextUrl": "https://revista.seg-social.es/-/el-ingreso-m%C3%ADnimo-vital-protege-en-agosto-a-m%C3%A1s-de-2-7-millones-de-personas-residentes-en-894.000-hogares",
+  "table": "1.5. IMV. Sexo y nacionalidad de los titulares. Nómina de agosto de 2026",
+  "notes": [
+    "Cada prestación corresponde a un hogar y tiene una persona titular; los integrantes del hogar se cuentan aparte como personas beneficiarias.",
+    "El informe no desglosa el importe abonado por nacionalidad del titular.",
+    "Nacionalidad no equivale a lugar de nacimiento ni a condición migratoria."
+  ]
+}

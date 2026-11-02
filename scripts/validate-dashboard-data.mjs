@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises';
 import { matchesCommonReferenceMonth } from './lib/monthly-period.mjs';
 
 const readJson = async path => JSON.parse(await readFile(new URL(`../data/${path}`, import.meta.url), 'utf8'));
-const [monthly, benefits, people, regions, taxes, services, provenance, localHistory, publicDebtHistory] = await Promise.all([
+const [monthly, benefits, people, regions, taxes, services, provenance, localHistory, publicDebtHistory, imvProfile] = await Promise.all([
   readJson('igae-latest.json'),
   readJson('prestaciones-latest.json'),
   readJson('personas-trabajo-latest.json'),
@@ -14,6 +14,7 @@ const [monthly, benefits, people, regions, taxes, services, provenance, localHis
   readJson('provenance/igae-latest.json'),
   readJson('igae-monthly-history-2026.json'),
   readJson('public-debt-history-2026.json'),
+  readJson('perfil-beneficiarios-2026-08.json'),
 ]);
 const dashboardPeriods = await readJson('dashboard-periods.json');
 const sourceWorkbook = await readFile(new URL('../data/sources/igae/M_CONSOLIDADO_2026.xlsx', import.meta.url));
@@ -48,6 +49,9 @@ for (const period of localHistory.months.map(item => item.period)) {
   assert.equal(dashboardPeriods[period].monthly.referencePeriod, debt.referencePeriod, `La tarjeta de deuda debe seguir el mes seleccionado (${period})`);
 }
 near(publicDebtHistory.months.at(-1).amountMillions, 1749584.760, 0.001, 'Deuda PDE total de agosto de 2026 (M€)');
+assert.equal(imvProfile.totalHolders, imvProfile.nationality.spanish + imvProfile.nationality.foreign + imvProfile.nationality.notReported, 'El desglose de titulares del IMV debe sumar el total de hogares');
+assert.equal(imvProfile.amountByNationality, null, 'No se debe inferir el importe del IMV por nacionalidad si la fuente no lo publica');
+assert.ok(imvProfile.sourceUrl.startsWith('https://') && imvProfile.contextUrl.startsWith('https://'), 'El perfil de titulares del IMV debe enlazar sus fuentes');
 
 near(people.labour.employed + people.labour.unemployed, people.labour.active, 1, 'Ocupadas + paradas = activas');
 near(people.labour.active + people.labour.inactive, people.labour.population16Plus, 1, 'Activas + inactivas = población EPA de 16 años o más');
