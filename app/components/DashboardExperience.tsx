@@ -11,8 +11,9 @@ import RegionsSection from './sections/RegionsSection';
 import MethodologySection from './sections/MethodologySection';
 import SourcesSection from './sections/SourcesSection';
 import SectionDirectory from './sections/SectionDirectory';
+import type publicDebtData from '../../data/public-debt-latest.json';
 
-export default function DashboardExperience({ snapshots }: { snapshots: DashboardPeriodSnapshot[] }) {
+export default function DashboardExperience({ snapshots, publicDebt }: { snapshots: DashboardPeriodSnapshot[]; publicDebt: typeof publicDebtData }) {
   const [period, setPeriod] = useState(snapshots[0]?.period ?? '');
   const selected = useMemo(() => snapshots.find(snapshot => snapshot.period === period) ?? snapshots[0], [snapshots, period]);
   const availablePeriods = useMemo(() => snapshots.map(snapshot => ({ period: snapshot.period, label: snapshot.label })), [snapshots]);
@@ -39,7 +40,7 @@ export default function DashboardExperience({ snapshots }: { snapshots: Dashboar
   return <>
     <SiteHeader />
     <main id="inicio">
-      <HeroSection monthly={monthly} selectedPeriod={period} availablePeriods={availablePeriods} onPeriodChange={changePeriod}/>
+      <HeroSection monthly={monthly} publicDebt={publicDebt} selectedPeriod={period} availablePeriods={availablePeriods} onPeriodChange={changePeriod}/>
       <BudgetSection data={data} key={period}/>
       <SectionDirectory />
       <PeopleSection data={data}/>

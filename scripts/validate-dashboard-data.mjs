@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises';
 import { matchesCommonReferenceMonth } from './lib/monthly-period.mjs';
 
 const readJson = async path => JSON.parse(await readFile(new URL(`../data/${path}`, import.meta.url), 'utf8'));
-const [monthly, benefits, people, regions, taxes, services, provenance, localHistory] = await Promise.all([
+const [monthly, benefits, people, regions, taxes, services, provenance, localHistory, publicDebt] = await Promise.all([
   readJson('igae-latest.json'),
   readJson('prestaciones-latest.json'),
   readJson('personas-trabajo-latest.json'),
@@ -13,6 +13,7 @@ const [monthly, benefits, people, regions, taxes, services, provenance, localHis
   readJson('gasto-funcional-2024.json'),
   readJson('provenance/igae-latest.json'),
   readJson('igae-monthly-history-2026.json'),
+  readJson('public-debt-latest.json'),
 ]);
 const dashboardPeriods = await readJson('dashboard-periods.json');
 const sourceWorkbook = await readFile(new URL('../data/sources/igae/M_CONSOLIDADO_2026.xlsx', import.meta.url));
@@ -36,6 +37,9 @@ assert.equal(regions.communities.length, 17, 'Se esperan 17 comunidades autónom
 assert.ok(monthly.sourceUrl.startsWith('https://') && benefits.items.every(item => item.sourceUrl.startsWith('https://')), 'Las fuentes deben enlazar a HTTPS');
 assert.equal(provenance.referencePeriod, monthly.referencePeriod, 'La versión registrada debe corresponder al dato mensual mostrado');
 assert.equal(provenance.sourceUrl, monthly.sourceUrl, 'El PDF registrado debe ser el que se muestra como fuente');
+assert.ok(publicDebt.sourceUrl.startsWith('https://') && publicDebt.catalogUrl.startsWith('https://') && publicDebt.apiUrl.startsWith('https://'), 'La deuda debe conservar enlaces oficiales');
+assert.equal(publicDebt.seriesCode, 'DMNPDE2010_P00000_PS_APU', 'La serie debe ser la deuda PDE total consolidada de las AAPP');
+assert.ok(publicDebt.referencePeriod && publicDebt.periodLabel && publicDebt.amountMillions > 0, 'La deuda debe incluir valor y fecha de referencia');
 
 near(people.labour.employed + people.labour.unemployed, people.labour.active, 1, 'Ocupadas + paradas = activas');
 near(people.labour.active + people.labour.inactive, people.labour.population16Plus, 1, 'Activas + inactivas = población EPA de 16 años o más');

@@ -1,0 +1,22 @@
+{
+  "source": "Banco de España · deuda de las Administraciones Públicas según el Protocolo de Déficit Excesivo (PDE)",
+  "sourceUrl": "https://www.bde.es/wbe/es/noticias-eventos/actualidad-banco-espana/deuda-aapp-agosto26.html",
+  "catalogUrl": "https://datos.bde.es/datos/es/datasets/000/032.html",
+  "apiUrl": "https://app.bde.es/bierest/resources/srdatosapp/listaSeries?idioma=es&series=DMNPDE2010_P00000_PS_APU&rango=MAX",
+  "seriesCode": "DMNPDE2010_P00000_PS_APU",
+  "referencePeriod": "2026-08",
+  "periodLabel": "agosto de 2026",
+  "publishedAt": "2026-10-21",
+  "amountMillions": 1750000,
+  "displayAmount": "≈1,75 billones €",
+  "precision": "La nota oficial redondea el saldo a miles de millones de euros.",
+  "unit": "millones de euros",
+  "scope": "Administración central, comunidades autónomas, corporaciones locales y Seguridad Social; deuda bruta nominal consolidada.",
+  "definition": "Incluye efectivo y depósitos, valores representativos de deuda y préstamos. Se descuentan los pasivos entre unidades de las propias Administraciones Públicas para no contar dos veces la misma deuda.",
+  "notes": [
+    "Es un saldo acumulado pendiente al cierre del mes, no el déficit de ese mes.",
+    "El avance mensual puede revisarse cuando el Banco de España incorpora información nueva o reclasifica unidades.",
+    "El superávit reduce la necesidad de financiación, pero no demuestra que ese importe se haya usado para amortizar deuda. La variación del saldo también depende de operaciones financieras, efectivo y ajustes de consolidación.",
+    "La deuda PDE incluye las corporaciones locales. El agregado mensual IGAE mostrado en el simulador no las incluye; por tanto, sus coberturas no son idénticas."
+  ]
+}

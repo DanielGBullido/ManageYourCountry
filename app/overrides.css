@@ -419,6 +419,14 @@ footer>span,footer>a:last-child{font-size:10px}
 .hero-period-select{appearance:none;max-width:190px;padding:3px 24px 3px 7px;border:1px solid #cfdcc9;border-radius:3px;background:#eef3e9;color:#31563b;font:inherit;letter-spacing:.03em;cursor:pointer}
 .hero-period-select:focus-visible{outline:3px solid #df9a5b;outline-offset:2px}
 .period-availability{display:block;margin:8px 0 0 16px;color:#768176;font-size:12px;line-height:1.5}
+.hero-debt{grid-column:1/-1;display:grid;grid-template-columns:minmax(180px,.8fr) minmax(190px,1.2fr);gap:5px 18px;padding:15px 18px;border-top:3px solid #b65f47;background:#fbf1ed;color:#364039;text-decoration:none}
+.hero-debt-copy{display:flex;align-items:baseline;justify-content:space-between;gap:12px;grid-column:1/-1}
+.hero-debt-copy>span{font:10px var(--mono);letter-spacing:.08em;color:#806b63}
+.hero-debt-copy>b{font:650 clamp(22px,2.1vw,30px) var(--display);letter-spacing:-.05em;color:#a84735;white-space:nowrap}
+.hero-debt>small{font-size:11px;line-height:1.5;color:#756b66}
+.hero-debt .hero-debt-note{grid-column:1/-1;padding-top:5px;border-top:1px solid #eadbd5}
+.hero-debt:hover{background:#f8e9e3}
+.hero-debt:focus-visible{outline:3px solid #b65f47;outline-offset:3px}
 .scenario-emotion-note{margin:12px 0 0;padding:10px 12px;background:#f5f6f1;border-left:3px solid #849a78;color:#59665b;font-size:12px;line-height:1.55}
 .allocation-delta{display:flex;justify-content:flex-end;align-items:center;gap:4px;line-height:1.35}
 .allocation-delta>span[role=img]{font-family:var(--sans);font-size:15px}
@@ -527,6 +535,7 @@ footer>span,footer>a:last-child{font-size:10px}
   footer>span{display:block;width:100%;order:3;font-size:9px}
   footer>a:last-child{font-size:10px}
 }
+@media(max-width:640px){.hero-debt{grid-template-columns:1fr;gap:5px;padding:14px}.hero-debt-copy{align-items:flex-start;flex-direction:column;gap:4px}.hero-debt-copy>b{font-size:24px}.hero-debt>small{font-size:12px}}
 
 /* Tablet layout: put the changing amount below the input, not across it. */
 @media(min-width:641px) and (max-width:900px){
