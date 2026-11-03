@@ -20,7 +20,7 @@ Una herramienta cívica cercana, clara y serena. Debe sentirse rigurosa sin pare
 
 - Presentar primero la pregunta o conclusión, luego la cifra principal y después su explicación y fuente.
 - Mantener una columna principal legible. En móvil, una idea por tarjeta, cifras sin recortes y controles con área táctil mínima de 44 px.
-- El simulador debe mostrar juntos presupuesto, asignado y sin repartir. La comparación con la cifra oficial debe estar pegada a su control.
+- El simulador debe mostrar juntos presupuesto, asignado y sin repartir (o, en modo déficit, lo que habría que pedir prestado). El déficit usa el tono terracota del saldo negativo, no rojo de alarma. La comparación con la cifra oficial debe estar pegada a su control.
 - Las secciones secundarias pueden plegarse para reducir el desplazamiento inicial, pero todas deben seguir accesibles desde el índice y la navegación.
 - Las notas metodológicas largas van en listas o desplegables; no convertir cada tarjeta en un párrafo.
 - El selector superior cambia solamente entre meses con un panel completo y comparable. Años y trimestres se muestran como contexto con su periodo propio.

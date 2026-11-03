@@ -11,17 +11,33 @@ import RegionsSection from './sections/RegionsSection';
 import MethodologySection from './sections/MethodologySection';
 import SourcesSection from './sections/SourcesSection';
 import SectionDirectory from './sections/SectionDirectory';
+import { buildYearToDate, type BudgetView } from '../lib/year-to-date';
 import type publicDebtHistoryData from '../../data/public-debt-history-2026.json';
 
 export default function DashboardExperience({ snapshots, publicDebtHistory }: { snapshots: DashboardPeriodSnapshot[]; publicDebtHistory: typeof publicDebtHistoryData }) {
   const [period, setPeriod] = useState(snapshots[0]?.period ?? '');
   const selected = useMemo(() => snapshots.find(snapshot => snapshot.period === period) ?? snapshots[0], [snapshots, period]);
   const availablePeriods = useMemo(() => snapshots.map(snapshot => ({ period: snapshot.period, label: snapshot.label })), [snapshots]);
+  const [view, setView] = useState<BudgetView>('month');
+  const yearToDate = useMemo(() => buildYearToDate(snapshots.map(snapshot => snapshot.monthly), period), [snapshots, period]);
 
   useEffect(() => {
-    const requested = new URLSearchParams(window.location.search).get('mes');
+    const params = new URLSearchParams(window.location.search);
+    const requested = params.get('mes');
     if (requested && snapshots.some(snapshot => snapshot.period === requested)) setPeriod(requested);
+    if (params.get('vista') === 'acumulado') setView('ytd');
   }, [snapshots]);
+
+  function changeView(nextView: BudgetView) {
+    setView(nextView);
+    const url = new URL(window.location.href);
+    if (nextView === 'ytd') url.searchParams.set('vista', 'acumulado');
+    else url.searchParams.delete('vista');
+    // A shared allocation belongs to one period and view; switching starts clean.
+    url.searchParams.delete('reparto');
+    url.searchParams.delete('deficit');
+    window.history.replaceState(null, '', url);
+  }
 
   function changePeriod(nextPeriod: string) {
     if (!snapshots.some(snapshot => snapshot.period === nextPeriod)) return;
@@ -30,6 +46,7 @@ export default function DashboardExperience({ snapshots, publicDebtHistory }: { 
     url.searchParams.set('mes', nextPeriod);
     // An allocation belongs to its reference month. Changing month starts a clean scenario.
     url.searchParams.delete('reparto');
+    url.searchParams.delete('deficit');
     window.history.replaceState(null, '', url);
   }
 
@@ -46,7 +63,7 @@ export default function DashboardExperience({ snapshots, publicDebtHistory }: { 
     <SiteHeader />
     <main id="inicio">
       <HeroSection monthly={monthly} publicDebt={{ ...publicDebtHistory, ...selectedDebt, previousPeriodLabel: previousDebt.periodLabel, changeMillions: debtChangeMillions }} selectedPeriod={period} availablePeriods={availablePeriods} onPeriodChange={changePeriod}/>
-      <BudgetSection data={data} key={period}/>
+      <BudgetSection data={data} view={view} yearToDate={yearToDate} onViewChange={changeView} key={`${period}-${view}`}/>
       <SectionDirectory />
       <PeopleSection data={data}/>
       <RegionsSection regions={regions}/>

@@ -20,10 +20,11 @@ La persona usuaria prefiere español de España, explicaciones concretas y vocab
 ## Stack y organización
 
 - Next.js 16, App Router; React 19; TypeScript.
-- CSS propio en `app/base.css` y `app/overrides.css`; sin librería visual añadida.
+- CSS propio, sin librería visual. Orden de carga: `app/base.css` (variables y base), `app/components.css` (componentes y responsive) y `app/spacing.css` (escala de espacios, se aplica al final). Antes de añadir una regla, busca si ya existe una para ese selector y edítala en vez de sobrescribirla más abajo.
 - La página se compone desde `app/page.tsx`. Las secciones están en `app/components/sections/` y el simulador está dividido en piezas pequeñas dentro de `app/components/sections/budget/`.
 - `app/lib/dashboard-data.ts` carga y tipa los datos locales.
-- `app/components/DashboardExperience.tsx` controla el mes común y pasa una fotografía íntegra del panel a las secciones; `?mes=AAAA-MM` enlaza un mes disponible.
+- `app/components/DashboardExperience.tsx` controla el mes común y la vista del simulador, y pasa una fotografía íntegra del panel a las secciones. `?mes=AAAA-MM` enlaza un mes disponible y `?vista=acumulado` abre el acumulado del año.
+- `app/lib/year-to-date.ts` suma los flujos mensuales IGAE de enero al mes elegido. Devuelve `null` para enero o si falta algún mes; nunca mezcla un año incompleto.
 - `data/dashboard-periods.json` conserva snapshots completos. `npm run data:snapshot` solo añade un periodo si IGAE, AEAT mensual, prestaciones y datos autonómicos coinciden. El selector no inventa meses.
 - `DESIGN_GUIDE.md` define identidad, voz, accesibilidad y criterios de diseño móvil.
 - `app/lib/budget-scenario.ts` contiene las funciones puras de límites, asignación, dinero sin repartir, barras y codificación/lectura de escenarios compartidos.
@@ -36,7 +37,7 @@ La persona usuaria prefiere español de España, explicaciones concretas y vocab
 Los datos que muestra la app están guardados en `data/`; la interfaz no consulta en directo todas las series.
 
 - `data/igae-latest.json`: agregado mensual de ingresos y gastos de la IGAE que usa el simulador. Actualmente su referencia común es agosto de 2026. Excluye la Administración local y usa contabilidad nacional SEC 2010.
-- `data/provenance/igae-latest.json` y `data/history/igae/`: fuente, periodo, fecha/huella y snapshots del importador IGAE.
+- `data/provenance/igae-latest.json`: fuente, fecha y huella SHA-256 del último PDF importado. `data/history/igae/` guarda una copia de cada PDF nuevo; la carpeta se crea en la primera importación y puede no existir todavía.
 - `data/prestaciones-latest.json`: pensiones, IMV y desempleo. Debe conservar sus fechas y definiciones oficiales.
 - `data/personas-trabajo-latest.json`, `data/perfiles-empleo-latest.json` y `data/demografia-nacionalidad-latest.json`: población, EPA y perfiles. La EPA no incluye menores de 16 años.
 - `data/comunidades-autonomicas.json`: series autonómicas. Distingue mediciones mensuales IGAE de liquidaciones anuales del sistema de financiación; Navarra y País Vasco tienen régimen foral y cobertura distinta.
@@ -52,12 +53,14 @@ Tras una actualización IGAE aceptada, GitHub Actions ejecuta `npm run data:snap
 
 ## Comportamiento del simulador
 
-- El tope total son los ingresos oficiales del mes.
-- Al aumentar una partida sin saldo disponible, se reduce proporcionalmente el resto para hacerle sitio; nunca se puede gastar por encima del total de ingresos.
+- El periodo es el mes elegido o, en la vista acumulada, de enero a ese mes. La vista acumulada solo afecta al recorrido del dinero y al simulador; la cabecera y la comparación AEAT siguen siendo del mes.
+- Modo por defecto: el tope total son los ingresos oficiales del periodo. Al subir una partida sin saldo disponible, el resto baja en proporción para hacerle sitio.
+- Modo «Permitir déficit»: cada partida puede llegar como mucho al total de ingresos, el gasto total puede superarlos y se muestra la necesidad de financiación («habría que pedir prestado»). Al desactivarlo, todas las partidas se reducen en proporción hasta caber en los ingresos.
+- «Volver al dato oficial» activa el modo déficit si el gasto oficial superó los ingresos (por ejemplo, en enero de 2026), para no recortar la cifra real.
 - Reducir una partida libera dinero sin repartirlo automáticamente.
 - «Dejar todo sin repartir» lleva cada control a cero; «Volver al dato oficial» restaura el gasto registrado por la IGAE.
 - La marca sobre cada barra identifica el gasto oficial observado. No es un mínimo ni una recomendación de eficiencia.
-- Se puede editar el importe con teclado y compartir un escenario mediante el parámetro de URL `reparto`; los identificadores de partidas deben mantenerse estables.
+- Se puede editar el importe con teclado y compartir un escenario mediante los parámetros de URL `reparto` y `deficit=1`; los identificadores de partidas deben mantenerse estables. Cambiar de mes o de vista borra ambos parámetros.
 - El saldo del escenario es ingresos menos gasto asignado. No se suma otra vez al saldo oficial y no representa dinero en una cuenta bancaria real.
 
 ## Comandos de desarrollo y validación
@@ -70,7 +73,7 @@ npm run validate:data
 npm run build
 ```
 
-`npm run data:refresh` requiere Internet y Poppler (`pdftotext`). Las pruebas actuales incluyen reglas del simulador, escenarios compartidos, catálogo/parser IGAE y coherencia de periodos. Tras cambios en una cifra, etiqueta o periodo, ejecutar `npm test`, `npm run validate:data` y `npm run build`.
+`npm run data:refresh` y `npm run data:refresh:aeat` requieren Internet y Poppler (`pdftotext`). Las pruebas actuales incluyen reglas del simulador, escenarios compartidos, catálogo/parser IGAE, catálogo/parser AEAT (con un extracto real del informe de agosto de 2026) y coherencia de periodos. Tras cambios en una cifra, etiqueta o periodo, ejecutar `npm test`, `npm run validate:data` y `npm run build`.
 
 ## Despliegue
 
