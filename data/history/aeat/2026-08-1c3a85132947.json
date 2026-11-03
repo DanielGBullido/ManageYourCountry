@@ -1,0 +1,23 @@
+{
+  "referencePeriod": "2026-08",
+  "periodLabel": "Agosto 2026",
+  "unit": "millones de euros",
+  "measure": "Ingresos tributarios netos del mes · Cuadro 1.1, TOTAL GENERAL, columna Total",
+  "amountMillions": 29451,
+  "amountThousands": 29451002,
+  "stateMillions": 19882,
+  "territorialMillions": 9569,
+  "previousYearMillions": 27497,
+  "chapters": {
+    "direct": 20020,
+    "indirect": 9232,
+    "feesAndOther": 199
+  },
+  "provenance": {
+    "sourceUrl": "https://sede.agenciatributaria.gob.es/static_files/AEAT/Estudios/Estadisticas/Informes_Estadisticos/Informes_mensuales_recaudacion_tributaria/2026/IMR_26_08_es_es.pdf",
+    "catalogUrl": "https://sede.agenciatributaria.gob.es/Sede/datosabiertos/catalogo/hacienda/Informe_mensual_de_Recaudacion_Tributaria.shtml",
+    "sha256": "1c3a851329475a5b32db741c164e4f9c16586af12586d7dd6237bdbdabcceccf",
+    "retrievedAt": "2026-11-03T23:41:52.384Z",
+    "parser": "aeat-pdf-parser@1"
+  }
+}

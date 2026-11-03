@@ -9,6 +9,7 @@
     "validate:data": "node scripts/validate-dashboard-data.mjs",
     "test": "node --experimental-strip-types --test scripts/*.test.mjs",
     "data:refresh": "node scripts/refresh-igae.mjs",
+    "data:refresh:aeat": "node scripts/refresh-aeat.mjs",
     "data:snapshot": "node scripts/build-dashboard-periods.mjs"
   },
   "dependencies": {

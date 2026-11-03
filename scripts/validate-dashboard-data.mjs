@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
-import { matchesCommonReferenceMonth } from './lib/monthly-period.mjs';
+import { matchesCommonReferenceMonth, toYearMonth } from './lib/monthly-period.mjs';
 
 const readJson = async path => JSON.parse(await readFile(new URL(`../data/${path}`, import.meta.url), 'utf8'));
 const [monthly, benefits, people, regions, taxes, services, provenance, localHistory, publicDebtHistory, imvProfile] = await Promise.all([
@@ -17,6 +17,7 @@ const [monthly, benefits, people, regions, taxes, services, provenance, localHis
   readJson('perfil-beneficiarios-2026-08.json'),
 ]);
 const dashboardPeriods = await readJson('dashboard-periods.json');
+const aeatProvenance = await readJson('provenance/aeat-latest.json');
 const sourceWorkbook = await readFile(new URL('../data/sources/igae/M_CONSOLIDADO_2026.xlsx', import.meta.url));
 const workbookHash = createHash('sha256').update(sourceWorkbook).digest('hex');
 const sum = values => values.reduce((total, value) => total + value, 0);
@@ -70,6 +71,9 @@ if (nonContributory?.details?.length) near(sum(nonContributory.details.map(item 
 unique(taxes.items, item => item.id, 'Grupos de recaudación tributaria');
 unique(services.items, item => item.id, 'Funciones COFOG');
 assert.ok(taxes.latestMonthly.period && taxes.latestMonthly.sourceUrl, 'Falta la referencia del dato mensual AEAT');
+assert.equal(aeatProvenance.referencePeriod, toYearMonth(taxes.latestMonthly.period), 'La procedencia AEAT registrada debe corresponder al mes mostrado');
+assert.equal(aeatProvenance.sourceUrl, taxes.latestMonthly.sourceUrl, 'El PDF AEAT registrado debe ser el que se muestra como fuente');
+assert.match(aeatProvenance.sha256 ?? '', /^[0-9a-f]{64}$/, 'Falta la huella SHA-256 del informe AEAT');
 const archivedPeriods = Object.entries(dashboardPeriods);
 assert.ok(archivedPeriods.length > 0, 'El selector necesita al menos un mes completo archivado');
 assert.ok(localHistory.months.length > 0, 'Falta el histórico local de la serie IGAE');

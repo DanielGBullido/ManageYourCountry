@@ -1,4 +1,4 @@
-name: Actualizar datos oficiales IGAE
+name: Actualizar datos oficiales IGAE y AEAT
 
 on:
   schedule:
@@ -24,6 +24,8 @@ jobs:
         run: npm run validate:data
       - name: Buscar el último informe mensual y actualizar la serie IGAE
         run: npm run data:refresh
+      - name: Leer el informe mensual de recaudación AEAT del mismo mes
+        run: npm run data:refresh:aeat
       - name: Validar sumas, saldo, fuentes y periodos
         run: npm run validate:data
       - name: Archivar el panel si todas las fuentes mensuales coinciden
@@ -32,12 +34,12 @@ jobs:
         run: npm run build
       - name: Guardar una nueva versión si cambiaron las cifras
         run: |
-          if git diff --quiet -- data/igae-latest.json data/provenance data/history/igae data/dashboard-periods.json; then
-            echo "La publicación IGAE no ha cambiado."
+          if [ -z "$(git status --porcelain -- data/igae-latest.json data/recaudacion-tributaria-2025.json data/provenance data/history data/dashboard-periods.json)" ]; then
+            echo "Las publicaciones IGAE y AEAT no han cambiado."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/igae-latest.json data/provenance data/history/igae data/dashboard-periods.json
+          git add data/igae-latest.json data/recaudacion-tributaria-2025.json data/provenance data/history data/dashboard-periods.json
           git commit -m "Actualiza datos oficiales del panel mensual"
           git push
