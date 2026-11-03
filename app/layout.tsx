@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import './base.css';
-import './overrides.css';
+import './components.css';
 import './spacing.css';
 
 export const metadata: Metadata = {
