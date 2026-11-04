@@ -36,11 +36,11 @@ export default function BudgetSection({ data, view, yearToDate, onViewChange }: 
       </div>
       <div className="official-notice">
         <span>i</span>
-        <p><b>{isYearToDate ? 'El acumulado suaviza los meses irregulares.' : 'Un solo mes puede ser irregular.'}</b> {isYearToDate ? `Suma los flujos mensuales IGAE de ${scenario.periodLabel.toLowerCase()}; así pesan menos las pagas extra o los cobros trimestrales de impuestos.` : 'Pagas extra, cobros trimestrales de impuestos o devoluciones cambian mucho un mes concreto; el acumulado del año da una imagen más estable.'} Por defecto, el tope son los ingresos: si subes una partida y falta dinero, las demás bajan para hacerle sitio. Si activas <b>«Permitir déficit»</b>, puedes gastar más de lo que entra y verás cuánto habría que pedir prestado. La marca vertical señala el gasto oficial; no es un mínimo necesario.</p>
+        <p><b>{isYearToDate ? `Acumulado de ${scenario.periodLabel.toLowerCase()}.` : 'Un solo mes puede ser irregular.'}</b> {isYearToDate ? 'Sumar meses suaviza pagas extra y cobros trimestrales de impuestos.' : 'Pagas extra o cobros trimestrales de impuestos lo cambian mucho; el acumulado del año es más estable.'} Por defecto no puedes gastar más de lo que entra; activa «Permitir déficit» para hacerlo.</p>
         <a href={monthly.sourceUrl} target="_blank" rel="noreferrer">Ver informe ↗</a>
       </div>
+      <BudgetSimulator monthly={scenario} residents={data.people.population.people} isYearToDate={isYearToDate}/>
       <MoneyFlow monthly={scenario}/>
-      <BudgetSimulator monthly={scenario} isYearToDate={isYearToDate}/>
       <AnnualContextSection monthly={monthly} taxes={taxes} services={services}/>
       <BenefitsSection benefits={benefits}/>
     </section>

@@ -68,7 +68,9 @@ Tras una actualización IGAE aceptada, GitHub Actions ejecuta `npm run data:snap
 - Modo «Permitir déficit»: cada partida puede llegar como mucho al total de ingresos, el gasto total puede superarlos y se muestra la necesidad de financiación («habría que pedir prestado»). Al desactivarlo, todas las partidas se reducen en proporción hasta caber en los ingresos.
 - «Volver al dato oficial» activa el modo déficit si el gasto oficial superó los ingresos (por ejemplo, en enero de 2026), para no recortar la cifra real.
 - Reducir una partida libera dinero sin repartirlo automáticamente.
-- «Dejar todo sin repartir» lleva cada control a cero; «Volver al dato oficial» restaura el gasto registrado por la IGAE.
+- El escenario empieza con el gasto oficial (si superó los ingresos, con «Permitir déficit» activado). «Empezar de cero» lleva cada partida a cero; «Volver al dato oficial» restaura el gasto registrado por la IGAE.
+- Cada partida tiene su propia escala: la barra llega a tres veces su gasto oficial (sin pasar de los ingresos) y los botones − y + mueven un 5 % del oficial. La diferencia se muestra también en euros por residente (población del INE); es una escala orientativa, no lo que paga o recibe cada persona.
+- La barra de resumen (`ScenarioDock`) queda fija al pie de la pantalla mientras se recorren las partidas. Necesita que ningún ancestro tenga `overflow: hidden`; por eso `main` usa `overflow-x: clip`.
 - La marca sobre cada barra identifica el gasto oficial observado. No es un mínimo ni una recomendación de eficiencia.
 - Se puede editar el importe con teclado y compartir un escenario mediante los parámetros de URL `reparto` y `deficit=1`; los identificadores de partidas deben mantenerse estables. Cambiar de mes o de vista borra ambos parámetros.
 - El saldo del escenario es ingresos menos gasto asignado. No se suma otra vez al saldo oficial y no representa dinero en una cuenta bancaria real.

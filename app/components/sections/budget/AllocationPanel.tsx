@@ -1,4 +1,5 @@
-import type { BudgetLine } from '../../../lib/budget-scenario';
+import type { ReactNode } from 'react';
+import { eurosPerResident, lineSliderMax, lineStep, type BudgetLine } from '../../../lib/budget-scenario';
 import { formatMillions } from '../../../lib/format';
 
 type AllocationPanelProps = {
@@ -12,6 +13,8 @@ type AllocationPanelProps = {
   spent: number;
   unallocated: number;
   deficit: number;
+  residents: number;
+  dock: ReactNode;
   onToggleDeficit: (allow: boolean) => void;
   onSetLine: (index: number, amount: number) => void;
   onDraftChange: (index: number, value: string) => void;
@@ -21,40 +24,67 @@ type AllocationPanelProps = {
   onShare: () => void;
 };
 
-export default function AllocationPanel({ lines, amounts, drafts, budget, periodLabel, isYearToDate, allowDeficit, spent, unallocated, deficit, onToggleDeficit, onSetLine, onDraftChange, onCommitDraft, onSetAllZero, onResetOfficial, onShare }: AllocationPanelProps) {
+const euros = new Intl.NumberFormat('es-ES', { maximumFractionDigits: 0 });
+const percent = new Intl.NumberFormat('es-ES', { maximumFractionDigits: 0 });
+
+export default function AllocationPanel({ lines, amounts, drafts, budget, periodLabel, isYearToDate, allowDeficit, residents, dock, onToggleDeficit, onSetLine, onDraftChange, onCommitDraft, onSetAllZero, onResetOfficial, onShare }: AllocationPanelProps) {
+  const periodWord = isYearToDate ? 'en el periodo' : 'al mes';
   return <article className="panel allocation-panel">
-    <div className="panel-top"><div><div className="eyebrow muted">GASTO PÚBLICO · MILLONES DE EUROS</div><h3>Redistribuye el gasto</h3></div></div>
+    <div className="panel-top"><div><div className="eyebrow muted">GASTO PÚBLICO · {periodLabel.toUpperCase()} · M€</div><h3>Redistribuye el gasto</h3></div></div>
+    <p className="sim-intro">Empiezas con lo que se gastó de verdad. Mueve las barras o usa − y + para cambiar cada partida; el resultado se ve abajo al momento.</p>
     <div className="budget-actions">
-      <button className="share-scenario-button" onClick={onShare}>Compartir escenario ↗</button>
-      <button className="leave-unassigned-button" onClick={onSetAllZero}>Dejar todo sin repartir</button>
       <button className="reset-button" onClick={onResetOfficial}>↺ Volver al dato oficial</button>
+      <button className="leave-unassigned-button" onClick={onSetAllZero}>Empezar de cero</button>
+      <button className="share-scenario-button" onClick={onShare}>Compartir ↗</button>
     </div>
     <label className={`deficit-toggle ${allowDeficit ? 'active' : ''}`}>
       <input type="checkbox" checked={allowDeficit} onChange={event => onToggleDeficit(event.target.checked)}/>
       <span><b>Permitir déficit</b><small>Gastar más de lo que entra. La diferencia se pediría prestada y se sumaría a la deuda pública.</small></span>
     </label>
-    <div className="budget-total">
-      <div><span className="eyebrow muted">INGRESOS {isYearToDate ? 'ACUMULADOS' : 'DEL MES'} · {periodLabel.toUpperCase()}</span><strong>{formatMillions(budget)}</strong></div>
-      <div className="budget-total-spent"><span className="eyebrow muted">GASTADO EN TU ESCENARIO</span><strong>{formatMillions(spent)}</strong></div>
-      {deficit > 0
-        ? <div className="budget-total-deficit"><span className="eyebrow muted">HABRÍA QUE PEDIR PRESTADO</span><strong>{formatMillions(deficit)}</strong><small>Gasto de tu escenario menos ingresos. Se financiaría con nueva deuda.</small></div>
-        : <div className="budget-total-unassigned"><span className="eyebrow muted">DINERO DISPONIBLE</span><strong>{formatMillions(unallocated)}</strong><small>Ingresos {isYearToDate ? 'acumulados' : 'del mes'} menos lo que has asignado.</small></div>}
-    </div>
-    <div className="official-marker-legend"><i aria-hidden="true"/> Gasto oficial observado en {periodLabel.toLowerCase()} · referencia, no mínimo de funcionamiento</div>
-    <div className="allocation-list official-allocations">{lines.map((line, index) => {
-      const delta = amounts[index] - line.amount;
-      const emotion = Math.abs(delta) < 0.5 ? { face: '😐', label: 'Igual que el dato oficial' } : delta > 0 ? { face: '🙂', label: 'Más dinero asignado que en el dato oficial' } : { face: '🙁', label: 'Menos dinero asignado que en el dato oficial' };
-      const officialPosition = budget > 0 ? Math.min(100, Math.max(0, line.amount / budget * 100)) : 0;
-      const markerOffset = 8 - (16 * officialPosition / 100);
-      return <div className="allocation-row" key={line.id}>
-        <span className="allocation-name"><i className="color-chip" style={{ background: line.color }}/><span><b>{line.label}</b><small className="allocation-description">{line.description}</small><details className="source-term"><summary>Nombre en las cuentas</summary><span>IGAE: {line.officialLabel}</span></details>{line.relatedSources && <details className="related-records"><summary>Consultar registros relacionados</summary><small>Sirven para investigar esta clase de gasto. No identifican necesariamente los mismos importes, meses o entidades del total IGAE.</small><ul>{line.relatedSources.map(source => <li key={source.href}><a href={source.href} target={source.href.startsWith('#') ? undefined : '_blank'} rel={source.href.startsWith('#') ? undefined : 'noreferrer'}>{source.label}{source.href.startsWith('#') ? '' : ' ↗'}</a></li>)}</ul></details>}</span></span>
-        <div className="allocation-control">
-          <div className="allocation-quick-actions"><button type="button" onClick={() => onSetLine(index, 0)} aria-label={`Asignar cero euros a ${line.label}`}>0 €</button><button type="button" onClick={() => onSetLine(index, line.amount)} aria-label={`Volver al gasto oficial de ${line.label}`}>Usar cifra oficial</button></div>
-          <span className="range-wrap"><input id={`range-${line.id}`} type="range" min="0" max={Math.max(0, Math.floor(budget))} step="1" value={amounts[index]} onChange={event => onSetLine(index, Number(event.target.value))} aria-label={`Presupuesto para ${line.label}: ${formatMillions(amounts[index])}; máximo por partida ${formatMillions(budget)}. Marca: dato oficial ${formatMillions(line.amount)}`}/><i className="official-range-marker" style={{ left: `calc(${officialPosition}% + ${markerOffset}px)` }} title={`Dato oficial observado: ${formatMillions(line.amount)}`} aria-hidden="true"/></span>
+    <div className="sim-list">{lines.map((line, index) => {
+      const amount = amounts[index];
+      const delta = amount - line.amount;
+      const same = Math.abs(delta) < 0.5;
+      const max = lineSliderMax(line.amount, amount, budget);
+      const step = lineStep(line.amount);
+      const officialPosition = max > 0 ? Math.min(100, line.amount / max * 100) : 0;
+      const changePercent = line.amount > 0 ? delta / line.amount * 100 : 0;
+      const perResident = Math.round(eurosPerResident(Math.abs(delta), residents));
+      const tone = same ? 'neutral' : delta > 0 ? 'positive' : 'negative';
+      return <div className="sim-row" key={line.id}>
+        <div className="sim-row-head">
+          <label className="sim-name" htmlFor={`amount-${line.id}`}><i className="color-chip" style={{ background: line.color }}/>{line.label}</label>
+          <div className="sim-stepper">
+            <button type="button" onClick={() => onSetLine(index, amount - step)} aria-label={`Restar ${formatMillions(step)} a ${line.label}`}>−</button>
+            <input id={`amount-${line.id}`} type="number" min="0" step="1" inputMode="numeric" value={drafts[index] ?? String(amount)}
+              onChange={event => onDraftChange(index, event.target.value)} onBlur={() => onCommitDraft(index)}
+              onKeyDown={event => { if (event.key === 'Enter') { event.preventDefault(); onCommitDraft(index); event.currentTarget.blur(); } }}
+              aria-label={`Importe para ${line.label} en millones de euros`}/>
+            <button type="button" onClick={() => onSetLine(index, amount + step)} aria-label={`Sumar ${formatMillions(step)} a ${line.label}`}>+</button>
+          </div>
         </div>
-        <span className="allocation-value"><span className="allocation-number"><input type="number" min="0" max={budget} step="1" inputMode="numeric" value={drafts[index] ?? String(amounts[index])} onChange={event => onDraftChange(index, event.target.value)} onBlur={() => onCommitDraft(index)} onKeyDown={event => { if (event.key === 'Enter') { event.preventDefault(); onCommitDraft(index); event.currentTarget.blur(); } }} aria-label={`Importe para ${line.label} en millones de euros`}/><small>M€</small></span></span>
-        <small className={`allocation-delta ${Math.abs(delta) < 0.5 ? 'neutral' : delta > 0 ? 'positive' : 'negative'}`} aria-live="polite"><span role="img" aria-label={emotion.label}>{emotion.face}</span> {Math.abs(delta) < 0.5 ? 'Igual que el dato oficial' : `${delta > 0 ? '+' : '−'}${formatMillions(Math.abs(delta))} frente al dato oficial`}</small>
+        <span className="sim-range">
+          <input type="range" min="0" max={max} step="1" value={Math.min(amount, max)} onChange={event => onSetLine(index, Number(event.target.value))}
+            style={{ ['--fill' as string]: `${Math.min(100, amount / max * 100)}%`, ['--chip' as string]: line.color }}
+            aria-label={`${line.label}: ${formatMillions(amount)}. Dato oficial ${formatMillions(line.amount)}`}/>
+          <i className="sim-official-mark" style={{ left: `${officialPosition}%` }} title={`Dato oficial: ${formatMillions(line.amount)}`} aria-hidden="true"/>
+        </span>
+        <div className={`sim-delta ${tone}`} aria-live="polite">
+          {same
+            ? <span>Igual que el dato oficial ({formatMillions(line.amount)})</span>
+            : <span><b>{delta > 0 ? '+' : '−'}{formatMillions(Math.abs(delta))}</b> ({delta > 0 ? '+' : '−'}{percent.format(Math.abs(changePercent))} %) · {delta > 0 ? '+' : '−'}{euros.format(perResident)} € por residente {periodWord}</span>}
+          {!same && <button type="button" className="sim-reset-line" onClick={() => onSetLine(index, line.amount)} aria-label={`Volver al dato oficial de ${line.label}`}>↺ oficial</button>}
+        </div>
+        <details className="sim-more">
+          <summary>Qué incluye</summary>
+          <p>{line.description}</p>
+          <p className="sim-official-name">Nombre en las cuentas IGAE: {line.officialLabel}</p>
+          {line.relatedSources && <div className="sim-related"><small>Registros para investigar esta clase de gasto. No identifican necesariamente los mismos importes, meses o entidades del total IGAE.</small><ul>{line.relatedSources.map(source => <li key={source.href}><a href={source.href} target={source.href.startsWith('#') ? undefined : '_blank'} rel={source.href.startsWith('#') ? undefined : 'noreferrer'}>{source.label}{source.href.startsWith('#') ? '' : ' ↗'}</a></li>)}</ul></div>}
+          <button type="button" className="sim-zero" onClick={() => onSetLine(index, 0)}>Poner a 0 €</button>
+        </details>
       </div>;
     })}</div>
+    <p className="sim-marker-note"><i aria-hidden="true"/> La marca de cada barra es el gasto oficial de {periodLabel.toLowerCase()}: una referencia, no un mínimo necesario.</p>
+    {dock}
   </article>;
 }

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { buildBudgetGradient, decodeScenario, encodeScenario, getScenarioBalance, getScenarioDeficit, getUnallocatedBudget, setBudgetLineAmount } from '../app/lib/budget-scenario.ts';
+import { eurosPerResident, lineSliderMax, lineStep, officialScenario, buildBudgetGradient, decodeScenario, encodeScenario, getScenarioBalance, getScenarioDeficit, getUnallocatedBudget, setBudgetLineAmount } from '../app/lib/budget-scenario.ts';
 
 const lines = [
   { id: 'wages', label: 'Sueldos', officialLabel: 'Remuneración', description: '', amount: 60, color: '#000' },
@@ -72,4 +72,26 @@ test('year-to-date view sums archived monthly IGAE flows', async () => {
   assert.equal(ytd.revenueTotal - ytd.expenditureTotal, ytd.financingBalance);
   assert.equal(buildYearToDate(monthlies, '2026-01'), null);
   assert.equal(buildYearToDate(monthlies.filter(item => item.referencePeriod !== '2026-03'), '2026-08'), null);
+});
+
+test('each slider is scaled to its own item, capped at revenue', () => {
+  assert.equal(lineSliderMax(838, 838, 56335), 2514);
+  assert.equal(lineSliderMax(838, 4000, 56335), 4000);
+  assert.equal(lineSliderMax(22435, 22435, 56335), 56335);
+  assert.equal(lineSliderMax(0, 0, 100), 1);
+});
+
+test('step buttons move 5 % of the official amount, at least 1 M€', () => {
+  assert.equal(lineStep(22435), 1122);
+  assert.equal(lineStep(10), 1);
+});
+
+test('the scenario starts from official spending and enables deficit mode when needed', () => {
+  assert.deepEqual(officialScenario(lines, 100), { amounts: [60, 30, 10], allowDeficit: false });
+  assert.deepEqual(officialScenario(lines, 90), { amounts: [60, 30, 10], allowDeficit: true });
+});
+
+test('per-resident equivalents convert millions of euros to euros per person', () => {
+  assert.equal(Math.round(eurosPerResident(1000, 49_801_559)), 20);
+  assert.equal(eurosPerResident(1000, 0), 0);
 });

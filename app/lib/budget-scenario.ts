@@ -108,3 +108,30 @@ export function fitAmountsToBudget(amounts: number[], total: number) {
   }
   return scaled;
 }
+
+/**
+ * Slider scale for one item: up to three times its official amount, so small
+ * items (subsidies, interest) are as easy to move as large ones. The scale grows
+ * if a typed amount goes beyond it, and never exceeds the revenue total.
+ */
+export function lineSliderMax(official: number, current: number, total: number) {
+  const cap = maxBudgetLineAmount(total);
+  const scale = Math.max(official * 3, current, 1);
+  return Math.min(cap, Math.ceil(scale / step) * step);
+}
+
+/** Button step: 5 % of the official amount, at least 1 M€. */
+export function lineStep(official: number) {
+  return Math.max(step, Math.round(official * 0.05 / step) * step);
+}
+
+/** Initial scenario: the official spending, with deficit mode on if it exceeded revenue. */
+export function officialScenario(lines: BudgetLine[], total: number) {
+  const amounts = lines.map(line => line.amount);
+  return { amounts, allowDeficit: amounts.reduce((sum, amount) => sum + amount, 0) > total };
+}
+
+/** Euros per resident for an amount in millions of euros. */
+export function eurosPerResident(millions: number, residents: number) {
+  return residents > 0 ? millions * 1_000_000 / residents : 0;
+}

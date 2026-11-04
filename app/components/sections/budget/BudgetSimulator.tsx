@@ -2,17 +2,22 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import type { DashboardData } from '../../../lib/dashboard-data';
-import { buildBudgetGradient, decodeScenario, encodeScenario, fitAmountsToBudget, getScenarioBalance, getScenarioDeficit, getUnallocatedBudget, setBudgetLineAmount, type BudgetLine } from '../../../lib/budget-scenario';
+import { buildBudgetGradient, decodeScenario, officialScenario, encodeScenario, fitAmountsToBudget, getScenarioBalance, getScenarioDeficit, getUnallocatedBudget, setBudgetLineAmount, type BudgetLine } from '../../../lib/budget-scenario';
 import { formatMillions } from '../../../lib/format';
 import AllocationPanel from './AllocationPanel';
+import ScenarioDock from './ScenarioDock';
 import ScenarioOverview from './ScenarioOverview';
 
-export default function BudgetSimulator({ monthly, isYearToDate = false }: { monthly: DashboardData['monthly']; isYearToDate?: boolean }) {
+type BudgetSimulatorProps = { monthly: DashboardData['monthly']; residents: number; isYearToDate?: boolean };
+
+export default function BudgetSimulator({ monthly, residents, isYearToDate = false }: BudgetSimulatorProps) {
   const lines = monthly.expenditure as BudgetLine[];
   const budget = monthly.revenueTotal;
-  const [amounts, setAmounts] = useState<number[]>(() => lines.map(() => 0));
-  const [drafts, setDrafts] = useState<string[]>(() => lines.map(() => '0'));
-  const [allowDeficit, setAllowDeficit] = useState(false);
+  // Start from what was actually spent: people adjust a real budget instead of filling an empty one.
+  const [initial] = useState(() => officialScenario(lines, budget));
+  const [amounts, setAmounts] = useState<number[]>(initial.amounts);
+  const [drafts, setDrafts] = useState<string[]>(() => initial.amounts.map(String));
+  const [allowDeficit, setAllowDeficit] = useState(initial.allowDeficit);
   const [toast, setToast] = useState('');
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -97,7 +102,8 @@ export default function BudgetSimulator({ monthly, isYearToDate = false }: { mon
   return <>
     <div className="dashboard-grid">
       <AllocationPanel lines={lines} amounts={amounts} drafts={drafts} budget={budget} periodLabel={monthly.periodLabel} isYearToDate={isYearToDate}
-        allowDeficit={allowDeficit} spent={spent} unallocated={unallocated} deficit={deficit}
+        allowDeficit={allowDeficit} spent={spent} unallocated={unallocated} deficit={deficit} residents={residents}
+        dock={<ScenarioDock budget={budget} spent={spent} balance={balance} residents={residents} isYearToDate={isYearToDate}/>}
         onToggleDeficit={toggleDeficit}
         onSetLine={setLine}
         onDraftChange={(index, value) => setDrafts(current => current.map((draft, i) => i === index ? value : draft))}
