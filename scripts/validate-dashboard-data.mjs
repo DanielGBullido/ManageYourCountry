@@ -123,6 +123,11 @@ for (const { source, shown, reproduces } of importedSeries) {
 }
 assert.equal(normalizedPeriod(regions.igaeMonthly.period), normalizedPeriod(monthly.periodLabel), 'Los datos mensuales por comunidad y el simulador deben usar el mismo mes de referencia');
 
+const annualAccounts = await readJson('cuentas-anuales-aapp.json');
+assert.equal(annualAccounts.revenue.taxes + annualAccounts.revenue.contributions + annualAccounts.revenue.other, annualAccounts.revenueTotal, 'Los ingresos anuales desglosados deben sumar el total');
+assert.equal(annualAccounts.cofogTotal, sum(services.items.map(item => item.amount)), 'El gasto por funciones de Eurostat debe coincidir con data/gasto-funcional-2024.json');
+assert.equal(String(annualAccounts.year), String(services.period).match(/\d{4}/)?.[0], 'Los ingresos anuales deben ser del mismo año que el gasto por funciones');
+assert.match(annualAccounts.provenance?.mainSha256 ?? '', /^[0-9a-f]{64}$/, 'Falta la huella de la descarga de Eurostat');
 const archivedPeriods = Object.entries(dashboardPeriods);
 assert.ok(archivedPeriods.length > 0, 'El selector necesita al menos un mes completo archivado');
 assert.ok(localHistory.months.length > 0, 'Falta el histórico local de la serie IGAE');

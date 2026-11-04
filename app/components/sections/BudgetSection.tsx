@@ -1,5 +1,8 @@
+import { useMemo } from 'react';
 import type { DashboardData } from '../../lib/dashboard-data';
-import type { BudgetView } from '../../lib/year-to-date';
+import { buildFunctionalScenario, functionalRevisionGap, functionalYear } from '../../lib/functional-scenario';
+import { formatMillions } from '../../lib/format';
+import type { BudgetView, PeriodKind } from '../../lib/year-to-date';
 import AnnualContextSection from './budget/AnnualContextSection';
 import BenefitsSection from './budget/BenefitsSection';
 import BudgetSimulator from './budget/BudgetSimulator';
@@ -14,9 +17,18 @@ type BudgetSectionProps = {
 
 export default function BudgetSection({ data, view, yearToDate, onViewChange }: BudgetSectionProps) {
   const { monthly, benefits, taxes, services } = data;
-  const activeView: BudgetView = view === 'ytd' && yearToDate ? 'ytd' : 'month';
-  const scenario = activeView === 'ytd' && yearToDate ? yearToDate : monthly;
-  const isYearToDate = activeView === 'ytd';
+  const functional = useMemo(() => buildFunctionalScenario(monthly, services), [monthly, services]);
+  const activeView: BudgetView = view === 'ytd' && !yearToDate ? 'month' : view;
+  const scenario = activeView === 'functions' ? functional : activeView === 'ytd' && yearToDate ? yearToDate : monthly;
+  const periodKind: PeriodKind = activeView === 'functions' ? 'year' : activeView === 'ytd' ? 'ytd' : 'month';
+  const options: { value: BudgetView; label: string; hint: string; disabled?: boolean }[] = [
+    { value: 'month', label: `Por tipo de gasto · ${monthly.periodLabel.toLowerCase()}`, hint: 'Sueldos, pensiones, compras… · un mes' },
+    { value: 'ytd', label: yearToDate ? `Por tipo de gasto · ${yearToDate.periodLabel.toLowerCase()}` : 'Por tipo de gasto · acumulado del año', hint: yearToDate ? 'Más estable que un solo mes' : 'En enero coincide con el mes', disabled: !yearToDate },
+    { value: 'functions', label: `Por función · año ${functionalYear}`, hint: 'Sanidad, educación, defensa… · incluye ayuntamientos' },
+  ];
+  const notice = periodKind === 'year'
+    ? <><b>Año {functionalYear} completo, todas las administraciones.</b> Incluye ayuntamientos, así que no se compara con las cuentas mensuales. El gasto por funciones es de la publicación de abril; la revisión posterior lo sube {formatMillions(functionalRevisionGap)} sin repartirlo por funciones.</>
+    : <><b>{periodKind === 'ytd' ? `Acumulado de ${scenario.periodLabel.toLowerCase()}.` : 'Un solo mes puede ser irregular.'}</b> {periodKind === 'ytd' ? 'Sumar meses suaviza pagas extra y cobros trimestrales de impuestos.' : 'Pagas extra o cobros trimestrales de impuestos lo cambian mucho; el acumulado del año es más estable.'} Por defecto no puedes gastar más de lo que entra; activa «Permitir déficit» para hacerlo.</>;
   return (
     <section className="budget-section" id="presupuesto">
       <div className="section-heading">
@@ -25,21 +37,22 @@ export default function BudgetSection({ data, view, yearToDate, onViewChange }: 
           <h2>¿Cómo repartirías<br/><em>el presupuesto?</em></h2>
         </div>
         <div className="period-control">
-          <span className="period-control-label" id="budget-view-label">PERIODO DEL SIMULADOR</span>
+          <span className="period-control-label" id="budget-view-label">CÓMO VER EL GASTO</span>
           <div className="view-toggle" role="radiogroup" aria-labelledby="budget-view-label">
-            <label className={activeView === 'month' ? 'active' : ''}><input type="radio" name="budget-view" value="month" checked={activeView === 'month'} onChange={() => onViewChange('month')}/>Solo {monthly.periodLabel.toLowerCase()}</label>
-            <label className={activeView === 'ytd' ? 'active' : ''} aria-disabled={!yearToDate}><input type="radio" name="budget-view" value="ytd" checked={activeView === 'ytd'} disabled={!yearToDate} onChange={() => onViewChange('ytd')}/>{yearToDate ? `Acumulado: ${yearToDate.periodLabel.toLowerCase()}` : 'Acumulado del año (en enero coincide con el mes)'}</label>
+            {options.map(option => <label key={option.value} className={activeView === option.value ? 'active' : ''} aria-disabled={option.disabled}>
+              <input type="radio" name="budget-view" value={option.value} checked={activeView === option.value} disabled={option.disabled} onChange={() => onViewChange(option.value)}/>
+              <span><b>{option.label}</b><small>{option.hint}</small></span>
+            </label>)}
           </div>
-          <div className="static-select">Administración central, autonómica y Seguridad Social; sin ayuntamientos</div>
-          <div className="data-status official-status"><span className="status-dot"/> BASE OFICIAL · IGAE</div>
+          <div className="data-status official-status"><span className="status-dot"/> {periodKind === 'year' ? 'EUROSTAT · DATOS NOTIFICADOS POR ESPAÑA' : 'IGAE · SIN AYUNTAMIENTOS'}</div>
         </div>
       </div>
       <div className="official-notice">
         <span>i</span>
-        <p><b>{isYearToDate ? `Acumulado de ${scenario.periodLabel.toLowerCase()}.` : 'Un solo mes puede ser irregular.'}</b> {isYearToDate ? 'Sumar meses suaviza pagas extra y cobros trimestrales de impuestos.' : 'Pagas extra o cobros trimestrales de impuestos lo cambian mucho; el acumulado del año es más estable.'} Por defecto no puedes gastar más de lo que entra; activa «Permitir déficit» para hacerlo.</p>
-        <a href={monthly.sourceUrl} target="_blank" rel="noreferrer">Ver informe ↗</a>
+        <p>{notice}</p>
+        <a href={scenario.sourceUrl} target="_blank" rel="noreferrer">Ver fuente ↗</a>
       </div>
-      <BudgetSimulator monthly={scenario} residents={data.people.population.people} isYearToDate={isYearToDate}/>
+      <BudgetSimulator monthly={scenario} residents={data.people.population.people} periodKind={periodKind}/>
       <MoneyFlow monthly={scenario}/>
       <AnnualContextSection monthly={monthly} taxes={taxes} services={services}/>
       <BenefitsSection benefits={benefits}/>

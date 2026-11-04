@@ -26,12 +26,14 @@ export default function DashboardExperience({ snapshots, publicDebtHistory }: { 
     const requested = params.get('mes');
     if (requested && snapshots.some(snapshot => snapshot.period === requested)) setPeriod(requested);
     if (params.get('vista') === 'acumulado') setView('ytd');
+    if (params.get('vista') === 'funciones') setView('functions');
   }, [snapshots]);
 
   function changeView(nextView: BudgetView) {
     setView(nextView);
     const url = new URL(window.location.href);
     if (nextView === 'ytd') url.searchParams.set('vista', 'acumulado');
+    else if (nextView === 'functions') url.searchParams.set('vista', 'funciones');
     else url.searchParams.delete('vista');
     // A shared allocation belongs to one period and view; switching starts clean.
     url.searchParams.delete('reparto');

@@ -6,11 +6,12 @@ import { buildBudgetGradient, decodeScenario, officialScenario, encodeScenario, 
 import { formatMillions } from '../../../lib/format';
 import AllocationPanel from './AllocationPanel';
 import ScenarioDock from './ScenarioDock';
+import type { PeriodKind } from '../../../lib/year-to-date';
 import ScenarioOverview from './ScenarioOverview';
 
-type BudgetSimulatorProps = { monthly: DashboardData['monthly']; residents: number; isYearToDate?: boolean };
+type BudgetSimulatorProps = { monthly: DashboardData['monthly']; residents: number; periodKind?: PeriodKind };
 
-export default function BudgetSimulator({ monthly, residents, isYearToDate = false }: BudgetSimulatorProps) {
+export default function BudgetSimulator({ monthly, residents, periodKind = 'month' }: BudgetSimulatorProps) {
   const lines = monthly.expenditure as BudgetLine[];
   const budget = monthly.revenueTotal;
   // Start from what was actually spent: people adjust a real budget instead of filling an empty one.
@@ -101,14 +102,14 @@ export default function BudgetSimulator({ monthly, residents, isYearToDate = fal
 
   return <>
     <div className="dashboard-grid">
-      <AllocationPanel lines={lines} amounts={amounts} drafts={drafts} budget={budget} periodLabel={monthly.periodLabel} isYearToDate={isYearToDate}
+      <AllocationPanel lines={lines} amounts={amounts} drafts={drafts} budget={budget} periodLabel={monthly.periodLabel} periodKind={periodKind}
         allowDeficit={allowDeficit} spent={spent} unallocated={unallocated} deficit={deficit} residents={residents}
-        dock={<ScenarioDock budget={budget} spent={spent} balance={balance} residents={residents} isYearToDate={isYearToDate}/>}
+        dock={<ScenarioDock budget={budget} spent={spent} balance={balance} residents={residents} periodKind={periodKind}/>}
         onToggleDeficit={toggleDeficit}
         onSetLine={setLine}
         onDraftChange={(index, value) => setDrafts(current => current.map((draft, i) => i === index ? value : draft))}
         onCommitDraft={commitDraft} onSetAllZero={setAllZero} onResetOfficial={resetOfficial} onShare={share} />
-      <ScenarioOverview monthly={monthly} lines={lines} amounts={amounts} spent={spent} unallocated={unallocated} deficit={deficit} balance={balance} gradient={gradient} isYearToDate={isYearToDate} />
+      <ScenarioOverview monthly={monthly} lines={lines} amounts={amounts} spent={spent} unallocated={unallocated} deficit={deficit} balance={balance} gradient={gradient} periodKind={periodKind} />
     </div>
     <div className={`toast ${toast ? 'visible' : ''}`} role="status" aria-live="polite">{toast}</div>
   </>;

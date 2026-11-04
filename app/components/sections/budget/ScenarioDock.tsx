@@ -1,18 +1,19 @@
 import { eurosPerResident } from '../../../lib/budget-scenario';
 import { formatMillions } from '../../../lib/format';
+import type { PeriodKind } from '../../../lib/year-to-date';
 
-type ScenarioDockProps = { budget: number; spent: number; balance: number; residents: number; isYearToDate: boolean };
+type ScenarioDockProps = { budget: number; spent: number; balance: number; residents: number; periodKind: PeriodKind };
 
 const euros = new Intl.NumberFormat('es-ES', { maximumFractionDigits: 0 });
 
 // Always-visible summary of the scenario. It sticks to the bottom of the screen
 // while the item list scrolls, so every change shows its effect immediately.
-export default function ScenarioDock({ budget, spent, balance, residents, isYearToDate }: ScenarioDockProps) {
+export default function ScenarioDock({ budget, spent, balance, residents, periodKind }: ScenarioDockProps) {
   const deficit = balance < 0;
   const fill = budget > 0 ? Math.min(100, spent / budget * 100) : 0;
   const overflow = budget > 0 && deficit ? Math.min(100, -balance / budget * 100) : 0;
   const perResident = Math.round(eurosPerResident(Math.abs(balance), residents));
-  const periodWord = isYearToDate ? 'en el periodo' : 'este mes';
+  const periodWord = periodKind === 'year' ? 'al año' : periodKind === 'ytd' ? 'en el periodo' : 'este mes';
   return <div className={`scenario-dock ${deficit ? 'is-deficit' : ''}`} aria-live="polite">
     <div className="scenario-dock-figures">
       <span>Gastas <b>{formatMillions(spent)}</b> de <b>{formatMillions(budget)}</b> que entraron</span>

@@ -1,6 +1,7 @@
 import type { DashboardData } from '../../../lib/dashboard-data';
 import type { BudgetLine } from '../../../lib/budget-scenario';
 import { formatMillions, formatPercent } from '../../../lib/format';
+import type { PeriodKind } from '../../../lib/year-to-date';
 
 type ScenarioOverviewProps = {
   monthly: DashboardData['monthly'];
@@ -11,10 +12,10 @@ type ScenarioOverviewProps = {
   deficit: number;
   balance: number;
   gradient: string;
-  isYearToDate: boolean;
+  periodKind: PeriodKind;
 };
 
-export default function ScenarioOverview({ monthly, lines, amounts, spent, unallocated, deficit, balance, gradient, isYearToDate }: ScenarioOverviewProps) {
+export default function ScenarioOverview({ monthly, lines, amounts, spent, unallocated, deficit, balance, gradient, periodKind }: ScenarioOverviewProps) {
   const percentSpent = monthly.revenueTotal > 0 ? spent / monthly.revenueTotal * 100 : 0;
   // Shares are of revenue while within budget; with a deficit, of total spending (the ring is full).
   const shareBase = Math.max(monthly.revenueTotal, spent);
@@ -31,7 +32,7 @@ export default function ScenarioOverview({ monthly, lines, amounts, spent, unall
     </article>
     <article className="panel revenue-panel">
       <div className="eyebrow muted">DINERO QUE ENTRÓ · {monthly.periodLabel.toUpperCase()} · M€</div><h3>¿De dónde vienen los ingresos?</h3>
-      <div className="revenue-list">{monthly.revenue.map(item => <div className="revenue-row" key={item.id}><span><i className="color-chip" style={{ background: item.color }}/><span>{item.label}<details className="sim-more revenue-more"><summary>Qué incluye</summary><p>{item.description}</p><a className="revenue-source-term" href={`${monthly.sourceUrl}#page=9`} target="_blank" rel="noreferrer">IGAE · nombre en la tabla: {item.officialLabel} ↗</a></details></span></span><b>{formatMillions(item.amount)}</b></div>)}</div>
+      <div className="revenue-list">{monthly.revenue.map(item => <div className="revenue-row" key={item.id}><span><i className="color-chip" style={{ background: item.color }}/><span>{item.label}<details className="sim-more revenue-more"><summary>Qué incluye</summary><p>{item.description}</p><a className="revenue-source-term" href={periodKind === 'year' ? monthly.sourceUrl : `${monthly.sourceUrl}#page=9`} target="_blank" rel="noreferrer">{periodKind === 'year' ? 'Eurostat' : 'IGAE'} · nombre en la tabla: {item.officialLabel} ↗</a></details></span></span><b>{formatMillions(item.amount)}</b></div>)}</div>
       <div className="revenue-total"><span>Total de ingresos</span><b>{formatMillions(monthly.revenueTotal)}</b></div><div className="revenue-explainer">Son ingresos de las administraciones, no lo que paga cada persona.</div>
     </article>
   </div>;

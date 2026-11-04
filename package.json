@@ -16,6 +16,7 @@
     "data:refresh:paro": "node scripts/refresh-paro.mjs",
     "data:refresh:ccaa": "node scripts/refresh-igae-ccaa.mjs",
     "data:refresh:auxiliares": "npm run data:refresh:aeat && npm run data:refresh:pensiones && npm run data:refresh:pnc && npm run data:refresh:imv && npm run data:refresh:paro && npm run data:refresh:ccaa",
+    "data:refresh:eurostat": "node scripts/refresh-eurostat-anual.mjs",
     "data:snapshot": "node scripts/build-dashboard-periods.mjs"
   },
   "dependencies": {

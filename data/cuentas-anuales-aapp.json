@@ -1,0 +1,28 @@
+{
+  "title": "Cuentas anuales de las Administraciones públicas",
+  "year": 2024,
+  "scope": "Total de las Administraciones públicas (sector S13): Administración central, comunidades autónomas, corporaciones locales y Seguridad Social, consolidado",
+  "accountingBasis": "Contabilidad nacional · SEC 2010",
+  "unit": "millones de euros",
+  "source": "Eurostat · Government finance statistics (gov_10a_main, gov_10a_exp), datos notificados por España",
+  "sourceUrl": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_main/default/table?lang=es",
+  "revenueTotal": 674315,
+  "revenue": {
+    "taxes": 381666,
+    "contributions": 210294,
+    "other": 82355
+  },
+  "expenditureTotalRevised": 725122,
+  "financingBalanceRevised": -50807,
+  "cofogTotal": 725001,
+  "revisionGap": 121,
+  "provenance": {
+    "mainUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_main?geo=ES&sector=S13&unit=MIO_EUR&time=2024&na_item=TR&na_item=TE&na_item=B9&na_item=D2REC&na_item=D5REC&na_item=D91REC&na_item=D61REC",
+    "cofogUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?geo=ES&sector=S13&unit=MIO_EUR&time=2024&na_item=TE",
+    "mainUpdated": "2026-10-21T11:00:00+0200",
+    "cofogUpdated": "2026-10-21T23:00:00+0200",
+    "mainSha256": "6db91a77ac61c039a6ac404c9d5af3b6e175288a4e73efcbd6381ed0d804c07c",
+    "cofogSha256": "b02572d10f25025f95509a2e4419c74e1ff359cdee724d18efb9d067f9d114c5",
+    "retrievedAt": "2026-11-04T07:57:07.173Z"
+  }
+}

@@ -571,3 +571,8 @@ footer>span,footer>a:last-child{font-size:12px}
 .revenue-more summary{font-size:12px}
 .revenue-more p{font-size:13px}
 @media(max-width:640px){.topline{display:none}.brand{letter-spacing:.02em}.brand b,.brand span{white-space:nowrap}}
+.view-toggle label>span{display:grid;gap:1px}
+.view-toggle label b{font-weight:600}
+.view-toggle label small{font-size:12px;font-weight:400;color:#748074}
+@media(max-width:640px){.site-header .share-button{padding:10px 9px;font-size:12px;white-space:nowrap}.site-header .share-button span{margin-left:6px}}
+@media(max-width:380px){.site-header .share-button span{display:none}}

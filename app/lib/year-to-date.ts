@@ -1,7 +1,9 @@
 import type { DashboardData } from './dashboard-data';
 
 type Monthly = DashboardData['monthly'];
-export type BudgetView = 'month' | 'ytd';
+export type BudgetView = 'month' | 'ytd' | 'functions';
+/** How the simulator words its period: one month, January to date, or a whole year. */
+export type PeriodKind = 'month' | 'ytd' | 'year';
 
 const monthNames = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
 

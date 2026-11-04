@@ -32,7 +32,7 @@ export default function MoneyFlow({ monthly }: { monthly: DashboardData['monthly
         </article>
       </div>
       <div className="money-route-balance">
-        <span>Saldo de {monthly.periodLabel.toLowerCase()}</span>
+        <span>Saldo {/^año/i.test(monthly.periodLabel) ? "del" : "de"} {monthly.periodLabel.toLowerCase()}</span>
         <b>{balance >= 0 ? '+' : '−'}{formatMillions(Math.abs(balance))}</b>
         <small>{balance >= 0 ? 'Los ingresos superaron el gasto no financiero.' : 'El gasto no financiero superó los ingresos.'}</small>
       </div>

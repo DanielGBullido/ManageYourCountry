@@ -9,7 +9,7 @@ Web cívica para explorar los ingresos y gastos públicos de España con datos o
 ## Qué hace
 
 - Muestra las cuentas mensuales de la IGAE (Administración central, comunidades autónomas y Seguridad Social; sin ayuntamientos), en contabilidad nacional SEC 2010, junto con la deuda PDE del Banco de España del mismo mes.
-- Permite elegir el mes (`?mes=AAAA-MM`) y ver en el simulador solo ese mes o el **acumulado del año** de enero al mes elegido (`?vista=acumulado`).
+- Permite elegir el mes (`?mes=AAAA-MM`) y ver en el simulador solo ese mes, el **acumulado del año** de enero al mes elegido (`?vista=acumulado`) o el **gasto por función** (sanidad, educación, defensa…) de un año completo y de todas las administraciones, ayuntamientos incluidos (`?vista=funciones`).
 - Ofrece un **simulador de reparto**. Por defecto, el tope son los ingresos y el dinero que no se asigna queda sin repartir. Con **«Permitir déficit»** se puede gastar más de lo que entra, y se muestra cuánto habría que pedir prestado. Los escenarios se comparten por URL (`?reparto=…&deficit=1`).
 - Añade como contexto prestaciones, empleo, población, impuestos anuales, gasto por funciones y un mapa autonómico. Cada serie conserva su propio periodo y no se suma al mes.
 
@@ -51,6 +51,7 @@ Las cifras viven en `data/` con su fuente y periodo; la app no consulta las seri
   | `npm run data:refresh:ccaa` | IGAE · [Administración regional por comunidad](https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx), `M_CCAA_Sub_Det_AAAA.xlsx` | `igaeMonthly` y columnas `igaeMonthly*` de `data/comunidades-autonomicas.json` |
 
   Cada uno valida sumas y periodo, archiva en `data/history/<fuente>/` todos los meses iguales o posteriores al de la IGAE y solo escribe el mes de `data/igae-latest.json`. La procedencia del dato mostrado (URL, catálogo, SHA-256, fecha de descarga, lector y tabla) está en `data/provenance/<fuente>-latest.json`. `npm run data:refresh:auxiliares` lanza los seis importadores auxiliares (AEAT incluida).
+- `scripts/refresh-eurostat-anual.mjs` (`npm run data:refresh:eurostat`) descarga de Eurostat (`gov_10a_main` y `gov_10a_exp`) los ingresos anuales de todas las Administraciones públicas del mismo año que `data/gasto-funcional-2024.json`. Comprueba que las funciones COFOG coinciden con ese fichero y guarda `data/cuentas-anuales-aapp.json` con las huellas de la descarga.
 - `npm run data:snapshot` archiva el mes en `data/dashboard-periods.json` solo si todas las fuentes mensuales coinciden.
 - El workflow semanal [`.github/workflows/refresh-official-data.yml`](.github/workflows/refresh-official-data.yml) encadena estos pasos: primero archiva lo nuevo de cada serie auxiliar, después intenta avanzar la IGAE y, si avanza, vuelve a lanzar las series auxiliares para que escriban el mismo mes. El dato que más tarda es el gasto en paro: la PRD lo publica un mes después que los beneficiarios.
 

@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { eurosPerResident, lineSliderMax, lineStep, type BudgetLine } from '../../../lib/budget-scenario';
 import { formatMillions } from '../../../lib/format';
+import type { PeriodKind } from '../../../lib/year-to-date';
 
 type AllocationPanelProps = {
   lines: BudgetLine[];
@@ -8,7 +9,7 @@ type AllocationPanelProps = {
   drafts: string[];
   budget: number;
   periodLabel: string;
-  isYearToDate: boolean;
+  periodKind: PeriodKind;
   allowDeficit: boolean;
   spent: number;
   unallocated: number;
@@ -27,8 +28,8 @@ type AllocationPanelProps = {
 const euros = new Intl.NumberFormat('es-ES', { maximumFractionDigits: 0 });
 const percent = new Intl.NumberFormat('es-ES', { maximumFractionDigits: 0 });
 
-export default function AllocationPanel({ lines, amounts, drafts, budget, periodLabel, isYearToDate, allowDeficit, residents, dock, onToggleDeficit, onSetLine, onDraftChange, onCommitDraft, onSetAllZero, onResetOfficial, onShare }: AllocationPanelProps) {
-  const periodWord = isYearToDate ? 'en el periodo' : 'al mes';
+export default function AllocationPanel({ lines, amounts, drafts, budget, periodLabel, periodKind, allowDeficit, residents, dock, onToggleDeficit, onSetLine, onDraftChange, onCommitDraft, onSetAllZero, onResetOfficial, onShare }: AllocationPanelProps) {
+  const periodWord = periodKind === 'year' ? 'al año' : periodKind === 'ytd' ? 'en el periodo' : 'al mes';
   return <article className="panel allocation-panel">
     <div className="panel-top"><div><div className="eyebrow muted">GASTO PÚBLICO · {periodLabel.toUpperCase()} · M€</div><h3>Redistribuye el gasto</h3></div></div>
     <p className="sim-intro">Empiezas con lo que se gastó de verdad. Mueve las barras o usa − y + para cambiar cada partida; el resultado se ve abajo al momento.</p>
@@ -84,7 +85,7 @@ export default function AllocationPanel({ lines, amounts, drafts, budget, period
         </details>
       </div>;
     })}</div>
-    <p className="sim-marker-note"><i aria-hidden="true"/> La marca de cada barra es el gasto oficial de {periodLabel.toLowerCase()}: una referencia, no un mínimo necesario.</p>
+    <p className="sim-marker-note"><i aria-hidden="true"/> La marca de cada barra es el gasto oficial {periodKind === 'year' ? 'del' : 'de'} {periodLabel.toLowerCase()}: una referencia, no un mínimo necesario.</p>
     {dock}
   </article>;
 }
