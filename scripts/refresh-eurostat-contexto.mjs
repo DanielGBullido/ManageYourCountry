@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { writeFile } from 'node:fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
 import { buildContext, contextUrls } from './lib/eurostat.mjs';
 
 // «España en contexto»: evolución del déficit, los ingresos, el gasto y la deuda
@@ -31,6 +31,12 @@ const output = {
   ...context,
   provenance,
 };
-await writeFile(new URL('../data/contexto-eurostat.json', import.meta.url), `${JSON.stringify(output, null, 2)}\n`);
+// Keep the previous download time when every dataset is byte-for-byte the same,
+// so the weekly workflow only commits real changes.
+const path = new URL('../data/contexto-eurostat.json', import.meta.url);
+const previous = await readFile(path, 'utf8').then(JSON.parse).catch(() => null);
+const sameData = previous?.provenance?.datasets && Object.entries(provenance.datasets).every(([name, dataset]) => previous.provenance.datasets[name]?.sha256 === dataset.sha256);
+if (sameData) output.provenance.retrievedAt = previous.provenance.retrievedAt;
+await writeFile(path, `${JSON.stringify(output, null, 2)}\n`);
 const last = context.series.at(-1);
 console.log(`Eurostat contexto: ${context.series[0].year}–${last.year}; España ${last.year}: saldo ${last.spain.balance} % y deuda ${last.spain.debt} % del PIB; funciones ${context.functions.year}; niveles ${context.levels.year}.`);

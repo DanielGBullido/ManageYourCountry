@@ -49,5 +49,11 @@ const output = {
     retrievedAt: new Date().toISOString(),
   },
 };
+// Keep the previous download time when Eurostat returned exactly the same data,
+// so the weekly workflow only commits real changes.
+const previous = await readJson('data/cuentas-anuales-aapp.json').catch(() => null);
+const sameData = previous?.provenance && ['mainSha256', 'cofogSha256'].every(key => previous.provenance[key] === output.provenance[key])
+  && previous.population?.averagePeople === output.population.averagePeople;
+if (sameData) output.provenance.retrievedAt = previous.provenance.retrievedAt;
 await writeFile(new URL('data/cuentas-anuales-aapp.json', root), `${JSON.stringify(output, null, 2)}\n`);
 console.log(`Eurostat ${year}: ingresos ${accounts.revenueTotal} M€, gasto por funciones ${accounts.cofogTotal} M€, gasto revisado ${accounts.expenditureTotalRevised} M€ (diferencia ${accounts.revisionGap} M€).`);
