@@ -20,9 +20,11 @@
     "data:refresh:eurostat": "node scripts/refresh-eurostat-anual.mjs",
     "data:refresh:contexto": "node scripts/refresh-eurostat-contexto.mjs",
     "styles:dark": "node scripts/build-dark-theme.mjs",
+    "data:refresh:historico": "node scripts/refresh-igae-history.mjs",
     "data:snapshot": "node scripts/build-dashboard-periods.mjs"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "next": "^16.2.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import DashboardExperience from './components/DashboardExperience';
-import { dashboardPeriods } from './lib/dashboard-data';
+import { dashboardPeriods, packSnapshots } from './lib/dashboard-data';
 import { buildShareSummary } from './lib/share-summary';
 import publicDebtHistory from '../data/public-debt-history-2026.json';
 
@@ -22,5 +22,5 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
 }
 
 export default function Home() {
-  return <DashboardExperience snapshots={dashboardPeriods} publicDebtHistory={publicDebtHistory}/>;
+  return <DashboardExperience packed={packSnapshots(dashboardPeriods)} publicDebtHistory={publicDebtHistory}/>;
 }

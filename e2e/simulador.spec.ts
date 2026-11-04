@@ -75,3 +75,29 @@ test.describe('modo oscuro', () => {
     expect(results.violations.map(violation => `${violation.id}: ${violation.nodes.length}`)).toEqual([]);
   });
 });
+
+test('un mes de 2025 se compara con el mismo mes de 2024 y no muestra deuda de otro mes', async ({ page }) => {
+  await page.goto('/?mes=2025-08');
+  await expect(page.locator('#dashboard-period')).toHaveValue('2025-08');
+  await expect(page.locator('.hero-stats')).toContainText('frente a agosto de 2024');
+  await expect(page.locator('.hero-debt')).toContainText('cargada desde enero de 2026');
+  await expect(page.locator(dock)).toContainText('Sobran 3165 M€');
+});
+
+test('el aviso legal se abre desde el pie, explica la privacidad y es accesible', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('link', { name: 'AVISO LEGAL Y PRIVACIDAD' }).click();
+  await expect(page).toHaveURL(/\/aviso-legal$/);
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Qué es esta web');
+  await expect(page.locator('main')).toContainText('Sin cookies');
+  const results = await new AxeBuilder({ page }).analyze();
+  expect(results.violations.map(violation => `${violation.id}: ${violation.nodes.length}`)).toEqual([]);
+});
+
+test('robots.txt y sitemap.xml existen y apuntan al dominio', async ({ request }) => {
+  const robots = await (await request.get('/robots.txt')).text();
+  expect(robots).toContain('Sitemap: https://');
+  expect(robots).toContain('Disallow: /og');
+  const sitemap = await (await request.get('/sitemap.xml')).text();
+  expect(sitemap).toContain('/aviso-legal</loc>');
+});

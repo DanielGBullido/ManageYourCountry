@@ -9,6 +9,7 @@ Web cívica para explorar los ingresos y gastos públicos de España con datos o
 ## Qué hace
 
 - Muestra las cuentas mensuales de la IGAE (Administración central, comunidades autónomas y Seguridad Social; sin ayuntamientos), en contabilidad nacional SEC 2010, junto con la deuda PDE del Banco de España del mismo mes.
+- Ofrece 32 meses, de enero de 2024 a agosto de 2026, y compara cada mes con el mismo mes del año anterior.
 - Permite elegir el mes (`?mes=AAAA-MM`) y ver en el simulador solo ese mes, el **acumulado del año** de enero al mes elegido (`?vista=acumulado`) o el **gasto por función** (sanidad, educación, defensa…) de un año completo y de todas las administraciones, ayuntamientos incluidos (`?vista=funciones`).
 - Ofrece un **simulador de reparto**. Por defecto, el tope son los ingresos y el dinero que no se asigna queda sin repartir. Con **«Permitir déficit»** se puede gastar más de lo que entra, y se muestra cuánto habría que pedir prestado. Los escenarios se comparten por URL (`?reparto=…&deficit=1`).
 - La sección **«España en contexto»** muestra, con datos anuales de Eurostat, el déficit y la deuda en % del PIB desde 2015 frente a la UE-27, el gasto por función frente a la media europea y el saldo de cada nivel de administración (Estado, comunidades, ayuntamientos y Seguridad Social).
@@ -57,6 +58,7 @@ Las cifras viven en `data/` con su fuente y periodo; la app no consulta las seri
   Cada uno valida sumas y periodo, archiva en `data/history/<fuente>/` todos los meses iguales o posteriores al de la IGAE y solo escribe el mes de `data/igae-latest.json`. La procedencia del dato mostrado (URL, catálogo, SHA-256, fecha de descarga, lector y tabla) está en `data/provenance/<fuente>-latest.json`. `npm run data:refresh:auxiliares` lanza los seis importadores auxiliares (AEAT incluida).
 - `scripts/refresh-eurostat-anual.mjs` (`npm run data:refresh:eurostat`) descarga de Eurostat (`gov_10a_main` y `gov_10a_exp`) los ingresos anuales de todas las Administraciones públicas del mismo año que `data/gasto-funcional-2024.json`. Comprueba que las funciones COFOG coinciden con ese fichero y guarda `data/cuentas-anuales-aapp.json` con las huellas de la descarga.
 - `scripts/refresh-eurostat-contexto.mjs` (`npm run data:refresh:contexto`) descarga de Eurostat (`gov_10a_main`, `gov_10dd_edpt1`, `gov_10a_exp`) las series de «España en contexto» desde 2015. Comprueba que ingresos − gastos cuadra con el saldo cada año y que los saldos de los cuatro niveles de administración suman el total. Guarda `data/contexto-eurostat.json` con las huellas de cada descarga.
+- `scripts/refresh-igae-history.mjs` (`npm run data:refresh:historico`) descarga los libros `M_CONSOLIDADO_AAAA.xlsx` de la IGAE del año del panel y los dos anteriores, guarda una copia en `data/sources/igae/` y escribe `data/igae-monthly-history-AAAA.json` con los flujos de cada mes (acumulado del mes menos el del anterior). Un test comprueba que reproduce exactamente el histórico de 2026 y que agosto de 2025 coincide con la columna del año anterior del PDF.
 - `npm run data:snapshot` archiva el mes en `data/dashboard-periods.json` solo si todas las fuentes mensuales coinciden.
 - El workflow semanal [`.github/workflows/refresh-official-data.yml`](.github/workflows/refresh-official-data.yml) encadena estos pasos: primero archiva lo nuevo de cada serie auxiliar, después intenta avanzar la IGAE y, si avanza, vuelve a lanzar las series auxiliares para que escriban el mismo mes. El dato que más tarda es el gasto en paro: la PRD lo publica un mes después que los beneficiarios.
 
@@ -76,3 +78,11 @@ npm run build
 ```
 
 El workflow [`.github/workflows/ci.yml`](.github/workflows/ci.yml) ejecuta en cada push los tests, la validación de datos, la comprobación del tema oscuro y las pruebas de interfaz. En local, la primera vez, `npx playwright install chromium` descarga el navegador de pruebas.
+
+El workflow semanal termina con un resumen de cada importador y se marca en rojo si alguno falla, para que GitHub avise por correo.
+
+## Privacidad, legal y buscadores
+
+- [`/aviso-legal`](app/aviso-legal/page.tsx) explica qué es la web, de dónde salen los datos y qué información se trata al visitarla. Si añades un servicio que reciba datos de los visitantes, actualiza esa página.
+- Estadísticas de uso con Vercel Web Analytics (sin cookies). Hay que activarlas en el panel de Vercel del proyecto (Analytics → Enable).
+- `app/robots.ts` y `app/sitemap.ts` generan `robots.txt` y `sitemap.xml`; las imágenes `/og` no se indexan.

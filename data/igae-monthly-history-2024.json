@@ -1,0 +1,2429 @@
+{
+  "series": "Operaciones no financieras consolidadas de las Administraciones Públicas",
+  "year": 2024,
+  "provisional": false,
+  "sourceFile": "M_CONSOLIDADO_2024.xlsx",
+  "sourceSheet": "Tabla1a",
+  "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP-M/M_CONSOLIDADO_2024.xlsx",
+  "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/DatosConsolidadosSeries.aspx",
+  "updatedAt": "2026-09-30",
+  "retrievedAt": "2026-11-04",
+  "scope": "Administración central, Administración regional y Fondos de Seguridad Social; excluye Administración local",
+  "unit": "millones de euros",
+  "periodType": "Flujos mensuales derivados de datos acumulados",
+  "method": "El fichero oficial presenta importes acumulados. Para obtener el flujo de cada mes se resta el acumulado del mes previo; enero es igual a su acumulado.",
+  "months": [
+    {
+      "period": "2024-01",
+      "label": "Enero de 2024",
+      "monthly": {
+        "source": "Intervención General de la Administración del Estado (IGAE)",
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP-M/M_CONSOLIDADO_2024.xlsx",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/DatosConsolidadosSeries.aspx",
+        "referencePeriod": "2024-01",
+        "periodLabel": "Enero de 2024",
+        "geography": "España",
+        "scope": "Agregado de Administración central, Administración regional y Fondos de la Seguridad Social; excluye Administración local",
+        "accountingBasis": "Contabilidad nacional · SEC 2010 · Revisión Estadística 2024",
+        "periodType": "Flujo del mes, calculado como diferencia entre acumulados del mes y del mes anterior",
+        "unit": "millones de euros",
+        "revenueTotal": 39682,
+        "expenditureTotal": 46140,
+        "financingBalance": -6458,
+        "notes": [
+          "Fuente: serie mensual consolidada de la IGAE, hoja Tabla1a del libro M_CONSOLIDADO_2024.xlsx, actualización 2026-09-30.",
+          "El libro publica importes acumulados desde enero. El importe del mes se calcula restando el acumulado del mes anterior; enero equivale a su acumulado.",
+          "La clasificación de gasto es económica; no identifica programas concretos ni una cantidad mínima necesaria para prestar cada servicio.",
+          "El escenario permite redistribuir el gasto oficial y dejar parte de los ingresos sin asignar."
+        ],
+        "revenue": [
+          {
+            "id": "taxes",
+            "label": "Impuestos directos e indirectos",
+            "officialLabel": "Impuestos",
+            "description": "Incluye impuestos sobre la renta y el patrimonio (por ejemplo, IRPF e Impuesto sobre Sociedades), sobre la producción y el consumo (por ejemplo, IVA e impuestos especiales) y sobre el capital. La tabla IGAE de agosto da una sola cifra conjunta; no publica cuánto corresponde a cada impuesto.",
+            "color": "#476c50",
+            "amount": 18613
+          },
+          {
+            "id": "contributions",
+            "label": "Cotizaciones a la Seguridad Social",
+            "officialLabel": "Cotizaciones sociales",
+            "description": "Cotizaciones sociales ingresadas en el mes. No son solo las aportadas por trabajadores: también incluyen las cotizaciones a cargo de empleadores.",
+            "color": "#8ea987",
+            "amount": 16818
+          },
+          {
+            "id": "transfers",
+            "label": "Transferencias recibidas de otras administraciones",
+            "officialLabel": "Transferencias entre AAPP",
+            "description": "Dinero que la Administración central, las comunidades o los Fondos de la Seguridad Social reciben de otro nivel público. No es un impuesto. Al ser un traspaso interno, no equivale necesariamente a dinero nuevo para el conjunto del sector público.",
+            "color": "#d8a26c",
+            "amount": 1098
+          },
+          {
+            "id": "other",
+            "label": "Otros ingresos: ventas, rentas y transferencias no tributarias",
+            "officialLabel": "Resto de recursos",
+            "description": "Es el resto de ingresos no financieros después de restar impuestos, cotizaciones sociales y transferencias entre Administraciones. La categoría comprende ingresos por ventas de bienes y servicios públicos, rentas de bienes o activos públicos (como intereses, dividendos o alquileres) y transferencias corrientes o de capital que no son entre Administraciones. La tabla mensual consolidada no publica cuánto aporta cada concepto.",
+            "color": "#a4b4c1",
+            "amount": 3153
+          }
+        ],
+        "expenditure": [
+          {
+            "id": "intermediate",
+            "label": "Compras y servicios para que funcionen las administraciones",
+            "officialLabel": "Consumos intermedios",
+            "description": "Bienes y servicios que las administraciones utilizan para funcionar o prestar servicios: suministros, material, alquileres y servicios contratados. No incluye los sueldos del personal.",
+            "color": "#476c50",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 4610
+          },
+          {
+            "id": "wages",
+            "label": "Sueldos del personal público",
+            "officialLabel": "Remuneración de asalariados",
+            "description": "Sueldos y cotizaciones sociales a cargo de la administración empleadora para el personal de los sectores incluidos. No es el número de empleados; es el coste registrado ese mes.",
+            "color": "#8ea987",
+            "relatedSources": [
+              {
+                "label": "Consultar plantilla de las Administraciones",
+                "href": "https://digital.gob.es/funcion-publica/dgfp/registro-central-personal/boletin"
+              }
+            ],
+            "amount": 9978
+          },
+          {
+            "id": "interest",
+            "label": "Intereses de la deuda",
+            "officialLabel": "Intereses",
+            "description": "Coste de los intereses devengados por la deuda pública. No incluye devolver el principal de los préstamos.",
+            "color": "#d8a26c",
+            "relatedSources": [
+              {
+                "label": "Consultar información de la deuda pública",
+                "href": "https://www.tesoro.es/deuda-publica"
+              }
+            ],
+            "amount": 2431
+          },
+          {
+            "id": "subsidies",
+            "label": "Subvenciones a empresas, autónomos y entidades productoras",
+            "officialLabel": "Subvenciones",
+            "description": "Ayudas que la Administración concede a productores para apoyar su actividad o reducir sus costes. Pueden recibirlas empresas, agricultores, autónomos u otras entidades productoras; no son pensiones ni ayudas directas a hogares. La tabla mensual no indica cuánto recibió cada sector.",
+            "color": "#a4b4c1",
+            "relatedSources": [
+              {
+                "label": "Buscar subvenciones en el SNPSAP",
+                "href": "https://www.pap.hacienda.gob.es/bdnstrans/GE/es/inicio"
+              },
+              {
+                "label": "Consultar la API pública de subvenciones",
+                "href": "https://www.infosubvenciones.es/bdnstrans/doc/swagger"
+              }
+            ],
+            "amount": 627
+          },
+          {
+            "id": "benefits",
+            "label": "Prestaciones en dinero: pensiones, paro y ayudas sociales",
+            "officialLabel": "Prestaciones sociales distintas de las transferencias en especie",
+            "description": "Pagos sociales a personas y familias: pensiones de jubilación y supervivencia, prestaciones por enfermedad o discapacidad, desempleo, ayudas familiares, vivienda y exclusión social (incluido el IMV). La cifra mensual de IGAE los suma; el detalle por programa se consulta en los organismos que los gestionan.",
+            "color": "#d0cf9e",
+            "relatedSources": [
+              {
+                "label": "Ver detalle mensual de pensiones, IMV y paro",
+                "href": "#prestaciones"
+              }
+            ],
+            "amount": 19362
+          },
+          {
+            "id": "in_kind",
+            "label": "Servicios para las familias pagados por la Administración",
+            "officialLabel": "Transferencias sociales en especie: producción adquirida en el mercado",
+            "description": "Bienes y servicios que las administraciones compran a proveedores para que los reciban los hogares, como parte de la atención sanitaria o social. No es todo el gasto en sanidad: los sueldos públicos aparecen en otra partida.",
+            "color": "#c6aa9f",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 2734
+          },
+          {
+            "id": "capital",
+            "label": "Obras, infraestructuras y equipamiento",
+            "officialLabel": "Formación bruta de capital fijo",
+            "description": "Inversión para crear o mejorar activos públicos duraderos: edificios, carreteras, instalaciones y equipamiento. El mantenimiento corriente se registra en compras y servicios.",
+            "color": "#bc8f68",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 2971
+          },
+          {
+            "id": "transfers_out",
+            "label": "Dinero enviado a otras administraciones",
+            "officialLabel": "Transferencias entre AAPP",
+            "description": "Fondos que una administración transfiere a otra. No describen por sí solos el servicio final y pueden aparecer también como ingreso de la administración que los recibe.",
+            "color": "#849caa",
+            "relatedSources": [
+              {
+                "label": "Ver datos de las comunidades autónomas",
+                "href": "#comunidades"
+              },
+              {
+                "label": "Consultar serie mensual de la IGAE por comunidad",
+                "href": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx"
+              }
+            ],
+            "amount": 1977
+          },
+          {
+            "id": "other_out",
+            "label": "Otros gastos no financieros sin línea propia",
+            "officialLabel": "Resto de empleos",
+            "description": "Es la diferencia entre el total de empleos no financieros y la suma de las ocho partidas de gasto anteriores. No es un programa concreto. La tabla mensual consolidada no publica las operaciones que forman esta cifra por separado, así que no se puede atribuir a servicios concretos con esta fuente.",
+            "color": "#b1b899",
+            "amount": 1450
+          }
+        ]
+      },
+      "provenance": {
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP-M/M_CONSOLIDADO_2024.xlsx",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/DatosConsolidadosSeries.aspx",
+        "sourceFile": "M_CONSOLIDADO_2024.xlsx",
+        "sourceSheet": "Tabla1a",
+        "verifiedAt": "2026-11-04",
+        "sourceUpdatedAt": "2026-09-30",
+        "sha256": "c81154a0bde3050d8f279fcfcc8ea35ccd7dbf1e76b1b21ae98c2f6304dfd99a",
+        "parser": "igae-consolidated@1: flujos mensuales calculados como diferencias de acumulados",
+        "method": "Acumulado del mes menos acumulado del mes anterior; enero usa su acumulado. Importes en millones de euros.",
+        "referencePeriod": "2024-01"
+      }
+    },
+    {
+      "period": "2024-02",
+      "label": "Febrero de 2024",
+      "monthly": {
+        "source": "Intervención General de la Administración del Estado (IGAE)",
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP-M/M_CONSOLIDADO_2024.xlsx",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/DatosConsolidadosSeries.aspx",
+        "referencePeriod": "2024-02",
+        "periodLabel": "Febrero de 2024",
+        "geography": "España",
+        "scope": "Agregado de Administración central, Administración regional y Fondos de la Seguridad Social; excluye Administración local",
+        "accountingBasis": "Contabilidad nacional · SEC 2010 · Revisión Estadística 2024",
+        "periodType": "Flujo del mes, calculado como diferencia entre acumulados del mes y del mes anterior",
+        "unit": "millones de euros",
+        "revenueTotal": 44148,
+        "expenditureTotal": 49727,
+        "financingBalance": -5579,
+        "notes": [
+          "Fuente: serie mensual consolidada de la IGAE, hoja Tabla1a del libro M_CONSOLIDADO_2024.xlsx, actualización 2026-09-30.",
+          "El libro publica importes acumulados desde enero. El importe del mes se calcula restando el acumulado del mes anterior; enero equivale a su acumulado.",
+          "La clasificación de gasto es económica; no identifica programas concretos ni una cantidad mínima necesaria para prestar cada servicio.",
+          "El escenario permite redistribuir el gasto oficial y dejar parte de los ingresos sin asignar."
+        ],
+        "revenue": [
+          {
+            "id": "taxes",
+            "label": "Impuestos directos e indirectos",
+            "officialLabel": "Impuestos",
+            "description": "Incluye impuestos sobre la renta y el patrimonio (por ejemplo, IRPF e Impuesto sobre Sociedades), sobre la producción y el consumo (por ejemplo, IVA e impuestos especiales) y sobre el capital. La tabla IGAE de agosto da una sola cifra conjunta; no publica cuánto corresponde a cada impuesto.",
+            "color": "#476c50",
+            "amount": 22651
+          },
+          {
+            "id": "contributions",
+            "label": "Cotizaciones a la Seguridad Social",
+            "officialLabel": "Cotizaciones sociales",
+            "description": "Cotizaciones sociales ingresadas en el mes. No son solo las aportadas por trabajadores: también incluyen las cotizaciones a cargo de empleadores.",
+            "color": "#8ea987",
+            "amount": 16738
+          },
+          {
+            "id": "transfers",
+            "label": "Transferencias recibidas de otras administraciones",
+            "officialLabel": "Transferencias entre AAPP",
+            "description": "Dinero que la Administración central, las comunidades o los Fondos de la Seguridad Social reciben de otro nivel público. No es un impuesto. Al ser un traspaso interno, no equivale necesariamente a dinero nuevo para el conjunto del sector público.",
+            "color": "#d8a26c",
+            "amount": 1133
+          },
+          {
+            "id": "other",
+            "label": "Otros ingresos: ventas, rentas y transferencias no tributarias",
+            "officialLabel": "Resto de recursos",
+            "description": "Es el resto de ingresos no financieros después de restar impuestos, cotizaciones sociales y transferencias entre Administraciones. La categoría comprende ingresos por ventas de bienes y servicios públicos, rentas de bienes o activos públicos (como intereses, dividendos o alquileres) y transferencias corrientes o de capital que no son entre Administraciones. La tabla mensual consolidada no publica cuánto aporta cada concepto.",
+            "color": "#a4b4c1",
+            "amount": 3626
+          }
+        ],
+        "expenditure": [
+          {
+            "id": "intermediate",
+            "label": "Compras y servicios para que funcionen las administraciones",
+            "officialLabel": "Consumos intermedios",
+            "description": "Bienes y servicios que las administraciones utilizan para funcionar o prestar servicios: suministros, material, alquileres y servicios contratados. No incluye los sueldos del personal.",
+            "color": "#476c50",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 4491
+          },
+          {
+            "id": "wages",
+            "label": "Sueldos del personal público",
+            "officialLabel": "Remuneración de asalariados",
+            "description": "Sueldos y cotizaciones sociales a cargo de la administración empleadora para el personal de los sectores incluidos. No es el número de empleados; es el coste registrado ese mes.",
+            "color": "#8ea987",
+            "relatedSources": [
+              {
+                "label": "Consultar plantilla de las Administraciones",
+                "href": "https://digital.gob.es/funcion-publica/dgfp/registro-central-personal/boletin"
+              }
+            ],
+            "amount": 10443
+          },
+          {
+            "id": "interest",
+            "label": "Intereses de la deuda",
+            "officialLabel": "Intereses",
+            "description": "Coste de los intereses devengados por la deuda pública. No incluye devolver el principal de los préstamos.",
+            "color": "#d8a26c",
+            "relatedSources": [
+              {
+                "label": "Consultar información de la deuda pública",
+                "href": "https://www.tesoro.es/deuda-publica"
+              }
+            ],
+            "amount": 2718
+          },
+          {
+            "id": "subsidies",
+            "label": "Subvenciones a empresas, autónomos y entidades productoras",
+            "officialLabel": "Subvenciones",
+            "description": "Ayudas que la Administración concede a productores para apoyar su actividad o reducir sus costes. Pueden recibirlas empresas, agricultores, autónomos u otras entidades productoras; no son pensiones ni ayudas directas a hogares. La tabla mensual no indica cuánto recibió cada sector.",
+            "color": "#a4b4c1",
+            "relatedSources": [
+              {
+                "label": "Buscar subvenciones en el SNPSAP",
+                "href": "https://www.pap.hacienda.gob.es/bdnstrans/GE/es/inicio"
+              },
+              {
+                "label": "Consultar la API pública de subvenciones",
+                "href": "https://www.infosubvenciones.es/bdnstrans/doc/swagger"
+              }
+            ],
+            "amount": 1082
+          },
+          {
+            "id": "benefits",
+            "label": "Prestaciones en dinero: pensiones, paro y ayudas sociales",
+            "officialLabel": "Prestaciones sociales distintas de las transferencias en especie",
+            "description": "Pagos sociales a personas y familias: pensiones de jubilación y supervivencia, prestaciones por enfermedad o discapacidad, desempleo, ayudas familiares, vivienda y exclusión social (incluido el IMV). La cifra mensual de IGAE los suma; el detalle por programa se consulta en los organismos que los gestionan.",
+            "color": "#d0cf9e",
+            "relatedSources": [
+              {
+                "label": "Ver detalle mensual de pensiones, IMV y paro",
+                "href": "#prestaciones"
+              }
+            ],
+            "amount": 19659
+          },
+          {
+            "id": "in_kind",
+            "label": "Servicios para las familias pagados por la Administración",
+            "officialLabel": "Transferencias sociales en especie: producción adquirida en el mercado",
+            "description": "Bienes y servicios que las administraciones compran a proveedores para que los reciban los hogares, como parte de la atención sanitaria o social. No es todo el gasto en sanidad: los sueldos públicos aparecen en otra partida.",
+            "color": "#c6aa9f",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 2974
+          },
+          {
+            "id": "capital",
+            "label": "Obras, infraestructuras y equipamiento",
+            "officialLabel": "Formación bruta de capital fijo",
+            "description": "Inversión para crear o mejorar activos públicos duraderos: edificios, carreteras, instalaciones y equipamiento. El mantenimiento corriente se registra en compras y servicios.",
+            "color": "#bc8f68",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 2620
+          },
+          {
+            "id": "transfers_out",
+            "label": "Dinero enviado a otras administraciones",
+            "officialLabel": "Transferencias entre AAPP",
+            "description": "Fondos que una administración transfiere a otra. No describen por sí solos el servicio final y pueden aparecer también como ingreso de la administración que los recibe.",
+            "color": "#849caa",
+            "relatedSources": [
+              {
+                "label": "Ver datos de las comunidades autónomas",
+                "href": "#comunidades"
+              },
+              {
+                "label": "Consultar serie mensual de la IGAE por comunidad",
+                "href": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx"
+              }
+            ],
+            "amount": 3430
+          },
+          {
+            "id": "other_out",
+            "label": "Otros gastos no financieros sin línea propia",
+            "officialLabel": "Resto de empleos",
+            "description": "Es la diferencia entre el total de empleos no financieros y la suma de las ocho partidas de gasto anteriores. No es un programa concreto. La tabla mensual consolidada no publica las operaciones que forman esta cifra por separado, así que no se puede atribuir a servicios concretos con esta fuente.",
+            "color": "#b1b899",
+            "amount": 2310
+          }
+        ]
+      },
+      "provenance": {
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP-M/M_CONSOLIDADO_2024.xlsx",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/DatosConsolidadosSeries.aspx",
+        "sourceFile": "M_CONSOLIDADO_2024.xlsx",
+        "sourceSheet": "Tabla1a",
+        "verifiedAt": "2026-11-04",
+        "sourceUpdatedAt": "2026-09-30",
+        "sha256": "c81154a0bde3050d8f279fcfcc8ea35ccd7dbf1e76b1b21ae98c2f6304dfd99a",
+        "parser": "igae-consolidated@1: flujos mensuales calculados como diferencias de acumulados",
+        "method": "Acumulado del mes menos acumulado del mes anterior; enero usa su acumulado. Importes en millones de euros.",
+        "referencePeriod": "2024-02"
+      }
+    },
+    {
+      "period": "2024-03",
+      "label": "Marzo de 2024",
+      "monthly": {
+        "source": "Intervención General de la Administración del Estado (IGAE)",
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP-M/M_CONSOLIDADO_2024.xlsx",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/DatosConsolidadosSeries.aspx",
+        "referencePeriod": "2024-03",
+        "periodLabel": "Marzo de 2024",
+        "geography": "España",
+        "scope": "Agregado de Administración central, Administración regional y Fondos de la Seguridad Social; excluye Administración local",
+        "accountingBasis": "Contabilidad nacional · SEC 2010 · Revisión Estadística 2024",
+        "periodType": "Flujo del mes, calculado como diferencia entre acumulados del mes y del mes anterior",
+        "unit": "millones de euros",
+        "revenueTotal": 57837,
+        "expenditureTotal": 49869,
+        "financingBalance": 7968,
+        "notes": [
+          "Fuente: serie mensual consolidada de la IGAE, hoja Tabla1a del libro M_CONSOLIDADO_2024.xlsx, actualización 2026-09-30.",
+          "El libro publica importes acumulados desde enero. El importe del mes se calcula restando el acumulado del mes anterior; enero equivale a su acumulado.",
+          "La clasificación de gasto es económica; no identifica programas concretos ni una cantidad mínima necesaria para prestar cada servicio.",
+          "El escenario permite redistribuir el gasto oficial y dejar parte de los ingresos sin asignar."
+        ],
+        "revenue": [
+          {
+            "id": "taxes",
+            "label": "Impuestos directos e indirectos",
+            "officialLabel": "Impuestos",
+            "description": "Incluye impuestos sobre la renta y el patrimonio (por ejemplo, IRPF e Impuesto sobre Sociedades), sobre la producción y el consumo (por ejemplo, IVA e impuestos especiales) y sobre el capital. La tabla IGAE de agosto da una sola cifra conjunta; no publica cuánto corresponde a cada impuesto.",
+            "color": "#476c50",
+            "amount": 35178
+          },
+          {
+            "id": "contributions",
+            "label": "Cotizaciones a la Seguridad Social",
+            "officialLabel": "Cotizaciones sociales",
+            "description": "Cotizaciones sociales ingresadas en el mes. No son solo las aportadas por trabajadores: también incluyen las cotizaciones a cargo de empleadores.",
+            "color": "#8ea987",
+            "amount": 17264
+          },
+          {
+            "id": "transfers",
+            "label": "Transferencias recibidas de otras administraciones",
+            "officialLabel": "Transferencias entre AAPP",
+            "description": "Dinero que la Administración central, las comunidades o los Fondos de la Seguridad Social reciben de otro nivel público. No es un impuesto. Al ser un traspaso interno, no equivale necesariamente a dinero nuevo para el conjunto del sector público.",
+            "color": "#d8a26c",
+            "amount": 1189
+          },
+          {
+            "id": "other",
+            "label": "Otros ingresos: ventas, rentas y transferencias no tributarias",
+            "officialLabel": "Resto de recursos",
+            "description": "Es el resto de ingresos no financieros después de restar impuestos, cotizaciones sociales y transferencias entre Administraciones. La categoría comprende ingresos por ventas de bienes y servicios públicos, rentas de bienes o activos públicos (como intereses, dividendos o alquileres) y transferencias corrientes o de capital que no son entre Administraciones. La tabla mensual consolidada no publica cuánto aporta cada concepto.",
+            "color": "#a4b4c1",
+            "amount": 4206
+          }
+        ],
+        "expenditure": [
+          {
+            "id": "intermediate",
+            "label": "Compras y servicios para que funcionen las administraciones",
+            "officialLabel": "Consumos intermedios",
+            "description": "Bienes y servicios que las administraciones utilizan para funcionar o prestar servicios: suministros, material, alquileres y servicios contratados. No incluye los sueldos del personal.",
+            "color": "#476c50",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 5523
+          },
+          {
+            "id": "wages",
+            "label": "Sueldos del personal público",
+            "officialLabel": "Remuneración de asalariados",
+            "description": "Sueldos y cotizaciones sociales a cargo de la administración empleadora para el personal de los sectores incluidos. No es el número de empleados; es el coste registrado ese mes.",
+            "color": "#8ea987",
+            "relatedSources": [
+              {
+                "label": "Consultar plantilla de las Administraciones",
+                "href": "https://digital.gob.es/funcion-publica/dgfp/registro-central-personal/boletin"
+              }
+            ],
+            "amount": 10853
+          },
+          {
+            "id": "interest",
+            "label": "Intereses de la deuda",
+            "officialLabel": "Intereses",
+            "description": "Coste de los intereses devengados por la deuda pública. No incluye devolver el principal de los préstamos.",
+            "color": "#d8a26c",
+            "relatedSources": [
+              {
+                "label": "Consultar información de la deuda pública",
+                "href": "https://www.tesoro.es/deuda-publica"
+              }
+            ],
+            "amount": 2803
+          },
+          {
+            "id": "subsidies",
+            "label": "Subvenciones a empresas, autónomos y entidades productoras",
+            "officialLabel": "Subvenciones",
+            "description": "Ayudas que la Administración concede a productores para apoyar su actividad o reducir sus costes. Pueden recibirlas empresas, agricultores, autónomos u otras entidades productoras; no son pensiones ni ayudas directas a hogares. La tabla mensual no indica cuánto recibió cada sector.",
+            "color": "#a4b4c1",
+            "relatedSources": [
+              {
+                "label": "Buscar subvenciones en el SNPSAP",
+                "href": "https://www.pap.hacienda.gob.es/bdnstrans/GE/es/inicio"
+              },
+              {
+                "label": "Consultar la API pública de subvenciones",
+                "href": "https://www.infosubvenciones.es/bdnstrans/doc/swagger"
+              }
+            ],
+            "amount": 1268
+          },
+          {
+            "id": "benefits",
+            "label": "Prestaciones en dinero: pensiones, paro y ayudas sociales",
+            "officialLabel": "Prestaciones sociales distintas de las transferencias en especie",
+            "description": "Pagos sociales a personas y familias: pensiones de jubilación y supervivencia, prestaciones por enfermedad o discapacidad, desempleo, ayudas familiares, vivienda y exclusión social (incluido el IMV). La cifra mensual de IGAE los suma; el detalle por programa se consulta en los organismos que los gestionan.",
+            "color": "#d0cf9e",
+            "relatedSources": [
+              {
+                "label": "Ver detalle mensual de pensiones, IMV y paro",
+                "href": "#prestaciones"
+              }
+            ],
+            "amount": 19598
+          },
+          {
+            "id": "in_kind",
+            "label": "Servicios para las familias pagados por la Administración",
+            "officialLabel": "Transferencias sociales en especie: producción adquirida en el mercado",
+            "description": "Bienes y servicios que las administraciones compran a proveedores para que los reciban los hogares, como parte de la atención sanitaria o social. No es todo el gasto en sanidad: los sueldos públicos aparecen en otra partida.",
+            "color": "#c6aa9f",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 3102
+          },
+          {
+            "id": "capital",
+            "label": "Obras, infraestructuras y equipamiento",
+            "officialLabel": "Formación bruta de capital fijo",
+            "description": "Inversión para crear o mejorar activos públicos duraderos: edificios, carreteras, instalaciones y equipamiento. El mantenimiento corriente se registra en compras y servicios.",
+            "color": "#bc8f68",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 2381
+          },
+          {
+            "id": "transfers_out",
+            "label": "Dinero enviado a otras administraciones",
+            "officialLabel": "Transferencias entre AAPP",
+            "description": "Fondos que una administración transfiere a otra. No describen por sí solos el servicio final y pueden aparecer también como ingreso de la administración que los recibe.",
+            "color": "#849caa",
+            "relatedSources": [
+              {
+                "label": "Ver datos de las comunidades autónomas",
+                "href": "#comunidades"
+              },
+              {
+                "label": "Consultar serie mensual de la IGAE por comunidad",
+                "href": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx"
+              }
+            ],
+            "amount": 2515
+          },
+          {
+            "id": "other_out",
+            "label": "Otros gastos no financieros sin línea propia",
+            "officialLabel": "Resto de empleos",
+            "description": "Es la diferencia entre el total de empleos no financieros y la suma de las ocho partidas de gasto anteriores. No es un programa concreto. La tabla mensual consolidada no publica las operaciones que forman esta cifra por separado, así que no se puede atribuir a servicios concretos con esta fuente.",
+            "color": "#b1b899",
+            "amount": 1826
+          }
+        ]
+      },
+      "provenance": {
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP-M/M_CONSOLIDADO_2024.xlsx",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/DatosConsolidadosSeries.aspx",
+        "sourceFile": "M_CONSOLIDADO_2024.xlsx",
+        "sourceSheet": "Tabla1a",
+        "verifiedAt": "2026-11-04",
+        "sourceUpdatedAt": "2026-09-30",
+        "sha256": "c81154a0bde3050d8f279fcfcc8ea35ccd7dbf1e76b1b21ae98c2f6304dfd99a",
+        "parser": "igae-consolidated@1: flujos mensuales calculados como diferencias de acumulados",
+        "method": "Acumulado del mes menos acumulado del mes anterior; enero usa su acumulado. Importes en millones de euros.",
+        "referencePeriod": "2024-03"
+      }
+    },
+    {
+      "period": "2024-04",
+      "label": "Abril de 2024",
+      "monthly": {
+        "source": "Intervención General de la Administración del Estado (IGAE)",
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP-M/M_CONSOLIDADO_2024.xlsx",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/DatosConsolidadosSeries.aspx",
+        "referencePeriod": "2024-04",
+        "periodLabel": "Abril de 2024",
+        "geography": "España",
+        "scope": "Agregado de Administración central, Administración regional y Fondos de la Seguridad Social; excluye Administración local",
+        "accountingBasis": "Contabilidad nacional · SEC 2010 · Revisión Estadística 2024",
+        "periodType": "Flujo del mes, calculado como diferencia entre acumulados del mes y del mes anterior",
+        "unit": "millones de euros",
+        "revenueTotal": 50165,
+        "expenditureTotal": 51321,
+        "financingBalance": -1156,
+        "notes": [
+          "Fuente: serie mensual consolidada de la IGAE, hoja Tabla1a del libro M_CONSOLIDADO_2024.xlsx, actualización 2026-09-30.",
+          "El libro publica importes acumulados desde enero. El importe del mes se calcula restando el acumulado del mes anterior; enero equivale a su acumulado.",
+          "La clasificación de gasto es económica; no identifica programas concretos ni una cantidad mínima necesaria para prestar cada servicio.",
+          "El escenario permite redistribuir el gasto oficial y dejar parte de los ingresos sin asignar."
+        ],
+        "revenue": [
+          {
+            "id": "taxes",
+            "label": "Impuestos directos e indirectos",
+            "officialLabel": "Impuestos",
+            "description": "Incluye impuestos sobre la renta y el patrimonio (por ejemplo, IRPF e Impuesto sobre Sociedades), sobre la producción y el consumo (por ejemplo, IVA e impuestos especiales) y sobre el capital. La tabla IGAE de agosto da una sola cifra conjunta; no publica cuánto corresponde a cada impuesto.",
+            "color": "#476c50",
+            "amount": 26528
+          },
+          {
+            "id": "contributions",
+            "label": "Cotizaciones a la Seguridad Social",
+            "officialLabel": "Cotizaciones sociales",
+            "description": "Cotizaciones sociales ingresadas en el mes. No son solo las aportadas por trabajadores: también incluyen las cotizaciones a cargo de empleadores.",
+            "color": "#8ea987",
+            "amount": 17313
+          },
+          {
+            "id": "transfers",
+            "label": "Transferencias recibidas de otras administraciones",
+            "officialLabel": "Transferencias entre AAPP",
+            "description": "Dinero que la Administración central, las comunidades o los Fondos de la Seguridad Social reciben de otro nivel público. No es un impuesto. Al ser un traspaso interno, no equivale necesariamente a dinero nuevo para el conjunto del sector público.",
+            "color": "#d8a26c",
+            "amount": 1148
+          },
+          {
+            "id": "other",
+            "label": "Otros ingresos: ventas, rentas y transferencias no tributarias",
+            "officialLabel": "Resto de recursos",
+            "description": "Es el resto de ingresos no financieros después de restar impuestos, cotizaciones sociales y transferencias entre Administraciones. La categoría comprende ingresos por ventas de bienes y servicios públicos, rentas de bienes o activos públicos (como intereses, dividendos o alquileres) y transferencias corrientes o de capital que no son entre Administraciones. La tabla mensual consolidada no publica cuánto aporta cada concepto.",
+            "color": "#a4b4c1",
+            "amount": 5176
+          }
+        ],
+        "expenditure": [
+          {
+            "id": "intermediate",
+            "label": "Compras y servicios para que funcionen las administraciones",
+            "officialLabel": "Consumos intermedios",
+            "description": "Bienes y servicios que las administraciones utilizan para funcionar o prestar servicios: suministros, material, alquileres y servicios contratados. No incluye los sueldos del personal.",
+            "color": "#476c50",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 4335
+          },
+          {
+            "id": "wages",
+            "label": "Sueldos del personal público",
+            "officialLabel": "Remuneración de asalariados",
+            "description": "Sueldos y cotizaciones sociales a cargo de la administración empleadora para el personal de los sectores incluidos. No es el número de empleados; es el coste registrado ese mes.",
+            "color": "#8ea987",
+            "relatedSources": [
+              {
+                "label": "Consultar plantilla de las Administraciones",
+                "href": "https://digital.gob.es/funcion-publica/dgfp/registro-central-personal/boletin"
+              }
+            ],
+            "amount": 10710
+          },
+          {
+            "id": "interest",
+            "label": "Intereses de la deuda",
+            "officialLabel": "Intereses",
+            "description": "Coste de los intereses devengados por la deuda pública. No incluye devolver el principal de los préstamos.",
+            "color": "#d8a26c",
+            "relatedSources": [
+              {
+                "label": "Consultar información de la deuda pública",
+                "href": "https://www.tesoro.es/deuda-publica"
+              }
+            ],
+            "amount": 3316
+          },
+          {
+            "id": "subsidies",
+            "label": "Subvenciones a empresas, autónomos y entidades productoras",
+            "officialLabel": "Subvenciones",
+            "description": "Ayudas que la Administración concede a productores para apoyar su actividad o reducir sus costes. Pueden recibirlas empresas, agricultores, autónomos u otras entidades productoras; no son pensiones ni ayudas directas a hogares. La tabla mensual no indica cuánto recibió cada sector.",
+            "color": "#a4b4c1",
+            "relatedSources": [
+              {
+                "label": "Buscar subvenciones en el SNPSAP",
+                "href": "https://www.pap.hacienda.gob.es/bdnstrans/GE/es/inicio"
+              },
+              {
+                "label": "Consultar la API pública de subvenciones",
+                "href": "https://www.infosubvenciones.es/bdnstrans/doc/swagger"
+              }
+            ],
+            "amount": 1396
+          },
+          {
+            "id": "benefits",
+            "label": "Prestaciones en dinero: pensiones, paro y ayudas sociales",
+            "officialLabel": "Prestaciones sociales distintas de las transferencias en especie",
+            "description": "Pagos sociales a personas y familias: pensiones de jubilación y supervivencia, prestaciones por enfermedad o discapacidad, desempleo, ayudas familiares, vivienda y exclusión social (incluido el IMV). La cifra mensual de IGAE los suma; el detalle por programa se consulta en los organismos que los gestionan.",
+            "color": "#d0cf9e",
+            "relatedSources": [
+              {
+                "label": "Ver detalle mensual de pensiones, IMV y paro",
+                "href": "#prestaciones"
+              }
+            ],
+            "amount": 20408
+          },
+          {
+            "id": "in_kind",
+            "label": "Servicios para las familias pagados por la Administración",
+            "officialLabel": "Transferencias sociales en especie: producción adquirida en el mercado",
+            "description": "Bienes y servicios que las administraciones compran a proveedores para que los reciban los hogares, como parte de la atención sanitaria o social. No es todo el gasto en sanidad: los sueldos públicos aparecen en otra partida.",
+            "color": "#c6aa9f",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 3321
+          },
+          {
+            "id": "capital",
+            "label": "Obras, infraestructuras y equipamiento",
+            "officialLabel": "Formación bruta de capital fijo",
+            "description": "Inversión para crear o mejorar activos públicos duraderos: edificios, carreteras, instalaciones y equipamiento. El mantenimiento corriente se registra en compras y servicios.",
+            "color": "#bc8f68",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 2593
+          },
+          {
+            "id": "transfers_out",
+            "label": "Dinero enviado a otras administraciones",
+            "officialLabel": "Transferencias entre AAPP",
+            "description": "Fondos que una administración transfiere a otra. No describen por sí solos el servicio final y pueden aparecer también como ingreso de la administración que los recibe.",
+            "color": "#849caa",
+            "relatedSources": [
+              {
+                "label": "Ver datos de las comunidades autónomas",
+                "href": "#comunidades"
+              },
+              {
+                "label": "Consultar serie mensual de la IGAE por comunidad",
+                "href": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx"
+              }
+            ],
+            "amount": 3121
+          },
+          {
+            "id": "other_out",
+            "label": "Otros gastos no financieros sin línea propia",
+            "officialLabel": "Resto de empleos",
+            "description": "Es la diferencia entre el total de empleos no financieros y la suma de las ocho partidas de gasto anteriores. No es un programa concreto. La tabla mensual consolidada no publica las operaciones que forman esta cifra por separado, así que no se puede atribuir a servicios concretos con esta fuente.",
+            "color": "#b1b899",
+            "amount": 2121
+          }
+        ]
+      },
+      "provenance": {
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP-M/M_CONSOLIDADO_2024.xlsx",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/DatosConsolidadosSeries.aspx",
+        "sourceFile": "M_CONSOLIDADO_2024.xlsx",
+        "sourceSheet": "Tabla1a",
+        "verifiedAt": "2026-11-04",
+        "sourceUpdatedAt": "2026-09-30",
+        "sha256": "c81154a0bde3050d8f279fcfcc8ea35ccd7dbf1e76b1b21ae98c2f6304dfd99a",
+        "parser": "igae-consolidated@1: flujos mensuales calculados como diferencias de acumulados",
+        "method": "Acumulado del mes menos acumulado del mes anterior; enero usa su acumulado. Importes en millones de euros.",
+        "referencePeriod": "2024-04"
+      }
+    },
+    {
+      "period": "2024-05",
+      "label": "Mayo de 2024",
+      "monthly": {
+        "source": "Intervención General de la Administración del Estado (IGAE)",
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP-M/M_CONSOLIDADO_2024.xlsx",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/DatosConsolidadosSeries.aspx",
+        "referencePeriod": "2024-05",
+        "periodLabel": "Mayo de 2024",
+        "geography": "España",
+        "scope": "Agregado de Administración central, Administración regional y Fondos de la Seguridad Social; excluye Administración local",
+        "accountingBasis": "Contabilidad nacional · SEC 2010 · Revisión Estadística 2024",
+        "periodType": "Flujo del mes, calculado como diferencia entre acumulados del mes y del mes anterior",
+        "unit": "millones de euros",
+        "revenueTotal": 39391,
+        "expenditureTotal": 52216,
+        "financingBalance": -12825,
+        "notes": [
+          "Fuente: serie mensual consolidada de la IGAE, hoja Tabla1a del libro M_CONSOLIDADO_2024.xlsx, actualización 2026-09-30.",
+          "El libro publica importes acumulados desde enero. El importe del mes se calcula restando el acumulado del mes anterior; enero equivale a su acumulado.",
+          "La clasificación de gasto es económica; no identifica programas concretos ni una cantidad mínima necesaria para prestar cada servicio.",
+          "El escenario permite redistribuir el gasto oficial y dejar parte de los ingresos sin asignar."
+        ],
+        "revenue": [
+          {
+            "id": "taxes",
+            "label": "Impuestos directos e indirectos",
+            "officialLabel": "Impuestos",
+            "description": "Incluye impuestos sobre la renta y el patrimonio (por ejemplo, IRPF e Impuesto sobre Sociedades), sobre la producción y el consumo (por ejemplo, IVA e impuestos especiales) y sobre el capital. La tabla IGAE de agosto da una sola cifra conjunta; no publica cuánto corresponde a cada impuesto.",
+            "color": "#476c50",
+            "amount": 16475
+          },
+          {
+            "id": "contributions",
+            "label": "Cotizaciones a la Seguridad Social",
+            "officialLabel": "Cotizaciones sociales",
+            "description": "Cotizaciones sociales ingresadas en el mes. No son solo las aportadas por trabajadores: también incluyen las cotizaciones a cargo de empleadores.",
+            "color": "#8ea987",
+            "amount": 17234
+          },
+          {
+            "id": "transfers",
+            "label": "Transferencias recibidas de otras administraciones",
+            "officialLabel": "Transferencias entre AAPP",
+            "description": "Dinero que la Administración central, las comunidades o los Fondos de la Seguridad Social reciben de otro nivel público. No es un impuesto. Al ser un traspaso interno, no equivale necesariamente a dinero nuevo para el conjunto del sector público.",
+            "color": "#d8a26c",
+            "amount": 1447
+          },
+          {
+            "id": "other",
+            "label": "Otros ingresos: ventas, rentas y transferencias no tributarias",
+            "officialLabel": "Resto de recursos",
+            "description": "Es el resto de ingresos no financieros después de restar impuestos, cotizaciones sociales y transferencias entre Administraciones. La categoría comprende ingresos por ventas de bienes y servicios públicos, rentas de bienes o activos públicos (como intereses, dividendos o alquileres) y transferencias corrientes o de capital que no son entre Administraciones. La tabla mensual consolidada no publica cuánto aporta cada concepto.",
+            "color": "#a4b4c1",
+            "amount": 4235
+          }
+        ],
+        "expenditure": [
+          {
+            "id": "intermediate",
+            "label": "Compras y servicios para que funcionen las administraciones",
+            "officialLabel": "Consumos intermedios",
+            "description": "Bienes y servicios que las administraciones utilizan para funcionar o prestar servicios: suministros, material, alquileres y servicios contratados. No incluye los sueldos del personal.",
+            "color": "#476c50",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 4885
+          },
+          {
+            "id": "wages",
+            "label": "Sueldos del personal público",
+            "officialLabel": "Remuneración de asalariados",
+            "description": "Sueldos y cotizaciones sociales a cargo de la administración empleadora para el personal de los sectores incluidos. No es el número de empleados; es el coste registrado ese mes.",
+            "color": "#8ea987",
+            "relatedSources": [
+              {
+                "label": "Consultar plantilla de las Administraciones",
+                "href": "https://digital.gob.es/funcion-publica/dgfp/registro-central-personal/boletin"
+              }
+            ],
+            "amount": 10437
+          },
+          {
+            "id": "interest",
+            "label": "Intereses de la deuda",
+            "officialLabel": "Intereses",
+            "description": "Coste de los intereses devengados por la deuda pública. No incluye devolver el principal de los préstamos.",
+            "color": "#d8a26c",
+            "relatedSources": [
+              {
+                "label": "Consultar información de la deuda pública",
+                "href": "https://www.tesoro.es/deuda-publica"
+              }
+            ],
+            "amount": 3649
+          },
+          {
+            "id": "subsidies",
+            "label": "Subvenciones a empresas, autónomos y entidades productoras",
+            "officialLabel": "Subvenciones",
+            "description": "Ayudas que la Administración concede a productores para apoyar su actividad o reducir sus costes. Pueden recibirlas empresas, agricultores, autónomos u otras entidades productoras; no son pensiones ni ayudas directas a hogares. La tabla mensual no indica cuánto recibió cada sector.",
+            "color": "#a4b4c1",
+            "relatedSources": [
+              {
+                "label": "Buscar subvenciones en el SNPSAP",
+                "href": "https://www.pap.hacienda.gob.es/bdnstrans/GE/es/inicio"
+              },
+              {
+                "label": "Consultar la API pública de subvenciones",
+                "href": "https://www.infosubvenciones.es/bdnstrans/doc/swagger"
+              }
+            ],
+            "amount": 1380
+          },
+          {
+            "id": "benefits",
+            "label": "Prestaciones en dinero: pensiones, paro y ayudas sociales",
+            "officialLabel": "Prestaciones sociales distintas de las transferencias en especie",
+            "description": "Pagos sociales a personas y familias: pensiones de jubilación y supervivencia, prestaciones por enfermedad o discapacidad, desempleo, ayudas familiares, vivienda y exclusión social (incluido el IMV). La cifra mensual de IGAE los suma; el detalle por programa se consulta en los organismos que los gestionan.",
+            "color": "#d0cf9e",
+            "relatedSources": [
+              {
+                "label": "Ver detalle mensual de pensiones, IMV y paro",
+                "href": "#prestaciones"
+              }
+            ],
+            "amount": 20497
+          },
+          {
+            "id": "in_kind",
+            "label": "Servicios para las familias pagados por la Administración",
+            "officialLabel": "Transferencias sociales en especie: producción adquirida en el mercado",
+            "description": "Bienes y servicios que las administraciones compran a proveedores para que los reciban los hogares, como parte de la atención sanitaria o social. No es todo el gasto en sanidad: los sueldos públicos aparecen en otra partida.",
+            "color": "#c6aa9f",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 3507
+          },
+          {
+            "id": "capital",
+            "label": "Obras, infraestructuras y equipamiento",
+            "officialLabel": "Formación bruta de capital fijo",
+            "description": "Inversión para crear o mejorar activos públicos duraderos: edificios, carreteras, instalaciones y equipamiento. El mantenimiento corriente se registra en compras y servicios.",
+            "color": "#bc8f68",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 2586
+          },
+          {
+            "id": "transfers_out",
+            "label": "Dinero enviado a otras administraciones",
+            "officialLabel": "Transferencias entre AAPP",
+            "description": "Fondos que una administración transfiere a otra. No describen por sí solos el servicio final y pueden aparecer también como ingreso de la administración que los recibe.",
+            "color": "#849caa",
+            "relatedSources": [
+              {
+                "label": "Ver datos de las comunidades autónomas",
+                "href": "#comunidades"
+              },
+              {
+                "label": "Consultar serie mensual de la IGAE por comunidad",
+                "href": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx"
+              }
+            ],
+            "amount": 2998
+          },
+          {
+            "id": "other_out",
+            "label": "Otros gastos no financieros sin línea propia",
+            "officialLabel": "Resto de empleos",
+            "description": "Es la diferencia entre el total de empleos no financieros y la suma de las ocho partidas de gasto anteriores. No es un programa concreto. La tabla mensual consolidada no publica las operaciones que forman esta cifra por separado, así que no se puede atribuir a servicios concretos con esta fuente.",
+            "color": "#b1b899",
+            "amount": 2277
+          }
+        ]
+      },
+      "provenance": {
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP-M/M_CONSOLIDADO_2024.xlsx",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/DatosConsolidadosSeries.aspx",
+        "sourceFile": "M_CONSOLIDADO_2024.xlsx",
+        "sourceSheet": "Tabla1a",
+        "verifiedAt": "2026-11-04",
+        "sourceUpdatedAt": "2026-09-30",
+        "sha256": "c81154a0bde3050d8f279fcfcc8ea35ccd7dbf1e76b1b21ae98c2f6304dfd99a",
+        "parser": "igae-consolidated@1: flujos mensuales calculados como diferencias de acumulados",
+        "method": "Acumulado del mes menos acumulado del mes anterior; enero usa su acumulado. Importes en millones de euros.",
+        "referencePeriod": "2024-05"
+      }
+    },
+    {
+      "period": "2024-06",
+      "label": "Junio de 2024",
+      "monthly": {
+        "source": "Intervención General de la Administración del Estado (IGAE)",
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP-M/M_CONSOLIDADO_2024.xlsx",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/DatosConsolidadosSeries.aspx",
+        "referencePeriod": "2024-06",
+        "periodLabel": "Junio de 2024",
+        "geography": "España",
+        "scope": "Agregado de Administración central, Administración regional y Fondos de la Seguridad Social; excluye Administración local",
+        "accountingBasis": "Contabilidad nacional · SEC 2010 · Revisión Estadística 2024",
+        "periodType": "Flujo del mes, calculado como diferencia entre acumulados del mes y del mes anterior",
+        "unit": "millones de euros",
+        "revenueTotal": 61226,
+        "expenditureTotal": 72958,
+        "financingBalance": -11732,
+        "notes": [
+          "Fuente: serie mensual consolidada de la IGAE, hoja Tabla1a del libro M_CONSOLIDADO_2024.xlsx, actualización 2026-09-30.",
+          "El libro publica importes acumulados desde enero. El importe del mes se calcula restando el acumulado del mes anterior; enero equivale a su acumulado.",
+          "La clasificación de gasto es económica; no identifica programas concretos ni una cantidad mínima necesaria para prestar cada servicio.",
+          "El escenario permite redistribuir el gasto oficial y dejar parte de los ingresos sin asignar."
+        ],
+        "revenue": [
+          {
+            "id": "taxes",
+            "label": "Impuestos directos e indirectos",
+            "officialLabel": "Impuestos",
+            "description": "Incluye impuestos sobre la renta y el patrimonio (por ejemplo, IRPF e Impuesto sobre Sociedades), sobre la producción y el consumo (por ejemplo, IVA e impuestos especiales) y sobre el capital. La tabla IGAE de agosto da una sola cifra conjunta; no publica cuánto corresponde a cada impuesto.",
+            "color": "#476c50",
+            "amount": 36102
+          },
+          {
+            "id": "contributions",
+            "label": "Cotizaciones a la Seguridad Social",
+            "officialLabel": "Cotizaciones sociales",
+            "description": "Cotizaciones sociales ingresadas en el mes. No son solo las aportadas por trabajadores: también incluyen las cotizaciones a cargo de empleadores.",
+            "color": "#8ea987",
+            "amount": 18110
+          },
+          {
+            "id": "transfers",
+            "label": "Transferencias recibidas de otras administraciones",
+            "officialLabel": "Transferencias entre AAPP",
+            "description": "Dinero que la Administración central, las comunidades o los Fondos de la Seguridad Social reciben de otro nivel público. No es un impuesto. Al ser un traspaso interno, no equivale necesariamente a dinero nuevo para el conjunto del sector público.",
+            "color": "#d8a26c",
+            "amount": 1305
+          },
+          {
+            "id": "other",
+            "label": "Otros ingresos: ventas, rentas y transferencias no tributarias",
+            "officialLabel": "Resto de recursos",
+            "description": "Es el resto de ingresos no financieros después de restar impuestos, cotizaciones sociales y transferencias entre Administraciones. La categoría comprende ingresos por ventas de bienes y servicios públicos, rentas de bienes o activos públicos (como intereses, dividendos o alquileres) y transferencias corrientes o de capital que no son entre Administraciones. La tabla mensual consolidada no publica cuánto aporta cada concepto.",
+            "color": "#a4b4c1",
+            "amount": 5709
+          }
+        ],
+        "expenditure": [
+          {
+            "id": "intermediate",
+            "label": "Compras y servicios para que funcionen las administraciones",
+            "officialLabel": "Consumos intermedios",
+            "description": "Bienes y servicios que las administraciones utilizan para funcionar o prestar servicios: suministros, material, alquileres y servicios contratados. No incluye los sueldos del personal.",
+            "color": "#476c50",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 5042
+          },
+          {
+            "id": "wages",
+            "label": "Sueldos del personal público",
+            "officialLabel": "Remuneración de asalariados",
+            "description": "Sueldos y cotizaciones sociales a cargo de la administración empleadora para el personal de los sectores incluidos. No es el número de empleados; es el coste registrado ese mes.",
+            "color": "#8ea987",
+            "relatedSources": [
+              {
+                "label": "Consultar plantilla de las Administraciones",
+                "href": "https://digital.gob.es/funcion-publica/dgfp/registro-central-personal/boletin"
+              }
+            ],
+            "amount": 16205
+          },
+          {
+            "id": "interest",
+            "label": "Intereses de la deuda",
+            "officialLabel": "Intereses",
+            "description": "Coste de los intereses devengados por la deuda pública. No incluye devolver el principal de los préstamos.",
+            "color": "#d8a26c",
+            "relatedSources": [
+              {
+                "label": "Consultar información de la deuda pública",
+                "href": "https://www.tesoro.es/deuda-publica"
+              }
+            ],
+            "amount": 3640
+          },
+          {
+            "id": "subsidies",
+            "label": "Subvenciones a empresas, autónomos y entidades productoras",
+            "officialLabel": "Subvenciones",
+            "description": "Ayudas que la Administración concede a productores para apoyar su actividad o reducir sus costes. Pueden recibirlas empresas, agricultores, autónomos u otras entidades productoras; no son pensiones ni ayudas directas a hogares. La tabla mensual no indica cuánto recibió cada sector.",
+            "color": "#a4b4c1",
+            "relatedSources": [
+              {
+                "label": "Buscar subvenciones en el SNPSAP",
+                "href": "https://www.pap.hacienda.gob.es/bdnstrans/GE/es/inicio"
+              },
+              {
+                "label": "Consultar la API pública de subvenciones",
+                "href": "https://www.infosubvenciones.es/bdnstrans/doc/swagger"
+              }
+            ],
+            "amount": 1356
+          },
+          {
+            "id": "benefits",
+            "label": "Prestaciones en dinero: pensiones, paro y ayudas sociales",
+            "officialLabel": "Prestaciones sociales distintas de las transferencias en especie",
+            "description": "Pagos sociales a personas y familias: pensiones de jubilación y supervivencia, prestaciones por enfermedad o discapacidad, desempleo, ayudas familiares, vivienda y exclusión social (incluido el IMV). La cifra mensual de IGAE los suma; el detalle por programa se consulta en los organismos que los gestionan.",
+            "color": "#d0cf9e",
+            "relatedSources": [
+              {
+                "label": "Ver detalle mensual de pensiones, IMV y paro",
+                "href": "#prestaciones"
+              }
+            ],
+            "amount": 34611
+          },
+          {
+            "id": "in_kind",
+            "label": "Servicios para las familias pagados por la Administración",
+            "officialLabel": "Transferencias sociales en especie: producción adquirida en el mercado",
+            "description": "Bienes y servicios que las administraciones compran a proveedores para que los reciban los hogares, como parte de la atención sanitaria o social. No es todo el gasto en sanidad: los sueldos públicos aparecen en otra partida.",
+            "color": "#c6aa9f",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 3475
+          },
+          {
+            "id": "capital",
+            "label": "Obras, infraestructuras y equipamiento",
+            "officialLabel": "Formación bruta de capital fijo",
+            "description": "Inversión para crear o mejorar activos públicos duraderos: edificios, carreteras, instalaciones y equipamiento. El mantenimiento corriente se registra en compras y servicios.",
+            "color": "#bc8f68",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 2741
+          },
+          {
+            "id": "transfers_out",
+            "label": "Dinero enviado a otras administraciones",
+            "officialLabel": "Transferencias entre AAPP",
+            "description": "Fondos que una administración transfiere a otra. No describen por sí solos el servicio final y pueden aparecer también como ingreso de la administración que los recibe.",
+            "color": "#849caa",
+            "relatedSources": [
+              {
+                "label": "Ver datos de las comunidades autónomas",
+                "href": "#comunidades"
+              },
+              {
+                "label": "Consultar serie mensual de la IGAE por comunidad",
+                "href": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx"
+              }
+            ],
+            "amount": 2894
+          },
+          {
+            "id": "other_out",
+            "label": "Otros gastos no financieros sin línea propia",
+            "officialLabel": "Resto de empleos",
+            "description": "Es la diferencia entre el total de empleos no financieros y la suma de las ocho partidas de gasto anteriores. No es un programa concreto. La tabla mensual consolidada no publica las operaciones que forman esta cifra por separado, así que no se puede atribuir a servicios concretos con esta fuente.",
+            "color": "#b1b899",
+            "amount": 2994
+          }
+        ]
+      },
+      "provenance": {
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP-M/M_CONSOLIDADO_2024.xlsx",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/DatosConsolidadosSeries.aspx",
+        "sourceFile": "M_CONSOLIDADO_2024.xlsx",
+        "sourceSheet": "Tabla1a",
+        "verifiedAt": "2026-11-04",
+        "sourceUpdatedAt": "2026-09-30",
+        "sha256": "c81154a0bde3050d8f279fcfcc8ea35ccd7dbf1e76b1b21ae98c2f6304dfd99a",
+        "parser": "igae-consolidated@1: flujos mensuales calculados como diferencias de acumulados",
+        "method": "Acumulado del mes menos acumulado del mes anterior; enero usa su acumulado. Importes en millones de euros.",
+        "referencePeriod": "2024-06"
+      }
+    },
+    {
+      "period": "2024-07",
+      "label": "Julio de 2024",
+      "monthly": {
+        "source": "Intervención General de la Administración del Estado (IGAE)",
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP-M/M_CONSOLIDADO_2024.xlsx",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/DatosConsolidadosSeries.aspx",
+        "referencePeriod": "2024-07",
+        "periodLabel": "Julio de 2024",
+        "geography": "España",
+        "scope": "Agregado de Administración central, Administración regional y Fondos de la Seguridad Social; excluye Administración local",
+        "accountingBasis": "Contabilidad nacional · SEC 2010 · Revisión Estadística 2024",
+        "periodType": "Flujo del mes, calculado como diferencia entre acumulados del mes y del mes anterior",
+        "unit": "millones de euros",
+        "revenueTotal": 51478,
+        "expenditureTotal": 57164,
+        "financingBalance": -5686,
+        "notes": [
+          "Fuente: serie mensual consolidada de la IGAE, hoja Tabla1a del libro M_CONSOLIDADO_2024.xlsx, actualización 2026-09-30.",
+          "El libro publica importes acumulados desde enero. El importe del mes se calcula restando el acumulado del mes anterior; enero equivale a su acumulado.",
+          "La clasificación de gasto es económica; no identifica programas concretos ni una cantidad mínima necesaria para prestar cada servicio.",
+          "El escenario permite redistribuir el gasto oficial y dejar parte de los ingresos sin asignar."
+        ],
+        "revenue": [
+          {
+            "id": "taxes",
+            "label": "Impuestos directos e indirectos",
+            "officialLabel": "Impuestos",
+            "description": "Incluye impuestos sobre la renta y el patrimonio (por ejemplo, IRPF e Impuesto sobre Sociedades), sobre la producción y el consumo (por ejemplo, IVA e impuestos especiales) y sobre el capital. La tabla IGAE de agosto da una sola cifra conjunta; no publica cuánto corresponde a cada impuesto.",
+            "color": "#476c50",
+            "amount": 26634
+          },
+          {
+            "id": "contributions",
+            "label": "Cotizaciones a la Seguridad Social",
+            "officialLabel": "Cotizaciones sociales",
+            "description": "Cotizaciones sociales ingresadas en el mes. No son solo las aportadas por trabajadores: también incluyen las cotizaciones a cargo de empleadores.",
+            "color": "#8ea987",
+            "amount": 17786
+          },
+          {
+            "id": "transfers",
+            "label": "Transferencias recibidas de otras administraciones",
+            "officialLabel": "Transferencias entre AAPP",
+            "description": "Dinero que la Administración central, las comunidades o los Fondos de la Seguridad Social reciben de otro nivel público. No es un impuesto. Al ser un traspaso interno, no equivale necesariamente a dinero nuevo para el conjunto del sector público.",
+            "color": "#d8a26c",
+            "amount": 1514
+          },
+          {
+            "id": "other",
+            "label": "Otros ingresos: ventas, rentas y transferencias no tributarias",
+            "officialLabel": "Resto de recursos",
+            "description": "Es el resto de ingresos no financieros después de restar impuestos, cotizaciones sociales y transferencias entre Administraciones. La categoría comprende ingresos por ventas de bienes y servicios públicos, rentas de bienes o activos públicos (como intereses, dividendos o alquileres) y transferencias corrientes o de capital que no son entre Administraciones. La tabla mensual consolidada no publica cuánto aporta cada concepto.",
+            "color": "#a4b4c1",
+            "amount": 5544
+          }
+        ],
+        "expenditure": [
+          {
+            "id": "intermediate",
+            "label": "Compras y servicios para que funcionen las administraciones",
+            "officialLabel": "Consumos intermedios",
+            "description": "Bienes y servicios que las administraciones utilizan para funcionar o prestar servicios: suministros, material, alquileres y servicios contratados. No incluye los sueldos del personal.",
+            "color": "#476c50",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 4700
+          },
+          {
+            "id": "wages",
+            "label": "Sueldos del personal público",
+            "officialLabel": "Remuneración de asalariados",
+            "description": "Sueldos y cotizaciones sociales a cargo de la administración empleadora para el personal de los sectores incluidos. No es el número de empleados; es el coste registrado ese mes.",
+            "color": "#8ea987",
+            "relatedSources": [
+              {
+                "label": "Consultar plantilla de las Administraciones",
+                "href": "https://digital.gob.es/funcion-publica/dgfp/registro-central-personal/boletin"
+              }
+            ],
+            "amount": 11402
+          },
+          {
+            "id": "interest",
+            "label": "Intereses de la deuda",
+            "officialLabel": "Intereses",
+            "description": "Coste de los intereses devengados por la deuda pública. No incluye devolver el principal de los préstamos.",
+            "color": "#d8a26c",
+            "relatedSources": [
+              {
+                "label": "Consultar información de la deuda pública",
+                "href": "https://www.tesoro.es/deuda-publica"
+              }
+            ],
+            "amount": 3316
+          },
+          {
+            "id": "subsidies",
+            "label": "Subvenciones a empresas, autónomos y entidades productoras",
+            "officialLabel": "Subvenciones",
+            "description": "Ayudas que la Administración concede a productores para apoyar su actividad o reducir sus costes. Pueden recibirlas empresas, agricultores, autónomos u otras entidades productoras; no son pensiones ni ayudas directas a hogares. La tabla mensual no indica cuánto recibió cada sector.",
+            "color": "#a4b4c1",
+            "relatedSources": [
+              {
+                "label": "Buscar subvenciones en el SNPSAP",
+                "href": "https://www.pap.hacienda.gob.es/bdnstrans/GE/es/inicio"
+              },
+              {
+                "label": "Consultar la API pública de subvenciones",
+                "href": "https://www.infosubvenciones.es/bdnstrans/doc/swagger"
+              }
+            ],
+            "amount": 1366
+          },
+          {
+            "id": "benefits",
+            "label": "Prestaciones en dinero: pensiones, paro y ayudas sociales",
+            "officialLabel": "Prestaciones sociales distintas de las transferencias en especie",
+            "description": "Pagos sociales a personas y familias: pensiones de jubilación y supervivencia, prestaciones por enfermedad o discapacidad, desempleo, ayudas familiares, vivienda y exclusión social (incluido el IMV). La cifra mensual de IGAE los suma; el detalle por programa se consulta en los organismos que los gestionan.",
+            "color": "#d0cf9e",
+            "relatedSources": [
+              {
+                "label": "Ver detalle mensual de pensiones, IMV y paro",
+                "href": "#prestaciones"
+              }
+            ],
+            "amount": 20009
+          },
+          {
+            "id": "in_kind",
+            "label": "Servicios para las familias pagados por la Administración",
+            "officialLabel": "Transferencias sociales en especie: producción adquirida en el mercado",
+            "description": "Bienes y servicios que las administraciones compran a proveedores para que los reciban los hogares, como parte de la atención sanitaria o social. No es todo el gasto en sanidad: los sueldos públicos aparecen en otra partida.",
+            "color": "#c6aa9f",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 3458
+          },
+          {
+            "id": "capital",
+            "label": "Obras, infraestructuras y equipamiento",
+            "officialLabel": "Formación bruta de capital fijo",
+            "description": "Inversión para crear o mejorar activos públicos duraderos: edificios, carreteras, instalaciones y equipamiento. El mantenimiento corriente se registra en compras y servicios.",
+            "color": "#bc8f68",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 2700
+          },
+          {
+            "id": "transfers_out",
+            "label": "Dinero enviado a otras administraciones",
+            "officialLabel": "Transferencias entre AAPP",
+            "description": "Fondos que una administración transfiere a otra. No describen por sí solos el servicio final y pueden aparecer también como ingreso de la administración que los recibe.",
+            "color": "#849caa",
+            "relatedSources": [
+              {
+                "label": "Ver datos de las comunidades autónomas",
+                "href": "#comunidades"
+              },
+              {
+                "label": "Consultar serie mensual de la IGAE por comunidad",
+                "href": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx"
+              }
+            ],
+            "amount": 7720
+          },
+          {
+            "id": "other_out",
+            "label": "Otros gastos no financieros sin línea propia",
+            "officialLabel": "Resto de empleos",
+            "description": "Es la diferencia entre el total de empleos no financieros y la suma de las ocho partidas de gasto anteriores. No es un programa concreto. La tabla mensual consolidada no publica las operaciones que forman esta cifra por separado, así que no se puede atribuir a servicios concretos con esta fuente.",
+            "color": "#b1b899",
+            "amount": 2493
+          }
+        ]
+      },
+      "provenance": {
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP-M/M_CONSOLIDADO_2024.xlsx",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/DatosConsolidadosSeries.aspx",
+        "sourceFile": "M_CONSOLIDADO_2024.xlsx",
+        "sourceSheet": "Tabla1a",
+        "verifiedAt": "2026-11-04",
+        "sourceUpdatedAt": "2026-09-30",
+        "sha256": "c81154a0bde3050d8f279fcfcc8ea35ccd7dbf1e76b1b21ae98c2f6304dfd99a",
+        "parser": "igae-consolidated@1: flujos mensuales calculados como diferencias de acumulados",
+        "method": "Acumulado del mes menos acumulado del mes anterior; enero usa su acumulado. Importes en millones de euros.",
+        "referencePeriod": "2024-07"
+      }
+    },
+    {
+      "period": "2024-08",
+      "label": "Agosto de 2024",
+      "monthly": {
+        "source": "Intervención General de la Administración del Estado (IGAE)",
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP-M/M_CONSOLIDADO_2024.xlsx",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/DatosConsolidadosSeries.aspx",
+        "referencePeriod": "2024-08",
+        "periodLabel": "Agosto de 2024",
+        "geography": "España",
+        "scope": "Agregado de Administración central, Administración regional y Fondos de la Seguridad Social; excluye Administración local",
+        "accountingBasis": "Contabilidad nacional · SEC 2010 · Revisión Estadística 2024",
+        "periodType": "Flujo del mes, calculado como diferencia entre acumulados del mes y del mes anterior",
+        "unit": "millones de euros",
+        "revenueTotal": 51154,
+        "expenditureTotal": 50055,
+        "financingBalance": 1099,
+        "notes": [
+          "Fuente: serie mensual consolidada de la IGAE, hoja Tabla1a del libro M_CONSOLIDADO_2024.xlsx, actualización 2026-09-30.",
+          "El libro publica importes acumulados desde enero. El importe del mes se calcula restando el acumulado del mes anterior; enero equivale a su acumulado.",
+          "La clasificación de gasto es económica; no identifica programas concretos ni una cantidad mínima necesaria para prestar cada servicio.",
+          "El escenario permite redistribuir el gasto oficial y dejar parte de los ingresos sin asignar."
+        ],
+        "revenue": [
+          {
+            "id": "taxes",
+            "label": "Impuestos directos e indirectos",
+            "officialLabel": "Impuestos",
+            "description": "Incluye impuestos sobre la renta y el patrimonio (por ejemplo, IRPF e Impuesto sobre Sociedades), sobre la producción y el consumo (por ejemplo, IVA e impuestos especiales) y sobre el capital. La tabla IGAE de agosto da una sola cifra conjunta; no publica cuánto corresponde a cada impuesto.",
+            "color": "#476c50",
+            "amount": 27929
+          },
+          {
+            "id": "contributions",
+            "label": "Cotizaciones a la Seguridad Social",
+            "officialLabel": "Cotizaciones sociales",
+            "description": "Cotizaciones sociales ingresadas en el mes. No son solo las aportadas por trabajadores: también incluyen las cotizaciones a cargo de empleadores.",
+            "color": "#8ea987",
+            "amount": 17388
+          },
+          {
+            "id": "transfers",
+            "label": "Transferencias recibidas de otras administraciones",
+            "officialLabel": "Transferencias entre AAPP",
+            "description": "Dinero que la Administración central, las comunidades o los Fondos de la Seguridad Social reciben de otro nivel público. No es un impuesto. Al ser un traspaso interno, no equivale necesariamente a dinero nuevo para el conjunto del sector público.",
+            "color": "#d8a26c",
+            "amount": 1175
+          },
+          {
+            "id": "other",
+            "label": "Otros ingresos: ventas, rentas y transferencias no tributarias",
+            "officialLabel": "Resto de recursos",
+            "description": "Es el resto de ingresos no financieros después de restar impuestos, cotizaciones sociales y transferencias entre Administraciones. La categoría comprende ingresos por ventas de bienes y servicios públicos, rentas de bienes o activos públicos (como intereses, dividendos o alquileres) y transferencias corrientes o de capital que no son entre Administraciones. La tabla mensual consolidada no publica cuánto aporta cada concepto.",
+            "color": "#a4b4c1",
+            "amount": 4662
+          }
+        ],
+        "expenditure": [
+          {
+            "id": "intermediate",
+            "label": "Compras y servicios para que funcionen las administraciones",
+            "officialLabel": "Consumos intermedios",
+            "description": "Bienes y servicios que las administraciones utilizan para funcionar o prestar servicios: suministros, material, alquileres y servicios contratados. No incluye los sueldos del personal.",
+            "color": "#476c50",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 4093
+          },
+          {
+            "id": "wages",
+            "label": "Sueldos del personal público",
+            "officialLabel": "Remuneración de asalariados",
+            "description": "Sueldos y cotizaciones sociales a cargo de la administración empleadora para el personal de los sectores incluidos. No es el número de empleados; es el coste registrado ese mes.",
+            "color": "#8ea987",
+            "relatedSources": [
+              {
+                "label": "Consultar plantilla de las Administraciones",
+                "href": "https://digital.gob.es/funcion-publica/dgfp/registro-central-personal/boletin"
+              }
+            ],
+            "amount": 10961
+          },
+          {
+            "id": "interest",
+            "label": "Intereses de la deuda",
+            "officialLabel": "Intereses",
+            "description": "Coste de los intereses devengados por la deuda pública. No incluye devolver el principal de los préstamos.",
+            "color": "#d8a26c",
+            "relatedSources": [
+              {
+                "label": "Consultar información de la deuda pública",
+                "href": "https://www.tesoro.es/deuda-publica"
+              }
+            ],
+            "amount": 3362
+          },
+          {
+            "id": "subsidies",
+            "label": "Subvenciones a empresas, autónomos y entidades productoras",
+            "officialLabel": "Subvenciones",
+            "description": "Ayudas que la Administración concede a productores para apoyar su actividad o reducir sus costes. Pueden recibirlas empresas, agricultores, autónomos u otras entidades productoras; no son pensiones ni ayudas directas a hogares. La tabla mensual no indica cuánto recibió cada sector.",
+            "color": "#a4b4c1",
+            "relatedSources": [
+              {
+                "label": "Buscar subvenciones en el SNPSAP",
+                "href": "https://www.pap.hacienda.gob.es/bdnstrans/GE/es/inicio"
+              },
+              {
+                "label": "Consultar la API pública de subvenciones",
+                "href": "https://www.infosubvenciones.es/bdnstrans/doc/swagger"
+              }
+            ],
+            "amount": 791
+          },
+          {
+            "id": "benefits",
+            "label": "Prestaciones en dinero: pensiones, paro y ayudas sociales",
+            "officialLabel": "Prestaciones sociales distintas de las transferencias en especie",
+            "description": "Pagos sociales a personas y familias: pensiones de jubilación y supervivencia, prestaciones por enfermedad o discapacidad, desempleo, ayudas familiares, vivienda y exclusión social (incluido el IMV). La cifra mensual de IGAE los suma; el detalle por programa se consulta en los organismos que los gestionan.",
+            "color": "#d0cf9e",
+            "relatedSources": [
+              {
+                "label": "Ver detalle mensual de pensiones, IMV y paro",
+                "href": "#prestaciones"
+              }
+            ],
+            "amount": 19666
+          },
+          {
+            "id": "in_kind",
+            "label": "Servicios para las familias pagados por la Administración",
+            "officialLabel": "Transferencias sociales en especie: producción adquirida en el mercado",
+            "description": "Bienes y servicios que las administraciones compran a proveedores para que los reciban los hogares, como parte de la atención sanitaria o social. No es todo el gasto en sanidad: los sueldos públicos aparecen en otra partida.",
+            "color": "#c6aa9f",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 2918
+          },
+          {
+            "id": "capital",
+            "label": "Obras, infraestructuras y equipamiento",
+            "officialLabel": "Formación bruta de capital fijo",
+            "description": "Inversión para crear o mejorar activos públicos duraderos: edificios, carreteras, instalaciones y equipamiento. El mantenimiento corriente se registra en compras y servicios.",
+            "color": "#bc8f68",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 2657
+          },
+          {
+            "id": "transfers_out",
+            "label": "Dinero enviado a otras administraciones",
+            "officialLabel": "Transferencias entre AAPP",
+            "description": "Fondos que una administración transfiere a otra. No describen por sí solos el servicio final y pueden aparecer también como ingreso de la administración que los recibe.",
+            "color": "#849caa",
+            "relatedSources": [
+              {
+                "label": "Ver datos de las comunidades autónomas",
+                "href": "#comunidades"
+              },
+              {
+                "label": "Consultar serie mensual de la IGAE por comunidad",
+                "href": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx"
+              }
+            ],
+            "amount": 2850
+          },
+          {
+            "id": "other_out",
+            "label": "Otros gastos no financieros sin línea propia",
+            "officialLabel": "Resto de empleos",
+            "description": "Es la diferencia entre el total de empleos no financieros y la suma de las ocho partidas de gasto anteriores. No es un programa concreto. La tabla mensual consolidada no publica las operaciones que forman esta cifra por separado, así que no se puede atribuir a servicios concretos con esta fuente.",
+            "color": "#b1b899",
+            "amount": 2757
+          }
+        ]
+      },
+      "provenance": {
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP-M/M_CONSOLIDADO_2024.xlsx",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/DatosConsolidadosSeries.aspx",
+        "sourceFile": "M_CONSOLIDADO_2024.xlsx",
+        "sourceSheet": "Tabla1a",
+        "verifiedAt": "2026-11-04",
+        "sourceUpdatedAt": "2026-09-30",
+        "sha256": "c81154a0bde3050d8f279fcfcc8ea35ccd7dbf1e76b1b21ae98c2f6304dfd99a",
+        "parser": "igae-consolidated@1: flujos mensuales calculados como diferencias de acumulados",
+        "method": "Acumulado del mes menos acumulado del mes anterior; enero usa su acumulado. Importes en millones de euros.",
+        "referencePeriod": "2024-08"
+      }
+    },
+    {
+      "period": "2024-09",
+      "label": "Septiembre de 2024",
+      "monthly": {
+        "source": "Intervención General de la Administración del Estado (IGAE)",
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP-M/M_CONSOLIDADO_2024.xlsx",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/DatosConsolidadosSeries.aspx",
+        "referencePeriod": "2024-09",
+        "periodLabel": "Septiembre de 2024",
+        "geography": "España",
+        "scope": "Agregado de Administración central, Administración regional y Fondos de la Seguridad Social; excluye Administración local",
+        "accountingBasis": "Contabilidad nacional · SEC 2010 · Revisión Estadística 2024",
+        "periodType": "Flujo del mes, calculado como diferencia entre acumulados del mes y del mes anterior",
+        "unit": "millones de euros",
+        "revenueTotal": 60760,
+        "expenditureTotal": 50951,
+        "financingBalance": 9809,
+        "notes": [
+          "Fuente: serie mensual consolidada de la IGAE, hoja Tabla1a del libro M_CONSOLIDADO_2024.xlsx, actualización 2026-09-30.",
+          "El libro publica importes acumulados desde enero. El importe del mes se calcula restando el acumulado del mes anterior; enero equivale a su acumulado.",
+          "La clasificación de gasto es económica; no identifica programas concretos ni una cantidad mínima necesaria para prestar cada servicio.",
+          "El escenario permite redistribuir el gasto oficial y dejar parte de los ingresos sin asignar."
+        ],
+        "revenue": [
+          {
+            "id": "taxes",
+            "label": "Impuestos directos e indirectos",
+            "officialLabel": "Impuestos",
+            "description": "Incluye impuestos sobre la renta y el patrimonio (por ejemplo, IRPF e Impuesto sobre Sociedades), sobre la producción y el consumo (por ejemplo, IVA e impuestos especiales) y sobre el capital. La tabla IGAE de agosto da una sola cifra conjunta; no publica cuánto corresponde a cada impuesto.",
+            "color": "#476c50",
+            "amount": 36422
+          },
+          {
+            "id": "contributions",
+            "label": "Cotizaciones a la Seguridad Social",
+            "officialLabel": "Cotizaciones sociales",
+            "description": "Cotizaciones sociales ingresadas en el mes. No son solo las aportadas por trabajadores: también incluyen las cotizaciones a cargo de empleadores.",
+            "color": "#8ea987",
+            "amount": 17549
+          },
+          {
+            "id": "transfers",
+            "label": "Transferencias recibidas de otras administraciones",
+            "officialLabel": "Transferencias entre AAPP",
+            "description": "Dinero que la Administración central, las comunidades o los Fondos de la Seguridad Social reciben de otro nivel público. No es un impuesto. Al ser un traspaso interno, no equivale necesariamente a dinero nuevo para el conjunto del sector público.",
+            "color": "#d8a26c",
+            "amount": 1507
+          },
+          {
+            "id": "other",
+            "label": "Otros ingresos: ventas, rentas y transferencias no tributarias",
+            "officialLabel": "Resto de recursos",
+            "description": "Es el resto de ingresos no financieros después de restar impuestos, cotizaciones sociales y transferencias entre Administraciones. La categoría comprende ingresos por ventas de bienes y servicios públicos, rentas de bienes o activos públicos (como intereses, dividendos o alquileres) y transferencias corrientes o de capital que no son entre Administraciones. La tabla mensual consolidada no publica cuánto aporta cada concepto.",
+            "color": "#a4b4c1",
+            "amount": 5282
+          }
+        ],
+        "expenditure": [
+          {
+            "id": "intermediate",
+            "label": "Compras y servicios para que funcionen las administraciones",
+            "officialLabel": "Consumos intermedios",
+            "description": "Bienes y servicios que las administraciones utilizan para funcionar o prestar servicios: suministros, material, alquileres y servicios contratados. No incluye los sueldos del personal.",
+            "color": "#476c50",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 4886
+          },
+          {
+            "id": "wages",
+            "label": "Sueldos del personal público",
+            "officialLabel": "Remuneración de asalariados",
+            "description": "Sueldos y cotizaciones sociales a cargo de la administración empleadora para el personal de los sectores incluidos. No es el número de empleados; es el coste registrado ese mes.",
+            "color": "#8ea987",
+            "relatedSources": [
+              {
+                "label": "Consultar plantilla de las Administraciones",
+                "href": "https://digital.gob.es/funcion-publica/dgfp/registro-central-personal/boletin"
+              }
+            ],
+            "amount": 11167
+          },
+          {
+            "id": "interest",
+            "label": "Intereses de la deuda",
+            "officialLabel": "Intereses",
+            "description": "Coste de los intereses devengados por la deuda pública. No incluye devolver el principal de los préstamos.",
+            "color": "#d8a26c",
+            "relatedSources": [
+              {
+                "label": "Consultar información de la deuda pública",
+                "href": "https://www.tesoro.es/deuda-publica"
+              }
+            ],
+            "amount": 3218
+          },
+          {
+            "id": "subsidies",
+            "label": "Subvenciones a empresas, autónomos y entidades productoras",
+            "officialLabel": "Subvenciones",
+            "description": "Ayudas que la Administración concede a productores para apoyar su actividad o reducir sus costes. Pueden recibirlas empresas, agricultores, autónomos u otras entidades productoras; no son pensiones ni ayudas directas a hogares. La tabla mensual no indica cuánto recibió cada sector.",
+            "color": "#a4b4c1",
+            "relatedSources": [
+              {
+                "label": "Buscar subvenciones en el SNPSAP",
+                "href": "https://www.pap.hacienda.gob.es/bdnstrans/GE/es/inicio"
+              },
+              {
+                "label": "Consultar la API pública de subvenciones",
+                "href": "https://www.infosubvenciones.es/bdnstrans/doc/swagger"
+              }
+            ],
+            "amount": 1103
+          },
+          {
+            "id": "benefits",
+            "label": "Prestaciones en dinero: pensiones, paro y ayudas sociales",
+            "officialLabel": "Prestaciones sociales distintas de las transferencias en especie",
+            "description": "Pagos sociales a personas y familias: pensiones de jubilación y supervivencia, prestaciones por enfermedad o discapacidad, desempleo, ayudas familiares, vivienda y exclusión social (incluido el IMV). La cifra mensual de IGAE los suma; el detalle por programa se consulta en los organismos que los gestionan.",
+            "color": "#d0cf9e",
+            "relatedSources": [
+              {
+                "label": "Ver detalle mensual de pensiones, IMV y paro",
+                "href": "#prestaciones"
+              }
+            ],
+            "amount": 19940
+          },
+          {
+            "id": "in_kind",
+            "label": "Servicios para las familias pagados por la Administración",
+            "officialLabel": "Transferencias sociales en especie: producción adquirida en el mercado",
+            "description": "Bienes y servicios que las administraciones compran a proveedores para que los reciban los hogares, como parte de la atención sanitaria o social. No es todo el gasto en sanidad: los sueldos públicos aparecen en otra partida.",
+            "color": "#c6aa9f",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 3137
+          },
+          {
+            "id": "capital",
+            "label": "Obras, infraestructuras y equipamiento",
+            "officialLabel": "Formación bruta de capital fijo",
+            "description": "Inversión para crear o mejorar activos públicos duraderos: edificios, carreteras, instalaciones y equipamiento. El mantenimiento corriente se registra en compras y servicios.",
+            "color": "#bc8f68",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 2488
+          },
+          {
+            "id": "transfers_out",
+            "label": "Dinero enviado a otras administraciones",
+            "officialLabel": "Transferencias entre AAPP",
+            "description": "Fondos que una administración transfiere a otra. No describen por sí solos el servicio final y pueden aparecer también como ingreso de la administración que los recibe.",
+            "color": "#849caa",
+            "relatedSources": [
+              {
+                "label": "Ver datos de las comunidades autónomas",
+                "href": "#comunidades"
+              },
+              {
+                "label": "Consultar serie mensual de la IGAE por comunidad",
+                "href": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx"
+              }
+            ],
+            "amount": 2942
+          },
+          {
+            "id": "other_out",
+            "label": "Otros gastos no financieros sin línea propia",
+            "officialLabel": "Resto de empleos",
+            "description": "Es la diferencia entre el total de empleos no financieros y la suma de las ocho partidas de gasto anteriores. No es un programa concreto. La tabla mensual consolidada no publica las operaciones que forman esta cifra por separado, así que no se puede atribuir a servicios concretos con esta fuente.",
+            "color": "#b1b899",
+            "amount": 2070
+          }
+        ]
+      },
+      "provenance": {
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP-M/M_CONSOLIDADO_2024.xlsx",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/DatosConsolidadosSeries.aspx",
+        "sourceFile": "M_CONSOLIDADO_2024.xlsx",
+        "sourceSheet": "Tabla1a",
+        "verifiedAt": "2026-11-04",
+        "sourceUpdatedAt": "2026-09-30",
+        "sha256": "c81154a0bde3050d8f279fcfcc8ea35ccd7dbf1e76b1b21ae98c2f6304dfd99a",
+        "parser": "igae-consolidated@1: flujos mensuales calculados como diferencias de acumulados",
+        "method": "Acumulado del mes menos acumulado del mes anterior; enero usa su acumulado. Importes en millones de euros.",
+        "referencePeriod": "2024-09"
+      }
+    },
+    {
+      "period": "2024-10",
+      "label": "Octubre de 2024",
+      "monthly": {
+        "source": "Intervención General de la Administración del Estado (IGAE)",
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP-M/M_CONSOLIDADO_2024.xlsx",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/DatosConsolidadosSeries.aspx",
+        "referencePeriod": "2024-10",
+        "periodLabel": "Octubre de 2024",
+        "geography": "España",
+        "scope": "Agregado de Administración central, Administración regional y Fondos de la Seguridad Social; excluye Administración local",
+        "accountingBasis": "Contabilidad nacional · SEC 2010 · Revisión Estadística 2024",
+        "periodType": "Flujo del mes, calculado como diferencia entre acumulados del mes y del mes anterior",
+        "unit": "millones de euros",
+        "revenueTotal": 61852,
+        "expenditureTotal": 52881,
+        "financingBalance": 8971,
+        "notes": [
+          "Fuente: serie mensual consolidada de la IGAE, hoja Tabla1a del libro M_CONSOLIDADO_2024.xlsx, actualización 2026-09-30.",
+          "El libro publica importes acumulados desde enero. El importe del mes se calcula restando el acumulado del mes anterior; enero equivale a su acumulado.",
+          "La clasificación de gasto es económica; no identifica programas concretos ni una cantidad mínima necesaria para prestar cada servicio.",
+          "El escenario permite redistribuir el gasto oficial y dejar parte de los ingresos sin asignar."
+        ],
+        "revenue": [
+          {
+            "id": "taxes",
+            "label": "Impuestos directos e indirectos",
+            "officialLabel": "Impuestos",
+            "description": "Incluye impuestos sobre la renta y el patrimonio (por ejemplo, IRPF e Impuesto sobre Sociedades), sobre la producción y el consumo (por ejemplo, IVA e impuestos especiales) y sobre el capital. La tabla IGAE de agosto da una sola cifra conjunta; no publica cuánto corresponde a cada impuesto.",
+            "color": "#476c50",
+            "amount": 37667
+          },
+          {
+            "id": "contributions",
+            "label": "Cotizaciones a la Seguridad Social",
+            "officialLabel": "Cotizaciones sociales",
+            "description": "Cotizaciones sociales ingresadas en el mes. No son solo las aportadas por trabajadores: también incluyen las cotizaciones a cargo de empleadores.",
+            "color": "#8ea987",
+            "amount": 17591
+          },
+          {
+            "id": "transfers",
+            "label": "Transferencias recibidas de otras administraciones",
+            "officialLabel": "Transferencias entre AAPP",
+            "description": "Dinero que la Administración central, las comunidades o los Fondos de la Seguridad Social reciben de otro nivel público. No es un impuesto. Al ser un traspaso interno, no equivale necesariamente a dinero nuevo para el conjunto del sector público.",
+            "color": "#d8a26c",
+            "amount": 868
+          },
+          {
+            "id": "other",
+            "label": "Otros ingresos: ventas, rentas y transferencias no tributarias",
+            "officialLabel": "Resto de recursos",
+            "description": "Es el resto de ingresos no financieros después de restar impuestos, cotizaciones sociales y transferencias entre Administraciones. La categoría comprende ingresos por ventas de bienes y servicios públicos, rentas de bienes o activos públicos (como intereses, dividendos o alquileres) y transferencias corrientes o de capital que no son entre Administraciones. La tabla mensual consolidada no publica cuánto aporta cada concepto.",
+            "color": "#a4b4c1",
+            "amount": 5726
+          }
+        ],
+        "expenditure": [
+          {
+            "id": "intermediate",
+            "label": "Compras y servicios para que funcionen las administraciones",
+            "officialLabel": "Consumos intermedios",
+            "description": "Bienes y servicios que las administraciones utilizan para funcionar o prestar servicios: suministros, material, alquileres y servicios contratados. No incluye los sueldos del personal.",
+            "color": "#476c50",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 4787
+          },
+          {
+            "id": "wages",
+            "label": "Sueldos del personal público",
+            "officialLabel": "Remuneración de asalariados",
+            "description": "Sueldos y cotizaciones sociales a cargo de la administración empleadora para el personal de los sectores incluidos. No es el número de empleados; es el coste registrado ese mes.",
+            "color": "#8ea987",
+            "relatedSources": [
+              {
+                "label": "Consultar plantilla de las Administraciones",
+                "href": "https://digital.gob.es/funcion-publica/dgfp/registro-central-personal/boletin"
+              }
+            ],
+            "amount": 10984
+          },
+          {
+            "id": "interest",
+            "label": "Intereses de la deuda",
+            "officialLabel": "Intereses",
+            "description": "Coste de los intereses devengados por la deuda pública. No incluye devolver el principal de los préstamos.",
+            "color": "#d8a26c",
+            "relatedSources": [
+              {
+                "label": "Consultar información de la deuda pública",
+                "href": "https://www.tesoro.es/deuda-publica"
+              }
+            ],
+            "amount": 3231
+          },
+          {
+            "id": "subsidies",
+            "label": "Subvenciones a empresas, autónomos y entidades productoras",
+            "officialLabel": "Subvenciones",
+            "description": "Ayudas que la Administración concede a productores para apoyar su actividad o reducir sus costes. Pueden recibirlas empresas, agricultores, autónomos u otras entidades productoras; no son pensiones ni ayudas directas a hogares. La tabla mensual no indica cuánto recibió cada sector.",
+            "color": "#a4b4c1",
+            "relatedSources": [
+              {
+                "label": "Buscar subvenciones en el SNPSAP",
+                "href": "https://www.pap.hacienda.gob.es/bdnstrans/GE/es/inicio"
+              },
+              {
+                "label": "Consultar la API pública de subvenciones",
+                "href": "https://www.infosubvenciones.es/bdnstrans/doc/swagger"
+              }
+            ],
+            "amount": 1033
+          },
+          {
+            "id": "benefits",
+            "label": "Prestaciones en dinero: pensiones, paro y ayudas sociales",
+            "officialLabel": "Prestaciones sociales distintas de las transferencias en especie",
+            "description": "Pagos sociales a personas y familias: pensiones de jubilación y supervivencia, prestaciones por enfermedad o discapacidad, desempleo, ayudas familiares, vivienda y exclusión social (incluido el IMV). La cifra mensual de IGAE los suma; el detalle por programa se consulta en los organismos que los gestionan.",
+            "color": "#d0cf9e",
+            "relatedSources": [
+              {
+                "label": "Ver detalle mensual de pensiones, IMV y paro",
+                "href": "#prestaciones"
+              }
+            ],
+            "amount": 20102
+          },
+          {
+            "id": "in_kind",
+            "label": "Servicios para las familias pagados por la Administración",
+            "officialLabel": "Transferencias sociales en especie: producción adquirida en el mercado",
+            "description": "Bienes y servicios que las administraciones compran a proveedores para que los reciban los hogares, como parte de la atención sanitaria o social. No es todo el gasto en sanidad: los sueldos públicos aparecen en otra partida.",
+            "color": "#c6aa9f",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 3679
+          },
+          {
+            "id": "capital",
+            "label": "Obras, infraestructuras y equipamiento",
+            "officialLabel": "Formación bruta de capital fijo",
+            "description": "Inversión para crear o mejorar activos públicos duraderos: edificios, carreteras, instalaciones y equipamiento. El mantenimiento corriente se registra en compras y servicios.",
+            "color": "#bc8f68",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 2727
+          },
+          {
+            "id": "transfers_out",
+            "label": "Dinero enviado a otras administraciones",
+            "officialLabel": "Transferencias entre AAPP",
+            "description": "Fondos que una administración transfiere a otra. No describen por sí solos el servicio final y pueden aparecer también como ingreso de la administración que los recibe.",
+            "color": "#849caa",
+            "relatedSources": [
+              {
+                "label": "Ver datos de las comunidades autónomas",
+                "href": "#comunidades"
+              },
+              {
+                "label": "Consultar serie mensual de la IGAE por comunidad",
+                "href": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx"
+              }
+            ],
+            "amount": 3457
+          },
+          {
+            "id": "other_out",
+            "label": "Otros gastos no financieros sin línea propia",
+            "officialLabel": "Resto de empleos",
+            "description": "Es la diferencia entre el total de empleos no financieros y la suma de las ocho partidas de gasto anteriores. No es un programa concreto. La tabla mensual consolidada no publica las operaciones que forman esta cifra por separado, así que no se puede atribuir a servicios concretos con esta fuente.",
+            "color": "#b1b899",
+            "amount": 2881
+          }
+        ]
+      },
+      "provenance": {
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP-M/M_CONSOLIDADO_2024.xlsx",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/DatosConsolidadosSeries.aspx",
+        "sourceFile": "M_CONSOLIDADO_2024.xlsx",
+        "sourceSheet": "Tabla1a",
+        "verifiedAt": "2026-11-04",
+        "sourceUpdatedAt": "2026-09-30",
+        "sha256": "c81154a0bde3050d8f279fcfcc8ea35ccd7dbf1e76b1b21ae98c2f6304dfd99a",
+        "parser": "igae-consolidated@1: flujos mensuales calculados como diferencias de acumulados",
+        "method": "Acumulado del mes menos acumulado del mes anterior; enero usa su acumulado. Importes en millones de euros.",
+        "referencePeriod": "2024-10"
+      }
+    },
+    {
+      "period": "2024-11",
+      "label": "Noviembre de 2024",
+      "monthly": {
+        "source": "Intervención General de la Administración del Estado (IGAE)",
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP-M/M_CONSOLIDADO_2024.xlsx",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/DatosConsolidadosSeries.aspx",
+        "referencePeriod": "2024-11",
+        "periodLabel": "Noviembre de 2024",
+        "geography": "España",
+        "scope": "Agregado de Administración central, Administración regional y Fondos de la Seguridad Social; excluye Administración local",
+        "accountingBasis": "Contabilidad nacional · SEC 2010 · Revisión Estadística 2024",
+        "periodType": "Flujo del mes, calculado como diferencia entre acumulados del mes y del mes anterior",
+        "unit": "millones de euros",
+        "revenueTotal": 46718,
+        "expenditureTotal": 58586,
+        "financingBalance": -11868,
+        "notes": [
+          "Fuente: serie mensual consolidada de la IGAE, hoja Tabla1a del libro M_CONSOLIDADO_2024.xlsx, actualización 2026-09-30.",
+          "El libro publica importes acumulados desde enero. El importe del mes se calcula restando el acumulado del mes anterior; enero equivale a su acumulado.",
+          "La clasificación de gasto es económica; no identifica programas concretos ni una cantidad mínima necesaria para prestar cada servicio.",
+          "El escenario permite redistribuir el gasto oficial y dejar parte de los ingresos sin asignar."
+        ],
+        "revenue": [
+          {
+            "id": "taxes",
+            "label": "Impuestos directos e indirectos",
+            "officialLabel": "Impuestos",
+            "description": "Incluye impuestos sobre la renta y el patrimonio (por ejemplo, IRPF e Impuesto sobre Sociedades), sobre la producción y el consumo (por ejemplo, IVA e impuestos especiales) y sobre el capital. La tabla IGAE de agosto da una sola cifra conjunta; no publica cuánto corresponde a cada impuesto.",
+            "color": "#476c50",
+            "amount": 22738
+          },
+          {
+            "id": "contributions",
+            "label": "Cotizaciones a la Seguridad Social",
+            "officialLabel": "Cotizaciones sociales",
+            "description": "Cotizaciones sociales ingresadas en el mes. No son solo las aportadas por trabajadores: también incluyen las cotizaciones a cargo de empleadores.",
+            "color": "#8ea987",
+            "amount": 17326
+          },
+          {
+            "id": "transfers",
+            "label": "Transferencias recibidas de otras administraciones",
+            "officialLabel": "Transferencias entre AAPP",
+            "description": "Dinero que la Administración central, las comunidades o los Fondos de la Seguridad Social reciben de otro nivel público. No es un impuesto. Al ser un traspaso interno, no equivale necesariamente a dinero nuevo para el conjunto del sector público.",
+            "color": "#d8a26c",
+            "amount": 1390
+          },
+          {
+            "id": "other",
+            "label": "Otros ingresos: ventas, rentas y transferencias no tributarias",
+            "officialLabel": "Resto de recursos",
+            "description": "Es el resto de ingresos no financieros después de restar impuestos, cotizaciones sociales y transferencias entre Administraciones. La categoría comprende ingresos por ventas de bienes y servicios públicos, rentas de bienes o activos públicos (como intereses, dividendos o alquileres) y transferencias corrientes o de capital que no son entre Administraciones. La tabla mensual consolidada no publica cuánto aporta cada concepto.",
+            "color": "#a4b4c1",
+            "amount": 5264
+          }
+        ],
+        "expenditure": [
+          {
+            "id": "intermediate",
+            "label": "Compras y servicios para que funcionen las administraciones",
+            "officialLabel": "Consumos intermedios",
+            "description": "Bienes y servicios que las administraciones utilizan para funcionar o prestar servicios: suministros, material, alquileres y servicios contratados. No incluye los sueldos del personal.",
+            "color": "#476c50",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 4968
+          },
+          {
+            "id": "wages",
+            "label": "Sueldos del personal público",
+            "officialLabel": "Remuneración de asalariados",
+            "description": "Sueldos y cotizaciones sociales a cargo de la administración empleadora para el personal de los sectores incluidos. No es el número de empleados; es el coste registrado ese mes.",
+            "color": "#8ea987",
+            "relatedSources": [
+              {
+                "label": "Consultar plantilla de las Administraciones",
+                "href": "https://digital.gob.es/funcion-publica/dgfp/registro-central-personal/boletin"
+              }
+            ],
+            "amount": 10773
+          },
+          {
+            "id": "interest",
+            "label": "Intereses de la deuda",
+            "officialLabel": "Intereses",
+            "description": "Coste de los intereses devengados por la deuda pública. No incluye devolver el principal de los préstamos.",
+            "color": "#d8a26c",
+            "relatedSources": [
+              {
+                "label": "Consultar información de la deuda pública",
+                "href": "https://www.tesoro.es/deuda-publica"
+              }
+            ],
+            "amount": 2892
+          },
+          {
+            "id": "subsidies",
+            "label": "Subvenciones a empresas, autónomos y entidades productoras",
+            "officialLabel": "Subvenciones",
+            "description": "Ayudas que la Administración concede a productores para apoyar su actividad o reducir sus costes. Pueden recibirlas empresas, agricultores, autónomos u otras entidades productoras; no son pensiones ni ayudas directas a hogares. La tabla mensual no indica cuánto recibió cada sector.",
+            "color": "#a4b4c1",
+            "relatedSources": [
+              {
+                "label": "Buscar subvenciones en el SNPSAP",
+                "href": "https://www.pap.hacienda.gob.es/bdnstrans/GE/es/inicio"
+              },
+              {
+                "label": "Consultar la API pública de subvenciones",
+                "href": "https://www.infosubvenciones.es/bdnstrans/doc/swagger"
+              }
+            ],
+            "amount": 1694
+          },
+          {
+            "id": "benefits",
+            "label": "Prestaciones en dinero: pensiones, paro y ayudas sociales",
+            "officialLabel": "Prestaciones sociales distintas de las transferencias en especie",
+            "description": "Pagos sociales a personas y familias: pensiones de jubilación y supervivencia, prestaciones por enfermedad o discapacidad, desempleo, ayudas familiares, vivienda y exclusión social (incluido el IMV). La cifra mensual de IGAE los suma; el detalle por programa se consulta en los organismos que los gestionan.",
+            "color": "#d0cf9e",
+            "relatedSources": [
+              {
+                "label": "Ver detalle mensual de pensiones, IMV y paro",
+                "href": "#prestaciones"
+              }
+            ],
+            "amount": 20489
+          },
+          {
+            "id": "in_kind",
+            "label": "Servicios para las familias pagados por la Administración",
+            "officialLabel": "Transferencias sociales en especie: producción adquirida en el mercado",
+            "description": "Bienes y servicios que las administraciones compran a proveedores para que los reciban los hogares, como parte de la atención sanitaria o social. No es todo el gasto en sanidad: los sueldos públicos aparecen en otra partida.",
+            "color": "#c6aa9f",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 3574
+          },
+          {
+            "id": "capital",
+            "label": "Obras, infraestructuras y equipamiento",
+            "officialLabel": "Formación bruta de capital fijo",
+            "description": "Inversión para crear o mejorar activos públicos duraderos: edificios, carreteras, instalaciones y equipamiento. El mantenimiento corriente se registra en compras y servicios.",
+            "color": "#bc8f68",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 2838
+          },
+          {
+            "id": "transfers_out",
+            "label": "Dinero enviado a otras administraciones",
+            "officialLabel": "Transferencias entre AAPP",
+            "description": "Fondos que una administración transfiere a otra. No describen por sí solos el servicio final y pueden aparecer también como ingreso de la administración que los recibe.",
+            "color": "#849caa",
+            "relatedSources": [
+              {
+                "label": "Ver datos de las comunidades autónomas",
+                "href": "#comunidades"
+              },
+              {
+                "label": "Consultar serie mensual de la IGAE por comunidad",
+                "href": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx"
+              }
+            ],
+            "amount": 3501
+          },
+          {
+            "id": "other_out",
+            "label": "Otros gastos no financieros sin línea propia",
+            "officialLabel": "Resto de empleos",
+            "description": "Es la diferencia entre el total de empleos no financieros y la suma de las ocho partidas de gasto anteriores. No es un programa concreto. La tabla mensual consolidada no publica las operaciones que forman esta cifra por separado, así que no se puede atribuir a servicios concretos con esta fuente.",
+            "color": "#b1b899",
+            "amount": 7857
+          }
+        ]
+      },
+      "provenance": {
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP-M/M_CONSOLIDADO_2024.xlsx",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/DatosConsolidadosSeries.aspx",
+        "sourceFile": "M_CONSOLIDADO_2024.xlsx",
+        "sourceSheet": "Tabla1a",
+        "verifiedAt": "2026-11-04",
+        "sourceUpdatedAt": "2026-09-30",
+        "sha256": "c81154a0bde3050d8f279fcfcc8ea35ccd7dbf1e76b1b21ae98c2f6304dfd99a",
+        "parser": "igae-consolidated@1: flujos mensuales calculados como diferencias de acumulados",
+        "method": "Acumulado del mes menos acumulado del mes anterior; enero usa su acumulado. Importes en millones de euros.",
+        "referencePeriod": "2024-11"
+      }
+    },
+    {
+      "period": "2024-12",
+      "label": "Diciembre de 2024",
+      "monthly": {
+        "source": "Intervención General de la Administración del Estado (IGAE)",
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP-M/M_CONSOLIDADO_2024.xlsx",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/DatosConsolidadosSeries.aspx",
+        "referencePeriod": "2024-12",
+        "periodLabel": "Diciembre de 2024",
+        "geography": "España",
+        "scope": "Agregado de Administración central, Administración regional y Fondos de la Seguridad Social; excluye Administración local",
+        "accountingBasis": "Contabilidad nacional · SEC 2010 · Revisión Estadística 2024",
+        "periodType": "Flujo del mes, calculado como diferencia entre acumulados del mes y del mes anterior",
+        "unit": "millones de euros",
+        "revenueTotal": 65176,
+        "expenditureTotal": 96143,
+        "financingBalance": -30967,
+        "notes": [
+          "Fuente: serie mensual consolidada de la IGAE, hoja Tabla1a del libro M_CONSOLIDADO_2024.xlsx, actualización 2026-09-30.",
+          "El libro publica importes acumulados desde enero. El importe del mes se calcula restando el acumulado del mes anterior; enero equivale a su acumulado.",
+          "La clasificación de gasto es económica; no identifica programas concretos ni una cantidad mínima necesaria para prestar cada servicio.",
+          "El escenario permite redistribuir el gasto oficial y dejar parte de los ingresos sin asignar."
+        ],
+        "revenue": [
+          {
+            "id": "taxes",
+            "label": "Impuestos directos e indirectos",
+            "officialLabel": "Impuestos",
+            "description": "Incluye impuestos sobre la renta y el patrimonio (por ejemplo, IRPF e Impuesto sobre Sociedades), sobre la producción y el consumo (por ejemplo, IVA e impuestos especiales) y sobre el capital. La tabla IGAE de agosto da una sola cifra conjunta; no publica cuánto corresponde a cada impuesto.",
+            "color": "#476c50",
+            "amount": 30558
+          },
+          {
+            "id": "contributions",
+            "label": "Cotizaciones a la Seguridad Social",
+            "officialLabel": "Cotizaciones sociales",
+            "description": "Cotizaciones sociales ingresadas en el mes. No son solo las aportadas por trabajadores: también incluyen las cotizaciones a cargo de empleadores.",
+            "color": "#8ea987",
+            "amount": 18894
+          },
+          {
+            "id": "transfers",
+            "label": "Transferencias recibidas de otras administraciones",
+            "officialLabel": "Transferencias entre AAPP",
+            "description": "Dinero que la Administración central, las comunidades o los Fondos de la Seguridad Social reciben de otro nivel público. No es un impuesto. Al ser un traspaso interno, no equivale necesariamente a dinero nuevo para el conjunto del sector público.",
+            "color": "#d8a26c",
+            "amount": 1982
+          },
+          {
+            "id": "other",
+            "label": "Otros ingresos: ventas, rentas y transferencias no tributarias",
+            "officialLabel": "Resto de recursos",
+            "description": "Es el resto de ingresos no financieros después de restar impuestos, cotizaciones sociales y transferencias entre Administraciones. La categoría comprende ingresos por ventas de bienes y servicios públicos, rentas de bienes o activos públicos (como intereses, dividendos o alquileres) y transferencias corrientes o de capital que no son entre Administraciones. La tabla mensual consolidada no publica cuánto aporta cada concepto.",
+            "color": "#a4b4c1",
+            "amount": 13742
+          }
+        ],
+        "expenditure": [
+          {
+            "id": "intermediate",
+            "label": "Compras y servicios para que funcionen las administraciones",
+            "officialLabel": "Consumos intermedios",
+            "description": "Bienes y servicios que las administraciones utilizan para funcionar o prestar servicios: suministros, material, alquileres y servicios contratados. No incluye los sueldos del personal.",
+            "color": "#476c50",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 5947
+          },
+          {
+            "id": "wages",
+            "label": "Sueldos del personal público",
+            "officialLabel": "Remuneración de asalariados",
+            "description": "Sueldos y cotizaciones sociales a cargo de la administración empleadora para el personal de los sectores incluidos. No es el número de empleados; es el coste registrado ese mes.",
+            "color": "#8ea987",
+            "relatedSources": [
+              {
+                "label": "Consultar plantilla de las Administraciones",
+                "href": "https://digital.gob.es/funcion-publica/dgfp/registro-central-personal/boletin"
+              }
+            ],
+            "amount": 17824
+          },
+          {
+            "id": "interest",
+            "label": "Intereses de la deuda",
+            "officialLabel": "Intereses",
+            "description": "Coste de los intereses devengados por la deuda pública. No incluye devolver el principal de los préstamos.",
+            "color": "#d8a26c",
+            "relatedSources": [
+              {
+                "label": "Consultar información de la deuda pública",
+                "href": "https://www.tesoro.es/deuda-publica"
+              }
+            ],
+            "amount": 3366
+          },
+          {
+            "id": "subsidies",
+            "label": "Subvenciones a empresas, autónomos y entidades productoras",
+            "officialLabel": "Subvenciones",
+            "description": "Ayudas que la Administración concede a productores para apoyar su actividad o reducir sus costes. Pueden recibirlas empresas, agricultores, autónomos u otras entidades productoras; no son pensiones ni ayudas directas a hogares. La tabla mensual no indica cuánto recibió cada sector.",
+            "color": "#a4b4c1",
+            "relatedSources": [
+              {
+                "label": "Buscar subvenciones en el SNPSAP",
+                "href": "https://www.pap.hacienda.gob.es/bdnstrans/GE/es/inicio"
+              },
+              {
+                "label": "Consultar la API pública de subvenciones",
+                "href": "https://www.infosubvenciones.es/bdnstrans/doc/swagger"
+              }
+            ],
+            "amount": 3791
+          },
+          {
+            "id": "benefits",
+            "label": "Prestaciones en dinero: pensiones, paro y ayudas sociales",
+            "officialLabel": "Prestaciones sociales distintas de las transferencias en especie",
+            "description": "Pagos sociales a personas y familias: pensiones de jubilación y supervivencia, prestaciones por enfermedad o discapacidad, desempleo, ayudas familiares, vivienda y exclusión social (incluido el IMV). La cifra mensual de IGAE los suma; el detalle por programa se consulta en los organismos que los gestionan.",
+            "color": "#d0cf9e",
+            "relatedSources": [
+              {
+                "label": "Ver detalle mensual de pensiones, IMV y paro",
+                "href": "#prestaciones"
+              }
+            ],
+            "amount": 33725
+          },
+          {
+            "id": "in_kind",
+            "label": "Servicios para las familias pagados por la Administración",
+            "officialLabel": "Transferencias sociales en especie: producción adquirida en el mercado",
+            "description": "Bienes y servicios que las administraciones compran a proveedores para que los reciban los hogares, como parte de la atención sanitaria o social. No es todo el gasto en sanidad: los sueldos públicos aparecen en otra partida.",
+            "color": "#c6aa9f",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 5897
+          },
+          {
+            "id": "capital",
+            "label": "Obras, infraestructuras y equipamiento",
+            "officialLabel": "Formación bruta de capital fijo",
+            "description": "Inversión para crear o mejorar activos públicos duraderos: edificios, carreteras, instalaciones y equipamiento. El mantenimiento corriente se registra en compras y servicios.",
+            "color": "#bc8f68",
+            "relatedSources": [
+              {
+                "label": "Buscar contratos públicos relacionados",
+                "href": "https://transparencia.gob.es/publicidad-activa/por-materias/tramites/contratos"
+              }
+            ],
+            "amount": 3043
+          },
+          {
+            "id": "transfers_out",
+            "label": "Dinero enviado a otras administraciones",
+            "officialLabel": "Transferencias entre AAPP",
+            "description": "Fondos que una administración transfiere a otra. No describen por sí solos el servicio final y pueden aparecer también como ingreso de la administración que los recibe.",
+            "color": "#849caa",
+            "relatedSources": [
+              {
+                "label": "Ver datos de las comunidades autónomas",
+                "href": "#comunidades"
+              },
+              {
+                "label": "Consultar serie mensual de la IGAE por comunidad",
+                "href": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx"
+              }
+            ],
+            "amount": 6730
+          },
+          {
+            "id": "other_out",
+            "label": "Otros gastos no financieros sin línea propia",
+            "officialLabel": "Resto de empleos",
+            "description": "Es la diferencia entre el total de empleos no financieros y la suma de las ocho partidas de gasto anteriores. No es un programa concreto. La tabla mensual consolidada no publica las operaciones que forman esta cifra por separado, así que no se puede atribuir a servicios concretos con esta fuente.",
+            "color": "#b1b899",
+            "amount": 15820
+          }
+        ]
+      },
+      "provenance": {
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP-M/M_CONSOLIDADO_2024.xlsx",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/DatosConsolidadosSeries.aspx",
+        "sourceFile": "M_CONSOLIDADO_2024.xlsx",
+        "sourceSheet": "Tabla1a",
+        "verifiedAt": "2026-11-04",
+        "sourceUpdatedAt": "2026-09-30",
+        "sha256": "c81154a0bde3050d8f279fcfcc8ea35ccd7dbf1e76b1b21ae98c2f6304dfd99a",
+        "parser": "igae-consolidated@1: flujos mensuales calculados como diferencias de acumulados",
+        "method": "Acumulado del mes menos acumulado del mes anterior; enero usa su acumulado. Importes en millones de euros.",
+        "referencePeriod": "2024-12"
+      }
+    }
+  ]
+}

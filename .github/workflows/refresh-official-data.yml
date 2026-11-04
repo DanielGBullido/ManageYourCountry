@@ -26,29 +26,41 @@ jobs:
       # y archiva en data/history/ los meses posteriores al del panel. Si una web
       # falla, las demás siguen; la IGAE no avanzará hasta tener todas las series.
       - name: Archivar la recaudación mensual AEAT
+        id: aeat
         continue-on-error: true
         run: npm run data:refresh:aeat
       - name: Archivar las pensiones contributivas (Seguridad Social)
+        id: pensiones
         continue-on-error: true
         run: npm run data:refresh:pensiones
       - name: Archivar las pensiones no contributivas (Imserso)
+        id: pnc
         continue-on-error: true
         run: npm run data:refresh:pnc
       - name: Archivar el Ingreso Mínimo Vital (INSS)
+        id: imv
         continue-on-error: true
         run: npm run data:refresh:imv
       - name: Archivar las prestaciones por desempleo (Trabajo · SEPE)
+        id: paro
         continue-on-error: true
         run: npm run data:refresh:paro
       - name: Archivar los datos mensuales por comunidad autónoma (IGAE)
+        id: ccaa
         continue-on-error: true
         run: npm run data:refresh:ccaa
       - name: Actualizar los ingresos anuales de las Administraciones públicas (Eurostat)
+        id: eurostat
         continue-on-error: true
         run: npm run data:refresh:eurostat
       - name: Actualizar el contexto anual frente a la UE (Eurostat)
+        id: contexto
         continue-on-error: true
         run: npm run data:refresh:contexto
+      - name: Actualizar el histórico mensual IGAE de este año y los dos anteriores
+        id: historico
+        continue-on-error: true
+        run: npm run data:refresh:historico
       - name: Buscar el último informe mensual IGAE y avanzar el panel si todas las series tienen ese mes
         run: npm run data:refresh
       # Segunda pasada: si la IGAE ha avanzado, las series auxiliares escriben el
@@ -68,7 +80,7 @@ jobs:
         run: npm run build
       - name: Guardar una nueva versión si cambiaron las cifras
         run: |
-          paths="data/contexto-eurostat.json data/cuentas-anuales-aapp.json data/igae-latest.json data/recaudacion-tributaria-2025.json data/prestaciones-latest.json data/comunidades-autonomicas.json data/provenance data/history data/dashboard-periods.json"
+          paths="data/igae-monthly-history-*.json data/sources/igae data/contexto-eurostat.json data/cuentas-anuales-aapp.json data/igae-latest.json data/recaudacion-tributaria-2025.json data/prestaciones-latest.json data/comunidades-autonomicas.json data/provenance data/history data/dashboard-periods.json"
           if [ -z "$(git status --porcelain -- $paths)" ]; then
             echo "Las publicaciones oficiales no han cambiado."
             exit 0
@@ -78,3 +90,48 @@ jobs:
           git add $paths
           git commit -m "Actualiza datos oficiales del panel mensual"
           git push
+      # Los importadores pueden fallar sin parar el resto (una web caída no debe
+      # impedir guardar las demás series). Este paso los resume y marca el
+      # workflow en rojo si alguno falló, para que GitHub avise por correo.
+      - name: Resumen de importadores
+        if: always()
+        env:
+          OUT_AEAT: ${{ steps.aeat.outcome }}
+          OUT_PENSIONES: ${{ steps.pensiones.outcome }}
+          OUT_PNC: ${{ steps.pnc.outcome }}
+          OUT_IMV: ${{ steps.imv.outcome }}
+          OUT_PARO: ${{ steps.paro.outcome }}
+          OUT_CCAA: ${{ steps.ccaa.outcome }}
+          OUT_EUROSTAT: ${{ steps.eurostat.outcome }}
+          OUT_CONTEXTO: ${{ steps.contexto.outcome }}
+          OUT_HISTORICO: ${{ steps.historico.outcome }}
+        run: |
+          failed=0
+          echo "## Importadores de datos oficiales" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Fuente | Resultado |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| --- | --- |" >> "$GITHUB_STEP_SUMMARY"
+          report() {
+            case "$2" in
+              success) icon="✅ correcto" ;;
+              failure) icon="❌ ha fallado"; failed=$((failed + 1)) ;;
+              *) icon="⏭️ no se ejecutó ($2)" ;;
+            esac
+            echo "| $1 | $icon |" >> "$GITHUB_STEP_SUMMARY"
+          }
+          report "Recaudación AEAT" "$OUT_AEAT"
+          report "Pensiones contributivas (Seguridad Social)" "$OUT_PENSIONES"
+          report "Pensiones no contributivas (Imserso)" "$OUT_PNC"
+          report "Ingreso Mínimo Vital (INSS)" "$OUT_IMV"
+          report "Prestaciones por desempleo (SEPE)" "$OUT_PARO"
+          report "Comunidades autónomas (IGAE)" "$OUT_CCAA"
+          report "Ingresos anuales (Eurostat)" "$OUT_EUROSTAT"
+          report "España en contexto (Eurostat)" "$OUT_CONTEXTO"
+          report "Histórico mensual IGAE" "$OUT_HISTORICO"
+          if [ "$failed" -gt 0 ]; then
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "**$failed importador(es) fallaron.** Las demás series se han guardado; revisa el registro del paso marcado para ver el motivo." >> "$GITHUB_STEP_SUMMARY"
+            echo "::error::$failed importador(es) de datos oficiales fallaron. Mira el resumen del workflow."
+            exit 1
+          fi
+

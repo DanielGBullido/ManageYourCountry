@@ -1658,4 +1658,25 @@
     .ctx-level-total {
         border-top: 1px solid #2c3129
     }
+    .legal-page h1 {
+        color: #bbd2c2
+    }
+    .legal-page h2 {
+        color: #bbd2c2
+    }
+    .legal-page p,.legal-page li {
+        color: #a1ada3
+    }
+    .legal-page a {
+        color: #7da485
+    }
+    footer .footer-links a {
+        color: #30382f
+    }
+    .hero-stat .hero-yoy {
+        color: #9ba89e
+    }
+    .hero-debt-missing:hover {
+        background: #1c1715
+    }
 }

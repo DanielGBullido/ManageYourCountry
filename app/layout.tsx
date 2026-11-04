@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { DM_Mono, DM_Sans, Manrope } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
+import { siteUrl } from './lib/site-url';
 import './base.css';
 import './components.css';
 import './spacing.css';
@@ -13,8 +15,6 @@ const display = Manrope({ subsets: ['latin'], variable: '--font-display', displa
 const sans = DM_Sans({ subsets: ['latin'], variable: '--font-sans', display: 'swap' });
 const mono = DM_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-mono', display: 'swap' });
 
-const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : 'https://manage-your-country.vercel.app';
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: 'España en tus manos — Presupuesto público',
@@ -23,5 +23,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
-  return <html lang="es" className={`${display.variable} ${sans.variable} ${mono.variable}`}><body>{children}</body></html>;
+  return <html lang="es" className={`${display.variable} ${sans.variable} ${mono.variable}`}><body>{children}<Analytics/></body></html>;
 }

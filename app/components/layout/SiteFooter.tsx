@@ -1,1 +1,0 @@
-<footer><a className="brand footer-brand" href="#inicio"><span className="brand-mark">ES<span>↗</span></span><span>ESPAÑA<br/><b>EN TUS MANOS</b></span></a><span>DATOS PÚBLICOS · DECISIONES CIUDADANAS</span><a href="#inicio">VOLVER ARRIBA ↑</a></footer>

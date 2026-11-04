@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
-import type { DashboardPeriodSnapshot } from '../lib/dashboard-data';
+import { unpackSnapshots, type PackedSnapshots } from '../lib/dashboard-data';
 import SiteHeader from './layout/SiteHeader';
 import PageFooter from './layout/PageFooter';
 import HeroSection from './sections/HeroSection';
@@ -15,7 +15,8 @@ import ContextSection from './sections/ContextSection';
 import { buildYearToDate, type BudgetView } from '../lib/year-to-date';
 import type publicDebtHistoryData from '../../data/public-debt-history-2026.json';
 
-export default function DashboardExperience({ snapshots, publicDebtHistory }: { snapshots: DashboardPeriodSnapshot[]; publicDebtHistory: typeof publicDebtHistoryData }) {
+export default function DashboardExperience({ packed, publicDebtHistory }: { packed: PackedSnapshots; publicDebtHistory: typeof publicDebtHistoryData }) {
+  const snapshots = useMemo(() => unpackSnapshots(packed), [packed]);
   const [period, setPeriod] = useState(snapshots[0]?.period ?? '');
   const selected = useMemo(() => snapshots.find(snapshot => snapshot.period === period) ?? snapshots[0], [snapshots, period]);
   const availablePeriods = useMemo(() => snapshots.map(snapshot => ({ period: snapshot.period, label: snapshot.label })), [snapshots]);
@@ -54,18 +55,22 @@ export default function DashboardExperience({ snapshots, publicDebtHistory }: { 
   }
 
   if (!selected) return null;
-  const selectedDebtIndex = publicDebtHistory.months.findIndex(item => item.referencePeriod === period);
-  const selectedDebt = publicDebtHistory.months[selectedDebtIndex] ?? publicDebtHistory.months.at(-1);
-  if (!selectedDebt) return null;
+  // Monthly debt is only loaded from January 2026: earlier months show no debt card
+  // rather than another month's figure.
+  const selectedDebtIndex = publicDebtHistory.months.findIndex(item => item.referencePeriod === selected.period);
+  const selectedDebt = selectedDebtIndex >= 0 ? publicDebtHistory.months[selectedDebtIndex] : null;
   const previousDebt = selectedDebtIndex > 0 ? publicDebtHistory.months[selectedDebtIndex - 1] : publicDebtHistory.previousMonth;
-  const debtChangeMillions = selectedDebt.amountMillions - previousDebt.amountMillions;
+  const debt = selectedDebt ? { ...publicDebtHistory, ...selectedDebt, previousPeriodLabel: previousDebt.periodLabel, changeMillions: selectedDebt.amountMillions - previousDebt.amountMillions } : null;
+  const [selectedYear, selectedMonth] = selected.period.split('-');
+  const sameMonthLastYear = snapshots.find(snapshot => snapshot.period === `${Number(selectedYear) - 1}-${selectedMonth}`)?.monthly ?? null;
+  const firstDebtLabel = publicDebtHistory.months[0]?.periodLabel ?? '';
   const { monthly, benefits, people, jobs, regions, taxes, services, demographics, igaeProvenance } = selected;
   const data = { monthly, benefits, people, jobs, regions, taxes, services, demographics, igaeProvenance };
 
   return <>
     <SiteHeader />
     <main id="inicio">
-      <HeroSection monthly={monthly} publicDebt={{ ...publicDebtHistory, ...selectedDebt, previousPeriodLabel: previousDebt.periodLabel, changeMillions: debtChangeMillions }} selectedPeriod={period} availablePeriods={availablePeriods} onPeriodChange={changePeriod}/>
+      <HeroSection monthly={monthly} publicDebt={debt} firstDebtLabel={firstDebtLabel} previousYear={sameMonthLastYear} selectedPeriod={selected.period} availablePeriods={availablePeriods} onPeriodChange={changePeriod}/>
       <BudgetSection data={data} view={view} yearToDate={yearToDate} onViewChange={changeView} key={`${period}-${view}`}/>
       <SectionDirectory />
       <PeopleSection data={data}/>

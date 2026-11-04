@@ -4,7 +4,11 @@ Revisión inicial: 1 de noviembre de 2026. Las fuentes oficiales publican abunda
 
 ## Datos oficiales ya integrados en el prototipo
 
-### Histórico mensual local de IGAE · enero–agosto de 2026
+### Histórico mensual de IGAE · enero de 2024 a agosto de 2026
+
+Desde noviembre de 2026 el histórico se descarga con `npm run data:refresh:historico` para el año del panel y los dos anteriores (2025 es provisional). El texto siguiente describe el método, que es el mismo para cada año.
+
+#### Método (descrito originalmente para 2026)
 
 El selector de la cabecera permite consultar los ocho meses incluidos en la serie oficial [M_CONSOLIDADO_2026.xlsx](https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP-M/M_CONSOLIDADO_2026.xlsx), pestaña `Tabla1a`, publicada por IGAE y actualizada el 30 de octubre de 2026. Se conserva una copia del original en `data/sources/igae/M_CONSOLIDADO_2026.xlsx`; los datos normalizados están en `data/igae-monthly-history-2026.json` y en las fotografías que consume la app, `data/dashboard-periods.json`.
 

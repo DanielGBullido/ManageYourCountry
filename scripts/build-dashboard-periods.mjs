@@ -1,4 +1,4 @@
-import { readFile, writeFile } from 'node:fs/promises';
+import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { matchesCommonReferenceMonth } from './lib/monthly-period.mjs';
 
 const root = new URL('../data/', import.meta.url);
@@ -8,8 +8,9 @@ const [monthly, benefits, people, jobs, regions, taxes, services, demographics, 
   load('perfiles-empleo-latest.json'), load('comunidades-autonomicas.json'), load('recaudacion-tributaria-2025.json'),
   load('gasto-funcional-2024.json'), load('demografia-nacionalidad-latest.json'), load('provenance/igae-latest.json'),
 ]);
-let localHistory = { months: [] };
-try { localHistory = await load('igae-monthly-history-2026.json'); } catch {}
+// Every archived year (data/igae-monthly-history-AAAA.json), oldest first.
+const historyFiles = (await readdir(root)).filter(name => /^igae-monthly-history-\d{4}\.json$/.test(name)).sort();
+const localHistory = { months: (await Promise.all(historyFiles.map(load))).flatMap(file => file.months) };
 
 const aligned = matchesCommonReferenceMonth(monthly.referencePeriod, [
   taxes.latestMonthly.period,

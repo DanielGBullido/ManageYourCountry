@@ -4,6 +4,14 @@ import { readFile, readdir } from 'node:fs/promises';
 import { matchesCommonReferenceMonth, toYearMonth } from './lib/monthly-period.mjs';
 
 const readJson = async path => JSON.parse(await readFile(new URL(`../data/${path}`, import.meta.url), 'utf8'));
+// All archived IGAE years, with the hash of each local source workbook.
+async function loadHistory() {
+  const names = (await readdir(new URL('../data/', import.meta.url))).filter(name => /^igae-monthly-history-\d{4}\.json$/.test(name)).sort();
+  const files = await Promise.all(names.map(readJson));
+  const hashes = {};
+  for (const file of files) hashes[file.sourceFile] = createHash('sha256').update(await readFile(new URL(`../data/sources/igae/${file.sourceFile}`, import.meta.url))).digest('hex');
+  return { months: files.flatMap(file => file.months), hashes };
+}
 const [monthly, benefits, people, regions, taxes, services, provenance, localHistory, publicDebtHistory, imvProfile] = await Promise.all([
   readJson('igae-latest.json'),
   readJson('prestaciones-latest.json'),
@@ -12,14 +20,12 @@ const [monthly, benefits, people, regions, taxes, services, provenance, localHis
   readJson('recaudacion-tributaria-2025.json'),
   readJson('gasto-funcional-2024.json'),
   readJson('provenance/igae-latest.json'),
-  readJson('igae-monthly-history-2026.json'),
+  loadHistory(),
   readJson('public-debt-history-2026.json'),
   readJson('perfil-beneficiarios-2026-08.json'),
 ]);
 const dashboardPeriods = await readJson('dashboard-periods.json');
 const aeatProvenance = await readJson('provenance/aeat-latest.json');
-const sourceWorkbook = await readFile(new URL('../data/sources/igae/M_CONSOLIDADO_2026.xlsx', import.meta.url));
-const workbookHash = createHash('sha256').update(sourceWorkbook).digest('hex');
 const sum = values => values.reduce((total, value) => total + value, 0);
 const near = (actual, expected, tolerance, description) => assert.ok(Math.abs(actual - expected) <= tolerance, `${description}: ${actual} != ${expected} (tolerancia ${tolerance})`);
 const unique = (items, getKey, description) => assert.equal(new Set(items.map(getKey)).size, items.length, `${description} contiene identificadores duplicados`);
@@ -43,8 +49,10 @@ assert.ok(publicDebtHistory.sourceUrl.startsWith('https://') && publicDebtHistor
 assert.equal(publicDebtHistory.seriesCode, 'DMNPDE2010_P00000_PS_APU', 'La serie debe ser la deuda PDE total consolidada de las AAPP');
 assert.ok(publicDebtHistory.previousMonth?.referencePeriod === '2025-12' && publicDebtHistory.previousMonth.amountMillions > 0, 'Falta el saldo previo para calcular la variación de enero');
 unique(publicDebtHistory.months, item => item.referencePeriod, 'Meses de deuda pública');
-assert.equal(publicDebtHistory.months.length, localHistory.months.length, 'La deuda y el selector IGAE deben cubrir los mismos meses');
-for (const period of localHistory.months.map(item => item.period)) {
+// The monthly debt series starts in January 2026; earlier IGAE months show no debt card.
+const firstDebtPeriod = publicDebtHistory.months[0].referencePeriod;
+for (const debt of publicDebtHistory.months) assert.ok(localHistory.months.some(item => item.period === debt.referencePeriod), `Hay deuda de ${debt.referencePeriod} pero no cuentas IGAE de ese mes`);
+for (const period of localHistory.months.map(item => item.period).filter(period => period >= firstDebtPeriod)) {
   const debt = publicDebtHistory.months.find(item => item.referencePeriod === period);
   assert.ok(debt && debt.periodLabel && debt.amountMillions > 0, `Falta el dato de deuda para ${period}`);
   assert.equal(dashboardPeriods[period].monthly.referencePeriod, debt.referencePeriod, `La tarjeta de deuda debe seguir el mes seleccionado (${period})`);
@@ -140,8 +148,9 @@ unique(localHistory.months, item => item.period, 'Meses del histórico IGAE');
 for (const item of localHistory.months) {
   assert.equal(item.monthly.referencePeriod, item.period, `El mes IGAE ${item.period} debe coincidir con su clave`);
   assert.equal(item.monthly.periodType, 'Flujo del mes, calculado como diferencia entre acumulados del mes y del mes anterior', `Debe explicarse el cálculo del flujo mensual ${item.period}`);
-  assert.ok(item.monthly.sourceUrl.endsWith('/M_CONSOLIDADO_2026.xlsx'), `Falta el Excel IGAE de origen ${item.period}`);
-  assert.equal(item.provenance.sha256, workbookHash, `La huella del Excel no coincide con el archivo local (${item.period})`);
+  const workbook = `M_CONSOLIDADO_${item.period.slice(0, 4)}.xlsx`;
+  assert.ok(item.monthly.sourceUrl.endsWith(`/${workbook}`), `Falta el Excel IGAE de origen ${item.period}`);
+  assert.equal(item.provenance.sha256, localHistory.hashes[workbook], `La huella del Excel no coincide con el archivo local (${item.period})`);
   near(sum(item.monthly.revenue.map(line => line.amount)), item.monthly.revenueTotal, 0.01, `Ingresos del histórico IGAE ${item.period}`);
   near(sum(item.monthly.expenditure.map(line => line.amount)), item.monthly.expenditureTotal, 0.01, `Gastos del histórico IGAE ${item.period}`);
   near(item.monthly.revenueTotal - item.monthly.expenditureTotal, item.monthly.financingBalance, 0.01, `Saldo del histórico IGAE ${item.period}`);
