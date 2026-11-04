@@ -12,6 +12,8 @@ Web cívica para explorar los ingresos y gastos públicos de España con datos o
 - Permite elegir el mes (`?mes=AAAA-MM`) y ver en el simulador solo ese mes, el **acumulado del año** de enero al mes elegido (`?vista=acumulado`) o el **gasto por función** (sanidad, educación, defensa…) de un año completo y de todas las administraciones, ayuntamientos incluidos (`?vista=funciones`).
 - Ofrece un **simulador de reparto**. Por defecto, el tope son los ingresos y el dinero que no se asigna queda sin repartir. Con **«Permitir déficit»** se puede gastar más de lo que entra, y se muestra cuánto habría que pedir prestado. Los escenarios se comparten por URL (`?reparto=…&deficit=1`).
 - La sección **«España en contexto»** muestra, con datos anuales de Eurostat, el déficit y la deuda en % del PIB desde 2015 frente a la UE-27, el gasto por función frente a la media europea y el saldo de cada nivel de administración (Estado, comunidades, ayuntamientos y Seguridad Social).
+- Cada enlace compartido tiene su propia vista previa (título, descripción e imagen generada en `/og`) con el saldo del escenario y sus mayores cambios.
+- Tiene **modo oscuro** automático según el sistema y cumple WCAG AA de contraste en los dos modos (comprobado con axe).
 - Añade como contexto prestaciones, empleo, población, impuestos anuales, gasto por funciones y un mapa autonómico. Cada serie conserva su propio periodo y no se suma al mes.
 
 ## Stack y ejecución
@@ -33,7 +35,8 @@ Abre `http://localhost:3000`.
 - `app/lib/budget-scenario.ts` tiene las reglas del simulador como funciones puras: topes, déficit, dinero sin repartir, gráfico y escenarios compartidos.
 - `app/lib/year-to-date.ts` suma los meses archivados para la vista acumulada.
 - `app/lib/format.ts` reúne los formatos numéricos en español de España.
-- Estilos, en orden de carga: `app/base.css` (variables y estilos base), `app/components.css` (componentes y ajustes adaptativos) y `app/spacing.css` (escala de espacios y ritmo de lectura, que se aplica al final).
+- Estilos, en orden de carga: `app/base.css` (variables y estilos base), `app/components.css` (componentes y ajustes adaptativos), `app/spacing.css` (escala de espacios y ritmo de lectura), `app/dark.css` (modo oscuro, **generado** con `npm run styles:dark`; no se edita a mano) y `app/viz-colors.css` (colores de los gráficos para cada modo, validados a mano).
+- Las fuentes (Manrope, DM Sans, DM Mono) se sirven desde la propia web con `next/font`; el navegador no contacta con Google.
 
 ## Datos y actualización
 
@@ -60,10 +63,16 @@ Las cifras viven en `data/` con su fuente y periodo; la app no consulta las seri
 ## Comandos
 
 ```bash
+npm run test:e2e          # compila y prueba la interfaz con Playwright: escritorio, móvil, modo oscuro y accesibilidad (axe)
+npm run styles:dark       # regenera app/dark.css tras cambiar colores
 npm test                  # reglas del simulador, vista acumulada, parsers IGAE, AEAT, prestaciones y comunidades, y periodos
 npm run validate:data     # sumas, fuentes, procedencia y periodos de data/
 npm run data:refresh      # IGAE (requiere internet y pdftotext de Poppler)
 npm run data:refresh:aeat # AEAT (requiere internet y pdftotext de Poppler)
 npm run data:refresh:auxiliares # AEAT, pensiones, PNC, IMV, paro y comunidades (requiere internet)
+npm run data:refresh:eurostat   # ingresos anuales y población (Eurostat)
+npm run data:refresh:contexto   # «España en contexto» (Eurostat)
 npm run build
 ```
+
+El workflow [`.github/workflows/ci.yml`](.github/workflows/ci.yml) ejecuta en cada push los tests, la validación de datos, la comprobación del tema oscuro y las pruebas de interfaz. En local, la primera vez, `npx playwright install chromium` descarga el navegador de pruebas.
