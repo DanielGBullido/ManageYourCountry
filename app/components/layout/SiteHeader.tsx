@@ -16,6 +16,7 @@ function NavigationLinks() {
     <a href="#presupuesto">Presupuesto</a>
     <a href="#personas" onClick={() => followSection('personas')}>Personas y trabajo</a>
     <a href="#comunidades" onClick={() => followSection('comunidades')}>Comunidades</a>
+    <a href="#contexto" onClick={() => followSection('contexto')}>Contexto</a>
     <a href="#metodologia" onClick={() => followSection('metodologia')}>Metodología</a>
     <a href="#fuente" onClick={() => followSection('fuente')}>Fuentes</a>
   </>;

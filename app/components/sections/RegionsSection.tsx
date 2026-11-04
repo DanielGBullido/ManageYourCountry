@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import type { DashboardData } from '../../lib/dashboard-data';
-import { formatPreciseMillions } from '../../lib/format';
+import { formatMillions, formatPreciseMillions } from '../../lib/format';
+import SectionTeaser from './SectionTeaser';
 
 const RegionalMap = dynamic(() => import('../RegionalMap'), {
   loading: () => <div className="map-status" role="status">Preparando el mapa…</div>,
@@ -28,9 +29,24 @@ export default function RegionsSection({ regions }: { regions: DashboardData['re
   const regionKey = regionMetricInfo[regionMetric].key as RegionValueKey;
   const regionRows = [...regions.communities].filter(region => typeof region[regionKey] === 'number').sort((a, b) => Number(b[regionKey] ?? 0) - Number(a[regionKey] ?? 0));
   const regionMax = Math.max(...regionRows.map(region => Math.abs(Number(region[regionKey] ?? 0))), 1);
-  return (
-<details className="deep-disclosure" id="comunidades" onToggle={event => setIsExpanded(event.currentTarget.open)}>
-        <summary><span className="deep-summary-icon">03</span><span className="deep-summary-copy"><b>Comunidades autónomas</b><small>Mapa interactivo · impuestos, ingresos, gasto y financiación</small></span><span className="deep-summary-action">Comparar territorios <i>↓</i></span></summary>
+  // Teaser: the regions with the largest surplus and deficit in the month (common regime only,
+  // because the foral communities' accounts have a different scope).
+  const byBalance = regions.communities.filter(region => typeof region.igaeMonthlyBalance === 'number' && !/Navarra|País Vasco/.test(region.name))
+    .sort((a, b) => Number(b.igaeMonthlyBalance) - Number(a.igaeMonthlyBalance));
+  const signedMillions = (value: number) => `${value > 0 ? '+' : value < 0 ? '−' : ''}${formatMillions(Math.abs(value))}`;
+  const regionList = (items: typeof byBalance) => <ol>{items.map(region => <li key={region.name}><span>{region.name}</span><b>{signedMillions(Number(region.igaeMonthlyBalance))}</b></li>)}</ol>;
+  const balanceTotal = byBalance.reduce((sum, region) => sum + Number(region.igaeMonthlyBalance), 0);
+  return (<>
+    <SectionTeaser number="03" title="Comunidades autónomas" targetId="comunidades" actionLabel="Ver el mapa y todas las comunidades"
+      lead={`Saldo de cada gobierno autonómico en ${monthlyPeriod.toLowerCase()}: ingresos menos gastos. En conjunto, ${signedMillions(balanceTotal)} en las comunidades de régimen común.`}>
+      <div className="teaser-rank">
+        <div><span>Mayor superávit</span>{regionList(byBalance.slice(0, 3))}</div>
+        <div><span>Mayor déficit</span>{regionList(byBalance.slice(-3).reverse())}</div>
+      </div>
+      <p className="teaser-note">Navarra y País Vasco tienen régimen foral y otra cobertura contable; aparecen en el detalle.</p>
+    </SectionTeaser>
+<details className="deep-disclosure teaser-detail" id="comunidades" onToggle={event => setIsExpanded(event.currentTarget.open)}>
+        <summary><span className="deep-summary-copy"><b>Todas las comunidades y el mapa</b><small>Impuestos, ingresos, gasto, saldo y financiación de cada una</small></span><span className="deep-summary-action">Cerrar <i aria-hidden="true">↑</i></span></summary>
       <section className="regions-section" id="detalle-comunidades">
         <div className="regions-heading"><div><div className="eyebrow muted">COMUNIDADES AUTÓNOMAS · DATOS CON PERIODOS DISTINTOS</div><h2>¿Qué dinero entra<br/><em>en cada comunidad?</em></h2></div><p>Compara por separado los impuestos registrados, todos los ingresos de cada administración y la financiación que reparte el sistema común.</p></div>
         <div className="regions-explainer"><article><b>Impuestos registrados · {monthlyPeriod}</b><p>{regions.igaeMonthly.taxDescription}</p><small>IGAE · {regions.igaeMonthly.period} · mes calculado a partir de acumulados</small></article><article><b>Ingresos de la comunidad</b><p>{regions.igaeMonthly.revenueDescription}</p><small>IGAE · {regions.igaeMonthly.period} · impuestos, transferencias, ventas, tasas y rentas públicas</small></article><article><b>Capacidad fiscal normativa</b><p>{regions.fiscalCapacityDescription}</p><small>Hacienda · liquidación 2024</small></article><article><b>Financiación del sistema común</b><p>{regions.fundingDescription}</p><small>Hacienda · liquidación 2024</small></article></div>
@@ -43,5 +59,6 @@ export default function RegionsSection({ regions }: { regions: DashboardData['re
       </section>
 
       </details>
+  </>
   );
 }

@@ -39,9 +39,13 @@ test('un escenario compartido se abre tal cual', async ({ page }) => {
   await expect(page.locator(dock)).toContainText('Faltan');
 });
 
-test('«España en contexto» se abre desde el índice', async ({ page }) => {
+test('los resúmenes se ven sin abrir nada y su botón abre el detalle', async ({ page }) => {
   await page.goto('/');
-  await page.locator('.section-directory-grid a', { hasText: 'España en contexto' }).click();
+  await expect(page.getByRole('heading', { name: 'España en contexto', level: 2 })).toBeVisible();
+  await expect(page.locator('.section-teaser').filter({ hasText: 'España en contexto' })).toContainText('% del PIB');
+  await expect(page.locator('.section-teaser').filter({ hasText: 'Comunidades autónomas' }).locator('.teaser-rank li')).toHaveCount(6);
+  await expect(page.locator('#contexto')).not.toHaveAttribute('open', '');
+  await page.getByRole('button', { name: /Ver la evolución y la comparación/ }).click();
   await expect(page.locator('#contexto')).toHaveAttribute('open', '');
   await expect(page.locator('.ctx-plot svg')).toHaveCount(2);
   await expect(page.locator('.ctx-level-row')).toHaveCount(5);

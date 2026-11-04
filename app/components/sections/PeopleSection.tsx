@@ -1,5 +1,6 @@
 import type { DashboardData } from '../../lib/dashboard-data';
 import { formatEurosPerResident, formatMillions, formatPeople } from '../../lib/format';
+import SectionTeaser from './SectionTeaser';
 
 export default function PeopleSection({ data }: { data: DashboardData }) {
   const { monthly, people, jobs, demographics } = data;
@@ -7,9 +8,17 @@ export default function PeopleSection({ data }: { data: DashboardData }) {
   const monthlyContributions = monthly.revenue.find(item => item.id === 'contributions')?.amount ?? 0;
   const taxesAndContributions = monthlyTaxes + monthlyContributions;
   const publicRevenuePerEmployed = formatEurosPerResident(taxesAndContributions, people.labour.employed);
-  return (
-<details className="deep-disclosure" id="personas">
-        <summary><span className="deep-summary-icon">02</span><span className="deep-summary-copy"><b>Personas y empleo</b><small>{formatPeople(people.population.people)} residentes · empleo, paro, inactividad y edades</small></span><span className="deep-summary-action">Ver detalle <i>↓</i></span></summary>
+  const unemploymentRate = people.labour.unemployed / people.labour.active * 100;
+  return (<>
+    <SectionTeaser number="02" title="Personas y empleo" targetId="personas" actionLabel="Ver empleo, paro, edades y nacionalidad"
+      lead={`Unas ${Math.round(people.labour.employed / people.population.people * 100)} personas trabajan por cada 100 habitantes.`}
+      figures={[
+        { label: 'Residentes', value: formatPeople(people.population.people), note: `INE · ${people.population.date}` },
+        { label: 'Con empleo', value: formatPeople(people.labour.employed), note: `EPA · ${people.labour.period}` },
+        { label: 'En paro y buscando', value: formatPeople(people.labour.unemployed), note: `Tasa de paro: ${new Intl.NumberFormat('es-ES', { maximumFractionDigits: 1 }).format(unemploymentRate)} %` },
+      ]}/>
+<details className="deep-disclosure teaser-detail" id="personas">
+        <summary><span className="deep-summary-copy"><b>Todo sobre personas y empleo</b><small>Inactividad, edades, nacionalidad, autónomos y empleo público</small></span><span className="deep-summary-action">Cerrar <i aria-hidden="true">↑</i></span></summary>
       <section className="people-section" id="detalle-personas">
         <div className="people-heading"><div><div className="eyebrow muted">PERSONAS · EMPLEO · INGRESOS</div><h2>¿Cuánta gente trabaja<br/><em>y de dónde sale el dinero?</em></h2></div><p>El total de habitantes y la EPA no cuentan el mismo grupo. Aquí se ve quién trabaja, quién busca empleo y quién queda fuera de esas dos situaciones.</p></div>
         <article className="people-card population-card population-total-card"><span>POBLACIÓN RESIDENTE · TODAS LAS EDADES</span><strong>{formatPeople(people.population.people)}</strong><small>INE · {people.population.date} · incluye menores y personas adultas</small></article>
@@ -44,5 +53,6 @@ export default function PeopleSection({ data }: { data: DashboardData }) {
       </section>
 
       </details>
+  </>
   );
 }

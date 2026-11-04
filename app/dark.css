@@ -13,10 +13,6 @@
         --orange: #8c3c00;
         --line: #1c1d19
     }
-    .topline {
-        background: #bbd2c2;
-        color: #1a1f18
-    }
     .brand-mark {
         color: #151515
     }
@@ -181,19 +177,6 @@
     }
     .source-caveat b {
         color: #b1bdb3
-    }
-    footer {
-        background: #bbd2c2;
-        color: #30382f
-    }
-    footer .brand {
-        color: #171a16
-    }
-    footer .brand-mark {
-        background: #7f9e82
-    }
-    footer>span,footer>a:last-child {
-        color: #30382f
     }
     .toast {
         background: #bbd2c2;
@@ -1066,40 +1049,6 @@
             border-bottom: 1px solid #1c1f1a
         }
     }
-    .section-directory {
-        background: #151515;
-        border-bottom: 1px solid #1a1d19
-    }
-    .section-directory-heading h2 {
-        color: #bbd2c2
-    }
-    .section-directory-heading>p {
-        color: #8d958d
-    }
-    .section-directory-grid>a {
-        background: #171715;
-        border: 1px solid #1b1c18
-    }
-    .section-directory-grid>a:hover {
-        background: #171a15;
-        border-color: #2c3729
-    }
-    .section-directory-grid>a>span {
-        background: #181b16;
-        color: #819983
-    }
-    .section-directory-grid>a>b {
-        color: #b0c6b5
-    }
-    .section-directory-grid>a>small {
-        color: #8d958d
-    }
-    .section-directory-grid>a>i {
-        color: #7ea385
-    }
-    .section-directory-grid>a:focus-visible {
-        outline: 3px solid #9f5c1b
-    }
     .site-header {
         background: #151515;
         box-shadow: 0 3px 14px #bbd2c20a
@@ -1670,13 +1619,64 @@
     .legal-page a {
         color: #7da485
     }
-    footer .footer-links a {
-        color: #30382f
-    }
     .hero-stat .hero-yoy {
         color: #9ba89e
     }
     .hero-debt-missing:hover {
         background: #1c1715
+    }
+    .section-teaser-number {
+        background: #181b16;
+        color: #819983
+    }
+    .section-teaser h2 {
+        color: #bbd2c2
+    }
+    .section-teaser-head p {
+        color: #9ba89e
+    }
+    .section-teaser-figures>div {
+        background: #171715;
+        border: 1px solid #1b1c18
+    }
+    .section-teaser-figures span {
+        color: #909a91
+    }
+    .section-teaser-figures b {
+        color: #bbd2c2
+    }
+    .section-teaser-figures small {
+        color: #909a91
+    }
+    .teaser-rank>div {
+        background: #171715;
+        border: 1px solid #1b1c18
+    }
+    .teaser-rank>div>span {
+        color: #909a91
+    }
+    .teaser-rank li {
+        color: #beccc1
+    }
+    .teaser-note {
+        color: #909a91
+    }
+    .section-teaser-action {
+        border: 1px solid #465a44;
+        background: #171a15;
+        color: #98bf9e
+    }
+    .section-teaser-action:hover {
+        background: #181d16
+    }
+    .section-teaser-action:focus-visible {
+        outline: 3px solid #9f5c1b
+    }
+    .section-teaser {
+        background: #151515;
+        border: 1px solid #1a1e19
+    }
+    .deep-disclosure.teaser-detail {
+        border-top: 1px dashed #2d332a
     }
 }

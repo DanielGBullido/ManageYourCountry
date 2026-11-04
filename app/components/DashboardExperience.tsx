@@ -10,7 +10,6 @@ import PeopleSection from './sections/PeopleSection';
 import RegionsSection from './sections/RegionsSection';
 import MethodologySection from './sections/MethodologySection';
 import SourcesSection from './sections/SourcesSection';
-import SectionDirectory from './sections/SectionDirectory';
 import ContextSection from './sections/ContextSection';
 import { buildYearToDate, type BudgetView } from '../lib/year-to-date';
 import type publicDebtHistoryData from '../../data/public-debt-history-2026.json';
@@ -72,7 +71,6 @@ export default function DashboardExperience({ packed, publicDebtHistory }: { pac
     <main id="inicio">
       <HeroSection monthly={monthly} publicDebt={debt} firstDebtLabel={firstDebtLabel} previousYear={sameMonthLastYear} selectedPeriod={selected.period} availablePeriods={availablePeriods} onPeriodChange={changePeriod}/>
       <BudgetSection data={data} view={view} yearToDate={yearToDate} onViewChange={changeView} key={`${period}-${view}`}/>
-      <SectionDirectory />
       <PeopleSection data={data}/>
       <RegionsSection regions={regions}/>
       <ContextSection/>

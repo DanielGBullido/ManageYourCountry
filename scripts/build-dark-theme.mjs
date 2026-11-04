@@ -42,6 +42,7 @@ function darkColor(hex) {
   return oklabToHex([darkLightness(L), a * chromaScale, b * chromaScale]) + alpha;
 }
 
+const keepAsIs = /^(footer\b|\.topline\b|\.top-date\b)/;
 const colorPattern = /#(?:[0-9a-fA-F]{8}|[0-9a-fA-F]{6}|[0-9a-fA-F]{3})\b/g;
 const out = postcss.root();
 out.append(postcss.comment({ text: ' Generado por scripts/build-dark-theme.mjs. No lo edites a mano. ' }));
@@ -52,6 +53,8 @@ for (const file of files) {
   const css = postcss.parse(await readFile(new URL(file, root), 'utf8'));
   css.walkRules(rule => {
     if (rule.parent?.type === 'atrule' && /keyframes/.test(rule.parent.name)) return;
+    // The footer and the top strip are already dark in light mode: they keep their colours.
+    if (postcss.list.comma(rule.selector).every(selector => keepAsIs.test(selector.trim()))) return;
     const decls = rule.nodes.filter(node => node.type === 'decl' && colorPattern.test(node.value) && (colorPattern.lastIndex = 0, true));
     if (!decls.length) return;
     const copy = postcss.rule({ selector: rule.selector });

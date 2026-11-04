@@ -101,12 +101,7 @@ body {
   line-height: 1.55;
 }
 
-.impact-cards,
-.benefit-grid,
-.people-grid,
-.transparency-trail-grid,
-.responsibility-grid,
-.section-directory-grid {
+.impact-cards,.benefit-grid,.people-grid,.transparency-trail-grid,.responsibility-grid {
   gap: var(--space-4);
 }
 
@@ -339,23 +334,6 @@ body {
   line-height: 1.55;
 }
 
-.section-directory {
-  padding-block: var(--space-6);
-}
-
-.section-directory-heading {
-  margin-bottom: var(--space-5);
-}
-
-.section-directory-grid > a {
-  padding: var(--space-4);
-  gap: var(--space-2) var(--space-3);
-}
-
-.section-directory-grid > a > small {
-  line-height: 1.55;
-}
-
 .source-list {
   border-top: 1px solid var(--line);
 }
@@ -480,13 +458,7 @@ body {
     line-height: 1.6;
   }
 
-  .impact-cards,
-  .benefit-grid,
-  .people-grid,
-  .transparency-trail-grid,
-  .section-directory-grid,
-  .annual-context-grid,
-  .job-types-grid {
+  .impact-cards,.benefit-grid,.people-grid,.transparency-trail-grid,.annual-context-grid,.job-types-grid {
     gap: var(--space-3);
   }
 
@@ -562,12 +534,48 @@ body {
     gap: var(--space-2);
     padding-top: var(--space-4);
   }
+}
 
-  .section-directory {
-    padding-block: var(--space-5);
-  }
+/* Section summaries (always visible) joined to the disclosure with the full detail.
+   Declared here, after the shared disclosure spacing, so they win the cascade. */
+.section-teaser {
+  margin: var(--space-6) 10.3% 0;
+  padding: var(--space-5) var(--space-5) var(--space-4);
+  background: #fff;
+  border: 1px solid #dfe6dc;
+  border-bottom: 0;
+}
 
-  .section-directory-grid > a {
-    padding: var(--space-3) var(--space-4);
+.deep-disclosure.teaser-detail {
+  margin-top: 0;
+  border-top: 1px dashed #d3dbd0;
+}
+
+.deep-disclosure.teaser-detail > summary {
+  grid-template-columns: minmax(0, 1fr) auto;
+  min-height: 60px;
+  padding-block: var(--space-3);
+}
+
+@media (max-width: 900px) {
+  .section-teaser { margin-inline: 7%; }
+}
+
+@media (max-width: 640px) {
+  .section-teaser {
+    margin: var(--space-5) var(--page-gutter) 0;
+    padding: var(--space-4);
   }
+}
+
+/* Closed: the teaser's button is the only way in, so the bar is hidden.
+   Open: the bar heads the detail and closes it. */
+.deep-disclosure.teaser-detail:not([open]) {
+  border-top: 0;
+}
+.deep-disclosure.teaser-detail:not([open]) > summary {
+  display: none;
+}
+.deep-disclosure.teaser-detail[open] > summary .deep-summary-action i {
+  transform: none;
 }

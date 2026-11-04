@@ -4,6 +4,7 @@ import context from '../../../data/contexto-eurostat.json';
 import { everydayFunctionLabels, functionIdsByCode } from '../../lib/functional-scenario';
 import { formatMillions } from '../../lib/format';
 import LineCompare from './context/LineCompare';
+import SectionTeaser from './SectionTeaser';
 
 // Colours validated with the dataviz palette checks: Spain (emphasis) vs EU (context grey);
 // surplus vs deficit as a blue/red diverging pair that stays distinct with colour blindness.
@@ -35,9 +36,16 @@ export default function ContextSection() {
   const maxLevel = Math.max(...levels.map(level => Math.abs(level.balance)));
   const local = levels.find(level => level.id === 'local');
 
-  return (
-    <details className="deep-disclosure" id="contexto">
-      <summary><span className="deep-summary-icon">04</span><span className="deep-summary-copy"><b>España en contexto</b><small>Déficit y deuda desde {first.year} · comparación con la UE · ayuntamientos</small></span><span className="deep-summary-action">Ver evolución <i>↓</i></span></summary>
+  return (<>
+    <SectionTeaser number="04" title="España en contexto" targetId="contexto" actionLabel="Ver la evolución y la comparación por funciones"
+      lead={`Todas las administraciones, también los ayuntamientos, en ${last.year}. En porcentaje del PIB para comparar con la media de la UE-27.`}
+      figures={[
+        { label: 'Deuda pública', value: `${pct(last.spain.debt)} del PIB`, note: `UE-27: ${pct(last.eu.debt)}` },
+        { label: 'Déficit', value: `${pct(-last.spain.balance)} del PIB`, note: `UE-27: ${pct(-last.eu.balance)}` },
+        { label: 'Gasto público', value: `${pct(last.spain.spending)} del PIB`, note: `UE-27: ${pct(last.eu.spending)}` },
+      ]}/>
+    <details className="deep-disclosure teaser-detail" id="contexto">
+      <summary><span className="deep-summary-copy"><b>Evolución desde {first.year} y comparación con Europa</b><small>Déficit y deuda por años, gasto por función frente a la UE y saldo de cada administración</small></span><span className="deep-summary-action">Cerrar <i aria-hidden="true">↑</i></span></summary>
       <section className="ctx-section" id="detalle-contexto">
         <div className="ctx-heading">
           <div><div className="eyebrow muted">ESPAÑA EN CONTEXTO · AÑOS COMPLETOS · EUROSTAT</div><h2>¿Gastamos mucho<br/><em>comparado con Europa?</em></h2></div>
@@ -101,5 +109,6 @@ export default function ContextSection() {
         <div className="people-source-links"><a href={context.sourceUrl} target="_blank" rel="noreferrer">Estadísticas de finanzas públicas · Eurostat ↗</a></div>
       </section>
     </details>
+  </>
   );
 }
