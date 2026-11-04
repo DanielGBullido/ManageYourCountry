@@ -171,15 +171,15 @@
       "id": "other_out",
       "label": "Otros gastos no financieros sin línea propia",
       "officialLabel": "Resto de empleos",
-      "description": "Es la diferencia entre el total de empleos no financieros y la suma de las ocho partidas de gasto que aparecen antes. No es un programa concreto. El cuadro mensual consolidado de IGAE no publica las operaciones que forman estos 2.485 M€ por separado, así que no se puede atribuir esta cifra a servicios concretos con esta fuente.",
+      "description": "Es la diferencia entre el total de empleos no financieros y la suma de las ocho partidas de gasto anteriores. No es un programa concreto. La tabla mensual consolidada no publica las operaciones que forman esta cifra por separado, así que no se puede atribuir a servicios concretos con esta fuente.",
       "amount": 2485,
       "color": "#b1b899"
     }
   ],
   "notes": [
-    "Cifras transcritas de las tablas oficiales de operaciones no financieras del informe IGAE de agosto de 2026, tabla del agregado, columna «En el mes».",
-    "El saldo de agosto fue un superávit de financiación de 1.316 millones de euros: los recursos no financieros superaron a los empleos no financieros.",
-    "La clasificación de gasto es económica. Las descripciones sencillas conservan el nombre oficial en el detalle y no sustituyen una clasificación por políticas públicas.",
-    "Los escenarios redistribuyen el gasto total del mes entre partidas; no son una previsión ni modifican ingresos o saldo."
+    "Cifras extraídas automáticamente de la tabla del agregado publicada por la IGAE para agosto de 2026, columna «En el mes».",
+    "El saldo es la diferencia entre recursos y empleos no financieros del mes.",
+    "La clasificación de gasto es económica; no identifica programas concretos ni una cantidad mínima necesaria para prestar cada servicio.",
+    "El escenario permite redistribuir el gasto oficial y dejar parte de los ingresos sin asignar."
   ]
 }

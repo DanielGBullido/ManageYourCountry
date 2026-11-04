@@ -37,8 +37,34 @@ function extractRow(text, label, occurrence = 0) {
   return parseSpanishMillions(match[2]); // La segunda columna es el mes del ejercicio vigente.
 }
 
+const hasLetters = line => /\p{L}/u.test(line);
+const isFiguresOnly = line => /\d/.test(line) && /^[\s\d.,+\-%]+$/.test(line);
+
+// Recent Poppler releases (26.x) place a wrapped row's figures on their own line
+// between the two halves of its label:
+//   Prestaciones sociales distintas de las
+//                  21.031   22.435   6,7 ...
+//   transferencias en especie
+// Older releases print the figures after the second half. Rejoin the first form
+// as \u00ablabel continuation figures\u00bb so both layouts read the same way.
+export function joinWrappedLabels(pageText) {
+  const lines = pageText.replace(/\u00a0/g, ' ').split(/\r?\n/);
+  const joined = [];
+  for (let index = 0; index < lines.length; index += 1) {
+    const [label, figures, continuation] = [lines[index], lines[index + 1], lines[index + 2]];
+    if (figures !== undefined && continuation !== undefined && hasLetters(label) && !/\d/.test(label)
+      && isFiguresOnly(figures) && hasLetters(continuation) && !/\d/.test(continuation)) {
+      joined.push(`${label.trim()} ${continuation.trim()} ${figures.trim()}`);
+      index += 2;
+    } else {
+      joined.push(label);
+    }
+  }
+  return joined.join('\n');
+}
+
 export function parseIgaeMonthlyPdfPage(pageText) {
-  const text = pageText.replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
+  const text = joinWrappedLabels(pageText).replace(/\s+/g, ' ').trim();
   const amounts = Object.fromEntries(Object.entries(rowDefinitions).map(([key, [label, occurrence]]) => [key, extractRow(text, label, occurrence)]));
   const revenueTotal = amounts.revenueTotal;
   const expenditureTotal = amounts.expenditureTotal;

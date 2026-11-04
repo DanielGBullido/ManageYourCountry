@@ -91,7 +91,7 @@ El proyecto se prepara para importar desde `DanielGBullido/ManageYourCountry` en
 
 ## Próximos trabajos conocidos
 
-1. Automatizar otras series compatibles (AEAT, prestaciones y comunidades ya están hechas), siempre con un mecanismo de alineación del mes común y tests de regresión. El parser del PDF IGAE (`scripts/lib/igae-pdf-parser.mjs`) falla con Poppler 26.04 porque la etiqueta «Prestaciones sociales distintas de las transferencias en especie» se parte en dos líneas: conviene hacerlo robusto o leer el Excel `M_CONSOLIDADO_AAAA.xlsx`.
+1. Automatizar otras series compatibles (AEAT, prestaciones y comunidades ya están hechas), siempre con un mecanismo de alineación del mes común y tests de regresión. El parser del PDF IGAE (`scripts/lib/igae-pdf-parser.mjs`) lee los dos formatos de `pdftotext`: el antiguo, con las cifras tras la segunda línea de una etiqueta partida, y el de Poppler 26, que las coloca entre las dos líneas (`joinWrappedLabels`). Hay un test con la página real en `scripts/fixtures/igae/`. Si cambia el formato otra vez, el parser falla sin escribir datos.
 2. Añadir pruebas de navegador automatizadas para teclado, sliders, presupuestos, compartir enlaces y tamaños de pantalla móvil.
 3. Revisar visualmente móviles reales, el mapa, los estados de carga/error y el uso con lectores de pantalla.
 4. Incorporar más datos de ejecución presupuestaria, contratos y subvenciones solo cuando puedan vincularse con el mismo organismo, periodo, fase contable y concepto. Mantener visible la diferencia entre crédito aprobado, obligación reconocida, adjudicación y pago.

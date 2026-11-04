@@ -39,3 +39,15 @@ test('rejects a page whose component rows do not add up to the published totals'
 test('fails closed if the official report layout or a required row is missing', () => {
   assert.throws(() => parseIgaeMonthlyPdfPage('no hay tabla aquí'), /No se encontró la fila/);
 });
+
+test('reads the Poppler 26 layout, where wrapped labels surround their figures', async () => {
+  const { readFile } = await import('node:fs/promises');
+  // pdftotext 26.04 -f 7 -l 7 -layout of the official IGAE report for August 2026.
+  const page = await readFile(new URL('./fixtures/igae/IM_2026_08_p7_poppler26.txt', import.meta.url), 'utf8');
+  const amounts = parseIgaeMonthlyPdfPage(page);
+  assert.equal(amounts.revenueTotal, 56335);
+  assert.equal(amounts.expenditureTotal, 55019);
+  assert.equal(amounts.benefits, 22435);
+  assert.equal(amounts.inKind, 3286);
+  assert.equal(amounts.financingBalance, 1316);
+});

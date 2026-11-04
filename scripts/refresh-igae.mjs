@@ -88,7 +88,7 @@ const updated = {
   revenue: current.revenue.map(item => ({ ...item, amount: ({ taxes: amounts.taxes, contributions: amounts.contributions, transfers: amounts.transfersIn, other: amounts.otherRevenue })[item.id] ?? item.amount })),
   expenditure: current.expenditure.map(item => ({ ...item, amount: ({ intermediate: amounts.intermediate, wages: amounts.wages, interest: amounts.interest, subsidies: amounts.subsidies, benefits: amounts.benefits, in_kind: amounts.inKind, capital: amounts.capital, transfers_out: amounts.transfersOut, other_out: amounts.otherExpenditure })[item.id] ?? item.amount })),
   notes: [
-    `Cifras extraídas automáticamente de la tabla del agregado publicada por la IGAE para ${labelPeriod(report.year, report.month)}, columna «En el mes».`,
+    `Cifras extraídas automáticamente de la tabla del agregado publicada por la IGAE para ${labelPeriod(report.year, report.month).toLowerCase()}, columna «En el mes».`,
     'El saldo es la diferencia entre recursos y empleos no financieros del mes.',
     'La clasificación de gasto es económica; no identifica programas concretos ni una cantidad mínima necesaria para prestar cada servicio.',
     'El escenario permite redistribuir el gasto oficial y dejar parte de los ingresos sin asignar.',
@@ -102,7 +102,7 @@ const provenancePath = new URL('data/provenance/igae-latest.json', root);
 let previousProvenance = null;
 try { previousProvenance = JSON.parse(await readFile(provenancePath, 'utf8')); } catch {}
 const retrievedAt = previousProvenance?.sha256 === sha256 ? previousProvenance.retrievedAt : new Date().toISOString();
-const provenance = { sourceUrl: report.url, catalogUrl, sha256, retrievedAt, parser: 'igae-pdf-parser@1' };
+const provenance = { referencePeriod: period, sourceUrl: report.url, catalogUrl, sha256, retrievedAt, parser: 'igae-pdf-parser@2' };
 const snapshot = { ...updated, provenance };
 if (previousProvenance?.sha256 !== sha256) {
   await writeJson(`data/history/igae/${period}-${sha256.slice(0, 12)}.json`, snapshot);

@@ -1,8 +1,8 @@
 {
+  "referencePeriod": "2026-08",
   "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP-M/IM_2026_08.pdf",
   "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/DatosConsolidados.aspx",
-  "referencePeriod": "2026-08",
-  "verifiedAt": "2026-11-02",
-  "sha256": null,
-  "parser": "Transcripción inicial verificada frente a la tabla oficial del agregado"
+  "sha256": "86dbb6cd281167ea0b161184f05ab590a8803ae43d3600caa0170e9150d18ede",
+  "retrievedAt": "2026-11-04T07:36:15.598Z",
+  "parser": "igae-pdf-parser@2"
 }
