@@ -26,6 +26,8 @@ export const functionIdsByCode: Record<string, string> = {
 
 export const functionalYear = annualAccounts.year;
 export const functionalRevisionGap = annualAccounts.revisionGap;
+/** Average population of the same year (Eurostat), for per-resident equivalents. */
+export const functionalPopulation = annualAccounts.population.averagePeople;
 
 /**
  * The «por funciones» view: one whole year for all public administrations

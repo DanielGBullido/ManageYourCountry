@@ -135,3 +135,13 @@ export function officialScenario(lines: BudgetLine[], total: number) {
 export function eurosPerResident(millions: number, residents: number) {
   return residents > 0 ? millions * 1_000_000 / residents : 0;
 }
+
+/**
+ * Widths (in %) for a spending bar: the part covered by revenue and, with a
+ * deficit, the borrowed part. The bar is scaled to whichever is larger, so the
+ * borrowed part is always visible and both add up to 100 % when overspending.
+ */
+export function spendingBar(spent: number, revenue: number) {
+  const base = Math.max(spent, revenue, 1);
+  return { fill: Math.min(spent, revenue) / base * 100, overflow: Math.max(0, spent - revenue) / base * 100 };
+}

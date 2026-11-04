@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { eurosPerResident, lineSliderMax, lineStep, officialScenario, buildBudgetGradient, decodeScenario, encodeScenario, getScenarioBalance, getScenarioDeficit, getUnallocatedBudget, setBudgetLineAmount } from '../app/lib/budget-scenario.ts';
+import { spendingBar, eurosPerResident, lineSliderMax, lineStep, officialScenario, buildBudgetGradient, decodeScenario, encodeScenario, getScenarioBalance, getScenarioDeficit, getUnallocatedBudget, setBudgetLineAmount } from '../app/lib/budget-scenario.ts';
 
 const lines = [
   { id: 'wages', label: 'Sueldos', officialLabel: 'Remuneración', description: '', amount: 60, color: '#000' },
@@ -94,4 +94,9 @@ test('the scenario starts from official spending and enables deficit mode when n
 test('per-resident equivalents convert millions of euros to euros per person', () => {
   assert.equal(Math.round(eurosPerResident(1000, 49_801_559)), 20);
   assert.equal(eurosPerResident(1000, 0), 0);
+});
+
+test('the spending bar shows the borrowed part when spending exceeds revenue', () => {
+  assert.deepEqual(spendingBar(80, 100), { fill: 80, overflow: 0 });
+  assert.deepEqual(spendingBar(125, 100), { fill: 80, overflow: 20 });
 });

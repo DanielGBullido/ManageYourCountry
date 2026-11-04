@@ -5,6 +5,7 @@ export const EUROSTAT_API = 'https://ec.europa.eu/eurostat/api/dissemination/sta
 export const MAIN_ITEMS = ['TR', 'TE', 'B9', 'D2REC', 'D5REC', 'D91REC', 'D61REC'];
 
 export const mainUrl = (geo, year) => `${EUROSTAT_API}/gov_10a_main?geo=${geo}&sector=S13&unit=MIO_EUR&time=${year}${MAIN_ITEMS.map(item => `&na_item=${item}`).join('')}`;
+export const populationUrl = (geo, year) => `${EUROSTAT_API}/demo_gind?geo=${geo}&indic_de=AVG&time=${year}`;
 export const cofogUrl = (geo, year) => `${EUROSTAT_API}/gov_10a_exp?geo=${geo}&sector=S13&unit=MIO_EUR&time=${year}&na_item=TE`;
 
 /** Value for one category of `dimension`, with every other dimension fixed to a single category. */
@@ -80,6 +81,8 @@ export const contextUrls = (fromYear) => ({
   debt: `${EUROSTAT_API}/gov_10dd_edpt1?geo=ES&geo=EU27_2020&sector=S13&unit=PC_GDP&na_item=GD&sinceTimePeriod=${fromYear}`,
   functions: `${EUROSTAT_API}/gov_10a_exp?geo=ES&geo=EU27_2020&sector=S13&unit=PC_GDP&na_item=TE&sinceTimePeriod=${fromYear}${FUNCTION_CODES.map(code => `&cofog99=${code}`).join('')}&cofog99=TOTAL`,
   levels: `${EUROSTAT_API}/gov_10a_main?geo=ES&unit=MIO_EUR&na_item=TE&na_item=TR&na_item=B9&sector=S13${Object.keys(SUBSECTORS).map(code => `&sector=${code}`).join('')}&sinceTimePeriod=${fromYear}`,
+  interest: `${EUROSTAT_API}/gov_10a_main?geo=ES&sector=S13&unit=MIO_EUR&na_item=D41PAY&sinceTimePeriod=${fromYear}`,
+  debtEuros: `${EUROSTAT_API}/gov_10dd_edpt1?geo=ES&sector=S13&unit=MIO_EUR&na_item=GD&sinceTimePeriod=${fromYear}`,
 });
 
 const byKey = (rows, keys) => Object.fromEntries(rows.map(row => [keys.map(key => row[key]).join('|'), row.value]));
@@ -89,7 +92,7 @@ const byKey = (rows, keys) => Object.fromEntries(rows.map(row => [keys.map(key =
  * Spain and the EU-27; spending by function as % of GDP in the latest COFOG
  * year; and each level of government's balance in the latest year.
  */
-export function buildContext({ ratios, debt, functions, levels }) {
+export function buildContext({ ratios, debt, functions, levels, interest, debtEuros }) {
   const ratioRows = byKey(jsonStatRows(ratios), ['geo', 'na_item', 'time']);
   const debtRows = byKey(jsonStatRows(debt), ['geo', 'time']);
   const years = [...new Set(jsonStatRows(ratios).filter(row => row.geo === 'ES' && row.na_item === 'B9').map(row => row.time))].sort();
@@ -122,8 +125,23 @@ export function buildContext({ ratios, debt, functions, levels }) {
   const balanceSum = levelList.reduce((sum, level) => sum + level.balance, 0);
   if (Math.abs(balanceSum - total.balance) > 2) throw new Error(`Los saldos de cada nivel suman ${balanceSum}, pero el total es ${total.balance} M€`);
 
+  // Average interest rate actually paid on the debt: interest of year t divided
+  // by the debt at the end of t − 1 (the stock on which that interest accrues).
+  const interestByYear = byKey(jsonStatRows(interest), ['time']);
+  const debtByYear = byKey(jsonStatRows(debtEuros), ['time']);
+  const rateYear = Math.max(...Object.keys(interestByYear).map(Number).filter(year => Number.isFinite(debtByYear[String(year - 1)])));
+  if (!Number.isFinite(rateYear)) throw new Error('Faltan intereses o deuda en euros para calcular el tipo medio');
+  const interestRate = {
+    year: rateYear,
+    interestMillions: interestByYear[String(rateYear)],
+    previousDebtMillions: debtByYear[String(rateYear - 1)],
+    rate: Math.round(interestByYear[String(rateYear)] / debtByYear[String(rateYear - 1)] * 10000) / 100,
+  };
+  if (!(interestRate.rate > 0 && interestRate.rate < 10)) throw new Error(`Tipo medio de la deuda fuera de rango: ${interestRate.rate} %`);
+
   return {
     series,
+    interestRate,
     functions: { year: functionYear, totalSpain: functionValues['ES|TOTAL'], totalEu: functionValues['EU27_2020|TOTAL'], items: functionShares },
     levels: { year: levelYear, total, items: levelList },
   };

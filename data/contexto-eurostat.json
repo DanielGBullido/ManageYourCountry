@@ -171,6 +171,12 @@
       }
     }
   ],
+  "interestRate": {
+    "year": 2025,
+    "interestMillions": 40432,
+    "previousDebtMillions": 1620577.8,
+    "rate": 2.49
+  },
   "functions": {
     "year": 2024,
     "totalSpain": 45.5,
@@ -267,7 +273,7 @@
     ]
   },
   "provenance": {
-    "retrievedAt": "2026-11-04T08:02:29.889Z",
+    "retrievedAt": "2026-11-04T08:12:36.099Z",
     "datasets": {
       "ratios": {
         "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_main?geo=ES&geo=EU27_2020&sector=S13&unit=PC_GDP&na_item=TR&na_item=TE&na_item=B9&sinceTimePeriod=2015",
@@ -288,6 +294,16 @@
         "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_main?geo=ES&unit=MIO_EUR&na_item=TE&na_item=TR&na_item=B9&sector=S13&sector=S1311&sector=S1312&sector=S1313&sector=S1314&sinceTimePeriod=2015",
         "updated": "2026-10-21T11:00:00+0200",
         "sha256": "2677e977123be46e7cd8a0f2ff1527ca737a60c1a7697e420103d92ea05e4959"
+      },
+      "interest": {
+        "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_main?geo=ES&sector=S13&unit=MIO_EUR&na_item=D41PAY&sinceTimePeriod=2015",
+        "updated": "2026-10-21T11:00:00+0200",
+        "sha256": "d942b850618f4c3e86e84550ab9cae790d9d2c6868de553d6aaa758ab844b5c9"
+      },
+      "debtEuros": {
+        "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10dd_edpt1?geo=ES&sector=S13&unit=MIO_EUR&na_item=GD&sinceTimePeriod=2015",
+        "updated": "2026-10-21T11:00:00+0200",
+        "sha256": "b0be62802570908609eed1b24ed2d9791ecfeb7344c9fea8581020c9fb54b90c"
       }
     }
   }

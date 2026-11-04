@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import type { DashboardData } from '../../lib/dashboard-data';
-import { buildFunctionalScenario, functionalRevisionGap, functionalYear } from '../../lib/functional-scenario';
+import { buildFunctionalScenario, functionalPopulation, functionalRevisionGap, functionalYear } from '../../lib/functional-scenario';
 import { formatMillions } from '../../lib/format';
 import type { BudgetView, PeriodKind } from '../../lib/year-to-date';
 import AnnualContextSection from './budget/AnnualContextSection';
@@ -52,7 +52,7 @@ export default function BudgetSection({ data, view, yearToDate, onViewChange }: 
         <p>{notice}</p>
         <a href={scenario.sourceUrl} target="_blank" rel="noreferrer">Ver fuente ↗</a>
       </div>
-      <BudgetSimulator monthly={scenario} residents={data.people.population.people} periodKind={periodKind}/>
+      <BudgetSimulator monthly={scenario} residents={periodKind === 'year' ? functionalPopulation : data.people.population.people} periodKind={periodKind}/>
       <MoneyFlow monthly={scenario}/>
       <AnnualContextSection monthly={monthly} taxes={taxes} services={services}/>
       <BenefitsSection benefits={benefits}/>

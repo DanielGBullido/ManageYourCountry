@@ -16,13 +16,19 @@
   "financingBalanceRevised": -50807,
   "cofogTotal": 725001,
   "revisionGap": 121,
+  "population": {
+    "year": 2024,
+    "averagePeople": 48873996,
+    "source": "Eurostat · demo_gind (población media del año)"
+  },
   "provenance": {
     "mainUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_main?geo=ES&sector=S13&unit=MIO_EUR&time=2024&na_item=TR&na_item=TE&na_item=B9&na_item=D2REC&na_item=D5REC&na_item=D91REC&na_item=D61REC",
     "cofogUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?geo=ES&sector=S13&unit=MIO_EUR&time=2024&na_item=TE",
+    "populationUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_gind?geo=ES&indic_de=AVG&time=2024",
     "mainUpdated": "2026-10-21T11:00:00+0200",
     "cofogUpdated": "2026-10-21T23:00:00+0200",
     "mainSha256": "6db91a77ac61c039a6ac404c9d5af3b6e175288a4e73efcbd6381ed0d804c07c",
     "cofogSha256": "b02572d10f25025f95509a2e4419c74e1ff359cdee724d18efb9d067f9d114c5",
-    "retrievedAt": "2026-11-04T07:57:07.173Z"
+    "retrievedAt": "2026-11-04T08:12:37.819Z"
   }
 }

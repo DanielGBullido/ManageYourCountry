@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises';
 import { buildContext, jsonStatRows } from './lib/eurostat.mjs';
 
 const load = async name => JSON.parse(await readFile(new URL(`./fixtures/eurostat/context_${name}.json`, import.meta.url), 'utf8'));
-const responses = { ratios: await load('ratios'), debt: await load('debt'), functions: await load('functions'), levels: await load('levels') };
+const responses = { ratios: await load('ratios'), debt: await load('debt'), functions: await load('functions'), levels: await load('levels'), interest: await load('interest'), debtEuros: await load('debtEuros') };
 
 test('builds the 2015–2025 deficit and debt series for Spain and the EU from real Eurostat data', () => {
   const { series } = buildContext(responses);
@@ -35,4 +35,11 @@ test('rejects data where a level balance no longer adds up', () => {
   const index = rows.findIndex(row => row.sector === 'S1313' && row.na_item === 'B9' && row.time === '2025');
   broken.value[keys[index]] += 1000;
   assert.throws(() => buildContext({ ...responses, levels: broken }), /saldos de cada nivel suman/);
+});
+
+test('the average interest rate is interest paid over the previous year-end debt', () => {
+  const { interestRate } = buildContext(responses);
+  assert.equal(interestRate.year, 2025);
+  assert.equal(interestRate.interestMillions, 40432);
+  assert.equal(interestRate.rate, 2.49);
 });

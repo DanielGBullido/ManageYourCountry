@@ -24,7 +24,7 @@ function NavigationLinks() {
 export default function SiteHeader() {
   return <>
     <a className="skip-link" href="#presupuesto">Saltar al simulador</a>
-    <div className="topline"><span>UNA HERRAMIENTA CÍVICA PARA ENTENDER EL DINERO PÚBLICO</span><span className="top-date">DATOS OFICIALES · ESCENARIOS CIUDADANOS</span></div>
+    <aside className="topline" aria-label="Presentación del proyecto"><span>UNA HERRAMIENTA CÍVICA PARA ENTENDER EL DINERO PÚBLICO</span><span className="top-date">DATOS OFICIALES · ESCENARIOS CIUDADANOS</span></aside>
     <header className="site-header">
       <a className="brand" href="#inicio" aria-label="España en tus manos, inicio"><img className="brand-mark-image" src="/brand-mark.svg" alt="" aria-hidden="true"/><span>ESPAÑA<br/><b>EN TUS MANOS</b></span></a>
       <nav className="desktop-navigation" aria-label="Navegación principal"><NavigationLinks/></nav>
