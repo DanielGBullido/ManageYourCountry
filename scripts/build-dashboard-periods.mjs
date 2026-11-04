@@ -18,19 +18,6 @@ const aligned = matchesCommonReferenceMonth(monthly.referencePeriod, [
 ]);
 if (!aligned) throw new Error(`No se crea un mes de panel incompleto: IGAE ${monthly.referencePeriod}; AEAT ${taxes.latestMonthly.period}; prestaciones ${benefits.items.map(item => item.period).join(', ')}; comunidades ${regions.igaeMonthly.period}.`);
 
-// El fichero de origen lleva nombres de columnas ligados al primer mes importado;
-// los snapshots usan claves genéricas para que valgan para cualquier mes.
-const monthlyRegions = {
-  ...regions,
-  communities: regions.communities.map(({ igaeAugustTax, igaeAugustRevenue, igaeAugustExpenditure, igaeAugustBalance, ...region }) => ({
-    ...region,
-    igaeMonthlyTax: igaeAugustTax,
-    igaeMonthlyRevenue: igaeAugustRevenue,
-    igaeMonthlyExpenditure: igaeAugustExpenditure,
-    igaeMonthlyBalance: igaeAugustBalance,
-  })),
-};
-
 const path = new URL('dashboard-periods.json', root);
 let periods = {};
 try { periods = JSON.parse(await readFile(path, 'utf8')); } catch {}
@@ -41,7 +28,7 @@ periods[monthly.referencePeriod] = {
   benefits,
   people,
   jobs,
-  regions: monthlyRegions,
+  regions,
   taxes,
   services,
   demographics,

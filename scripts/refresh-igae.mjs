@@ -6,6 +6,7 @@ import { basename, join } from 'node:path';
 import { parseIgaeMonthlyPdfPage } from './lib/igae-pdf-parser.mjs';
 import { findLatestReport } from './lib/igae-catalog.mjs';
 import { matchesCommonReferenceMonth } from './lib/monthly-period.mjs';
+import { hasArchivedMonth } from './lib/official-import.mjs';
 
 const root = new URL('../', import.meta.url);
 const catalogUrl = 'https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/DatosConsolidados.aspx';
@@ -49,13 +50,30 @@ const period = `${report.year}-${String(report.month).padStart(2, '0')}`;
 const latestPath = new URL('data/igae-latest.json', root);
 const current = JSON.parse(await readFile(latestPath, 'utf8'));
 if (current.referencePeriod > period) throw new Error(`El catálogo devolvió ${period}, anterior al dato ya incorporado (${current.referencePeriod})`);
-const taxes = JSON.parse(await readFile(new URL('data/recaudacion-tributaria-2025.json', root), 'utf8'));
-const benefits = JSON.parse(await readFile(new URL('data/prestaciones-latest.json', root), 'utf8'));
-const regions = JSON.parse(await readFile(new URL('data/comunidades-autonomicas.json', root), 'utf8'));
-const alignedPeriods = [taxes.latestMonthly.period, ...benefits.items.map(item => item.period), regions.igaeMonthly.period];
-if (!matchesCommonReferenceMonth(period, alignedPeriods)) {
-  console.log(`IGAE publica ${period}, pero impuestos y prestaciones usan ${alignedPeriods.join(', ')}. Se conserva el mes común actual; no se mezclan periodos en el panel.`);
-  process.exit(0);
+// El panel solo avanza a un mes nuevo si todas las series auxiliares ya tienen
+// ese mes validado: o bien ya lo muestran, o bien su importador lo ha archivado
+// en data/history/<fuente>/. Tras actualizar la IGAE, el flujo de GitHub Actions
+// vuelve a lanzar esos importadores para que escriban el mismo mes.
+if (period !== current.referencePeriod) {
+  const taxes = JSON.parse(await readFile(new URL('data/recaudacion-tributaria-2025.json', root), 'utf8'));
+  const benefits = JSON.parse(await readFile(new URL('data/prestaciones-latest.json', root), 'utf8'));
+  const regions = JSON.parse(await readFile(new URL('data/comunidades-autonomicas.json', root), 'utf8'));
+  const shown = {
+    aeat: taxes.latestMonthly.period,
+    'seguridad-social-pensiones': benefits.items.find(item => item.id === 'pensions')?.period,
+    'imserso-pnc': benefits.items.find(item => item.id === 'non-contributory-pensions')?.period,
+    'inss-imv': benefits.items.find(item => item.id === 'imv')?.period,
+    'sepe-prd': benefits.items.find(item => item.id === 'unemployment')?.period,
+    'igae-ccaa': regions.igaeMonthly.period,
+  };
+  const missing = [];
+  for (const [source, shownPeriod] of Object.entries(shown)) {
+    if (!matchesCommonReferenceMonth(period, [shownPeriod]) && !(await hasArchivedMonth(source, period))) missing.push(source);
+  }
+  if (missing.length) {
+    console.log(`IGAE publica ${period}, pero aún faltan esos datos en: ${missing.join(', ')}. Se conserva el mes común actual; no se mezclan periodos en el panel.`);
+    process.exit(0);
+  }
 }
 
 const updated = {

@@ -196,13 +196,13 @@
           "name": "Pensiones contributivas",
           "period": "Agosto 2026",
           "amountMillions": 14470.4,
-          "summary": "10.535.869 pensiones abonadas a más de 9,5 millones de personas; la pensión media del sistema fue de 1.373,44 € al mes.",
-          "source": "Seguridad Social",
-          "sourceUrl": "https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/inclusion/paginas/2026/25082026-pension-media-seguridad-social.aspx",
+          "summary": "10.535.869 pensiones contributivas en vigor en la nómina de agosto; la pensión media del sistema fue de 1.373,44 € al mes.",
+          "source": "Seguridad Social · Estadísticas de pensiones en vigor",
+          "sourceUrl": "https://www.seg-social.es/wps/wcm/connect/wss/85c56f05-1d11-4a4b-974f-14c4e5386427/S202610.xlsx?MOD=AJPERES",
           "details": [
             {
               "label": "Jubilación",
-              "amountMillions": 10625.9
+              "amountMillions": 10626
             },
             {
               "label": "Viudedad",
@@ -221,7 +221,7 @@
               "amountMillions": 38.7
             }
           ],
-          "secondary": "La pensión media de jubilación fue de 1.574,9 € al mes."
+          "secondary": "La pensión media de jubilación fue de 1.574,93 € al mes. El importe es la nómina mensual de las pensiones en vigor el 1 de agosto."
         },
         {
           "id": "non-contributory-pensions",
@@ -230,7 +230,7 @@
           "amountMillions": 305.659701,
           "summary": "470.207 pensiones abonadas: 305.867 de jubilación y 164.340 de incapacidad.",
           "source": "Imserso · nómina mensual",
-          "sourceUrl": "https://imserso.es/documents/20123/121856/evolpncs.pdf/93643b36-6ebb-bece-168b-01e450d95ef4",
+          "sourceUrl": "https://imserso.es/documents/20123/121856/evolpncs.xlsx/706b8f90-698b-6b77-941d-8f7f6d3938c6",
           "details": [
             {
               "label": "Jubilación no contributiva",
@@ -248,11 +248,11 @@
           "name": "Ingreso Mínimo Vital (IMV)",
           "period": "Agosto 2026",
           "amountMillions": 474.7,
-          "summary": "893.820 hogares y 2.725.899 personas beneficiarias; 502,8 € al mes de media por hogar.",
+          "summary": "893.820 hogares y 2.725.899 personas beneficiarias; 502,8 € al mes de media por hogar (sin atrasos).",
           "source": "Instituto Nacional de la Seguridad Social",
-          "sourceUrl": "https://www.inclusion.gob.es/w/el-ingreso-minimo-vital-protege-en-agosto-a-mas-de-2-7-millones-de-personas-residentes-en-894.000-hogares",
+          "sourceUrl": "https://revista.seg-social.es/documents/39386/0/202608_IMV+-+N%C3%B3mina.xlsx/42e5ea71-d2c8-6095-a115-ffe11a8b0eb7?t=1788847007078",
           "details": [],
-          "secondary": "623.300 hogares recibieron también el Complemento de Ayuda para la Infancia; ya están dentro de las cifras del IMV y no se suman aparte."
+          "secondary": "623.347 hogares recibieron también el Complemento de Ayuda para la Infancia; ya están dentro de las cifras del IMV y no se suman aparte. El importe bruto de la nómina incluye atrasos."
         },
         {
           "id": "unemployment",
@@ -261,9 +261,9 @@
           "amountMillions": 2242.13,
           "summary": "1.896.142 personas beneficiarias; gasto medio de 1.203,1 € al mes por persona (sin subsidio agrario).",
           "source": "Ministerio de Trabajo y Economía Social · SEPE",
-          "sourceUrl": "https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/trabajo14/Paginas/2026/021026-paro-registrado-septiembre.aspx",
+          "sourceUrl": "https://www.mites.gob.es/estadisticas/PRD/prd26_sep/prd_09_26.xlsx",
           "details": [],
-          "secondary": "La cobertura del sistema fue del 87,12%. El gasto se refiere a agosto, aunque el dato se publicó el 2 de octubre."
+          "secondary": "La cobertura del sistema fue del 87,12%. El gasto incluye las cotizaciones a la Seguridad Social y se publica un mes después que el número de beneficiarios."
         }
       ]
     },
@@ -517,13 +517,14 @@
       "igaeMonthly": {
         "period": "Agosto de 2026",
         "source": "IGAE · Operaciones no financieras del subsector Administración regional y detalle por comunidad autónoma",
-        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx",
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/CCAA-M/M_CCAA_Sub_Det_2026.xlsx",
         "updated": "30 de octubre de 2026",
         "method": "La hoja ofrece cifras acumuladas hasta fin de mes. El flujo de agosto se calcula restando el acumulado de julio al acumulado de agosto.",
         "taxDescription": "Impuestos contabilizados como ingreso de la Administración regional de cada comunidad en contabilidad nacional. En territorios forales la recaudación de sus haciendas propias no se refleja con el mismo alcance en esta cuenta regional.",
         "revenueDescription": "Suma de los ingresos no financieros contabilizados en las cuentas del Gobierno autonómico: impuestos que se le atribuyen, transferencias recibidas, ventas de bienes y servicios, tasas y precios públicos, rentas de bienes públicos y transferencias de capital. No es todo lo que pagan las personas y empresas del territorio: también hay impuestos estatales y locales. La fila mensual de la IGAE no desglosa aquí cada fuente por separado.",
         "expenditureDescription": "Gastos no financieros contabilizados por cada Administración regional. El dato de agosto se obtiene restando el acumulado de julio al acumulado de agosto.",
-        "balanceDescription": "Diferencia calculada entre ingresos no financieros y gastos no financieros de agosto según la cuenta de cada Administración regional; no es saldo bancario ni resultado de caja."
+        "balanceDescription": "Diferencia calculada entre ingresos no financieros y gastos no financieros de agosto según la cuenta de cada Administración regional; no es saldo bancario ni resultado de caja.",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx"
       }
     },
     "taxes": {
@@ -999,13 +1000,13 @@
           "name": "Pensiones contributivas",
           "period": "Agosto 2026",
           "amountMillions": 14470.4,
-          "summary": "10.535.869 pensiones abonadas a más de 9,5 millones de personas; la pensión media del sistema fue de 1.373,44 € al mes.",
-          "source": "Seguridad Social",
-          "sourceUrl": "https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/inclusion/paginas/2026/25082026-pension-media-seguridad-social.aspx",
+          "summary": "10.535.869 pensiones contributivas en vigor en la nómina de agosto; la pensión media del sistema fue de 1.373,44 € al mes.",
+          "source": "Seguridad Social · Estadísticas de pensiones en vigor",
+          "sourceUrl": "https://www.seg-social.es/wps/wcm/connect/wss/85c56f05-1d11-4a4b-974f-14c4e5386427/S202610.xlsx?MOD=AJPERES",
           "details": [
             {
               "label": "Jubilación",
-              "amountMillions": 10625.9
+              "amountMillions": 10626
             },
             {
               "label": "Viudedad",
@@ -1024,7 +1025,7 @@
               "amountMillions": 38.7
             }
           ],
-          "secondary": "La pensión media de jubilación fue de 1.574,9 € al mes."
+          "secondary": "La pensión media de jubilación fue de 1.574,93 € al mes. El importe es la nómina mensual de las pensiones en vigor el 1 de agosto."
         },
         {
           "id": "non-contributory-pensions",
@@ -1033,7 +1034,7 @@
           "amountMillions": 305.659701,
           "summary": "470.207 pensiones abonadas: 305.867 de jubilación y 164.340 de incapacidad.",
           "source": "Imserso · nómina mensual",
-          "sourceUrl": "https://imserso.es/documents/20123/121856/evolpncs.pdf/93643b36-6ebb-bece-168b-01e450d95ef4",
+          "sourceUrl": "https://imserso.es/documents/20123/121856/evolpncs.xlsx/706b8f90-698b-6b77-941d-8f7f6d3938c6",
           "details": [
             {
               "label": "Jubilación no contributiva",
@@ -1051,11 +1052,11 @@
           "name": "Ingreso Mínimo Vital (IMV)",
           "period": "Agosto 2026",
           "amountMillions": 474.7,
-          "summary": "893.820 hogares y 2.725.899 personas beneficiarias; 502,8 € al mes de media por hogar.",
+          "summary": "893.820 hogares y 2.725.899 personas beneficiarias; 502,8 € al mes de media por hogar (sin atrasos).",
           "source": "Instituto Nacional de la Seguridad Social",
-          "sourceUrl": "https://www.inclusion.gob.es/w/el-ingreso-minimo-vital-protege-en-agosto-a-mas-de-2-7-millones-de-personas-residentes-en-894.000-hogares",
+          "sourceUrl": "https://revista.seg-social.es/documents/39386/0/202608_IMV+-+N%C3%B3mina.xlsx/42e5ea71-d2c8-6095-a115-ffe11a8b0eb7?t=1788847007078",
           "details": [],
-          "secondary": "623.300 hogares recibieron también el Complemento de Ayuda para la Infancia; ya están dentro de las cifras del IMV y no se suman aparte."
+          "secondary": "623.347 hogares recibieron también el Complemento de Ayuda para la Infancia; ya están dentro de las cifras del IMV y no se suman aparte. El importe bruto de la nómina incluye atrasos."
         },
         {
           "id": "unemployment",
@@ -1064,9 +1065,9 @@
           "amountMillions": 2242.13,
           "summary": "1.896.142 personas beneficiarias; gasto medio de 1.203,1 € al mes por persona (sin subsidio agrario).",
           "source": "Ministerio de Trabajo y Economía Social · SEPE",
-          "sourceUrl": "https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/trabajo14/Paginas/2026/021026-paro-registrado-septiembre.aspx",
+          "sourceUrl": "https://www.mites.gob.es/estadisticas/PRD/prd26_sep/prd_09_26.xlsx",
           "details": [],
-          "secondary": "La cobertura del sistema fue del 87,12%. El gasto se refiere a agosto, aunque el dato se publicó el 2 de octubre."
+          "secondary": "La cobertura del sistema fue del 87,12%. El gasto incluye las cotizaciones a la Seguridad Social y se publica un mes después que el número de beneficiarios."
         }
       ]
     },
@@ -1320,13 +1321,14 @@
       "igaeMonthly": {
         "period": "Agosto de 2026",
         "source": "IGAE · Operaciones no financieras del subsector Administración regional y detalle por comunidad autónoma",
-        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx",
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/CCAA-M/M_CCAA_Sub_Det_2026.xlsx",
         "updated": "30 de octubre de 2026",
         "method": "La hoja ofrece cifras acumuladas hasta fin de mes. El flujo de agosto se calcula restando el acumulado de julio al acumulado de agosto.",
         "taxDescription": "Impuestos contabilizados como ingreso de la Administración regional de cada comunidad en contabilidad nacional. En territorios forales la recaudación de sus haciendas propias no se refleja con el mismo alcance en esta cuenta regional.",
         "revenueDescription": "Suma de los ingresos no financieros contabilizados en las cuentas del Gobierno autonómico: impuestos que se le atribuyen, transferencias recibidas, ventas de bienes y servicios, tasas y precios públicos, rentas de bienes públicos y transferencias de capital. No es todo lo que pagan las personas y empresas del territorio: también hay impuestos estatales y locales. La fila mensual de la IGAE no desglosa aquí cada fuente por separado.",
         "expenditureDescription": "Gastos no financieros contabilizados por cada Administración regional. El dato de agosto se obtiene restando el acumulado de julio al acumulado de agosto.",
-        "balanceDescription": "Diferencia calculada entre ingresos no financieros y gastos no financieros de agosto según la cuenta de cada Administración regional; no es saldo bancario ni resultado de caja."
+        "balanceDescription": "Diferencia calculada entre ingresos no financieros y gastos no financieros de agosto según la cuenta de cada Administración regional; no es saldo bancario ni resultado de caja.",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx"
       }
     },
     "taxes": {
@@ -1802,13 +1804,13 @@
           "name": "Pensiones contributivas",
           "period": "Agosto 2026",
           "amountMillions": 14470.4,
-          "summary": "10.535.869 pensiones abonadas a más de 9,5 millones de personas; la pensión media del sistema fue de 1.373,44 € al mes.",
-          "source": "Seguridad Social",
-          "sourceUrl": "https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/inclusion/paginas/2026/25082026-pension-media-seguridad-social.aspx",
+          "summary": "10.535.869 pensiones contributivas en vigor en la nómina de agosto; la pensión media del sistema fue de 1.373,44 € al mes.",
+          "source": "Seguridad Social · Estadísticas de pensiones en vigor",
+          "sourceUrl": "https://www.seg-social.es/wps/wcm/connect/wss/85c56f05-1d11-4a4b-974f-14c4e5386427/S202610.xlsx?MOD=AJPERES",
           "details": [
             {
               "label": "Jubilación",
-              "amountMillions": 10625.9
+              "amountMillions": 10626
             },
             {
               "label": "Viudedad",
@@ -1827,7 +1829,7 @@
               "amountMillions": 38.7
             }
           ],
-          "secondary": "La pensión media de jubilación fue de 1.574,9 € al mes."
+          "secondary": "La pensión media de jubilación fue de 1.574,93 € al mes. El importe es la nómina mensual de las pensiones en vigor el 1 de agosto."
         },
         {
           "id": "non-contributory-pensions",
@@ -1836,7 +1838,7 @@
           "amountMillions": 305.659701,
           "summary": "470.207 pensiones abonadas: 305.867 de jubilación y 164.340 de incapacidad.",
           "source": "Imserso · nómina mensual",
-          "sourceUrl": "https://imserso.es/documents/20123/121856/evolpncs.pdf/93643b36-6ebb-bece-168b-01e450d95ef4",
+          "sourceUrl": "https://imserso.es/documents/20123/121856/evolpncs.xlsx/706b8f90-698b-6b77-941d-8f7f6d3938c6",
           "details": [
             {
               "label": "Jubilación no contributiva",
@@ -1854,11 +1856,11 @@
           "name": "Ingreso Mínimo Vital (IMV)",
           "period": "Agosto 2026",
           "amountMillions": 474.7,
-          "summary": "893.820 hogares y 2.725.899 personas beneficiarias; 502,8 € al mes de media por hogar.",
+          "summary": "893.820 hogares y 2.725.899 personas beneficiarias; 502,8 € al mes de media por hogar (sin atrasos).",
           "source": "Instituto Nacional de la Seguridad Social",
-          "sourceUrl": "https://www.inclusion.gob.es/w/el-ingreso-minimo-vital-protege-en-agosto-a-mas-de-2-7-millones-de-personas-residentes-en-894.000-hogares",
+          "sourceUrl": "https://revista.seg-social.es/documents/39386/0/202608_IMV+-+N%C3%B3mina.xlsx/42e5ea71-d2c8-6095-a115-ffe11a8b0eb7?t=1788847007078",
           "details": [],
-          "secondary": "623.300 hogares recibieron también el Complemento de Ayuda para la Infancia; ya están dentro de las cifras del IMV y no se suman aparte."
+          "secondary": "623.347 hogares recibieron también el Complemento de Ayuda para la Infancia; ya están dentro de las cifras del IMV y no se suman aparte. El importe bruto de la nómina incluye atrasos."
         },
         {
           "id": "unemployment",
@@ -1867,9 +1869,9 @@
           "amountMillions": 2242.13,
           "summary": "1.896.142 personas beneficiarias; gasto medio de 1.203,1 € al mes por persona (sin subsidio agrario).",
           "source": "Ministerio de Trabajo y Economía Social · SEPE",
-          "sourceUrl": "https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/trabajo14/Paginas/2026/021026-paro-registrado-septiembre.aspx",
+          "sourceUrl": "https://www.mites.gob.es/estadisticas/PRD/prd26_sep/prd_09_26.xlsx",
           "details": [],
-          "secondary": "La cobertura del sistema fue del 87,12%. El gasto se refiere a agosto, aunque el dato se publicó el 2 de octubre."
+          "secondary": "La cobertura del sistema fue del 87,12%. El gasto incluye las cotizaciones a la Seguridad Social y se publica un mes después que el número de beneficiarios."
         }
       ]
     },
@@ -2123,13 +2125,14 @@
       "igaeMonthly": {
         "period": "Agosto de 2026",
         "source": "IGAE · Operaciones no financieras del subsector Administración regional y detalle por comunidad autónoma",
-        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx",
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/CCAA-M/M_CCAA_Sub_Det_2026.xlsx",
         "updated": "30 de octubre de 2026",
         "method": "La hoja ofrece cifras acumuladas hasta fin de mes. El flujo de agosto se calcula restando el acumulado de julio al acumulado de agosto.",
         "taxDescription": "Impuestos contabilizados como ingreso de la Administración regional de cada comunidad en contabilidad nacional. En territorios forales la recaudación de sus haciendas propias no se refleja con el mismo alcance en esta cuenta regional.",
         "revenueDescription": "Suma de los ingresos no financieros contabilizados en las cuentas del Gobierno autonómico: impuestos que se le atribuyen, transferencias recibidas, ventas de bienes y servicios, tasas y precios públicos, rentas de bienes públicos y transferencias de capital. No es todo lo que pagan las personas y empresas del territorio: también hay impuestos estatales y locales. La fila mensual de la IGAE no desglosa aquí cada fuente por separado.",
         "expenditureDescription": "Gastos no financieros contabilizados por cada Administración regional. El dato de agosto se obtiene restando el acumulado de julio al acumulado de agosto.",
-        "balanceDescription": "Diferencia calculada entre ingresos no financieros y gastos no financieros de agosto según la cuenta de cada Administración regional; no es saldo bancario ni resultado de caja."
+        "balanceDescription": "Diferencia calculada entre ingresos no financieros y gastos no financieros de agosto según la cuenta de cada Administración regional; no es saldo bancario ni resultado de caja.",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx"
       }
     },
     "taxes": {
@@ -2605,13 +2608,13 @@
           "name": "Pensiones contributivas",
           "period": "Agosto 2026",
           "amountMillions": 14470.4,
-          "summary": "10.535.869 pensiones abonadas a más de 9,5 millones de personas; la pensión media del sistema fue de 1.373,44 € al mes.",
-          "source": "Seguridad Social",
-          "sourceUrl": "https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/inclusion/paginas/2026/25082026-pension-media-seguridad-social.aspx",
+          "summary": "10.535.869 pensiones contributivas en vigor en la nómina de agosto; la pensión media del sistema fue de 1.373,44 € al mes.",
+          "source": "Seguridad Social · Estadísticas de pensiones en vigor",
+          "sourceUrl": "https://www.seg-social.es/wps/wcm/connect/wss/85c56f05-1d11-4a4b-974f-14c4e5386427/S202610.xlsx?MOD=AJPERES",
           "details": [
             {
               "label": "Jubilación",
-              "amountMillions": 10625.9
+              "amountMillions": 10626
             },
             {
               "label": "Viudedad",
@@ -2630,7 +2633,7 @@
               "amountMillions": 38.7
             }
           ],
-          "secondary": "La pensión media de jubilación fue de 1.574,9 € al mes."
+          "secondary": "La pensión media de jubilación fue de 1.574,93 € al mes. El importe es la nómina mensual de las pensiones en vigor el 1 de agosto."
         },
         {
           "id": "non-contributory-pensions",
@@ -2639,7 +2642,7 @@
           "amountMillions": 305.659701,
           "summary": "470.207 pensiones abonadas: 305.867 de jubilación y 164.340 de incapacidad.",
           "source": "Imserso · nómina mensual",
-          "sourceUrl": "https://imserso.es/documents/20123/121856/evolpncs.pdf/93643b36-6ebb-bece-168b-01e450d95ef4",
+          "sourceUrl": "https://imserso.es/documents/20123/121856/evolpncs.xlsx/706b8f90-698b-6b77-941d-8f7f6d3938c6",
           "details": [
             {
               "label": "Jubilación no contributiva",
@@ -2657,11 +2660,11 @@
           "name": "Ingreso Mínimo Vital (IMV)",
           "period": "Agosto 2026",
           "amountMillions": 474.7,
-          "summary": "893.820 hogares y 2.725.899 personas beneficiarias; 502,8 € al mes de media por hogar.",
+          "summary": "893.820 hogares y 2.725.899 personas beneficiarias; 502,8 € al mes de media por hogar (sin atrasos).",
           "source": "Instituto Nacional de la Seguridad Social",
-          "sourceUrl": "https://www.inclusion.gob.es/w/el-ingreso-minimo-vital-protege-en-agosto-a-mas-de-2-7-millones-de-personas-residentes-en-894.000-hogares",
+          "sourceUrl": "https://revista.seg-social.es/documents/39386/0/202608_IMV+-+N%C3%B3mina.xlsx/42e5ea71-d2c8-6095-a115-ffe11a8b0eb7?t=1788847007078",
           "details": [],
-          "secondary": "623.300 hogares recibieron también el Complemento de Ayuda para la Infancia; ya están dentro de las cifras del IMV y no se suman aparte."
+          "secondary": "623.347 hogares recibieron también el Complemento de Ayuda para la Infancia; ya están dentro de las cifras del IMV y no se suman aparte. El importe bruto de la nómina incluye atrasos."
         },
         {
           "id": "unemployment",
@@ -2670,9 +2673,9 @@
           "amountMillions": 2242.13,
           "summary": "1.896.142 personas beneficiarias; gasto medio de 1.203,1 € al mes por persona (sin subsidio agrario).",
           "source": "Ministerio de Trabajo y Economía Social · SEPE",
-          "sourceUrl": "https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/trabajo14/Paginas/2026/021026-paro-registrado-septiembre.aspx",
+          "sourceUrl": "https://www.mites.gob.es/estadisticas/PRD/prd26_sep/prd_09_26.xlsx",
           "details": [],
-          "secondary": "La cobertura del sistema fue del 87,12%. El gasto se refiere a agosto, aunque el dato se publicó el 2 de octubre."
+          "secondary": "La cobertura del sistema fue del 87,12%. El gasto incluye las cotizaciones a la Seguridad Social y se publica un mes después que el número de beneficiarios."
         }
       ]
     },
@@ -2926,13 +2929,14 @@
       "igaeMonthly": {
         "period": "Agosto de 2026",
         "source": "IGAE · Operaciones no financieras del subsector Administración regional y detalle por comunidad autónoma",
-        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx",
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/CCAA-M/M_CCAA_Sub_Det_2026.xlsx",
         "updated": "30 de octubre de 2026",
         "method": "La hoja ofrece cifras acumuladas hasta fin de mes. El flujo de agosto se calcula restando el acumulado de julio al acumulado de agosto.",
         "taxDescription": "Impuestos contabilizados como ingreso de la Administración regional de cada comunidad en contabilidad nacional. En territorios forales la recaudación de sus haciendas propias no se refleja con el mismo alcance en esta cuenta regional.",
         "revenueDescription": "Suma de los ingresos no financieros contabilizados en las cuentas del Gobierno autonómico: impuestos que se le atribuyen, transferencias recibidas, ventas de bienes y servicios, tasas y precios públicos, rentas de bienes públicos y transferencias de capital. No es todo lo que pagan las personas y empresas del territorio: también hay impuestos estatales y locales. La fila mensual de la IGAE no desglosa aquí cada fuente por separado.",
         "expenditureDescription": "Gastos no financieros contabilizados por cada Administración regional. El dato de agosto se obtiene restando el acumulado de julio al acumulado de agosto.",
-        "balanceDescription": "Diferencia calculada entre ingresos no financieros y gastos no financieros de agosto según la cuenta de cada Administración regional; no es saldo bancario ni resultado de caja."
+        "balanceDescription": "Diferencia calculada entre ingresos no financieros y gastos no financieros de agosto según la cuenta de cada Administración regional; no es saldo bancario ni resultado de caja.",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx"
       }
     },
     "taxes": {
@@ -3408,13 +3412,13 @@
           "name": "Pensiones contributivas",
           "period": "Agosto 2026",
           "amountMillions": 14470.4,
-          "summary": "10.535.869 pensiones abonadas a más de 9,5 millones de personas; la pensión media del sistema fue de 1.373,44 € al mes.",
-          "source": "Seguridad Social",
-          "sourceUrl": "https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/inclusion/paginas/2026/25082026-pension-media-seguridad-social.aspx",
+          "summary": "10.535.869 pensiones contributivas en vigor en la nómina de agosto; la pensión media del sistema fue de 1.373,44 € al mes.",
+          "source": "Seguridad Social · Estadísticas de pensiones en vigor",
+          "sourceUrl": "https://www.seg-social.es/wps/wcm/connect/wss/85c56f05-1d11-4a4b-974f-14c4e5386427/S202610.xlsx?MOD=AJPERES",
           "details": [
             {
               "label": "Jubilación",
-              "amountMillions": 10625.9
+              "amountMillions": 10626
             },
             {
               "label": "Viudedad",
@@ -3433,7 +3437,7 @@
               "amountMillions": 38.7
             }
           ],
-          "secondary": "La pensión media de jubilación fue de 1.574,9 € al mes."
+          "secondary": "La pensión media de jubilación fue de 1.574,93 € al mes. El importe es la nómina mensual de las pensiones en vigor el 1 de agosto."
         },
         {
           "id": "non-contributory-pensions",
@@ -3442,7 +3446,7 @@
           "amountMillions": 305.659701,
           "summary": "470.207 pensiones abonadas: 305.867 de jubilación y 164.340 de incapacidad.",
           "source": "Imserso · nómina mensual",
-          "sourceUrl": "https://imserso.es/documents/20123/121856/evolpncs.pdf/93643b36-6ebb-bece-168b-01e450d95ef4",
+          "sourceUrl": "https://imserso.es/documents/20123/121856/evolpncs.xlsx/706b8f90-698b-6b77-941d-8f7f6d3938c6",
           "details": [
             {
               "label": "Jubilación no contributiva",
@@ -3460,11 +3464,11 @@
           "name": "Ingreso Mínimo Vital (IMV)",
           "period": "Agosto 2026",
           "amountMillions": 474.7,
-          "summary": "893.820 hogares y 2.725.899 personas beneficiarias; 502,8 € al mes de media por hogar.",
+          "summary": "893.820 hogares y 2.725.899 personas beneficiarias; 502,8 € al mes de media por hogar (sin atrasos).",
           "source": "Instituto Nacional de la Seguridad Social",
-          "sourceUrl": "https://www.inclusion.gob.es/w/el-ingreso-minimo-vital-protege-en-agosto-a-mas-de-2-7-millones-de-personas-residentes-en-894.000-hogares",
+          "sourceUrl": "https://revista.seg-social.es/documents/39386/0/202608_IMV+-+N%C3%B3mina.xlsx/42e5ea71-d2c8-6095-a115-ffe11a8b0eb7?t=1788847007078",
           "details": [],
-          "secondary": "623.300 hogares recibieron también el Complemento de Ayuda para la Infancia; ya están dentro de las cifras del IMV y no se suman aparte."
+          "secondary": "623.347 hogares recibieron también el Complemento de Ayuda para la Infancia; ya están dentro de las cifras del IMV y no se suman aparte. El importe bruto de la nómina incluye atrasos."
         },
         {
           "id": "unemployment",
@@ -3473,9 +3477,9 @@
           "amountMillions": 2242.13,
           "summary": "1.896.142 personas beneficiarias; gasto medio de 1.203,1 € al mes por persona (sin subsidio agrario).",
           "source": "Ministerio de Trabajo y Economía Social · SEPE",
-          "sourceUrl": "https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/trabajo14/Paginas/2026/021026-paro-registrado-septiembre.aspx",
+          "sourceUrl": "https://www.mites.gob.es/estadisticas/PRD/prd26_sep/prd_09_26.xlsx",
           "details": [],
-          "secondary": "La cobertura del sistema fue del 87,12%. El gasto se refiere a agosto, aunque el dato se publicó el 2 de octubre."
+          "secondary": "La cobertura del sistema fue del 87,12%. El gasto incluye las cotizaciones a la Seguridad Social y se publica un mes después que el número de beneficiarios."
         }
       ]
     },
@@ -3729,13 +3733,14 @@
       "igaeMonthly": {
         "period": "Agosto de 2026",
         "source": "IGAE · Operaciones no financieras del subsector Administración regional y detalle por comunidad autónoma",
-        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx",
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/CCAA-M/M_CCAA_Sub_Det_2026.xlsx",
         "updated": "30 de octubre de 2026",
         "method": "La hoja ofrece cifras acumuladas hasta fin de mes. El flujo de agosto se calcula restando el acumulado de julio al acumulado de agosto.",
         "taxDescription": "Impuestos contabilizados como ingreso de la Administración regional de cada comunidad en contabilidad nacional. En territorios forales la recaudación de sus haciendas propias no se refleja con el mismo alcance en esta cuenta regional.",
         "revenueDescription": "Suma de los ingresos no financieros contabilizados en las cuentas del Gobierno autonómico: impuestos que se le atribuyen, transferencias recibidas, ventas de bienes y servicios, tasas y precios públicos, rentas de bienes públicos y transferencias de capital. No es todo lo que pagan las personas y empresas del territorio: también hay impuestos estatales y locales. La fila mensual de la IGAE no desglosa aquí cada fuente por separado.",
         "expenditureDescription": "Gastos no financieros contabilizados por cada Administración regional. El dato de agosto se obtiene restando el acumulado de julio al acumulado de agosto.",
-        "balanceDescription": "Diferencia calculada entre ingresos no financieros y gastos no financieros de agosto según la cuenta de cada Administración regional; no es saldo bancario ni resultado de caja."
+        "balanceDescription": "Diferencia calculada entre ingresos no financieros y gastos no financieros de agosto según la cuenta de cada Administración regional; no es saldo bancario ni resultado de caja.",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx"
       }
     },
     "taxes": {
@@ -4211,13 +4216,13 @@
           "name": "Pensiones contributivas",
           "period": "Agosto 2026",
           "amountMillions": 14470.4,
-          "summary": "10.535.869 pensiones abonadas a más de 9,5 millones de personas; la pensión media del sistema fue de 1.373,44 € al mes.",
-          "source": "Seguridad Social",
-          "sourceUrl": "https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/inclusion/paginas/2026/25082026-pension-media-seguridad-social.aspx",
+          "summary": "10.535.869 pensiones contributivas en vigor en la nómina de agosto; la pensión media del sistema fue de 1.373,44 € al mes.",
+          "source": "Seguridad Social · Estadísticas de pensiones en vigor",
+          "sourceUrl": "https://www.seg-social.es/wps/wcm/connect/wss/85c56f05-1d11-4a4b-974f-14c4e5386427/S202610.xlsx?MOD=AJPERES",
           "details": [
             {
               "label": "Jubilación",
-              "amountMillions": 10625.9
+              "amountMillions": 10626
             },
             {
               "label": "Viudedad",
@@ -4236,7 +4241,7 @@
               "amountMillions": 38.7
             }
           ],
-          "secondary": "La pensión media de jubilación fue de 1.574,9 € al mes."
+          "secondary": "La pensión media de jubilación fue de 1.574,93 € al mes. El importe es la nómina mensual de las pensiones en vigor el 1 de agosto."
         },
         {
           "id": "non-contributory-pensions",
@@ -4245,7 +4250,7 @@
           "amountMillions": 305.659701,
           "summary": "470.207 pensiones abonadas: 305.867 de jubilación y 164.340 de incapacidad.",
           "source": "Imserso · nómina mensual",
-          "sourceUrl": "https://imserso.es/documents/20123/121856/evolpncs.pdf/93643b36-6ebb-bece-168b-01e450d95ef4",
+          "sourceUrl": "https://imserso.es/documents/20123/121856/evolpncs.xlsx/706b8f90-698b-6b77-941d-8f7f6d3938c6",
           "details": [
             {
               "label": "Jubilación no contributiva",
@@ -4263,11 +4268,11 @@
           "name": "Ingreso Mínimo Vital (IMV)",
           "period": "Agosto 2026",
           "amountMillions": 474.7,
-          "summary": "893.820 hogares y 2.725.899 personas beneficiarias; 502,8 € al mes de media por hogar.",
+          "summary": "893.820 hogares y 2.725.899 personas beneficiarias; 502,8 € al mes de media por hogar (sin atrasos).",
           "source": "Instituto Nacional de la Seguridad Social",
-          "sourceUrl": "https://www.inclusion.gob.es/w/el-ingreso-minimo-vital-protege-en-agosto-a-mas-de-2-7-millones-de-personas-residentes-en-894.000-hogares",
+          "sourceUrl": "https://revista.seg-social.es/documents/39386/0/202608_IMV+-+N%C3%B3mina.xlsx/42e5ea71-d2c8-6095-a115-ffe11a8b0eb7?t=1788847007078",
           "details": [],
-          "secondary": "623.300 hogares recibieron también el Complemento de Ayuda para la Infancia; ya están dentro de las cifras del IMV y no se suman aparte."
+          "secondary": "623.347 hogares recibieron también el Complemento de Ayuda para la Infancia; ya están dentro de las cifras del IMV y no se suman aparte. El importe bruto de la nómina incluye atrasos."
         },
         {
           "id": "unemployment",
@@ -4276,9 +4281,9 @@
           "amountMillions": 2242.13,
           "summary": "1.896.142 personas beneficiarias; gasto medio de 1.203,1 € al mes por persona (sin subsidio agrario).",
           "source": "Ministerio de Trabajo y Economía Social · SEPE",
-          "sourceUrl": "https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/trabajo14/Paginas/2026/021026-paro-registrado-septiembre.aspx",
+          "sourceUrl": "https://www.mites.gob.es/estadisticas/PRD/prd26_sep/prd_09_26.xlsx",
           "details": [],
-          "secondary": "La cobertura del sistema fue del 87,12%. El gasto se refiere a agosto, aunque el dato se publicó el 2 de octubre."
+          "secondary": "La cobertura del sistema fue del 87,12%. El gasto incluye las cotizaciones a la Seguridad Social y se publica un mes después que el número de beneficiarios."
         }
       ]
     },
@@ -4532,13 +4537,14 @@
       "igaeMonthly": {
         "period": "Agosto de 2026",
         "source": "IGAE · Operaciones no financieras del subsector Administración regional y detalle por comunidad autónoma",
-        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx",
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/CCAA-M/M_CCAA_Sub_Det_2026.xlsx",
         "updated": "30 de octubre de 2026",
         "method": "La hoja ofrece cifras acumuladas hasta fin de mes. El flujo de agosto se calcula restando el acumulado de julio al acumulado de agosto.",
         "taxDescription": "Impuestos contabilizados como ingreso de la Administración regional de cada comunidad en contabilidad nacional. En territorios forales la recaudación de sus haciendas propias no se refleja con el mismo alcance en esta cuenta regional.",
         "revenueDescription": "Suma de los ingresos no financieros contabilizados en las cuentas del Gobierno autonómico: impuestos que se le atribuyen, transferencias recibidas, ventas de bienes y servicios, tasas y precios públicos, rentas de bienes públicos y transferencias de capital. No es todo lo que pagan las personas y empresas del territorio: también hay impuestos estatales y locales. La fila mensual de la IGAE no desglosa aquí cada fuente por separado.",
         "expenditureDescription": "Gastos no financieros contabilizados por cada Administración regional. El dato de agosto se obtiene restando el acumulado de julio al acumulado de agosto.",
-        "balanceDescription": "Diferencia calculada entre ingresos no financieros y gastos no financieros de agosto según la cuenta de cada Administración regional; no es saldo bancario ni resultado de caja."
+        "balanceDescription": "Diferencia calculada entre ingresos no financieros y gastos no financieros de agosto según la cuenta de cada Administración regional; no es saldo bancario ni resultado de caja.",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx"
       }
     },
     "taxes": {
@@ -5014,13 +5020,13 @@
           "name": "Pensiones contributivas",
           "period": "Agosto 2026",
           "amountMillions": 14470.4,
-          "summary": "10.535.869 pensiones abonadas a más de 9,5 millones de personas; la pensión media del sistema fue de 1.373,44 € al mes.",
-          "source": "Seguridad Social",
-          "sourceUrl": "https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/inclusion/paginas/2026/25082026-pension-media-seguridad-social.aspx",
+          "summary": "10.535.869 pensiones contributivas en vigor en la nómina de agosto; la pensión media del sistema fue de 1.373,44 € al mes.",
+          "source": "Seguridad Social · Estadísticas de pensiones en vigor",
+          "sourceUrl": "https://www.seg-social.es/wps/wcm/connect/wss/85c56f05-1d11-4a4b-974f-14c4e5386427/S202610.xlsx?MOD=AJPERES",
           "details": [
             {
               "label": "Jubilación",
-              "amountMillions": 10625.9
+              "amountMillions": 10626
             },
             {
               "label": "Viudedad",
@@ -5039,7 +5045,7 @@
               "amountMillions": 38.7
             }
           ],
-          "secondary": "La pensión media de jubilación fue de 1.574,9 € al mes."
+          "secondary": "La pensión media de jubilación fue de 1.574,93 € al mes. El importe es la nómina mensual de las pensiones en vigor el 1 de agosto."
         },
         {
           "id": "non-contributory-pensions",
@@ -5048,7 +5054,7 @@
           "amountMillions": 305.659701,
           "summary": "470.207 pensiones abonadas: 305.867 de jubilación y 164.340 de incapacidad.",
           "source": "Imserso · nómina mensual",
-          "sourceUrl": "https://imserso.es/documents/20123/121856/evolpncs.pdf/93643b36-6ebb-bece-168b-01e450d95ef4",
+          "sourceUrl": "https://imserso.es/documents/20123/121856/evolpncs.xlsx/706b8f90-698b-6b77-941d-8f7f6d3938c6",
           "details": [
             {
               "label": "Jubilación no contributiva",
@@ -5066,11 +5072,11 @@
           "name": "Ingreso Mínimo Vital (IMV)",
           "period": "Agosto 2026",
           "amountMillions": 474.7,
-          "summary": "893.820 hogares y 2.725.899 personas beneficiarias; 502,8 € al mes de media por hogar.",
+          "summary": "893.820 hogares y 2.725.899 personas beneficiarias; 502,8 € al mes de media por hogar (sin atrasos).",
           "source": "Instituto Nacional de la Seguridad Social",
-          "sourceUrl": "https://www.inclusion.gob.es/w/el-ingreso-minimo-vital-protege-en-agosto-a-mas-de-2-7-millones-de-personas-residentes-en-894.000-hogares",
+          "sourceUrl": "https://revista.seg-social.es/documents/39386/0/202608_IMV+-+N%C3%B3mina.xlsx/42e5ea71-d2c8-6095-a115-ffe11a8b0eb7?t=1788847007078",
           "details": [],
-          "secondary": "623.300 hogares recibieron también el Complemento de Ayuda para la Infancia; ya están dentro de las cifras del IMV y no se suman aparte."
+          "secondary": "623.347 hogares recibieron también el Complemento de Ayuda para la Infancia; ya están dentro de las cifras del IMV y no se suman aparte. El importe bruto de la nómina incluye atrasos."
         },
         {
           "id": "unemployment",
@@ -5079,9 +5085,9 @@
           "amountMillions": 2242.13,
           "summary": "1.896.142 personas beneficiarias; gasto medio de 1.203,1 € al mes por persona (sin subsidio agrario).",
           "source": "Ministerio de Trabajo y Economía Social · SEPE",
-          "sourceUrl": "https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/trabajo14/Paginas/2026/021026-paro-registrado-septiembre.aspx",
+          "sourceUrl": "https://www.mites.gob.es/estadisticas/PRD/prd26_sep/prd_09_26.xlsx",
           "details": [],
-          "secondary": "La cobertura del sistema fue del 87,12%. El gasto se refiere a agosto, aunque el dato se publicó el 2 de octubre."
+          "secondary": "La cobertura del sistema fue del 87,12%. El gasto incluye las cotizaciones a la Seguridad Social y se publica un mes después que el número de beneficiarios."
         }
       ]
     },
@@ -5335,13 +5341,14 @@
       "igaeMonthly": {
         "period": "Agosto de 2026",
         "source": "IGAE · Operaciones no financieras del subsector Administración regional y detalle por comunidad autónoma",
-        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx",
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/CCAA-M/M_CCAA_Sub_Det_2026.xlsx",
         "updated": "30 de octubre de 2026",
         "method": "La hoja ofrece cifras acumuladas hasta fin de mes. El flujo de agosto se calcula restando el acumulado de julio al acumulado de agosto.",
         "taxDescription": "Impuestos contabilizados como ingreso de la Administración regional de cada comunidad en contabilidad nacional. En territorios forales la recaudación de sus haciendas propias no se refleja con el mismo alcance en esta cuenta regional.",
         "revenueDescription": "Suma de los ingresos no financieros contabilizados en las cuentas del Gobierno autonómico: impuestos que se le atribuyen, transferencias recibidas, ventas de bienes y servicios, tasas y precios públicos, rentas de bienes públicos y transferencias de capital. No es todo lo que pagan las personas y empresas del territorio: también hay impuestos estatales y locales. La fila mensual de la IGAE no desglosa aquí cada fuente por separado.",
         "expenditureDescription": "Gastos no financieros contabilizados por cada Administración regional. El dato de agosto se obtiene restando el acumulado de julio al acumulado de agosto.",
-        "balanceDescription": "Diferencia calculada entre ingresos no financieros y gastos no financieros de agosto según la cuenta de cada Administración regional; no es saldo bancario ni resultado de caja."
+        "balanceDescription": "Diferencia calculada entre ingresos no financieros y gastos no financieros de agosto según la cuenta de cada Administración regional; no es saldo bancario ni resultado de caja.",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx"
       }
     },
     "taxes": {
@@ -5817,13 +5824,13 @@
           "name": "Pensiones contributivas",
           "period": "Agosto 2026",
           "amountMillions": 14470.4,
-          "summary": "10.535.869 pensiones abonadas a más de 9,5 millones de personas; la pensión media del sistema fue de 1.373,44 € al mes.",
-          "source": "Seguridad Social",
-          "sourceUrl": "https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/inclusion/paginas/2026/25082026-pension-media-seguridad-social.aspx",
+          "summary": "10.535.869 pensiones contributivas en vigor en la nómina de agosto; la pensión media del sistema fue de 1.373,44 € al mes.",
+          "source": "Seguridad Social · Estadísticas de pensiones en vigor",
+          "sourceUrl": "https://www.seg-social.es/wps/wcm/connect/wss/85c56f05-1d11-4a4b-974f-14c4e5386427/S202610.xlsx?MOD=AJPERES",
           "details": [
             {
               "label": "Jubilación",
-              "amountMillions": 10625.9
+              "amountMillions": 10626
             },
             {
               "label": "Viudedad",
@@ -5842,7 +5849,7 @@
               "amountMillions": 38.7
             }
           ],
-          "secondary": "La pensión media de jubilación fue de 1.574,9 € al mes."
+          "secondary": "La pensión media de jubilación fue de 1.574,93 € al mes. El importe es la nómina mensual de las pensiones en vigor el 1 de agosto."
         },
         {
           "id": "non-contributory-pensions",
@@ -5851,7 +5858,7 @@
           "amountMillions": 305.659701,
           "summary": "470.207 pensiones abonadas: 305.867 de jubilación y 164.340 de incapacidad.",
           "source": "Imserso · nómina mensual",
-          "sourceUrl": "https://imserso.es/documents/20123/121856/evolpncs.pdf/93643b36-6ebb-bece-168b-01e450d95ef4",
+          "sourceUrl": "https://imserso.es/documents/20123/121856/evolpncs.xlsx/706b8f90-698b-6b77-941d-8f7f6d3938c6",
           "details": [
             {
               "label": "Jubilación no contributiva",
@@ -5869,11 +5876,11 @@
           "name": "Ingreso Mínimo Vital (IMV)",
           "period": "Agosto 2026",
           "amountMillions": 474.7,
-          "summary": "893.820 hogares y 2.725.899 personas beneficiarias; 502,8 € al mes de media por hogar.",
+          "summary": "893.820 hogares y 2.725.899 personas beneficiarias; 502,8 € al mes de media por hogar (sin atrasos).",
           "source": "Instituto Nacional de la Seguridad Social",
-          "sourceUrl": "https://www.inclusion.gob.es/w/el-ingreso-minimo-vital-protege-en-agosto-a-mas-de-2-7-millones-de-personas-residentes-en-894.000-hogares",
+          "sourceUrl": "https://revista.seg-social.es/documents/39386/0/202608_IMV+-+N%C3%B3mina.xlsx/42e5ea71-d2c8-6095-a115-ffe11a8b0eb7?t=1788847007078",
           "details": [],
-          "secondary": "623.300 hogares recibieron también el Complemento de Ayuda para la Infancia; ya están dentro de las cifras del IMV y no se suman aparte."
+          "secondary": "623.347 hogares recibieron también el Complemento de Ayuda para la Infancia; ya están dentro de las cifras del IMV y no se suman aparte. El importe bruto de la nómina incluye atrasos."
         },
         {
           "id": "unemployment",
@@ -5882,9 +5889,9 @@
           "amountMillions": 2242.13,
           "summary": "1.896.142 personas beneficiarias; gasto medio de 1.203,1 € al mes por persona (sin subsidio agrario).",
           "source": "Ministerio de Trabajo y Economía Social · SEPE",
-          "sourceUrl": "https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/trabajo14/Paginas/2026/021026-paro-registrado-septiembre.aspx",
+          "sourceUrl": "https://www.mites.gob.es/estadisticas/PRD/prd26_sep/prd_09_26.xlsx",
           "details": [],
-          "secondary": "La cobertura del sistema fue del 87,12%. El gasto se refiere a agosto, aunque el dato se publicó el 2 de octubre."
+          "secondary": "La cobertura del sistema fue del 87,12%. El gasto incluye las cotizaciones a la Seguridad Social y se publica un mes después que el número de beneficiarios."
         }
       ]
     },
@@ -6138,13 +6145,14 @@
       "igaeMonthly": {
         "period": "Agosto de 2026",
         "source": "IGAE · Operaciones no financieras del subsector Administración regional y detalle por comunidad autónoma",
-        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx",
+        "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/CCAA-M/M_CCAA_Sub_Det_2026.xlsx",
         "updated": "30 de octubre de 2026",
         "method": "La hoja ofrece cifras acumuladas hasta fin de mes. El flujo de agosto se calcula restando el acumulado de julio al acumulado de agosto.",
         "taxDescription": "Impuestos contabilizados como ingreso de la Administración regional de cada comunidad en contabilidad nacional. En territorios forales la recaudación de sus haciendas propias no se refleja con el mismo alcance en esta cuenta regional.",
         "revenueDescription": "Suma de los ingresos no financieros contabilizados en las cuentas del Gobierno autonómico: impuestos que se le atribuyen, transferencias recibidas, ventas de bienes y servicios, tasas y precios públicos, rentas de bienes públicos y transferencias de capital. No es todo lo que pagan las personas y empresas del territorio: también hay impuestos estatales y locales. La fila mensual de la IGAE no desglosa aquí cada fuente por separado.",
         "expenditureDescription": "Gastos no financieros contabilizados por cada Administración regional. El dato de agosto se obtiene restando el acumulado de julio al acumulado de agosto.",
-        "balanceDescription": "Diferencia calculada entre ingresos no financieros y gastos no financieros de agosto según la cuenta de cada Administración regional; no es saldo bancario ni resultado de caja."
+        "balanceDescription": "Diferencia calculada entre ingresos no financieros y gastos no financieros de agosto según la cuenta de cada Administración regional; no es saldo bancario ni resultado de caja.",
+        "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx"
       }
     },
     "taxes": {

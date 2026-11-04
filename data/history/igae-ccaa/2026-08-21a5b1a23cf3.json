@@ -1,0 +1,138 @@
+{
+  "referencePeriod": "2026-08",
+  "periodLabel": "Agosto de 2026",
+  "unit": "millones de euros",
+  "measure": "Flujo del mes por comunidad: acumulado del mes menos acumulado del mes anterior (enero: acumulado de enero)",
+  "values": {
+    "updatedOn": "2026-10-30",
+    "communities": [
+      {
+        "name": "Andalucía",
+        "tax": 885,
+        "revenue": 2858,
+        "expenditure": 3453,
+        "balance": -595
+      },
+      {
+        "name": "Aragón",
+        "tax": 214,
+        "revenue": 536,
+        "expenditure": 569,
+        "balance": -33
+      },
+      {
+        "name": "Asturias",
+        "tax": 174,
+        "revenue": 483,
+        "expenditure": 475,
+        "balance": 8
+      },
+      {
+        "name": "Illes Balears",
+        "tax": 284,
+        "revenue": 598,
+        "expenditure": 612,
+        "balance": -14
+      },
+      {
+        "name": "Canarias",
+        "tax": 401,
+        "revenue": 1041,
+        "expenditure": 973,
+        "balance": 68
+      },
+      {
+        "name": "Cantabria",
+        "tax": 80,
+        "revenue": 281,
+        "expenditure": 275,
+        "balance": 6
+      },
+      {
+        "name": "Castilla-La Mancha",
+        "tax": 256,
+        "revenue": 801,
+        "expenditure": 801,
+        "balance": 0
+      },
+      {
+        "name": "Castilla y León",
+        "tax": 343,
+        "revenue": 940,
+        "expenditure": 1046,
+        "balance": -106
+      },
+      {
+        "name": "Cataluña",
+        "tax": 2418,
+        "revenue": 3819,
+        "expenditure": 3394,
+        "balance": 425
+      },
+      {
+        "name": "Extremadura",
+        "tax": 191,
+        "revenue": 561,
+        "expenditure": 451,
+        "balance": 110
+      },
+      {
+        "name": "Galicia",
+        "tax": 415,
+        "revenue": 1160,
+        "expenditure": 1138,
+        "balance": 22
+      },
+      {
+        "name": "Comunidad de Madrid",
+        "tax": 2047,
+        "revenue": 3336,
+        "expenditure": 3035,
+        "balance": 301
+      },
+      {
+        "name": "Región de Murcia",
+        "tax": 121,
+        "revenue": 439,
+        "expenditure": 619,
+        "balance": -180
+      },
+      {
+        "name": "Navarra",
+        "tax": 940,
+        "revenue": 1024,
+        "expenditure": 614,
+        "balance": 410
+      },
+      {
+        "name": "La Rioja",
+        "tax": 44,
+        "revenue": 146,
+        "expenditure": 154,
+        "balance": -8
+      },
+      {
+        "name": "Comunitat Valenciana",
+        "tax": 953,
+        "revenue": 1987,
+        "expenditure": 2285,
+        "balance": -298
+      },
+      {
+        "name": "País Vasco",
+        "tax": 1,
+        "revenue": 1277,
+        "expenditure": 1292,
+        "balance": -15
+      }
+    ]
+  },
+  "provenance": {
+    "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/CCAA-M/M_CCAA_Sub_Det_2026.xlsx",
+    "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx",
+    "sha256": "21a5b1a23cf389e5682f3eb555ddeaad0174981167aa1f8bcf3070349da44556",
+    "parser": "igae-ccaa@1",
+    "table": "M_CCAA_Sub_Det_2026.xlsx · Tabla2a a Tabla18a (millones de euros, acumulados)",
+    "retrievedAt": "2026-11-04T07:24:56.149Z"
+  }
+}

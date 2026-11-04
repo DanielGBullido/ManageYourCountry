@@ -38,17 +38,29 @@ Abre `http://localhost:3000`.
 
 Las cifras viven en `data/` con su fuente y periodo; la app no consulta las series en directo, salvo los límites del mapa (IGN).
 
-- `scripts/refresh-igae.mjs` (`npm run data:refresh`) descarga el último PDF mensual de la IGAE, extrae la tabla con `pdftotext` (Poppler) y valida sumas y saldo. Además comprueba que el mes coincida con AEAT y prestaciones, y guarda fuente, SHA-256 y una copia en `data/history/igae/`. Esa carpeta se crea la primera vez que se importa un PDF nuevo.
+- `scripts/refresh-igae.mjs` (`npm run data:refresh`) descarga el último PDF mensual de la IGAE, extrae la tabla con `pdftotext` (Poppler) y valida sumas y saldo. Solo avanza a un mes nuevo cuando AEAT, prestaciones y comunidades ya tienen ese mes validado (mostrado o archivado en `data/history/<fuente>/`), y guarda fuente, SHA-256 y una copia en `data/history/igae/`. Esa carpeta se crea la primera vez que se importa un PDF nuevo.
 - `scripts/refresh-aeat.mjs` (`npm run data:refresh:aeat`) lee el [catálogo del Informe mensual de recaudación tributaria](https://sede.agenciatributaria.gob.es/Sede/datosabiertos/catalogo/hacienda/Informe_mensual_de_Recaudacion_Tributaria.shtml), descarga el último PDF y extrae los ingresos tributarios netos del mes (cuadro 1.1, «TOTAL GENERAL»). Lo comprueba con el título del mes, las sumas por administración y capítulo y el cuadro 1.3 en miles de euros. Solo actualiza `latestMonthly` en `data/recaudacion-tributaria-2025.json`, siempre con el mismo mes que la IGAE; los meses posteriores se archivan en `data/history/aeat/` con su SHA-256. La procedencia del dato mostrado está en `data/provenance/aeat-latest.json`.
+- Prestaciones y comunidades tienen un importador por fuente, con el mismo patrón que la AEAT (lectura de Excel oficial sin dependencias en `scripts/lib/xlsx-reader.mjs`):
+
+  | Comando | Fuente oficial | Escribe |
+  | --- | --- | --- |
+  | `npm run data:refresh:pensiones` | Seguridad Social · [Pensiones contributivas en vigor](https://www.seg-social.es/wps/portal/wss/internet/EstadisticasPresupuestosEstudios/Estadisticas/EST23/EST24), libro `S<AAAAMM>.xlsx` | ficha `pensions` |
+  | `npm run data:refresh:pnc` | Imserso · [Pensiones no contributivas](https://imserso.es/el-imserso/documentacion/estadisticas/pensiones-no-contributivas-jubilacion-incapacidad-pnc), `evolpncs.xlsx` | ficha `non-contributory-pensions` |
+  | `npm run data:refresh:imv` | INSS · [sección IMV de la revista de la Seguridad Social](https://revista.seg-social.es/imv), `AAAAMM_IMV - Nómina.xlsx` | ficha `imv` |
+  | `npm run data:refresh:paro` | Ministerio de Trabajo · [Estadística de Prestaciones por Desempleo (PRD)](https://www.mites.gob.es/es/estadisticas/prestaciones_SS_otra_proteccion/PRD/welcome.htm), datos del SEPE | ficha `unemployment` |
+  | `npm run data:refresh:ccaa` | IGAE · [Administración regional por comunidad](https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx), `M_CCAA_Sub_Det_AAAA.xlsx` | `igaeMonthly` y columnas `igaeMonthly*` de `data/comunidades-autonomicas.json` |
+
+  Cada uno valida sumas y periodo, archiva en `data/history/<fuente>/` todos los meses iguales o posteriores al de la IGAE y solo escribe el mes de `data/igae-latest.json`. La procedencia del dato mostrado (URL, catálogo, SHA-256, fecha de descarga, lector y tabla) está en `data/provenance/<fuente>-latest.json`. `npm run data:refresh:auxiliares` lanza los seis importadores auxiliares (AEAT incluida).
 - `npm run data:snapshot` archiva el mes en `data/dashboard-periods.json` solo si todas las fuentes mensuales coinciden.
-- El workflow semanal [`.github/workflows/refresh-official-data.yml`](.github/workflows/refresh-official-data.yml) encadena estos pasos. Prestaciones y comunidades todavía se actualizan a mano: mientras no se actualicen, no aparece un mes nuevo.
+- El workflow semanal [`.github/workflows/refresh-official-data.yml`](.github/workflows/refresh-official-data.yml) encadena estos pasos: primero archiva lo nuevo de cada serie auxiliar, después intenta avanzar la IGAE y, si avanza, vuelve a lanzar las series auxiliares para que escriban el mismo mes. El dato que más tarda es el gasto en paro: la PRD lo publica un mes después que los beneficiarios.
 
 ## Comandos
 
 ```bash
-npm test                  # reglas del simulador, vista acumulada, parsers IGAE y AEAT y periodos
+npm test                  # reglas del simulador, vista acumulada, parsers IGAE, AEAT, prestaciones y comunidades, y periodos
 npm run validate:data     # sumas, fuentes, procedencia y periodos de data/
 npm run data:refresh      # IGAE (requiere internet y pdftotext de Poppler)
 npm run data:refresh:aeat # AEAT (requiere internet y pdftotext de Poppler)
+npm run data:refresh:auxiliares # AEAT, pensiones, PNC, IMV, paro y comunidades (requiere internet)
 npm run build
 ```

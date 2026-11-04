@@ -1,0 +1,39 @@
+{
+  "referencePeriod": "2026-08",
+  "periodLabel": "Agosto 2026",
+  "unit": "personas beneficiarias el último día del mes; gasto en miles de euros",
+  "measure": "PRD-E1 (beneficiarios y tasa de cobertura) y PRD-E2 (gasto con cotizaciones a la Seguridad Social)",
+  "values": {
+    "beneficiaries": {
+      "total": 1896142,
+      "contributory": 1022053,
+      "contributoryBenefit": 1017309,
+      "contributoryAgricultural": 4744,
+      "assistance": 873750,
+      "subsidy": 750014,
+      "agriculturalIncome": 60111,
+      "agriculturalSubsidy": 63625,
+      "activeInsertionIncome": 339,
+      "activationProgramme": 0
+    },
+    "spendingThousands": {
+      "total": 2242129.14,
+      "contributory": 1591462.43,
+      "assistance": 650610.36,
+      "subsidy": 613234.02,
+      "agriculturalSubsidy": 37376.34,
+      "activeInsertionIncome": 56.35,
+      "activationProgramme": 0
+    },
+    "coverageRate": 87.12214289718243,
+    "averageContributoryEurosPerMonth": 1008.2034845551063
+  },
+  "provenance": {
+    "sourceUrl": "https://www.mites.gob.es/estadisticas/PRD/prd26_sep/prd_09_26.xlsx",
+    "catalogUrl": "https://www.mites.gob.es/es/estadisticas/prestaciones_SS_otra_proteccion/PRD/welcome.htm",
+    "sha256": "b629c9a63fb38c3decc69db5d19cc4eb147194fd161caf02dbf46b0cfa0cd383",
+    "parser": "trabajo-prd@1",
+    "table": "prd_09_26.xlsx · PRD-E1 y PRD-E2",
+    "retrievedAt": "2026-11-04T07:25:43.623Z"
+  }
+}

@@ -1,4 +1,4 @@
-name: Actualizar datos oficiales IGAE y AEAT
+name: Actualizar datos oficiales del panel mensual
 
 on:
   schedule:
@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  refresh-igae:
+  refresh-official-data:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,11 +22,39 @@ jobs:
       - run: npm ci
       - name: Validar datos antes de actualizar
         run: npm run validate:data
-      - name: Buscar el último informe mensual y actualizar la serie IGAE
-        run: npm run data:refresh
-      - name: Leer el informe mensual de recaudación AEAT del mismo mes
+      # Primera pasada: cada importador descarga la última publicación, la valida
+      # y archiva en data/history/ los meses posteriores al del panel. Si una web
+      # falla, las demás siguen; la IGAE no avanzará hasta tener todas las series.
+      - name: Archivar la recaudación mensual AEAT
+        continue-on-error: true
         run: npm run data:refresh:aeat
-      - name: Validar sumas, saldo, fuentes y periodos
+      - name: Archivar las pensiones contributivas (Seguridad Social)
+        continue-on-error: true
+        run: npm run data:refresh:pensiones
+      - name: Archivar las pensiones no contributivas (Imserso)
+        continue-on-error: true
+        run: npm run data:refresh:pnc
+      - name: Archivar el Ingreso Mínimo Vital (INSS)
+        continue-on-error: true
+        run: npm run data:refresh:imv
+      - name: Archivar las prestaciones por desempleo (Trabajo · SEPE)
+        continue-on-error: true
+        run: npm run data:refresh:paro
+      - name: Archivar los datos mensuales por comunidad autónoma (IGAE)
+        continue-on-error: true
+        run: npm run data:refresh:ccaa
+      - name: Buscar el último informe mensual IGAE y avanzar el panel si todas las series tienen ese mes
+        run: npm run data:refresh
+      # Segunda pasada: si la IGAE ha avanzado, las series auxiliares escriben el
+      # mismo mes (desde la publicación vigente o desde su copia archivada).
+      - name: Escribir el mes nuevo en todas las series auxiliares
+        run: |
+          if git diff --quiet -- data/igae-latest.json; then
+            echo "La IGAE no ha cambiado de mes; no hace falta una segunda pasada."
+          else
+            npm run data:refresh:auxiliares
+          fi
+      - name: Validar sumas, saldo, fuentes, procedencia y periodos
         run: npm run validate:data
       - name: Archivar el panel si todas las fuentes mensuales coinciden
         run: npm run data:snapshot
@@ -34,12 +62,13 @@ jobs:
         run: npm run build
       - name: Guardar una nueva versión si cambiaron las cifras
         run: |
-          if [ -z "$(git status --porcelain -- data/igae-latest.json data/recaudacion-tributaria-2025.json data/provenance data/history data/dashboard-periods.json)" ]; then
-            echo "Las publicaciones IGAE y AEAT no han cambiado."
+          paths="data/igae-latest.json data/recaudacion-tributaria-2025.json data/prestaciones-latest.json data/comunidades-autonomicas.json data/provenance data/history data/dashboard-periods.json"
+          if [ -z "$(git status --porcelain -- $paths)" ]; then
+            echo "Las publicaciones oficiales no han cambiado."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/igae-latest.json data/recaudacion-tributaria-2025.json data/provenance data/history data/dashboard-periods.json
+          git add $paths
           git commit -m "Actualiza datos oficiales del panel mensual"
           git push

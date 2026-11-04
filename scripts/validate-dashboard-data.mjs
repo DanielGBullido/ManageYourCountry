@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 import { matchesCommonReferenceMonth, toYearMonth } from './lib/monthly-period.mjs';
 
 const readJson = async path => JSON.parse(await readFile(new URL(`../data/${path}`, import.meta.url), 'utf8'));
@@ -74,6 +74,55 @@ assert.ok(taxes.latestMonthly.period && taxes.latestMonthly.sourceUrl, 'Falta la
 assert.equal(aeatProvenance.referencePeriod, toYearMonth(taxes.latestMonthly.period), 'La procedencia AEAT registrada debe corresponder al mes mostrado');
 assert.equal(aeatProvenance.sourceUrl, taxes.latestMonthly.sourceUrl, 'El PDF AEAT registrado debe ser el que se muestra como fuente');
 assert.match(aeatProvenance.sha256 ?? '', /^[0-9a-f]{64}$/, 'Falta la huella SHA-256 del informe AEAT');
+
+// Procedencia de las series auxiliares importadas automáticamente: el fichero
+// data/provenance/<fuente>-latest.json debe describir el mismo mes y el mismo
+// documento que se muestra, y debe existir una copia archivada de ese mes en
+// data/history/<fuente>/ con exactamente las cifras publicadas en el panel.
+const benefit = id => benefits.items.find(item => item.id === id);
+const round = (value, digits) => Math.round(value * 10 ** digits) / 10 ** digits;
+const sameNumbers = (actual, expected) => JSON.stringify(actual) === JSON.stringify(expected);
+const importedSeries = [
+  {
+    source: 'seguridad-social-pensiones', shown: benefit('pensions'),
+    reproduces: (item, values) => item.amountMillions === round(values.total.amountThousands / 1000, 1)
+      && sameNumbers(item.details.map(detail => detail.amountMillions), ['retirement', 'widowhood', 'permanentDisability', 'orphanhood', 'family'].map(key => round(values[key].amountThousands / 1000, 1))),
+  },
+  {
+    source: 'imserso-pnc', shown: benefit('non-contributory-pensions'),
+    reproduces: (item, values) => item.amountMillions === round(values.total.amountEuros / 1e6, 6)
+      && sameNumbers(item.details.map(detail => detail.amountMillions), [round(values.retirement.amountEuros / 1e6, 8), round(values.disability.amountEuros / 1e6, 8)]),
+  },
+  { source: 'inss-imv', shown: benefit('imv'), reproduces: (item, values) => item.amountMillions === round(values.amountEuros / 1e6, 1) },
+  { source: 'sepe-prd', shown: benefit('unemployment'), reproduces: (item, values) => item.amountMillions === round(values.spendingThousands.total / 1000, 2) },
+  {
+    source: 'igae-ccaa', shown: regions.igaeMonthly,
+    reproduces: (_, values) => sameNumbers(
+      regions.communities.map(item => [item.name, item.igaeMonthlyTax, item.igaeMonthlyRevenue, item.igaeMonthlyExpenditure, item.igaeMonthlyBalance]),
+      regions.communities.map(item => { const value = values.communities.find(entry => entry.name === item.name); return [item.name, value?.tax, value?.revenue, value?.expenditure, value?.balance]; }),
+    ),
+  },
+];
+const historyFiles = async source => { try { return (await readdir(new URL(`../data/history/${source}/`, import.meta.url))).filter(name => name.endsWith('.json')); } catch { return []; } };
+for (const { source, shown, reproduces } of importedSeries) {
+  assert.ok(shown, `Falta la serie que importa ${source}`);
+  const recorded = await readJson(`provenance/${source}-latest.json`);
+  const period = toYearMonth(shown.period);
+  assert.equal(recorded.referencePeriod, period, `La procedencia de ${source} debe corresponder al mes mostrado (${shown.period})`);
+  assert.equal(recorded.sourceUrl, shown.sourceUrl, `El fichero registrado para ${source} debe ser el que se enlaza como fuente`);
+  assert.match(recorded.sha256 ?? '', /^[0-9a-f]{64}$/, `Falta la huella SHA-256 de ${source}`);
+  assert.ok(recorded.sourceUrl.startsWith('https://') && recorded.catalogUrl?.startsWith('https://'), `${source} debe enlazar el documento y el catálogo oficiales por HTTPS`);
+  assert.ok(recorded.parser && recorded.table && !Number.isNaN(Date.parse(recorded.retrievedAt)), `${source} debe registrar lector, tabla y fecha de descarga`);
+  const archives = await Promise.all((await historyFiles(source)).filter(name => name.startsWith(`${period}-`)).map(name => readJson(`history/${source}/${name}`)));
+  assert.ok(archives.length, `Falta la copia archivada de ${period} en data/history/${source}/`);
+  for (const archive of archives) {
+    assert.equal(archive.referencePeriod, period, `Copia archivada de ${source} con periodo incoherente`);
+    assert.match(archive.provenance?.sha256 ?? '', /^[0-9a-f]{64}$/, `Copia archivada de ${source} sin SHA-256`);
+  }
+  assert.ok(archives.some(archive => reproduces(shown, archive.values)), `Las cifras de ${source} en el panel no coinciden con ninguna copia archivada de ${period}`);
+}
+assert.equal(normalizedPeriod(regions.igaeMonthly.period), normalizedPeriod(monthly.periodLabel), 'Los datos mensuales por comunidad y el simulador deben usar el mismo mes de referencia');
+
 const archivedPeriods = Object.entries(dashboardPeriods);
 assert.ok(archivedPeriods.length > 0, 'El selector necesita al menos un mes completo archivado');
 assert.ok(localHistory.months.length > 0, 'Falta el histórico local de la serie IGAE');

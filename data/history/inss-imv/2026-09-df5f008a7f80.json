@@ -1,0 +1,23 @@
+{
+  "referencePeriod": "2026-09",
+  "periodLabel": "Septiembre 2026",
+  "unit": "hogares (prestaciones), personas beneficiarias y euros (importe bruto de la nómina)",
+  "measure": "Nómina mensual del IMV · fila TOTAL",
+  "values": {
+    "households": 905792,
+    "womenHolders": 616641,
+    "menHolders": 289151,
+    "capiHouseholds": 631778,
+    "beneficiaries": 2761686,
+    "amountEuros": 479286993.39,
+    "averagePerHousehold": 501.4884259852152
+  },
+  "provenance": {
+    "sourceUrl": "https://revista.seg-social.es/documents/39386/0/202609_IMV+-+N%C3%B3mina.xlsx/8cd3b531-a2f9-72f2-b556-227d935c876d?t=1791359160555",
+    "catalogUrl": "https://revista.seg-social.es/-/el-ingreso-m%C3%ADnimo-vital-protege-en-septiembre-a-cerca-de-2-8-millones-de-personas-residentes-en-905.792-hogares",
+    "sha256": "df5f008a7f80e322033d1b04b3a9e433da7614635413721d746562840248efd3",
+    "parser": "inss-imv@1",
+    "table": "202609_IMV - Nómina.xlsx · hoja Nómina · fila TOTAL",
+    "retrievedAt": "2026-11-04T07:25:43.037Z"
+  }
+}

@@ -14,161 +14,162 @@
       "name": "Andalucía",
       "fiscalCapacity": 22170.87646,
       "systemFunding": 30074.97055,
-      "igaeAugustTax": 885,
-      "igaeAugustRevenue": 2858,
-      "igaeAugustExpenditure": 3453,
-      "igaeAugustBalance": -595
+      "igaeMonthlyTax": 885,
+      "igaeMonthlyRevenue": 2858,
+      "igaeMonthlyExpenditure": 3453,
+      "igaeMonthlyBalance": -595
     },
     {
       "name": "Aragón",
       "fiscalCapacity": 4544.09559,
       "systemFunding": 5574.50234,
-      "igaeAugustTax": 214,
-      "igaeAugustRevenue": 536,
-      "igaeAugustExpenditure": 569,
-      "igaeAugustBalance": -33
+      "igaeMonthlyTax": 214,
+      "igaeMonthlyRevenue": 536,
+      "igaeMonthlyExpenditure": 569,
+      "igaeMonthlyBalance": -33
     },
     {
       "name": "Asturias",
       "fiscalCapacity": 3081.82845,
       "systemFunding": 4069.38572,
-      "igaeAugustTax": 174,
-      "igaeAugustRevenue": 483,
-      "igaeAugustExpenditure": 475,
-      "igaeAugustBalance": 8
+      "igaeMonthlyTax": 174,
+      "igaeMonthlyRevenue": 483,
+      "igaeMonthlyExpenditure": 475,
+      "igaeMonthlyBalance": 8
     },
     {
       "name": "Illes Balears",
       "fiscalCapacity": 4832.03962,
       "systemFunding": 3711.48156,
-      "igaeAugustTax": 284,
-      "igaeAugustRevenue": 598,
-      "igaeAugustExpenditure": 612,
-      "igaeAugustBalance": -14
+      "igaeMonthlyTax": 284,
+      "igaeMonthlyRevenue": 598,
+      "igaeMonthlyExpenditure": 612,
+      "igaeMonthlyBalance": -14
     },
     {
       "name": "Canarias",
       "fiscalCapacity": 2929.91799,
       "systemFunding": 7291.66522,
-      "igaeAugustTax": 401,
-      "igaeAugustRevenue": 1041,
-      "igaeAugustExpenditure": 973,
-      "igaeAugustBalance": 68
+      "igaeMonthlyTax": 401,
+      "igaeMonthlyRevenue": 1041,
+      "igaeMonthlyExpenditure": 973,
+      "igaeMonthlyBalance": 68
     },
     {
       "name": "Cantabria",
       "fiscalCapacity": 1844.99675,
       "systemFunding": 2820.03283,
-      "igaeAugustTax": 80,
-      "igaeAugustRevenue": 281,
-      "igaeAugustExpenditure": 275,
-      "igaeAugustBalance": 6
+      "igaeMonthlyTax": 80,
+      "igaeMonthlyRevenue": 281,
+      "igaeMonthlyExpenditure": 275,
+      "igaeMonthlyBalance": 6
     },
     {
       "name": "Castilla-La Mancha",
       "fiscalCapacity": 5333.04676,
       "systemFunding": 7567.8203,
-      "igaeAugustTax": 256,
-      "igaeAugustRevenue": 801,
-      "igaeAugustExpenditure": 801,
-      "igaeAugustBalance": 0
+      "igaeMonthlyTax": 256,
+      "igaeMonthlyRevenue": 801,
+      "igaeMonthlyExpenditure": 801,
+      "igaeMonthlyBalance": 0
     },
     {
       "name": "Castilla y León",
       "fiscalCapacity": 7385.51297,
       "systemFunding": 9775.60058,
-      "igaeAugustTax": 343,
-      "igaeAugustRevenue": 940,
-      "igaeAugustExpenditure": 1046,
-      "igaeAugustBalance": -106
+      "igaeMonthlyTax": 343,
+      "igaeMonthlyRevenue": 940,
+      "igaeMonthlyExpenditure": 1046,
+      "igaeMonthlyBalance": -106
     },
     {
       "name": "Cataluña",
       "fiscalCapacity": 30382.6719,
       "systemFunding": 30823.34999,
-      "igaeAugustTax": 2418,
-      "igaeAugustRevenue": 3819,
-      "igaeAugustExpenditure": 3394,
-      "igaeAugustBalance": 425
+      "igaeMonthlyTax": 2418,
+      "igaeMonthlyRevenue": 3819,
+      "igaeMonthlyExpenditure": 3394,
+      "igaeMonthlyBalance": 425
     },
     {
       "name": "Comunitat Valenciana",
       "fiscalCapacity": 15563.50124,
       "systemFunding": 16674.03008,
-      "igaeAugustTax": 953,
-      "igaeAugustRevenue": 1987,
-      "igaeAugustExpenditure": 2285,
-      "igaeAugustBalance": -298
+      "igaeMonthlyTax": 953,
+      "igaeMonthlyRevenue": 1987,
+      "igaeMonthlyExpenditure": 2285,
+      "igaeMonthlyBalance": -298
     },
     {
       "name": "Extremadura",
       "fiscalCapacity": 2491.07805,
       "systemFunding": 4323.55055,
-      "igaeAugustTax": 191,
-      "igaeAugustRevenue": 561,
-      "igaeAugustExpenditure": 451,
-      "igaeAugustBalance": 110
+      "igaeMonthlyTax": 191,
+      "igaeMonthlyRevenue": 561,
+      "igaeMonthlyExpenditure": 451,
+      "igaeMonthlyBalance": 110
     },
     {
       "name": "Galicia",
       "fiscalCapacity": 7676.84406,
       "systemFunding": 10938.49464,
-      "igaeAugustTax": 415,
-      "igaeAugustRevenue": 1160,
-      "igaeAugustExpenditure": 1138,
-      "igaeAugustBalance": 22
+      "igaeMonthlyTax": 415,
+      "igaeMonthlyRevenue": 1160,
+      "igaeMonthlyExpenditure": 1138,
+      "igaeMonthlyBalance": 22
     },
     {
       "name": "La Rioja",
       "fiscalCapacity": 971.01382,
       "systemFunding": 1472.66072,
-      "igaeAugustTax": 44,
-      "igaeAugustRevenue": 146,
-      "igaeAugustExpenditure": 154,
-      "igaeAugustBalance": -8
+      "igaeMonthlyTax": 44,
+      "igaeMonthlyRevenue": 146,
+      "igaeMonthlyExpenditure": 154,
+      "igaeMonthlyBalance": -8
     },
     {
       "name": "Comunidad de Madrid",
       "fiscalCapacity": 30283.2494,
       "systemFunding": 26259.90805,
-      "igaeAugustTax": 2047,
-      "igaeAugustRevenue": 3336,
-      "igaeAugustExpenditure": 3035,
-      "igaeAugustBalance": 301
+      "igaeMonthlyTax": 2047,
+      "igaeMonthlyRevenue": 3336,
+      "igaeMonthlyExpenditure": 3035,
+      "igaeMonthlyBalance": 301
     },
     {
       "name": "Región de Murcia",
       "fiscalCapacity": 3929.43597,
       "systemFunding": 5125.14456,
-      "igaeAugustTax": 121,
-      "igaeAugustRevenue": 439,
-      "igaeAugustExpenditure": 619,
-      "igaeAugustBalance": -180
+      "igaeMonthlyTax": 121,
+      "igaeMonthlyRevenue": 439,
+      "igaeMonthlyExpenditure": 619,
+      "igaeMonthlyBalance": -180
     },
     {
       "name": "Navarra",
-      "igaeAugustTax": 940,
-      "igaeAugustRevenue": 1024,
-      "igaeAugustExpenditure": 614,
-      "igaeAugustBalance": 410
+      "igaeMonthlyTax": 940,
+      "igaeMonthlyRevenue": 1024,
+      "igaeMonthlyExpenditure": 614,
+      "igaeMonthlyBalance": 410
     },
     {
       "name": "País Vasco",
-      "igaeAugustTax": 1,
-      "igaeAugustRevenue": 1277,
-      "igaeAugustExpenditure": 1292,
-      "igaeAugustBalance": -15
+      "igaeMonthlyTax": 1,
+      "igaeMonthlyRevenue": 1277,
+      "igaeMonthlyExpenditure": 1292,
+      "igaeMonthlyBalance": -15
     }
   ],
   "igaeMonthly": {
     "period": "Agosto de 2026",
     "source": "IGAE · Operaciones no financieras del subsector Administración regional y detalle por comunidad autónoma",
-    "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx",
+    "sourceUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/CCAA-M/M_CCAA_Sub_Det_2026.xlsx",
     "updated": "30 de octubre de 2026",
     "method": "La hoja ofrece cifras acumuladas hasta fin de mes. El flujo de agosto se calcula restando el acumulado de julio al acumulado de agosto.",
     "taxDescription": "Impuestos contabilizados como ingreso de la Administración regional de cada comunidad en contabilidad nacional. En territorios forales la recaudación de sus haciendas propias no se refleja con el mismo alcance en esta cuenta regional.",
     "revenueDescription": "Suma de los ingresos no financieros contabilizados en las cuentas del Gobierno autonómico: impuestos que se le atribuyen, transferencias recibidas, ventas de bienes y servicios, tasas y precios públicos, rentas de bienes públicos y transferencias de capital. No es todo lo que pagan las personas y empresas del territorio: también hay impuestos estatales y locales. La fila mensual de la IGAE no desglosa aquí cada fuente por separado.",
     "expenditureDescription": "Gastos no financieros contabilizados por cada Administración regional. El dato de agosto se obtiene restando el acumulado de julio al acumulado de agosto.",
-    "balanceDescription": "Diferencia calculada entre ingresos no financieros y gastos no financieros de agosto según la cuenta de cada Administración regional; no es saldo bancario ni resultado de caja."
+    "balanceDescription": "Diferencia calculada entre ingresos no financieros y gastos no financieros de agosto según la cuenta de cada Administración regional; no es saldo bancario ni resultado de caja.",
+    "catalogUrl": "https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx"
   }
 }

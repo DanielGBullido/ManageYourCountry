@@ -1,0 +1,29 @@
+{
+  "referencePeriod": "2026-09",
+  "periodLabel": "Septiembre 2026",
+  "unit": "euros (importe bruto de la nómina) y número de pensiones",
+  "measure": "Nómina mensual de PNC de jubilación e incapacidad · total Estado con Navarra y País Vasco",
+  "values": {
+    "retirement": {
+      "pensions": 306109,
+      "amountEuros": 189057020.27
+    },
+    "disability": {
+      "pensions": 163600,
+      "amountEuros": 113149910.24
+    },
+    "total": {
+      "pensions": 469709,
+      "amountEuros": 302206930.51
+    },
+    "includesExtraPay": false
+  },
+  "provenance": {
+    "sourceUrl": "https://imserso.es/documents/20123/121856/evolpncs.xlsx/706b8f90-698b-6b77-941d-8f7f6d3938c6",
+    "catalogUrl": "https://imserso.es/el-imserso/documentacion/estadisticas/pensiones-no-contributivas-jubilacion-incapacidad-pnc",
+    "sha256": "4817ca334a875e08e8b30f389500f99ace45a2aa66244d032c27c90ad4a85a29",
+    "parser": "imserso-pnc@1",
+    "table": "evolpncs.xlsx · Anexo 1 · Evolución de las nóminas",
+    "retrievedAt": "2026-11-04T07:24:54.303Z"
+  }
+}

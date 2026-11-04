@@ -1,0 +1,46 @@
+{
+  "referencePeriod": "2026-10",
+  "periodLabel": "Octubre 2026",
+  "unit": "número de pensiones; importe mensual en miles de euros; pensión media en euros al mes",
+  "measure": "Pensiones contributivas en vigor el día 1 del mes (nómina mensual) · hoja S_Total, total del sistema",
+  "values": {
+    "total": {
+      "pensions": 10565782,
+      "amountThousands": 14539957.057560029,
+      "averageEuros": 1376.1363860772472
+    },
+    "permanentDisability": {
+      "pensions": 1062509,
+      "amountThousands": 1333805.6504599943,
+      "averageEuros": 1255.3358611174065
+    },
+    "retirement": {
+      "pensions": 6777927,
+      "amountThousands": 10692934.780120011,
+      "averageEuros": 1577.611381786793
+    },
+    "widowhood": {
+      "pensions": 2344467,
+      "amountThousands": 2289774.4470199896,
+      "averageEuros": 976.6716473381751
+    },
+    "orphanhood": {
+      "pensions": 333841,
+      "amountThousands": 184602.5786000001,
+      "averageEuros": 552.9655692380506
+    },
+    "family": {
+      "pensions": 47038,
+      "amountThousands": 38839.60135999997,
+      "averageEuros": 825.7069042051102
+    }
+  },
+  "provenance": {
+    "sourceUrl": "https://www.seg-social.es/wps/wcm/connect/wss/85c56f05-1d11-4a4b-974f-14c4e5386427/S202610.xlsx?MOD=AJPERES",
+    "catalogUrl": "https://www.seg-social.es/wps/portal/wss/internet/EstadisticasPresupuestosEstudios/Estadisticas/EST23/EST24",
+    "sha256": "8331212b258f759f8c545572f0d3b19797c2275d7104e42b8aa17ac86a8578eb",
+    "parser": "seguridad-social-pensiones@1",
+    "table": "Series de pensiones en vigor (S202610.xlsx) · S_Total",
+    "retrievedAt": "2026-11-04T07:24:52.505Z"
+  }
+}

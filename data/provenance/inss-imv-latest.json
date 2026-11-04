@@ -1,0 +1,9 @@
+{
+  "referencePeriod": "2026-08",
+  "sourceUrl": "https://revista.seg-social.es/documents/39386/0/202608_IMV+-+N%C3%B3mina.xlsx/42e5ea71-d2c8-6095-a115-ffe11a8b0eb7?t=1788847007078",
+  "catalogUrl": "https://revista.seg-social.es/-/el-ingreso-m%C3%ADnimo-vital-protege-en-agosto-a-m%C3%A1s-de-2-7-millones-de-personas-residentes-en-894.000-hogares",
+  "sha256": "1c07e2f5926f895a44f6d84fc571b140a3333b8e7f467b0f5e1825cae846d272",
+  "parser": "inss-imv@1",
+  "table": "202608_IMV - Nómina.xlsx · hoja Nómina · fila TOTAL",
+  "retrievedAt": "2026-11-04T07:25:43.037Z"
+}

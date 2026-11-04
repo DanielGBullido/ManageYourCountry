@@ -10,6 +10,12 @@
     "test": "node --experimental-strip-types --test scripts/*.test.mjs",
     "data:refresh": "node scripts/refresh-igae.mjs",
     "data:refresh:aeat": "node scripts/refresh-aeat.mjs",
+    "data:refresh:pensiones": "node scripts/refresh-pensiones.mjs",
+    "data:refresh:pnc": "node scripts/refresh-pnc.mjs",
+    "data:refresh:imv": "node scripts/refresh-imv.mjs",
+    "data:refresh:paro": "node scripts/refresh-paro.mjs",
+    "data:refresh:ccaa": "node scripts/refresh-igae-ccaa.mjs",
+    "data:refresh:auxiliares": "npm run data:refresh:aeat && npm run data:refresh:pensiones && npm run data:refresh:pnc && npm run data:refresh:imv && npm run data:refresh:paro && npm run data:refresh:ccaa",
     "data:snapshot": "node scripts/build-dashboard-periods.mjs"
   },
   "dependencies": {

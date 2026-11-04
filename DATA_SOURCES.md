@@ -18,7 +18,7 @@ La cabecera muestra el saldo de deuda PDE del mismo mes seleccionado para IGAE, 
 
 La deuda PDE es un saldo nominal consolidado al cierre de cada mes e incluye Administración central, comunidades autónomas, corporaciones locales y Seguridad Social. El saldo de ingresos menos gastos IGAE es un flujo mensual no financiero y, en este panel, excluye la Administración local. No se deben comparar como magnitudes equivalentes ni interpretar que un superávit mensual se dedica automáticamente a amortizar deuda: la variación de la deuda también incluye operaciones financieras, cambios en efectivo y ajustes de consolidación. La serie mensual es un avance y puede revisarse.
 
-Corte revisado manualmente el 1 de noviembre de 2026. A esa fecha, el agregado mensual IGAE más reciente era agosto; la población INE más reciente, 1 de julio; la EPA, tercer trimestre; la recaudación mensual AEAT, septiembre; las pensiones contributivas, octubre; el IMV, septiembre; y las prestaciones por desempleo, agosto. Estas series no se actualizan automáticamente al abrir la app.
+Corte revisado manualmente el 1 de noviembre de 2026. A esa fecha, el agregado mensual IGAE más reciente era agosto; la población INE más reciente, 1 de julio; la EPA, tercer trimestre; la recaudación mensual AEAT, septiembre; las pensiones contributivas, octubre; el IMV, septiembre; y las prestaciones por desempleo, agosto. La app no consulta estas series al abrirse; desde el 4 de noviembre de 2026, IGAE, AEAT, prestaciones y datos autonómicos se actualizan con el workflow semanal y el resto sigue siendo editorial.
 
 ### Recaudación mensual AEAT · importador automático
 
@@ -30,6 +30,52 @@ Corte revisado manualmente el 1 de noviembre de 2026. A esa fecha, el agregado m
 - **Validación:** el título del PDF debe ser del mes esperado; Estado + AA.TT. debe dar el total (±1 M€ por redondeo); los capítulos I, II y III deben sumar el total (±2 M€), y el total debe coincidir con la fila «TOTAL INGRESOS TRIBUTARIOS» del cuadro 1.3, que está en miles de euros. Si algo falla, el script se detiene sin escribir. Se probó con los nueve informes de 2026 y con diciembre de 2025.
 - **Revisiones:** la AEAT puede volver a publicar un PDF con el mismo nombre (los metadatos del PDF de agosto de 2026 indican una modificación cinco días después de su creación). Cada lectura se archiva en `data/history/aeat/AAAA-MM-<sha>.json`: si cambia la huella SHA-256, queda una versión nueva, y si cambia la cifra del mes mostrado, el script lo avisa.
 - **Alineación:** `latestMonthly` siempre se escribe con el informe del mismo mes que `data/igae-latest.json`. Si la AEAT va por delante (hoy publica septiembre y la IGAE agosto), el mes más reciente se archiva, pero no se muestra. La procedencia del dato visible (URL, catálogo, SHA-256, fecha de descarga y versión del parser) está en `data/provenance/aeat-latest.json`.
+
+### Prestaciones y datos autonómicos · importadores automáticos
+
+Fuentes comprobadas el 4 de noviembre de 2026. Las notas de prensa que se citaban antes (La Moncloa, Inclusión) se han sustituido por el fichero estadístico oficial del que salen sus cifras; en los cinco casos los datos de agosto de 2026 importados coinciden con los que se habían copiado a mano. Todos los ficheros son Excel `.xlsx` y se leen con `scripts/lib/xlsx-reader.mjs`, sin dependencias. Reglas comunes (`scripts/lib/official-import.mjs`): se archiva en `data/history/<fuente>/AAAA-MM-<sha12>.json` cada mes completo igual o posterior al de la IGAE (solo si sus cifras cambian), se escribe únicamente el mes de `data/igae-latest.json` y la procedencia queda en `data/provenance/<fuente>-latest.json` (URL del fichero, catálogo, SHA-256, fecha de descarga, lector y tabla). Si la publicación vigente ya no trae el mes del panel, se usa la copia archivada; si nunca se archivó, se conserva el dato actual.
+
+**Pensiones contributivas · Seguridad Social** (`npm run data:refresh:pensiones`, fuente `seguridad-social-pensiones`)
+
+- **Catálogo:** [Pensiones contributivas en vigor](https://www.seg-social.es/wps/portal/wss/internet/EstadisticasPresupuestosEstudios/Estadisticas/EST23/EST24). Solo enlaza el mes vigente (el 4 de noviembre, octubre de 2026); los enlaces son de gestor de contenidos y cambian cada mes, por eso se archiva cada lectura.
+- **Formato y medida:** libro «Series de pensiones en vigor» `S<AAAAMM>.xlsx`, hoja `S_Total` (total del sistema). Una fila por nómina del año en curso («1 enero», «1 febrero»…) y el cierre de los cuatro años anteriores: número de pensiones, importe en miles de euros y pensión media en €/mes, por clase (incapacidad permanente, jubilación, viudedad, orfandad y favor de familiares).
+- **Calendario:** mensual; la nómina de cada mes se publica dentro del propio mes, unos dos meses antes que la IGAE.
+- **Validación:** cabeceras y unidades esperadas; las cinco clases suman el número total (exacto) y el importe total (±1 miles de €); la pensión media cuadra con importe/número (±0,01 €).
+- **Revisiones y límites:** cada libro recoge de nuevo todo el año, así que una revisión genera otra copia archivada. No publica el número de pensionistas (personas), que sí daba la nota de prensa; la ficha ya no lo menciona.
+
+**Pensiones no contributivas · Imserso** (`npm run data:refresh:pnc`, fuente `imserso-pnc`)
+
+- **Catálogo:** [Pensiones no contributivas de jubilación e incapacidad](https://imserso.es/el-imserso/documentacion/estadisticas/pensiones-no-contributivas-jubilacion-incapacidad-pnc), enlace «evolpncs.xlsx» (el mismo documento también se ofrece en PDF y CSV).
+- **Formato y medida:** Anexo 1 «Evolución de las nóminas», total Estado con Navarra y País Vasco. Importes brutos en euros y número de pensiones, por jubilación e incapacidad, mes a mes del año en curso; los meses aún no pagados aparecen a cero y se ignoran.
+- **Calendario:** el documento se sustituye cada mes (la versión con septiembre de 2026 es del 6 de octubre).
+- **Validación:** jubilación + incapacidad = total en importe (±0,05 €) y número (exacto); importes declarados como brutos.
+- **Revisiones y límites:** «JUNIO*» y «NOVIEMBRE*» incluyen paga extraordinaria y la ficha lo indica; «FEBRERO**» es una corrección técnica, no paga extra. El total anual incluye pagos del complemento de alquiler que no están en los meses.
+
+**Ingreso Mínimo Vital · INSS** (`npm run data:refresh:imv`, fuente `inss-imv`)
+
+- **Catálogo:** [sección IMV de la revista de la Seguridad Social](https://revista.seg-social.es/imv). Cada mes una nota enlaza `AAAAMM_IMV - Nómina.xlsx` (y un dossier por comunidad y provincia). El importador revisa las ocho notas más recientes. Es la vía menos estable de las cinco: depende de la maquetación de una sección de noticias. Si cambia, el importador se detiene con un error y no escribe nada.
+- **Formato y medida:** hoja `Nómina`, fila TOTAL: hogares (número de prestaciones = titulares), personas beneficiarias, hogares con CAPI, importe bruto de la nómina en euros y cuantía media por hogar.
+- **Calendario:** la nómina de agosto se publicó el 8 de septiembre de 2026 y la de septiembre, el 7 de octubre (aproximadamente una semana después del cierre del mes).
+- **Validación:** el título debe ser del mes del nombre del fichero; las 17 comunidades más Ceuta y Melilla suman la fila TOTAL en hogares, personas, CAPI, titulares por sexo e importe (±1 €); los hogares con CAPI no superan el total.
+- **Revisiones y límites:** el importe incluye atrasos y la cuantía media no (notas 4 y 5 del libro), así que no se puede comprobar una con la otra. Navarra y País Vasco aportan sus propios datos de gestión.
+
+**Prestaciones por desempleo · Ministerio de Trabajo y SEPE** (`npm run data:refresh:paro`, fuente `sepe-prd`)
+
+- **Catálogo:** [Estadística de Prestaciones por Desempleo (PRD)](https://www.mites.gob.es/es/estadisticas/prestaciones_SS_otra_proteccion/PRD/welcome.htm), libros `prd_MM_AA.xlsx` (se descartan las variantes «sin RDL 2/2024»). Elabora la estadística el Ministerio con los registros del SEPE; las tablas de la web del SEPE traen beneficiarios, pero no el gasto.
+- **Formato y medida:** PRD-E1, beneficiarios el último día del mes por tipo de prestación y tasa de cobertura; PRD-E2, gasto en miles de euros con las cotizaciones a la Seguridad Social que paga el SEPE. El «gasto medio por persona (sin subsidio agrario)» se calcula como el Ministerio: (gasto total − subsidio de eventuales agrarios) / (beneficiarios − subsidio de eventuales agrarios); en agosto, 1.203,1 €.
+- **Calendario:** el libro del mes M trae beneficiarios de M pero gasto solo hasta M−1 (el de septiembre de 2026, publicado el 28 de octubre, cierra el gasto de agosto). Por eso un mes solo se archiva cuando tiene las dos tablas, y suele ser la última serie en llegar.
+- **Validación:** cabeceras esperadas; niveles contributivo + asistencial + RAI + PAE = total, en beneficiarios (exacto) y gasto (±0,05 miles de €), y desgloses internos de cada nivel; la nota de PRD-E2 debe seguir diciendo que el gasto incluye cotizaciones.
+- **Revisiones y límites:** desde noviembre de 2024 los subsidios son provisionales y pueden revisarse. `www.mites.gob.es` no envía el certificado intermedio de su cadena TLS; el importador añade el intermedio oficial «FNMT-RCM · AC Componentes Informáticos» (`scripts/certs/`, válido hasta el 24 de junio de 2028) a las raíces de Node, solo para ese dominio y sin desactivar la verificación.
+
+**Comunidades autónomas · IGAE** (`npm run data:refresh:ccaa`, fuente `igae-ccaa`)
+
+- **Catálogo:** [Administración regional y detalle por comunidad autónoma. Operaciones no financieras. Serie mensual](https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Paginas/imnofinancierasCA.aspx), un libro por año `M_CCAA_Sub_Det_AAAA.xlsx`.
+- **Formato y medida:** Tabla1a (subsector) y Tabla2a–Tabla18a (cada comunidad), millones de euros, acumulados a fin de mes, SEC 2010. Se toman «Impuestos», «Total de ingresos», «Total de gastos» y la capacidad o necesidad de financiación (B.9). Flujo del mes = acumulado del mes − acumulado del mes anterior (enero = acumulado de enero); el saldo mostrado es ingresos − gastos del mes.
+- **Calendario:** el libro se sustituye cuando la IGAE publica el mes (agosto de 2026: actualización del 30 de octubre), a la vez o poco después que el informe mensual del agregado.
+- **Validación:** ingresos − gastos = B.9 acumulado de cada comunidad (±1 M€); las 17 comunidades suman los impuestos de la Administración regional (±17 M€ de redondeo) y sus ingresos y gastos dentro del margen de consolidación (las diferencias observadas son de hasta 14 M€ en ocho meses).
+- **Revisiones y límites:** cada actualización puede revisar meses anteriores, que se archivan como versión nueva. No incluye Ceuta ni Melilla. La capacidad fiscal y la financiación del sistema (liquidación anual de Hacienda) siguen siendo datos editoriales del mismo fichero.
+
+**Alineación:** la IGAE solo avanza a un mes nuevo cuando las seis series auxiliares (AEAT, las cuatro prestaciones y comunidades) ya muestran ese mes o lo tienen archivado. El workflow semanal archiva primero, intenta avanzar la IGAE y, si avanza, vuelve a lanzar las series auxiliares para que escriban el mismo mes.
 
 La primera versión del dato de agosto se transcribió del [informe mensual IGAE](https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP-M/IM_2026_08.pdf), tablas del agregado, columna «En el mes». Ese informe reproduce recursos no financieros por **56.335 M€**, empleos no financieros por **55.019 M€** y capacidad de financiación por **1.316 M€**. Para el selector y el histórico de enero a agosto, la app utiliza la serie consolidada XLSX actualizada el 30 de octubre descrita arriba; el PDF se conserva como una publicación independiente, con su fecha y versión.
 
