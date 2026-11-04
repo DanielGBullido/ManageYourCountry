@@ -59,3 +59,72 @@ export function buildAnnualAccounts(main, cofog, functionalFile) {
     revisionGap: items.TE - cofogTotal,
   };
 }
+
+/** Every cell of a JSON-stat dataset as { dimension: category, ..., value }. */
+export function jsonStatRows(dataset) {
+  const { id, size, dimension: dimensions, value } = dataset;
+  const categories = id.map(name => Object.entries(dimensions[name].category.index).sort((a, b) => a[1] - b[1]).map(([code]) => code));
+  return Object.entries(value).map(([key, cell]) => {
+    let rest = Number(key);
+    const row = {};
+    for (let d = id.length - 1; d >= 0; d -= 1) { row[id[d]] = categories[d][rest % size[d]]; rest = Math.floor(rest / size[d]); }
+    return { ...row, value: Number(cell) };
+  });
+}
+
+export const SUBSECTORS = { S1311: 'central', S1312: 'regional', S1313: 'local', S1314: 'socialSecurity' };
+export const FUNCTION_CODES = Array.from({ length: 10 }, (_, index) => `GF${String(index + 1).padStart(2, '0')}`);
+
+export const contextUrls = (fromYear) => ({
+  ratios: `${EUROSTAT_API}/gov_10a_main?geo=ES&geo=EU27_2020&sector=S13&unit=PC_GDP&na_item=TR&na_item=TE&na_item=B9&sinceTimePeriod=${fromYear}`,
+  debt: `${EUROSTAT_API}/gov_10dd_edpt1?geo=ES&geo=EU27_2020&sector=S13&unit=PC_GDP&na_item=GD&sinceTimePeriod=${fromYear}`,
+  functions: `${EUROSTAT_API}/gov_10a_exp?geo=ES&geo=EU27_2020&sector=S13&unit=PC_GDP&na_item=TE&sinceTimePeriod=${fromYear}${FUNCTION_CODES.map(code => `&cofog99=${code}`).join('')}&cofog99=TOTAL`,
+  levels: `${EUROSTAT_API}/gov_10a_main?geo=ES&unit=MIO_EUR&na_item=TE&na_item=TR&na_item=B9&sector=S13${Object.keys(SUBSECTORS).map(code => `&sector=${code}`).join('')}&sinceTimePeriod=${fromYear}`,
+});
+
+const byKey = (rows, keys) => Object.fromEntries(rows.map(row => [keys.map(key => row[key]).join('|'), row.value]));
+
+/**
+ * Spain in context: yearly deficit, revenue, spending and debt as % of GDP for
+ * Spain and the EU-27; spending by function as % of GDP in the latest COFOG
+ * year; and each level of government's balance in the latest year.
+ */
+export function buildContext({ ratios, debt, functions, levels }) {
+  const ratioRows = byKey(jsonStatRows(ratios), ['geo', 'na_item', 'time']);
+  const debtRows = byKey(jsonStatRows(debt), ['geo', 'time']);
+  const years = [...new Set(jsonStatRows(ratios).filter(row => row.geo === 'ES' && row.na_item === 'B9').map(row => row.time))].sort();
+  const series = years.map(year => ({
+    year: Number(year),
+    spain: { revenue: ratioRows[`ES|TR|${year}`], spending: ratioRows[`ES|TE|${year}`], balance: ratioRows[`ES|B9|${year}`], debt: debtRows[`ES|${year}`] },
+    eu: { revenue: ratioRows[`EU27_2020|TR|${year}`], spending: ratioRows[`EU27_2020|TE|${year}`], balance: ratioRows[`EU27_2020|B9|${year}`], debt: debtRows[`EU27_2020|${year}`] },
+  })).filter(entry => [entry.spain.balance, entry.spain.debt, entry.eu.balance, entry.eu.debt].every(Number.isFinite));
+  if (series.length < 5) throw new Error(`Eurostat solo devuelve ${series.length} años completos de déficit y deuda`);
+  for (const entry of series) {
+    for (const [geo, values] of Object.entries({ ES: entry.spain, EU: entry.eu })) {
+      if (Number.isFinite(values.revenue) && Number.isFinite(values.spending) && Math.abs(values.revenue - values.spending - values.balance) > 0.25) {
+        throw new Error(`${geo} ${entry.year}: ingresos − gastos (${values.revenue} − ${values.spending}) no cuadra con el saldo ${values.balance} % del PIB`);
+      }
+    }
+  }
+
+  const functionRows = jsonStatRows(functions);
+  const functionYear = Math.max(...functionRows.filter(row => row.geo === 'ES' && row.cofog99 === 'TOTAL').map(row => Number(row.time)));
+  const functionValues = byKey(functionRows.filter(row => Number(row.time) === functionYear), ['geo', 'cofog99']);
+  const functionShares = FUNCTION_CODES.map(code => ({ code, spain: functionValues[`ES|${code}`], eu: functionValues[`EU27_2020|${code}`] }));
+  if (functionShares.some(item => !Number.isFinite(item.spain) || !Number.isFinite(item.eu))) throw new Error(`Faltan funciones COFOG en % del PIB para ${functionYear}`);
+
+  const levelRows = jsonStatRows(levels);
+  const levelYear = Math.max(...levelRows.filter(row => row.sector === 'S13' && row.na_item === 'B9').map(row => Number(row.time)));
+  const levelValues = byKey(levelRows.filter(row => Number(row.time) === levelYear), ['sector', 'na_item']);
+  const levelList = Object.entries(SUBSECTORS).map(([code, id]) => ({ id, code, revenue: levelValues[`${code}|TR`], spending: levelValues[`${code}|TE`], balance: levelValues[`${code}|B9`] }));
+  if (levelList.some(level => ![level.revenue, level.spending, level.balance].every(Number.isFinite))) throw new Error(`Faltan cuentas por nivel de administración en ${levelYear}`);
+  const total = { revenue: levelValues['S13|TR'], spending: levelValues['S13|TE'], balance: levelValues['S13|B9'] };
+  const balanceSum = levelList.reduce((sum, level) => sum + level.balance, 0);
+  if (Math.abs(balanceSum - total.balance) > 2) throw new Error(`Los saldos de cada nivel suman ${balanceSum}, pero el total es ${total.balance} M€`);
+
+  return {
+    series,
+    functions: { year: functionYear, totalSpain: functionValues['ES|TOTAL'], totalEu: functionValues['EU27_2020|TOTAL'], items: functionShares },
+    levels: { year: levelYear, total, items: levelList },
+  };
+}

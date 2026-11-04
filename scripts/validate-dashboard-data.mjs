@@ -128,6 +128,11 @@ assert.equal(annualAccounts.revenue.taxes + annualAccounts.revenue.contributions
 assert.equal(annualAccounts.cofogTotal, sum(services.items.map(item => item.amount)), 'El gasto por funciones de Eurostat debe coincidir con data/gasto-funcional-2024.json');
 assert.equal(String(annualAccounts.year), String(services.period).match(/\d{4}/)?.[0], 'Los ingresos anuales deben ser del mismo año que el gasto por funciones');
 assert.match(annualAccounts.provenance?.mainSha256 ?? '', /^[0-9a-f]{64}$/, 'Falta la huella de la descarga de Eurostat');
+const context = await readJson('contexto-eurostat.json');
+assert.ok(context.series.length >= 5, 'El contexto de Eurostat necesita al menos cinco años');
+for (const entry of context.series) for (const values of [entry.spain, entry.eu]) assert.ok([values.balance, values.debt].every(Number.isFinite), `Faltan saldo o deuda en ${entry.year}`);
+assert.equal(context.levels.items.reduce((total, level) => total + level.balance, 0), context.levels.total.balance, 'Los saldos de cada nivel de administración deben sumar el total');
+assert.equal(context.functions.items.length, 10, 'El contexto necesita las diez funciones COFOG');
 const archivedPeriods = Object.entries(dashboardPeriods);
 assert.ok(archivedPeriods.length > 0, 'El selector necesita al menos un mes completo archivado');
 assert.ok(localHistory.months.length > 0, 'Falta el histórico local de la serie IGAE');

@@ -159,3 +159,7 @@ La vista «por función» del simulador usa como tope los ingresos no financiero
 
 La clasificación por funciones se publica antes que la última revisión del gasto total. En 2024 suma 725.001 M€, frente a 725.122 M€ del total revisado (saldo oficial −50.807 M€). El simulador usa la suma por funciones para que las partidas cuadren, así que su saldo de partida es −50.686 M€. La diferencia, 121 M€, se indica en el aviso de esa vista.
 
+### España en contexto · Eurostat
+
+Series anuales del total de las Administraciones públicas (sector S13, con corporaciones locales) para España y la UE-27, desde 2015, en % del PIB: ingresos (TR), gastos (TE) y saldo (B9) de `gov_10a_main`, y deuda según el procedimiento de déficit excesivo (GD) de `gov_10dd_edpt1`. El gasto por función (COFOG) en % del PIB procede de `gov_10a_exp` y llega un año por detrás. Los saldos de la Administración central (S1311), las comunidades autónomas (S1312), las corporaciones locales (S1313) y los fondos de la Seguridad Social (S1314) se toman en millones de euros del último año disponible; el importador comprueba que suman el total. El gasto por nivel no se muestra sumado, porque las transferencias entre administraciones se contarían dos veces.
+

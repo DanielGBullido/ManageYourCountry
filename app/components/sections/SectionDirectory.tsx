@@ -1,10 +1,11 @@
 'use client';
 
 const sections = [
-  { id: 'personas', number: '01', title: 'Personas y empleo', summary: 'Habitantes, empleo, paro y situaciones laborales.' },
-  { id: 'comunidades', number: '02', title: 'Comunidades autónomas', summary: 'Impuestos registrados, ingresos, gasto y financiación.' },
-  { id: 'ingresos', number: '03', title: 'Impuestos y servicios', summary: 'Recaudación tributaria y gasto por función pública.' },
-  { id: 'prestaciones', number: '04', title: 'Pensiones, IMV y paro', summary: 'Ayudas explicadas con su importe y periodo.' },
+  { id: 'ingresos', number: '01', title: 'Impuestos y servicios', summary: 'Recaudación tributaria y gasto por función pública.' },
+  { id: 'prestaciones', number: '01', title: 'Pensiones, IMV y paro', summary: 'Ayudas explicadas con su importe y periodo.' },
+  { id: 'personas', number: '02', title: 'Personas y empleo', summary: 'Habitantes, empleo, paro y situaciones laborales.' },
+  { id: 'comunidades', number: '03', title: 'Comunidades autónomas', summary: 'Impuestos registrados, ingresos, gasto y financiación.' },
+  { id: 'contexto', number: '04', title: 'España en contexto', summary: 'Déficit y deuda por años, comparación con la UE y ayuntamientos.' },
   { id: 'metodologia', number: '05', title: 'Cómo leer las cifras', summary: 'Qué incluye cada dato y cómo compararlo.' },
   { id: 'fuente', number: '06', title: 'Fuentes oficiales', summary: 'Consulta los organismos y publicaciones.' },
 ];

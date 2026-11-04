@@ -5,7 +5,7 @@ type Monthly = DashboardData['monthly'];
 type Services = DashboardData['services'];
 
 // Everyday names for the ten COFOG functions; the official name stays in «Qué incluye».
-const everydayLabels: Record<string, string> = {
+export const everydayFunctionLabels: Record<string, string> = {
   general: 'Servicios generales (incluye los intereses de la deuda)',
   defence: 'Defensa',
   'public-order': 'Policía, justicia, prisiones y bomberos',
@@ -16,6 +16,12 @@ const everydayLabels: Record<string, string> = {
   'recreation-culture': 'Cultura, deporte y ocio',
   education: 'Educación',
   social: 'Pensiones, paro y otras ayudas sociales',
+};
+
+/** Eurostat COFOG codes (GF01…GF10) to the ids used in data/gasto-funcional-2024.json. */
+export const functionIdsByCode: Record<string, string> = {
+  GF01: 'general', GF02: 'defence', GF03: 'public-order', GF04: 'economic', GF05: 'environment',
+  GF06: 'housing', GF07: 'health', GF08: 'recreation-culture', GF09: 'education', GF10: 'social',
 };
 
 export const functionalYear = annualAccounts.year;
@@ -51,7 +57,7 @@ export function buildFunctionalScenario(base: Monthly, services: Services): Mont
     ],
     expenditure: services.items.map(item => ({
       id: item.id,
-      label: everydayLabels[item.id] ?? item.label,
+      label: everydayFunctionLabels[item.id] ?? item.label,
       officialLabel: `${item.label} (COFOG)`,
       description: item.plainLabel,
       amount: item.amount,

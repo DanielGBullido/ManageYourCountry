@@ -11,6 +11,7 @@ import RegionsSection from './sections/RegionsSection';
 import MethodologySection from './sections/MethodologySection';
 import SourcesSection from './sections/SourcesSection';
 import SectionDirectory from './sections/SectionDirectory';
+import ContextSection from './sections/ContextSection';
 import { buildYearToDate, type BudgetView } from '../lib/year-to-date';
 import type publicDebtHistoryData from '../../data/public-debt-history-2026.json';
 
@@ -69,6 +70,7 @@ export default function DashboardExperience({ snapshots, publicDebtHistory }: { 
       <SectionDirectory />
       <PeopleSection data={data}/>
       <RegionsSection regions={regions}/>
+      <ContextSection/>
       <MethodologySection monthly={monthly}/>
       <SourcesSection data={data}/>
     </main>

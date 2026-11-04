@@ -1,0 +1,294 @@
+{
+  "title": "España en contexto",
+  "source": "Eurostat · Government finance statistics (gov_10a_main, gov_10dd_edpt1, gov_10a_exp)",
+  "sourceUrl": "https://ec.europa.eu/eurostat/web/government-finance-statistics/database",
+  "scope": "Total de las Administraciones públicas (sector S13), incluidas las corporaciones locales. UE-27: agregado de los 27 Estados miembros.",
+  "unit": "Porcentaje del PIB, salvo el saldo por nivel de administración (millones de euros)",
+  "series": [
+    {
+      "year": 2015,
+      "spain": {
+        "revenue": 38.4,
+        "spending": 43.7,
+        "balance": -5.3,
+        "debt": 102.5
+      },
+      "eu": {
+        "revenue": 46.4,
+        "spending": 48.3,
+        "balance": -1.9,
+        "debt": 85
+      }
+    },
+    {
+      "year": 2016,
+      "spain": {
+        "revenue": 37.9,
+        "spending": 42.1,
+        "balance": -4.2,
+        "debt": 102
+      },
+      "eu": {
+        "revenue": 46.1,
+        "spending": 47.5,
+        "balance": -1.4,
+        "debt": 84
+      }
+    },
+    {
+      "year": 2017,
+      "spain": {
+        "revenue": 37.9,
+        "spending": 41,
+        "balance": -3.1,
+        "debt": 101.2
+      },
+      "eu": {
+        "revenue": 46.1,
+        "spending": 46.9,
+        "balance": -0.9,
+        "debt": 81.5
+      }
+    },
+    {
+      "year": 2018,
+      "spain": {
+        "revenue": 39,
+        "spending": 41.5,
+        "balance": -2.6,
+        "debt": 99.8
+      },
+      "eu": {
+        "revenue": 46.2,
+        "spending": 46.6,
+        "balance": -0.4,
+        "debt": 79.4
+      }
+    },
+    {
+      "year": 2019,
+      "spain": {
+        "revenue": 39,
+        "spending": 42,
+        "balance": -3.1,
+        "debt": 97.7
+      },
+      "eu": {
+        "revenue": 46.1,
+        "spending": 46.6,
+        "balance": -0.5,
+        "debt": 77.4
+      }
+    },
+    {
+      "year": 2020,
+      "spain": {
+        "revenue": 41.5,
+        "spending": 51.4,
+        "balance": -9.9,
+        "debt": 119.3
+      },
+      "eu": {
+        "revenue": 46.2,
+        "spending": 52.8,
+        "balance": -6.7,
+        "debt": 89.4
+      }
+    },
+    {
+      "year": 2021,
+      "spain": {
+        "revenue": 42.8,
+        "spending": 49.5,
+        "balance": -6.7,
+        "debt": 115.7
+      },
+      "eu": {
+        "revenue": 46.5,
+        "spending": 51.1,
+        "balance": -4.6,
+        "debt": 86.6
+      }
+    },
+    {
+      "year": 2022,
+      "spain": {
+        "revenue": 41.7,
+        "spending": 46.3,
+        "balance": -4.6,
+        "debt": 109.3
+      },
+      "eu": {
+        "revenue": 46,
+        "spending": 49.1,
+        "balance": -3.1,
+        "debt": 82.3
+      }
+    },
+    {
+      "year": 2023,
+      "spain": {
+        "revenue": 42.1,
+        "spending": 45.5,
+        "balance": -3.3,
+        "debt": 105.3
+      },
+      "eu": {
+        "revenue": 45.4,
+        "spending": 48.8,
+        "balance": -3.4,
+        "debt": 80.3
+      }
+    },
+    {
+      "year": 2024,
+      "spain": {
+        "revenue": 42.2,
+        "spending": 45.4,
+        "balance": -3.2,
+        "debt": 101.4
+      },
+      "eu": {
+        "revenue": 45.8,
+        "spending": 48.9,
+        "balance": -3.1,
+        "debt": 80.3
+      }
+    },
+    {
+      "year": 2025,
+      "spain": {
+        "revenue": 42.9,
+        "spending": 45.3,
+        "balance": -2.4,
+        "debt": 100.5
+      },
+      "eu": {
+        "revenue": 46.3,
+        "spending": 49.4,
+        "balance": -3.1,
+        "debt": 81.5
+      }
+    }
+  ],
+  "functions": {
+    "year": 2024,
+    "totalSpain": 45.5,
+    "totalEu": 48.8,
+    "items": [
+      {
+        "code": "GF01",
+        "spain": 5.8,
+        "eu": 6
+      },
+      {
+        "code": "GF02",
+        "spain": 0.9,
+        "eu": 1.5
+      },
+      {
+        "code": "GF03",
+        "spain": 1.8,
+        "eu": 1.7
+      },
+      {
+        "code": "GF04",
+        "spain": 5.1,
+        "eu": 5.3
+      },
+      {
+        "code": "GF05",
+        "spain": 1,
+        "eu": 0.8
+      },
+      {
+        "code": "GF06",
+        "spain": 0.5,
+        "eu": 0.7
+      },
+      {
+        "code": "GF07",
+        "spain": 6.5,
+        "eu": 7.3
+      },
+      {
+        "code": "GF08",
+        "spain": 1.2,
+        "eu": 1.2
+      },
+      {
+        "code": "GF09",
+        "spain": 4.1,
+        "eu": 4.7
+      },
+      {
+        "code": "GF10",
+        "spain": 18.7,
+        "eu": 19.5
+      }
+    ]
+  },
+  "levels": {
+    "year": 2025,
+    "total": {
+      "revenue": 725655,
+      "spending": 766296,
+      "balance": -40641
+    },
+    "items": [
+      {
+        "id": "central",
+        "code": "S1311",
+        "revenue": 341282,
+        "spending": 374734,
+        "balance": -33452
+      },
+      {
+        "id": "regional",
+        "code": "S1312",
+        "revenue": 279024,
+        "spending": 286085,
+        "balance": -7061
+      },
+      {
+        "id": "local",
+        "code": "S1313",
+        "revenue": 108197,
+        "spending": 102713,
+        "balance": 5484
+      },
+      {
+        "id": "socialSecurity",
+        "code": "S1314",
+        "revenue": 262691,
+        "spending": 268303,
+        "balance": -5612
+      }
+    ]
+  },
+  "provenance": {
+    "retrievedAt": "2026-11-04T08:02:29.889Z",
+    "datasets": {
+      "ratios": {
+        "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_main?geo=ES&geo=EU27_2020&sector=S13&unit=PC_GDP&na_item=TR&na_item=TE&na_item=B9&sinceTimePeriod=2015",
+        "updated": "2026-10-21T11:00:00+0200",
+        "sha256": "0041c682930af77f9159232192b81325591af99d79f2efbfb058ea4bc68b2139"
+      },
+      "debt": {
+        "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10dd_edpt1?geo=ES&geo=EU27_2020&sector=S13&unit=PC_GDP&na_item=GD&sinceTimePeriod=2015",
+        "updated": "2026-10-21T11:00:00+0200",
+        "sha256": "a83dc5b022197f719e56b99745e9723355c0f9c8228fa3d3ba5c143005d74167"
+      },
+      "functions": {
+        "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?geo=ES&geo=EU27_2020&sector=S13&unit=PC_GDP&na_item=TE&sinceTimePeriod=2015&cofog99=GF01&cofog99=GF02&cofog99=GF03&cofog99=GF04&cofog99=GF05&cofog99=GF06&cofog99=GF07&cofog99=GF08&cofog99=GF09&cofog99=GF10&cofog99=TOTAL",
+        "updated": "2026-10-21T23:00:00+0200",
+        "sha256": "51232bfbe2ec4041b987803204ae801f0cdf418c1a4d17b8b576c4ad02f0f62a"
+      },
+      "levels": {
+        "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_main?geo=ES&unit=MIO_EUR&na_item=TE&na_item=TR&na_item=B9&sector=S13&sector=S1311&sector=S1312&sector=S1313&sector=S1314&sinceTimePeriod=2015",
+        "updated": "2026-10-21T11:00:00+0200",
+        "sha256": "2677e977123be46e7cd8a0f2ff1527ca737a60c1a7697e420103d92ea05e4959"
+      }
+    }
+  }
+}
