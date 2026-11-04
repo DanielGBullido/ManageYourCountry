@@ -15,6 +15,8 @@ Una herramienta cívica cercana, clara y serena. Debe sentirse rigurosa sin pare
 - **Terracota:** `#e19a5b`, para avisos, referencias y puntos de atención; no comunica por sí sola una valoración política.
 - **Fondo cálido:** `#f7f7f1`; tarjetas blancas y divisores verde grisáceo.
 - **Tipografía:** Manrope para títulos y cifras principales; DM Sans para lectura; DM Mono solo para fechas, etiquetas y cifras tabulares.
+- **Tamaño mínimo de texto: 12 px**, también en etiquetas en mayúsculas y notas. Si un texto no cabe a 12 px, se acorta o se pliega en un «Qué incluye», no se reduce.
+- **Texto antes de jugar:** el aviso metodológico va pegado a la cifra que matiza y, si es largo, plegado. Encima del simulador solo cabe una frase de contexto.
 
 ## Composición y móvil
 

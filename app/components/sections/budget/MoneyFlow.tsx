@@ -22,13 +22,13 @@ export default function MoneyFlow({ monthly }: { monthly: DashboardData['monthly
         <article className="money-pool">
           <span>2 · CAJA PÚBLICA COMÚN</span>
           <strong>Se juntan los recursos</strong>
-          <small>Las cuentas agregadas no permiten seguir cada euro de un impuesto concreto hasta una prestación concreta.</small>
+          <small>No se puede seguir cada euro de un impuesto hasta un gasto concreto.</small>
         </article>
         <i aria-hidden="true">→</i>
         <article>
           <span>3 · SE GASTA</span>
           <strong>{formatMillions(monthly.expenditureTotal)}</strong>
-          <small>Sueldos; compras y servicios; pensiones y ayudas; servicios sanitarios y sociales; intereses; subvenciones; inversión; transferencias a otras administraciones; y operaciones no financieras no desglosadas por separado.</small>
+          <small>En las nueve partidas del simulador, de sueldos a pensiones e inversión.</small>
         </article>
       </div>
       <div className="money-route-balance">
