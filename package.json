@@ -19,6 +19,7 @@
     "data:refresh:auxiliares": "npm run data:refresh:aeat && npm run data:refresh:pensiones && npm run data:refresh:pnc && npm run data:refresh:imv && npm run data:refresh:paro && npm run data:refresh:ccaa",
     "data:refresh:eurostat": "node scripts/refresh-eurostat-anual.mjs",
     "data:refresh:contexto": "node scripts/refresh-eurostat-contexto.mjs",
+    "styles:dark": "node scripts/build-dark-theme.mjs",
     "data:snapshot": "node scripts/build-dashboard-periods.mjs"
   },
   "dependencies": {
@@ -32,6 +33,7 @@
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "postcss": "^8.5.32",
     "typescript": "^5.1.0"
   }
 }

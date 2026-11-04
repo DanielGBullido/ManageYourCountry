@@ -91,11 +91,11 @@ export default function LineCompare({ title, years, series, format, formatTick =
         </g>)}
         {years.map((year, index) => index % labelEvery === (years.length - 1) % labelEvery && <text key={year} x={x(index)} y={HEIGHT - 8} className="ctx-tick" textAnchor="middle">{year}</text>)}
         {active !== null && <line x1={x(active)} x2={x(active)} y1={PAD.top} y2={PAD.top + plotH} className="ctx-crosshair"/>}
-        {series.map(item => <path key={item.id} d={path(item.values)} fill="none" stroke={item.color} strokeWidth={2} strokeLinejoin="round" strokeLinecap="round"/>)}
+        {series.map(item => <path key={item.id} d={path(item.values)} fill="none" style={{ stroke: item.color }} strokeWidth={2} strokeLinejoin="round" strokeLinecap="round"/>)}
         {series.map(item => {
           const index = active ?? item.values.length - 1;
           const value = item.values[index];
-          return value === null ? null : <circle key={item.id} cx={x(index)} cy={y(value)} r={4} fill={item.color} stroke="#fff" strokeWidth={2}/>;
+          return value === null ? null : <circle key={item.id} cx={x(index)} cy={y(value)} r={4} style={{ fill: item.color, stroke: 'var(--ctx-surface)' }} strokeWidth={2}/>;
         })}
         {ends.map((end, index) => <text key={end.item.id} x={width - PAD.right + 8} y={endY[index]} className="ctx-end-label" dominantBaseline="middle">{format(end.value)}</text>)}
       </svg>

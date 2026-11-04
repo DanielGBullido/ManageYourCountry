@@ -4,6 +4,8 @@ import { DM_Mono, DM_Sans, Manrope } from 'next/font/google';
 import './base.css';
 import './components.css';
 import './spacing.css';
+import './dark.css';
+import './viz-colors.css';
 
 // Fonts are downloaded at build time and served from this site, so visitors'
 // browsers never contact Google (privacy, and one fewer connection on load).

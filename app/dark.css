@@ -1,0 +1,1661 @@
+/*  Generado por scripts/build-dark-theme.mjs. No lo edites a mano.  */
+@media (prefers-color-scheme:dark) {
+    :root {
+        color-scheme: dark
+    }
+    :root {
+        --ink: #d4dfd7;
+        --muted: #768079;
+        --paper: #181815;
+        --white: #151515;
+        --green: #7da485;
+        --green2: #191e16;
+        --orange: #8c3c00;
+        --line: #1c1d19
+    }
+    .topline {
+        background: #bbd2c2;
+        color: #1a1f18
+    }
+    .brand-mark {
+        color: #151515
+    }
+    nav a {
+        color: #8d948e
+    }
+    .share-button {
+        border: 1px solid #31362e
+    }
+    .live-dot,.status-dot {
+        background: #4c7440
+    }
+    .hero-intro {
+        color: #8c968e
+    }
+    .text-link {
+        border-bottom: 1px solid #445242
+    }
+    .orbit {
+        border: 1px solid #2b2f27
+    }
+    .map-shape {
+        background: #191e16
+    }
+    .map-shape:after {
+        border: 1px solid #4f674e
+    }
+    .map-label {
+        color: #7b977f
+    }
+    .map-pin {
+        border: 2px solid #151515
+    }
+    .art-note {
+        background: #151515;
+        box-shadow: 0 7px 20px #bbd2c20d
+    }
+    .note-icon {
+        background: #1e1914;
+        color: #9f5c1b
+    }
+    .mini-bars i {
+        background: #637a63
+    }
+    .art-cross {
+        color: #384036
+    }
+    .budget-section {
+        background: #1a1b17
+    }
+    .muted {
+        color: #8c958e
+    }
+    .period-control label {
+        color: #8c948d
+    }
+    .period-control select {
+        border: 1px solid #343931;
+        background: #171715
+    }
+    .data-status {
+        color: #8c958e
+    }
+    .data-status .status-dot {
+        background: #854800
+    }
+    .demo-notice {
+        background: #1b1814;
+        border: 1px solid #221d14;
+        color: #98948b
+    }
+    .demo-notice>span {
+        background: #221d14;
+        color: #988b77
+    }
+    .demo-notice b {
+        color: #b9c0b9
+    }
+    .demo-notice a {
+        color: #798b77
+    }
+    .panel {
+        background: #151515;
+        border: 1px solid #1b1c18
+    }
+    .reset-button {
+        color: #728374
+    }
+    .scenario-tag {
+        color: #879787;
+        background: #171a16
+    }
+    .donut {
+        background: conic-gradient(#7da485 0 29%,#4d6647 29% 54%,#744505 54% 69%,#43515c 69% 81%,#3e3c0d 81% 90%,#614940 90% 100%)
+    }
+    .donut:before {
+        background: #151515
+    }
+    .donut-center span {
+        color: #676e68
+    }
+    .donut-center small {
+        color: #676e68
+    }
+    .legend-item {
+        color: #8b958c
+    }
+    .legend-item b {
+        color: #b6c2b7
+    }
+    .impact-live {
+        color: #717e71
+    }
+    .impact-live i {
+        background: #4e6e44
+    }
+    .impact-card {
+        background: #171816
+    }
+    .impact-card span {
+        color: #717a72
+    }
+    .impact-card em {
+        color: #6b806a
+    }
+    .impact-footnote {
+        color: #5f665f
+    }
+    .how-section {
+        background: #171715
+    }
+    .how-copy p {
+        color: #8d958d
+    }
+    .step>span {
+        color: #576058
+    }
+    .step p {
+        color: #737b73
+    }
+    .sources-section {
+        background: #1a1b17
+    }
+    .sources-title>p {
+        color: #8c948c
+    }
+    .source-item {
+        border-bottom: 1px solid #2c322a
+    }
+    .source-index {
+        color: #8c968d
+    }
+    .source-item small {
+        color: #8c948c
+    }
+    .source-arrow {
+        color: #768e76
+    }
+    .source-caveat {
+        border-top: 1px solid #2c322a;
+        color: #8d958d
+    }
+    .source-caveat b {
+        color: #b1bdb3
+    }
+    footer {
+        background: #bbd2c2;
+        color: #30382f
+    }
+    footer .brand {
+        color: #171a16
+    }
+    footer .brand-mark {
+        background: #7f9e82
+    }
+    footer>span,footer>a:last-child {
+        color: #30382f
+    }
+    .toast {
+        background: #bbd2c2;
+        color: #151515
+    }
+    .hero-stats {
+        background: #151515;
+        border: 1px solid #1b1c18;
+        box-shadow: 0 18px 50px #bbd2c20a
+    }
+    .hero-stat {
+        border-bottom: 1px solid #191a17;
+        border-right: 1px solid #191a17
+    }
+    .hero-stat span {
+        color: #8b958d
+    }
+    .hero-stat small {
+        color: #8d948d
+    }
+    .hero-stat.balance b {
+        color: #b1714d
+    }
+    .hero-stat.balance.surplus b {
+        color: #7da485
+    }
+    .stat-foot {
+        background: #171815;
+        color: #8a948a
+    }
+    .static-select {
+        border: 1px solid #343931;
+        background: #171715
+    }
+    .official-status .status-dot {
+        background: #567e52
+    }
+    .official-notice {
+        background: #171b16;
+        border: 1px solid #263023;
+        color: #8f9c90
+    }
+    .official-notice>span {
+        background: #192017;
+        color: #7d9a81
+    }
+    .official-notice b {
+        color: #aec7b2
+    }
+    .official-notice a {
+        color: #7aa07e
+    }
+    .source-term {
+        color: #676f68
+    }
+    .source-term summary:after {
+        color: #708b71
+    }
+    .source-term>span {
+        color: #767f76
+    }
+    .scenario-balance span {
+        color: #8c968d
+    }
+    .scenario-balance>b {
+        color: #b1714d
+    }
+    .scenario-balance>b.balance-positive {
+        color: #7da485
+    }
+    .scenario-balance small {
+        color: #8f948f
+    }
+    .revenue-row,.revenue-total {
+        border-bottom: 1px solid #191917
+    }
+    .revenue-row>span {
+        color: #8b958c
+    }
+    .revenue-source-term {
+        color: #676f68
+    }
+    .revenue-row b,.revenue-total b {
+        color: #b6c2b7
+    }
+    .revenue-explainer {
+        color: #8d948d
+    }
+    .benefits-section {
+        border-top: 1px solid #2c3129
+    }
+    .benefits-heading>p {
+        color: #7e887f
+    }
+    .benefits-note {
+        background: #1a1814;
+        border: 1px solid #211c15;
+        color: #999386
+    }
+    .benefits-note>span {
+        background: #221d14
+    }
+    .benefits-note b {
+        color: #c5c0b8
+    }
+    .benefit-card {
+        background: #151515;
+        border: 1px solid #1b1c18
+    }
+    .benefit-card-top {
+        color: #8a948a
+    }
+    .benefit-tag {
+        color: #889887
+    }
+    .benefit-amount {
+        color: #b0c6b5
+    }
+    .benefit-card>p {
+        color: #8d958d
+    }
+    .benefit-breakdown>div {
+        color: #8d958d
+    }
+    .benefit-breakdown b {
+        color: #b0bcb1
+    }
+    .benefit-card>p.benefit-secondary {
+        color: #8c938c
+    }
+    .benefit-card>a {
+        color: #7aa07e
+    }
+    .method-section {
+        background: #171715
+    }
+    .method-grid>div:first-child p {
+        color: #8d958d
+    }
+    .method-points span {
+        color: #8c948c
+    }
+    .people-section {
+        background: #171715
+    }
+    .people-heading>p {
+        color: #849086
+    }
+    .people-card {
+        background: #151515;
+        border: 1px solid #1b1e19
+    }
+    .people-card>span {
+        color: #8c968c
+    }
+    .people-card strong {
+        color: #bbd2c2
+    }
+    .people-card small {
+        color: #8b958b
+    }
+    .employed-card {
+        border-top: 3px solid #7da485
+    }
+    .active-card {
+        border-top: 3px solid #4d6647
+    }
+    .unemployed-card {
+        border-top: 3px solid #744505
+    }
+    .income-people-explainer {
+        background: #171b16;
+        border: 1px solid #263023
+    }
+    .income-people-lead strong {
+        color: #a7c5ad
+    }
+    .income-people-lead small {
+        color: #8c968d
+    }
+    .income-people-copy p {
+        color: #929f93
+    }
+    .income-people-copy b {
+        color: #aec7b2
+    }
+    .people-source-links a {
+        color: #80a987;
+        border-bottom: 1px solid #3b4c3a
+    }
+    .people-period-note {
+        color: #8b958c
+    }
+    .job-types-heading h3 {
+        color: #bbd2c2
+    }
+    .job-types-heading>p {
+        color: #849086
+    }
+    .job-type-card {
+        background: #151515;
+        border: 1px solid #1b1e19;
+        border-top: 3px solid #627a5e
+    }
+    .job-type-card:nth-child(2) {
+        border-top-color: #825524
+    }
+    .job-type-card:nth-child(3) {
+        border-top-color: #546b75
+    }
+    .job-type-label {
+        color: #8b958c
+    }
+    .job-type-card strong {
+        color: #bbd2c2
+    }
+    .job-type-card p {
+        color: #828d83
+    }
+    .job-type-card small {
+        color: #8c968d
+    }
+    .job-type-card a,.public-staff-detail>a {
+        color: #80a987;
+        border-bottom: 1px solid #3b4c3a
+    }
+    .public-staff-detail {
+        background: #171b16;
+        border: 1px solid #263023
+    }
+    .public-staff-heading b {
+        color: #b0c6b5
+    }
+    .public-staff-heading span {
+        color: #859285
+    }
+    .public-staff-heading>small {
+        color: #8b958c
+    }
+    .public-staff-grid>div {
+        border-left: 2px solid #495f45
+    }
+    .public-staff-grid b {
+        color: #b0c6b5
+    }
+    .public-staff-grid span {
+        color: #859285
+    }
+    .active-equation {
+        background: #151515;
+        border: 1px solid #1a1e19;
+        border-left: 4px solid #627a5e
+    }
+    .active-equation>span {
+        color: #8b958c
+    }
+    .active-equation>b {
+        color: #adc2b2
+    }
+    .active-equation i {
+        color: #587553
+    }
+    .regions-section {
+        background: #151515
+    }
+    .regions-heading h2 {
+        color: #bbd2c2
+    }
+    .regions-heading>p {
+        color: #849086
+    }
+    .regions-explainer article {
+        background: #171815;
+        border: 1px solid #1b1c18
+    }
+    .regions-explainer b {
+        color: #b0c6b5
+    }
+    .regions-explainer p {
+        color: #838e83
+    }
+    .regions-explainer small {
+        color: #8d958d
+    }
+    .regions-table-top>div>b {
+        color: #b0c6b5
+    }
+    .regions-table-top small {
+        color: #8d958d
+    }
+    .regions-table-top label {
+        color: #838e83
+    }
+    .regions-table-top select {
+        border: 1px solid #2b3029;
+        background: #151515;
+        color: #b2c5b6
+    }
+    .region-table {
+        border-top: 1px solid #1b1e19
+    }
+    .region-row {
+        border-bottom: 1px solid #191b18
+    }
+    .region-row> b {
+        color: #aabaad
+    }
+    .region-row>span strong {
+        color: #aebbaf
+    }
+    .region-bar {
+        background: #536b51
+    }
+    .region-bar.fiscal {
+        background: #815422
+    }
+    .region-bar.funding {
+        background: #597356
+    }
+    .region-table-head {
+        background: #171715;
+        color: #8b958b
+    }
+    .regions-note {
+        color: #8c958e
+    }
+    .annual-context {
+        border-top: 1px solid #292f28
+    }
+    .annual-context-heading h3 {
+        color: #bbd2c2
+    }
+    .annual-context-heading>p {
+        color: #808b81
+    }
+    .annual-row-source {
+        color: #80a987;
+        text-decoration-color: #384734
+    }
+    .annual-components {
+        background: #171815;
+        border-left: 2px solid #3f4e3a;
+        color: #8e9d90 !important
+    }
+    .budget-more-disclosure>.transparency-trail {
+        border-top: 1px solid #1a1e19;
+        background: #161615
+    }
+    .transparency-trail-heading h3 {
+        color: #b0c6b5
+    }
+    .transparency-trail-heading h3 em {
+        color: #7ca283
+    }
+    .transparency-trail-heading>p {
+        color: #838e83
+    }
+    .transparency-trail-card {
+        background: #151515;
+        border: 1px solid #1a1e19;
+        border-top: 3px solid #627a5e
+    }
+    .transparency-trail-card:nth-child(2) {
+        border-top-color: #835529
+    }
+    .transparency-trail-card:nth-child(3) {
+        border-top-color: #546b77
+    }
+    .transparency-trail-card:nth-child(4) {
+        border-top-color: #5b5622
+    }
+    .transparency-trail-card-heading>span {
+        background: #171a15;
+        color: #84a588
+    }
+    .transparency-trail-card h4 {
+        color: #b0c6b5
+    }
+    .transparency-trail-card-heading small {
+        color: #8b958b
+    }
+    .transparency-trail-card ul {
+        color: #879689
+    }
+    .transparency-trail-limit {
+        background: #171815;
+        color: #879488
+    }
+    .transparency-trail-limit b {
+        color: #b0c6b5
+    }
+    .transparency-trail-links {
+        border-top: 1px solid #181a17
+    }
+    .transparency-trail-links a {
+        color: #80a987;
+        text-decoration-color: #384734
+    }
+    .transparency-trail-links a:hover {
+        color: #bbd2c2;
+        text-decoration-color: #80a987
+    }
+    .transparency-trail-note {
+        border-left: 3px solid #835529;
+        background: #151515;
+        color: #838e83
+    }
+    .transparency-trail-note b {
+        color: #b0c6b5
+    }
+    .transparency-source-heading {
+        border-top: 1px solid #1a1e19
+    }
+    .transparency-source-heading p {
+        color: #8b958b
+    }
+    .annual-row-source:hover {
+        color: #bbd2c2;
+        text-decoration-color: #80a987
+    }
+    .annual-card {
+        background: #151515;
+        border: 1px solid #1b1e19
+    }
+    .annual-card h4 {
+        color: #b0c6b5
+    }
+    .annual-card-intro {
+        color: #8b958b
+    }
+    .annual-bars {
+        border-top: 1px solid #1a1c18
+    }
+    .annual-bar-row {
+        border-bottom: 1px solid #191a17
+    }
+    .annual-bar-row>div span {
+        color: #9ba99c
+    }
+    .annual-bar-row>div b {
+        color: #afc0b2
+    }
+    .annual-bar-row>small {
+        color: #8e948d
+    }
+    .annual-bar-row>i {
+        background: #181917
+    }
+    .annual-card>a {
+        color: #80a987;
+        border-bottom: 1px solid #3b4c3a
+    }
+    .annual-card-note {
+        color: #8c948c
+    }
+    .nationality-panel {
+        background: #151515;
+        border: 1px solid #1a1e19
+    }
+    .nationality-heading h3 {
+        color: #bbd2c2
+    }
+    .nationality-heading>small {
+        color: #8b958b
+    }
+    .nationality-grid article {
+        background: #171715;
+        border: 1px solid #1a1c18
+    }
+    .nationality-grid article>span {
+        color: #8b958b
+    }
+    .nationality-grid article>b {
+        color: #b0c6b5
+    }
+    .nationality-grid article>small {
+        color: #8b958b
+    }
+    .nationality-grid .naturalized-proxy {
+        border-top: 2px solid #815422
+    }
+    .nationality-panel>p {
+        color: #8b958c
+    }
+    .nationality-panel>a {
+        color: #80a987;
+        border-bottom: 1px solid #3b4c3a
+    }
+    .age-summary article {
+        background: #171b16;
+        border: 1px solid #263023
+    }
+    .age-summary article>span {
+        color: #89968a
+    }
+    .age-summary article>b {
+        color: #b0c6b5
+    }
+    .age-source-note {
+        color: #8c948c
+    }
+    .nationality-source-links a {
+        color: #80a987;
+        border-bottom: 1px solid #3b4c3a
+    }
+    .labour-breakdown-heading b,.inactive-detail>div:first-child b {
+        color: #b0c6b5
+    }
+    .labour-breakdown-heading span,.inactive-detail>div:first-child span {
+        color: #838e83
+    }
+    .inactive-card {
+        border-top-color: #74512a
+    }
+    .inactive-detail {
+        background: #171815;
+        border: 1px solid #1b1c18
+    }
+    .inactive-reasons span {
+        color: #838e83
+    }
+    .inactive-reasons b {
+        color: #aabdad
+    }
+    .population-reconciliation-note {
+        background: #181612;
+        border-left: 3px solid #74512a
+    }
+    .population-reconciliation-note a {
+        color: #80a68a
+    }
+    .labour-breakdown-heading {
+        border-top: 1px solid #1b1d18
+    }
+    .labour-breakdown-heading b {
+        color: #b0c6b5
+    }
+    .labour-breakdown-heading span {
+        color: #838e83
+    }
+    .labour-breakdown-heading>small {
+        color: #8c968d
+    }
+    .labour-ledger {
+        background: #151515;
+        border: 1px solid #1a1e19
+    }
+    .ledger-term {
+        border: 1px solid #1a1d19;
+        background: #161615
+    }
+    .ledger-term small,.labour-ledger-inactive small {
+        color: #8a948a
+    }
+    .ledger-term strong,.labour-ledger-inactive strong {
+        color: #bbd2c2
+    }
+    .ledger-term span,.labour-ledger-inactive span {
+        color: #8a968b
+    }
+    .employed-term {
+        border-top: 3px solid #7da485
+    }
+    .unemployed-term {
+        border-top: 3px solid #744505
+    }
+    .active-term {
+        background: #171a15;
+        border: 1px solid #273124;
+        border-top: 3px solid #627a5e
+    }
+    .active-term small {
+        color: #84a588
+    }
+    .ledger-operator {
+        color: #667463
+    }
+    .ledger-operator.equals {
+        color: #76977a
+    }
+    .labour-ledger-inactive {
+        background: #171815;
+        border-top: 1px solid #1a1d19
+    }
+    .labour-ledger-inactive>div:first-child {
+        border-left: 3px solid #74512a
+    }
+    .labour-ledger-inactive .ledger-total {
+        border-left: 3px solid #627a5e
+    }
+    .ledger-plus {
+        color: #667463
+    }
+    .age-summary>i,.nationality-total-check>i {
+        color: #667463
+    }
+    .age-summary .age-total {
+        background: #191d16;
+        border-color: #2c3829
+    }
+    .age-summary .age-total>span {
+        color: #84a588
+    }
+    .nationality-total-check {
+        background: #171815;
+        border: 1px solid #1b1c18;
+        color: #838e83
+    }
+    .nationality-total-check>b,.nationality-total-check>strong {
+        color: #b0c6b5
+    }
+    .per-resident-panel {
+        background: #151515;
+        border: 1px solid #1a1e19
+    }
+    .per-resident-heading h3 {
+        color: #b0c6b5
+    }
+    .per-resident-heading>small {
+        color: #8b958b
+    }
+    .per-resident-grid article {
+        background: #171815;
+        border-left: 3px solid #627a5e
+    }
+    .per-resident-grid article:nth-child(2) {
+        border-left-color: #7da485
+    }
+    .per-resident-grid article:nth-child(3) {
+        border-left-color: #744505
+    }
+    .per-resident-grid span {
+        color: #8a948a
+    }
+    .per-resident-grid b {
+        color: #b0c6b5
+    }
+    .per-resident-grid small,.per-resident-panel>p {
+        color: #8b958b
+    }
+    .money-route {
+        background: #161615;
+        border: 1px solid #1a1e19
+    }
+    .money-route-heading b {
+        color: #b0c6b5
+    }
+    .money-route-heading>small {
+        color: #8b958b
+    }
+    .money-route-flow article {
+        background: #151515;
+        border: 1px solid #1a1d19;
+        border-top: 3px solid #627a5e
+    }
+    .money-route-flow article:first-child {
+        border-top-color: #7da485
+    }
+    .money-route-flow article:last-child {
+        border-top-color: #744505
+    }
+    .money-route-flow article.money-pool {
+        background: #171a15;
+        border-color: #273124
+    }
+    .money-route-flow article>span {
+        color: #8a948a
+    }
+    .money-route-flow article>strong {
+        color: #b0c6b5
+    }
+    .money-route-flow article>small {
+        color: #8b958b
+    }
+    .money-route-flow>i {
+        color: #667463
+    }
+    .money-route-balance {
+        border-top: 1px solid #1a1d19;
+        color: #838e83
+    }
+    .money-route-balance b {
+        color: #80a987
+    }
+    .money-route-balance small {
+        color: #8d958d
+    }
+    .responsibility-guide {
+        background: #151515;
+        border: 1px solid #1a1e19
+    }
+    .responsibility-heading h3 {
+        color: #bbd2c2
+    }
+    .responsibility-heading>p {
+        color: #838e83
+    }
+    .responsibility-grid article {
+        background: #171815;
+        border-top: 3px solid #627a5e
+    }
+    .responsibility-grid article:nth-child(2) {
+        border-top-color: #4d6647
+    }
+    .responsibility-grid article:nth-child(3) {
+        border-top-color: #74512a
+    }
+    .responsibility-grid article>span {
+        color: #8a948a
+    }
+    .responsibility-grid article>b {
+        color: #b0c6b5
+    }
+    .responsibility-grid article>small {
+        color: #8b958b
+    }
+    .responsibility-note {
+        color: #8b958b
+    }
+    .responsibility-note a {
+        color: #80a987
+    }
+    .regional-map-card {
+        background: #161615;
+        border: 1px solid #1a1e19
+    }
+    .regional-map-shape {
+        stroke: #151515
+    }
+    .regional-map-shape:hover,.regional-map-shape:focus,.regional-map-shape.selected {
+        stroke: #bad3c1
+    }
+    .regional-map-shape.no-data {
+        stroke: #151515
+    }
+    .regional-map-shape.no-data:hover,.regional-map-shape.no-data:focus,.regional-map-shape.no-data.selected {
+        stroke: #7e897f
+    }
+    .map-inset-label {
+        fill: #747f74
+    }
+    .map-status {
+        color: #8b958b
+    }
+    .map-error {
+        color: #9e8771;
+        background: #181612
+    }
+    .map-legend {
+        color: #8a988a
+    }
+    .map-legend>i {
+        background: linear-gradient(90deg,#181b16,#7eaf8b);
+        border: 1px solid #2a3027
+    }
+    .map-no-data-key i {
+        background: #1b1c19;
+        border: 1px solid #2f322d
+    }
+    .map-attribution {
+        color: #8f958e
+    }
+    .map-attribution a {
+        color: #7a9b7f
+    }
+    .map-selection {
+        background: #151515;
+        border: 1px solid #1a1d19
+    }
+    .map-selection label,.map-selection>span {
+        color: #8b958b
+    }
+    .map-selection select {
+        border: 1px solid #2b3029;
+        background: #151515;
+        color: #b2c5b6
+    }
+    .map-selection>strong {
+        color: #b0c6b5
+    }
+    .map-selection>small {
+        color: #8b958b
+    }
+    .map-selection>p {
+        color: #8b958c
+    }
+    .region-bar.negative {
+        background: #9f5b3a
+    }
+    .map-legend.diverging>i {
+        background: linear-gradient(90deg,#aa5d37,#1c1a12,#7eaf8b)
+    }
+    .region-metric-description {
+        color: #8b958c
+    }
+    .region-metric-description a {
+        color: #80a987
+    }
+    .deep-disclosure {
+        background: #151515;
+        border: 1px solid #1a1e19
+    }
+    .deep-summary-icon {
+        background: #171a15;
+        color: #84a588
+    }
+    .deep-summary-copy>b,.deep-summary-copy>b:first-child {
+        color: #b0c6b5
+    }
+    .deep-summary-copy>small {
+        color: #8b958b
+    }
+    .deep-summary-action {
+        color: #80a987
+    }
+    .deep-disclosure[open]>summary,.budget-more-disclosure[open]>summary {
+        border-bottom: 1px solid #1a1d19;
+        background: #161615
+    }
+    .deep-disclosure>summary:hover,.budget-more-disclosure>summary:hover {
+        background: #161715
+    }
+    .deep-disclosure>summary:focus-visible,.budget-more-disclosure>summary:focus-visible {
+        outline: 3px solid #4d6647
+    }
+    .budget-more-disclosure {
+        background: #151515;
+        border: 1px solid #1a1e19
+    }
+    .budget-more-disclosure>.responsibility-guide {
+        border-top: 1px solid #1a1e19
+    }
+    .budget-more-disclosure>.benefits-section {
+        border-top: 1px solid #1a1e19
+    }
+    .skip-link {
+        background: #bbd2c2;
+        color: #151515
+    }
+    :where(a,button,input,select,summary,[tabindex]):focus-visible {
+        outline: 3px solid #9f5c1b
+    }
+    .share-scenario-button {
+        border: 1px solid #2e342c;
+        background: #161715;
+        color: #83a589
+    }
+    .share-scenario-button:hover {
+        background: #171a15
+    }
+    @media (max-width:640px) {
+        .mobile-navigation>summary {
+            border: 1px solid #31362e;
+            color: #b2c5b6
+        }
+        .mobile-navigation>summary span {
+            color: #7ea385
+        }
+        .mobile-navigation nav {
+            background: #151515;
+            border: 1px solid #1a1e19;
+            box-shadow: 0 12px 30px #bbd2c220
+        }
+        .mobile-navigation nav a {
+            color: #b2c5b6;
+            border-bottom: 1px solid #181917
+        }
+        .site-header {
+            background: #171715f2;
+            border-bottom: 1px solid #1c1f1a
+        }
+    }
+    .section-directory {
+        background: #151515;
+        border-bottom: 1px solid #1a1d19
+    }
+    .section-directory-heading h2 {
+        color: #bbd2c2
+    }
+    .section-directory-heading>p {
+        color: #8d958d
+    }
+    .section-directory-grid>a {
+        background: #171715;
+        border: 1px solid #1b1c18
+    }
+    .section-directory-grid>a:hover {
+        background: #171a15;
+        border-color: #2c3729
+    }
+    .section-directory-grid>a>span {
+        background: #181b16;
+        color: #819983
+    }
+    .section-directory-grid>a>b {
+        color: #b0c6b5
+    }
+    .section-directory-grid>a>small {
+        color: #8d958d
+    }
+    .section-directory-grid>a>i {
+        color: #7ea385
+    }
+    .section-directory-grid>a:focus-visible {
+        outline: 3px solid #9f5c1b
+    }
+    .site-header {
+        background: #151515;
+        box-shadow: 0 3px 14px #bbd2c20a
+    }
+    .budget-actions .share-scenario-button,.budget-actions .leave-unassigned-button,.budget-actions .reset-button {
+        border: 1px solid #2b3029;
+        background: #151515;
+        color: #83a589
+    }
+    .budget-actions .leave-unassigned-button {
+        background: #171a15;
+        border-color: #273124;
+        color: #89b58e
+    }
+    .budget-actions button:hover {
+        border-color: #4b5c48;
+        background: #171916
+    }
+    .budget-actions button:focus-visible {
+        outline: 3px solid #9f5c1b
+    }
+    .latest-tax-update {
+        background: #171a15;
+        border: 1px solid #273124
+    }
+    .latest-tax-update>span {
+        color: #869988
+    }
+    .latest-tax-update>b {
+        color: #b0c6b5
+    }
+    .latest-tax-update>small {
+        color: #8b958b
+    }
+    .latest-tax-update:hover {
+        background: #171c15
+    }
+    .revenue-source-term:first-of-type {
+        color: #7f8c81
+    }
+    .inactive-reasons article {
+        background: #151515;
+        border: 1px solid #1a1c19
+    }
+    .inactive-reasons article>b {
+        color: #aabdad
+    }
+    .inactive-reasons article>strong {
+        color: #9caa9e
+    }
+    .inactive-reasons article>small {
+        color: #8b958b
+    }
+    .public-staff-grid small {
+        color: #8b958b
+    }
+    .per-resident-formula {
+        background: #171a15;
+        border-left: 3px solid #627a5e;
+        color: #90a291
+    }
+    .per-resident-grid article>small:first-of-type {
+        color: #838e83
+    }
+    .per-resident-grid article>small:last-child {
+        color: #8b958b
+    }
+    .annual-card>a.latest-tax-update {
+        border: 1px solid #273124;
+        border-bottom: 1px solid #273124;
+        background: #171a15
+    }
+    .annual-card>a.latest-tax-update>span {
+        color: #869988
+    }
+    .annual-card>a.latest-tax-update>b {
+        color: #b0c6b5
+    }
+    .annual-card>a.latest-tax-update>small {
+        color: #88968a
+    }
+    .annual-card>a.latest-tax-update>.latest-tax-link-label {
+        color: #80a987;
+        text-decoration-color: #3b4c3a
+    }
+    .annual-card>a.latest-tax-update:hover {
+        background: #171c15
+    }
+    .tax-measure-compare>div {
+        background: #171815;
+        border: 1px solid #1a1d18
+    }
+    .tax-measure-compare span {
+        color: #869988
+    }
+    .tax-measure-compare b {
+        color: #b0c6b5
+    }
+    .tax-measure-compare small {
+        color: #88968a
+    }
+    .tax-measure-compare a {
+        color: #80a987;
+        text-decoration-color: #3b4c3a
+    }
+    .tax-measure-note {
+        background: #1b1814;
+        border-left: 3px solid #86511c;
+        color: #a39f93
+    }
+    .tax-measure-note b {
+        color: #b3c0b4
+    }
+    .recipient-profile {
+        border: 1px solid #1b1f19;
+        background: #161615
+    }
+    .recipient-profile-heading h4 {
+        color: #b6c9b9
+    }
+    .recipient-profile-heading>p {
+        color: #7f8c81
+    }
+    .recipient-card {
+        background: #151515;
+        border: 1px solid #1a1d18
+    }
+    .recipient-card-title>div>span,.recipient-card>.eyebrow {
+        color: #8a988a
+    }
+    .recipient-card h5 {
+        color: #b1c4b3
+    }
+    .recipient-card-title>strong {
+        color: #b1c6b4
+    }
+    .recipient-card-title>strong small {
+        color: #8b958b
+    }
+    .recipient-card>p {
+        color: #828f84
+    }
+    .imv-nationality-bar {
+        background: #181916
+    }
+    .imv-nationality-bar span:nth-child(1) {
+        background: #7da485
+    }
+    .imv-nationality-bar span:nth-child(2) {
+        background: #7d4909
+    }
+    .imv-nationality-bar span:nth-child(3) {
+        background: #4d5c63
+    }
+    .imv-nationality-legend>div {
+        color: #8e9d90
+    }
+    .imv-nationality-legend i {
+        background: #7da485
+    }
+    .imv-nationality-legend i.foreign {
+        background: #7d4909
+    }
+    .imv-nationality-legend i.unknown {
+        background: #4d5c63
+    }
+    .imv-nationality-legend b {
+        color: #b1c3b4
+    }
+    .imv-nationality-legend small {
+        color: #8b958c
+    }
+    .recipient-caveat {
+        background: #171815;
+        border-left: 3px solid #506449;
+        color: #859286
+    }
+    .recipient-caveat b {
+        color: #b1c4b3
+    }
+    .recipient-card>a {
+        color: #80a987;
+        text-decoration-color: #3b4c3a
+    }
+    .recipient-card>small {
+        color: #8b958a
+    }
+    .recipient-profile-note {
+        color: #7e8b7e
+    }
+    .recipient-profile-note b {
+        color: #9eb1a0
+    }
+    .annual-breakdown {
+        background: #171815;
+        border-left: 2px solid #3f4e3a
+    }
+    .annual-breakdown-label {
+        color: #829081
+    }
+    .annual-component-list li {
+        border-bottom: 1px solid #1a1c18;
+        color: #8e9d90
+    }
+    .annual-component-list li b {
+        color: #afc0b2
+    }
+    .annual-description-list {
+        color: #8c948c
+    }
+    .benefit-card>p.benefit-definition {
+        background: #171816;
+        border-left: 3px solid #627a5e;
+        color: #8d9c8f
+    }
+    .benefit-card>p.benefit-definition b {
+        color: #b0c6b5
+    }
+    .benefits-total {
+        background: #171a15;
+        border: 1px solid #273124
+    }
+    .benefits-total>span {
+        color: #869988
+    }
+    .benefits-total>strong {
+        color: #b0c6b5
+    }
+    .benefits-total>small {
+        color: #88968a
+    }
+    .worker-revenue-calculation {
+        background: #161815;
+        border: 1px solid #273024
+    }
+    .worker-revenue-equation>div {
+        background: #151515;
+        border: 1px solid #1a1d18
+    }
+    .worker-revenue-equation>div>small {
+        color: #8a968b
+    }
+    .worker-revenue-equation>div>b {
+        color: #b0c6b5
+    }
+    .worker-revenue-equation>i {
+        color: #6c8268
+    }
+    .worker-revenue-equation>.worker-revenue-result {
+        background: #171c15;
+        border-color: #2a3526
+    }
+    .worker-revenue-calculation>p {
+        color: #838e83
+    }
+    .hero-period-picker>label {
+        color: #889789
+    }
+    .hero-period-select {
+        border: 1.5px solid #627a5e;
+        background: #151515;
+        color: #93bb9c;
+        box-shadow: 0 2px 0 #93bb9c12
+    }
+    .hero-period-select:hover {
+        border-color: #93bb9c;
+        background: #171815;
+        box-shadow: 0 2px 8px #bbd2c212
+    }
+    .hero-period-select:focus-visible {
+        outline: 3px solid #804200
+    }
+    .hero-period-chevron {
+        color: #93bb9c
+    }
+    .period-availability {
+        color: #8c968c
+    }
+    .hero-debt {
+        border-top: 3px solid #ba634b;
+        background: #1c1715;
+        color: #b8c4bb
+    }
+    .hero-debt-copy>span {
+        color: #9a847c
+    }
+    .hero-debt-copy>b {
+        color: #d46f5b
+    }
+    .hero-debt>small {
+        color: #958a85
+    }
+    .hero-debt .hero-debt-change {
+        color: #cd7663
+    }
+    .hero-debt .hero-debt-note {
+        border-top: 1px solid #231c19
+    }
+    .hero-debt:hover {
+        background: #1f1815
+    }
+    .hero-debt:focus-visible {
+        outline: 3px solid #ba634b
+    }
+    .scenario-emotion-note {
+        background: #171815;
+        border-left: 3px solid #5c7151;
+        color: #8e9c90
+    }
+    .period-control-label {
+        color: #8c948d
+    }
+    .view-toggle label {
+        border: 1px solid #343931;
+        background: #171715;
+        color: #a4b0a6
+    }
+    .view-toggle label.active {
+        border-color: #7da485;
+        background: #151515;
+        box-shadow: inset 3px 0 0 #7da485
+    }
+    .view-toggle label:focus-within {
+        outline: 3px solid #9f5c1b
+    }
+    .deficit-toggle {
+        border: 1px dashed #4a3a2c;
+        background: #181714
+    }
+    .deficit-toggle.active {
+        border-color: #8b552f;
+        background: #1e1814
+    }
+    .deficit-toggle input {
+        accent-color: #b1714d
+    }
+    .deficit-toggle b {
+        color: #d6b099
+    }
+    .deficit-toggle small {
+        color: #9e8d83
+    }
+    .deficit-toggle:focus-within {
+        outline: 3px solid #9f5c1b
+    }
+    .sim-intro {
+        color: #8b978d
+    }
+    .sim-row {
+        border-bottom: 1px solid #191a17
+    }
+    .sim-name {
+        color: #beccc1
+    }
+    .sim-stepper {
+        border: 1px solid #31362e;
+        background: #151515
+    }
+    .sim-stepper button {
+        background: #171816;
+        color: #89b58e
+    }
+    .sim-stepper button:hover {
+        background: #181b17
+    }
+    .sim-stepper input {
+        border-inline: 1px solid #1b1d19;
+        background: #151515
+    }
+    .sim-stepper button:focus-visible,.sim-stepper input:focus-visible {
+        outline: 3px solid #9f5c1b
+    }
+    .sim-official-mark {
+        background: #9f5c1b
+    }
+    .sim-delta {
+        color: #8b958b
+    }
+    .sim-delta.positive {
+        color: #7aa980
+    }
+    .sim-delta.negative {
+        color: #bd7a5c
+    }
+    .sim-reset-line {
+        color: #83a589
+    }
+    .sim-more summary {
+        color: #7f9581
+    }
+    .sim-more p {
+        color: #8b978d
+    }
+    .sim-more .sim-official-name {
+        color: #8c948d
+    }
+    .sim-related small {
+        color: #8c948d
+    }
+    .sim-related a {
+        color: #7da485
+    }
+    .sim-zero {
+        border: 1px solid #2b3029;
+        background: #151515;
+        color: #83a589
+    }
+    .sim-marker-note {
+        color: #8c948d
+    }
+    .sim-marker-note i {
+        background: #9f5c1b
+    }
+    .scenario-dock {
+        background: #bbd2c2;
+        color: #171a16;
+        box-shadow: 0 -10px 24px #bbd2c226
+    }
+    .scenario-dock-figures strong {
+        color: #233f1e
+    }
+    .scenario-dock.is-deficit .scenario-dock-figures strong {
+        color: #633008
+    }
+    .scenario-dock-bar {
+        background: #9eb7a4
+    }
+    .scenario-dock-bar i {
+        background: #305c2c
+    }
+    .scenario-dock-bar em {
+        background: #90410c
+    }
+    .scenario-dock.is-deficit .scenario-dock-bar i {
+        background: #305c2c
+    }
+    .scenario-dock small {
+        color: #313b30
+    }
+    .view-toggle label small {
+        color: #8b968b
+    }
+    .ctx-section {
+        background: #151515
+    }
+    .ctx-heading h2 {
+        color: #bbd2c2
+    }
+    .ctx-heading>p {
+        color: #849086
+    }
+    .ctx-kpis>div {
+        background: #171715;
+        border: 1px solid #1b1c18
+    }
+    .ctx-kpis span {
+        color: #8b958b
+    }
+    .ctx-kpis b {
+        color: #bbd2c2
+    }
+    .ctx-kpis small {
+        color: #8b958b
+    }
+    .ctx-chart {
+        border: 1px solid #1b1c18;
+        background: #151515
+    }
+    .ctx-chart-title {
+        color: #beccc1
+    }
+    .ctx-legend {
+        color: #919d92
+    }
+    .ctx-plot svg:focus-visible {
+        outline: 3px solid #9f5c1b
+    }
+    .ctx-grid {
+        stroke: #181a17
+    }
+    .ctx-zero {
+        stroke: #414740
+    }
+    .ctx-crosshair {
+        stroke: #586059
+    }
+    .ctx-tick {
+        fill: #8c948d
+    }
+    .ctx-end-label {
+        fill: #b0bcb1
+    }
+    .ctx-tooltip {
+        background: #151515;
+        border: 1px solid #1b1e19;
+        box-shadow: 0 6px 18px #bbd2c21a;
+        color: #8b978d
+    }
+    .ctx-tooltip b {
+        color: #bbd2c2
+    }
+    .ctx-tooltip strong {
+        color: #bbd2c2
+    }
+    .ctx-table summary {
+        color: #7f9581
+    }
+    .ctx-table th,.ctx-table td {
+        border-bottom: 1px solid #191a17
+    }
+    .ctx-note {
+        color: #8b958b
+    }
+    .ctx-block {
+        border-top: 1px solid #1b1c18
+    }
+    .ctx-block-head h3 {
+        color: #bbd2c2
+    }
+    .ctx-block-intro {
+        color: #8b978d
+    }
+    .ctx-pair-row {
+        border-bottom: 1px solid #181917
+    }
+    .ctx-pair-head {
+        color: #8c948d
+    }
+    .ctx-pair-name {
+        color: #beccc1
+    }
+    .ctx-pair-values {
+        color: #8b958b
+    }
+    .ctx-pair-values b {
+        color: #bbd2c2
+    }
+    .ctx-pair-values small {
+        color: #8c948d
+    }
+    .ctx-level-row {
+        border-bottom: 1px solid #181917
+    }
+    .ctx-level-name b {
+        color: #beccc1
+    }
+    .ctx-level-name small {
+        color: #8c948d
+    }
+    .ctx-level-axis {
+        background: #414740
+    }
+    .ctx-level-value {
+        color: #bbd2c2
+    }
+    .ctx-level-total {
+        border-top: 1px solid #2c3129
+    }
+}

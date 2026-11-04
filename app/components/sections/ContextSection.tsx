@@ -7,10 +7,11 @@ import LineCompare from './context/LineCompare';
 
 // Colours validated with the dataviz palette checks: Spain (emphasis) vs EU (context grey);
 // surplus vs deficit as a blue/red diverging pair that stays distinct with colour blindness.
-const SPAIN = '#2e8049';
-const EU = '#9ea59f';
-const SURPLUS = '#256abf';
-const DEFICIT = '#c4572f';
+// Values per light/dark mode live in app/viz-colors.css.
+const SPAIN = 'var(--ctx-spain)';
+const EU = 'var(--ctx-eu)';
+const SURPLUS = 'var(--ctx-surplus)';
+const DEFICIT = 'var(--ctx-deficit)';
 
 const percent = (digits = 1) => new Intl.NumberFormat('es-ES', { minimumFractionDigits: digits, maximumFractionDigits: digits });
 const pct = (value: number) => `${percent(1).format(value)} %`;

@@ -62,3 +62,16 @@ test('la imagen de vista previa se genera', async ({ request }) => {
   expect(response.status()).toBe(200);
   expect(response.headers()['content-type']).toContain('image/png');
 });
+
+test.describe('modo oscuro', () => {
+  test.use({ colorScheme: 'dark' });
+  test('se aplica y no tiene infracciones de accesibilidad', async ({ page }) => {
+    await page.goto('/');
+    const background = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
+    expect(background).not.toBe('rgb(244, 244, 238)');
+    await page.evaluate(() => document.querySelectorAll('details').forEach(details => { details.open = true; }));
+    await page.waitForTimeout(800);
+    const results = await new AxeBuilder({ page }).analyze();
+    expect(results.violations.map(violation => `${violation.id}: ${violation.nodes.length}`)).toEqual([]);
+  });
+});

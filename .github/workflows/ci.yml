@@ -17,6 +17,8 @@ jobs:
       - run: npm ci
       - name: Reglas del simulador e importadores
         run: npm test
+      - name: El tema oscuro generado está al día
+        run: node scripts/build-dark-theme.mjs --check
       - name: Sumas, fuentes y periodos de los datos
         run: npm run validate:data
       - name: Instalar el navegador para las pruebas de interfaz

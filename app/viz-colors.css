@@ -1,0 +1,6 @@
+/* Chart colours, chosen and validated with the dataviz palette checker for each
+   mode (not generated): Spain (emphasis) vs EU-27 (context grey), and surplus vs
+   deficit as a blue/red diverging pair that stays distinct with colour blindness.
+   This file is not processed by scripts/build-dark-theme.mjs. */
+:root{--ctx-spain:#2e8049;--ctx-eu:#9ea59f;--ctx-surplus:#256abf;--ctx-deficit:#c4572f;--ctx-surface:#fff}
+@media(prefers-color-scheme:dark){:root{--ctx-spain:#45a464;--ctx-eu:#5f6560;--ctx-surplus:#4a8bd6;--ctx-deficit:#d2663c;--ctx-surface:#151515}}
