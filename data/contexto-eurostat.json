@@ -273,7 +273,7 @@
     ]
   },
   "provenance": {
-    "retrievedAt": "2026-11-04T08:12:36.099Z",
+    "retrievedAt": "2026-11-04T08:46:35.030Z",
     "datasets": {
       "ratios": {
         "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_main?geo=ES&geo=EU27_2020&sector=S13&unit=PC_GDP&na_item=TR&na_item=TE&na_item=B9&sinceTimePeriod=2015",
