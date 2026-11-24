@@ -2,8 +2,8 @@
   "referencePeriod": "2026-08",
   "sourceUrl": "https://www.mites.gob.es/estadisticas/PRD/prd26_sep/prd_09_26.xlsx",
   "catalogUrl": "https://www.mites.gob.es/es/estadisticas/prestaciones_SS_otra_proteccion/PRD/welcome.htm",
-  "sha256": "2755ceda117986f2ddae6bd32d1fdb3e7ceb65f9fae61cd6a9b06da7563570a0",
+  "sha256": "c6d4667fa4343e1faf667ae20b047fc6b8bd6d19f6f4c398c189cde8643e3e85",
   "parser": "trabajo-prd@1",
   "table": "prd_09_26.xlsx · PRD-E1 y PRD-E2",
-  "retrievedAt": "2026-11-09T22:34:58.900Z"
+  "retrievedAt": "2026-11-24T00:09:56.374Z"
 }
